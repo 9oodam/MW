@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family: freight-sans-pro,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #3e4240;
+}
+
+
+
+body .top_banner {
+    height: auto;
+    width: 100%;
+
+    background-color: #e2010d;
+    display: block;
+
+    min-height: 30px;
+    padding: 10px 0px;
+
+}
+
+
+body .top_banner .top_banner_text {
+    color: #ffffff;
+    text-align: center;
+    display: block;
+
+    font-size: 1rem;
+        /* 글꼴 크기에 "rem" 단위를 사용하는 것은 글꼴 크기를 루트 요소의 글꼴 크기에 기반하여 확장 가능하고 반응형으로 만드는 좋은 방법입니다. */
+
+    /* 글씨체 ✅✅  */
+    font-family: freight-sans-pro, sans-seri;
+
+    font-weight: 700;
+    
+    /* ⭐⭐ margin 0 을 해서 > 딱 붙네 이게  */
+    margin: 0;
+
+    /* background-color: yellow; */
+}
+
+
+.top_banner .top_banner_text a {
+    color : #fff 
+}
+
+
