@@ -35,8 +35,17 @@
       <div class="subconwrap">
         <div class="imgupload">
           <input type="file" id="upload" accept="image/*" />
+          <!-- img에 이미지가 없을때 나오는 엑박을 안보이게 해줌 -->
+          <!-- onerror="this.style.display='none'  -->
+          <img id="pv" onerror="this.style.display='none'" />
+          <a href="" download=""></a>
         </div>
-        <div class="subinput"></div>
+        <div class="subinput">
+          <div class="submitbtn" onclick="test()">btn</div>
+          <!-- <a href="이미지주소" download="파일명">
+            <img src="이미지주소" />
+          </a> -->
+        </div>
       </div>
     </div>
     <!-- submit content end -->

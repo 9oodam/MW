@@ -1,6 +1,15 @@
+@font-face {
+  font-family: "freightsanproblack";
+  src: url("./font/FreightSansProBlack-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "freightsanprobold";
+  src: url("./font/FreightSansProBold-Regular.ttf") format("truetype");
+}
 body {
   margin: 0;
   padding: 0;
+  background-color: #f8f3e4;
 }
 .headerbox {
   width: 100%;
@@ -25,6 +34,7 @@ body {
 .title .titlewrap .title_top h1 {
   font-size: 54px;
   margin: 0 0 20px;
+  font-family: "freightsanprobold";
 }
 .title .titlewrap .title_top .title_top_txt {
   width: 700px;
