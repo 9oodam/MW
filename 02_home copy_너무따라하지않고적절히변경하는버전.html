@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./02_home copy.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- 맨 위, 빨간 배너  -->
+    <div class="top_banner">
+
+        <p class="top_banner_text">
+            Save favorites.
+            
+            <!-- sign up 페이지로 이동 -->
+            <a href="https://accidentallywesanderson.com/sign-up/"> Plan your next adventure</a>
+        </p>
+        
+
+    </div>
+
+
+    <!-- 헤더 전체 감싸는 부분-->
+    <header class="site_header">
+
+        <!-- 1) 로고(LOGO), 검색 popup 반응형 목차 | ❓ 검색이 왜 여기에 있지❓-->
+        <div class="site_header__top">   
+
+            <!-- 1). search 눌렀을 때 나오는 '검색 영역' -->
+            <div class="site_header__top_search">      
+
+            </div>
+
+            <!-- 2). AWA 로고 영역 -->
+            <div class="site_header__top_logo"> 
+            
+                <a href="/" class="a_tag">
+                    <img class="img_tag" src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/awa-nav-logo.svg" alt="Accidentally Wes Anderson Logo">
+                </a>
+            </div>
+
+            <!-- 3). 반응형 목차 -->
+            <div class="site_header__top_respMenu">
+
+            </div>
+
+        </div>
+
+        <!-- 2) 메뉴 탭 (nav bar) -->
+        <div class="site_header__primary-nav"> 
+
+            <!-- a) 소셜(인스타,페북) -->
+            <div class="site_header__primary-nav--social">
+                <!-- (1) 인스타그램 -->
+                <a href="https://www.instagram.com/accidentallywesanderson/">
+                    <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-ig-red.svg" alt="">
+                </a>
+
+                <!-- (2) 페이스북 -->
+                <a href="https://www.facebook.com/accidentallywesanderson/">
+                    <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-fb-red.svg" alt="">
+                </a>
+                
+            </div>
+
+            <!-- b) nav bar (메뉴 bar) -->
+            <div class="site_header__primary-nav--menus">
+
+                <ul class="nav_menus">
+                    
+                    <!-- (1) collection popup -->
+                    <li>
+                        <!-- ⭐ collection 은 popup 식으로!
+                        이걸 위에 header 에서 처리하네? 왜지? 음. -->
+                        <a href="#"> Collections</a>
+                    </li>
+
+                    <!-- (2) stories -->
+                    <li>
+                        <a href="https://accidentallywesanderson.com/stories/">Stories</a>
+                    </li>
+
+                    <!-- (3) submit -->
+                    <li>
+                        <a href="https://accidentallywesanderson.com/submissions/">Submit</a>
+                    </li>
+
+                    <!-- (4) my page 
+                        문제점 : 실제 홈페이지에서는 1) 로그인 2) 우측 상단에 my page 가 생김
+                        생각 : 여기에 있을게 아니라, search, login 영역으로 이동해야? -->
+                    <li>
+                        <a href="https://accidentallywesanderson.com/user-profile/anotheryear.hm/">MyPage❓</a>
+                    </li>
+
+                    <!-- (5) board -->
+                    <li>
+                        <a href="https://shop.accidentallywesanderson.com/">Board</a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+            <!-- c) search + login -->
+            <div class="site_header__primary-nav--seachlogin">
+
+                <!-- search -->
+                <a href="#">
+                    <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-search-red.svg" alt="">
+                    Search
+                </a>
+
+                <!-- login -->
+                <a href="#login-popup">
+                    <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt="">
+                    Login
+                </a>
+                
+
+            </div>
+
+            <!-- d) login 팝업 | 이쪽으로 검색 popup 이동? -->
+            <div class="site_header__primary-nav--loginPopup">
+
+            </div>
+
+
+        </div>
+
+
+    </header>
+
+
+    <!-- SECTION ITEM 시작 -->
+    
+    <main class="main_content">
+
+        <!-- 1. Adventure~ 영역 -->
+        <section class="mix_desc_photo">
+
+            <!-- 1) desc 설명 -->
+            <div class="mix_desc_photo__desc">
+
+                <!-- 윗 부분(top) -->
+                <div class="mix_desc_photo__desc--top">
+
+                    <!-- 글 + 아이콘  -->
+                    <div class="title_wrapper">
+                        
+                        <!-- 글 : 헤드라인 -->
+                        <h1 class="title_headline">
+                            This is an 
+                            <br>
+                            Adventure.
+                        </h1>
+
+                        <!-- 아이콘 -->
+                        <img class="title_icon"src="https://accidentallywesanderson.com/wp-content/uploads/2022/01/awa-illustrations-small-digital-compass.svg" alt="">
+                    
+                    </div>
+
+                    <!-- 상세 설명 -->
+                    <div class="desc_wrap">
+                        <p class="title_under_description">
+                            We explore the unique, the symmetrical, the atypical, the distinctive design and amazing architecture that inspires us all.
+                        </p>
+
+                    </div>
+
+    
+                </div>
+
+
+                <!-- 버튼( surprise me + 검색 ) -->
+                <div class="mix_desc_photo__desc--btn"> 
+
+                    <!-- 1) surprise me | 랜덤으로 아이템 소개 ✅ -->
+                    <div class="btn-surprise-me">
+                        <a href="/surprise">
+                            <p>Surprise Me!</p>
+                        </a>
+                    </div>
+
+                    <!-- 2) 검색  -->
+                    <div class="input-search-keyword">
+                        <!-- 레퍼런스는 form 태그 였음. ✅✅ -->
+                        <div class="search-form">
+                            <input class = "keyword-input" type="search" class="search-form" placeholder="Search by location or keyword">
+                            <input class= "search-icon-btn" type="" >
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <!-- 2) photo-->
+            <div class="mix_desc_photo__gallery">
+
+                <!-- a) img slide -->
+                <div class="slide-container">
+
+                    <div class="slick-track">
+                        
+                        <div class="slick-slide-item">
+
+                            <img class="slide-item-photo" src="https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/05/187262808_532931728077749_926032058876969995_n-1400x1245.jpg?lossy=1&strip=1&webp=1" alt="">
+
+                        </div>
+                
+
+                    </div>
+
+                </div>
+
+                <!-- b) 화살표 nav  -->
+                <!-- <div class="mix_desc_photo__gallery--nav">
+
+                </div> -->
+
+
+            </div>
+
+        </section>
+        
+    </main>
+    
+    
+
+    
+
+</body>
+
+<script src="./02_home copy.js"></script>
+
+</html>
