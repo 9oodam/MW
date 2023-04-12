@@ -62,18 +62,20 @@ function profile(a) {
   reader.onload = function () {
     // Base64로 변환된 값 res에 저장
     res = reader.result;
-    let ff = `/Users/jh/Desktop/kyungil/project/javascript/img`;
-    console.log(ff);
+    // localStorage.setItem("test", res);
+    // let ff = `/Users/jh/Desktop/kyungil/project/javascript/img`;
+    // console.log(ff);
+    // console.log(res);
     document.getElementById("pv").setAttribute("src", res);
-    let subinp = document.querySelector(".subinput");
+    // let subinp = document.querySelector(".subinput");
     // subinp.innerHTML = `<a href="${res}" download="${filename}" onclick="window.location.href='file:///Users/jh/Desktop/kyungil/project/javascript/img/${filename}';">a</a>`;
     // 이미지 input에 등록하면 바로 다운 받아짐
-    var link = document.createElement("a");
-    link.href = res;
-    link.download = filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // var link = document.createElement("a");
+    // link.href = res;
+    // link.download = filename;
+    // document.body.appendChild(link);
+    // link.click();
+    // document.body.removeChild(link);
   };
   reader.readAsDataURL(a);
 }
@@ -85,74 +87,133 @@ pvimg.addEventListener("click", function () {
   res = "";
 });
 
-// a 태그를 사용한 이미지 다운로드(이미지가 다운로드 파일로 받아짐)
-function dataURLtoBlob(dataurl) {
-  var arr = dataurl.split(","),
-    mime = arr[0].match(/:(.*?);/)[1],
-    bstr = atob(arr[1]),
-    n = bstr.length,
-    u8arr = new Uint8Array(n);
-  while (n--) {
-    u8arr[n] = bstr.charCodeAt(n);
-  }
-  return new Blob([u8arr], {
-    type: mime,
-  });
+function testcreate(nickname, title, description, img) {
+  this.nickname = nickname;
+  this.title = title;
+  this.description = description;
+  this.img = img;
 }
 
-function downloadImg(imgSrc) {
-  console.log(res);
-  console.log(filename);
-  var image = new Image();
-  image.crossOrigin = "anonymous";
-  image.src = imgSrc;
-  var fileName = image.src.split("/").pop();
-  image.onload = function () {
-    var canvas = document.createElement("canvas");
-    canvas.width = this.width;
-    canvas.height = this.height;
-    canvas.getContext("2d").drawImage(this, 0, 0);
-
-    if (typeof window.navigator.msSaveBlob !== "undefined") {
-      window.navigator.msSaveBlob(dataURLtoBlob(canvas.toDataURL()), fileName);
+function subimg() {
+  let inputval = document.querySelectorAll("input");
+  let localempchk = localStorage.getItem("imgupload");
+  console.log(inputval[0].value);
+  // console.log(inputval[1].value);
+  // console.log(inputval[2].value);
+  // console.log(inputval[3].value);
+  if (inputval[0].value == "") {
+    alert("사진을 등록해주세요.");
+  } else if (inputval[1].value == "") {
+    alert("이름을 등록해주세요.");
+  } else if (inputval[2].value == "") {
+    alert("타이틀을 입력해주세요.");
+  } else if (inputval[3].value == "") {
+    alert("설명을 입력해주세요.");
+  } else if (
+    inputval[0].value != "" &&
+    inputval[1].value != "" &&
+    inputval[2].value != "" &&
+    inputval[3].value != ""
+  ) {
+    let testlocal = new testcreate(
+      inputval[1].value,
+      inputval[2].value,
+      inputval[3].value,
+      res
+    );
+    console.log(testlocal);
+    console.log();
+    if (!localempchk) {
+      // localStorage.setItem("imgupload", `${JSON.stringify(testlocal)}`);
+      localStorage.setItem("imgupload", `${JSON.stringify([testlocal])}`);
     } else {
-      var link = document.createElement("a");
-      // link.href = canvas.toDataURL();
-      link.href = res;
-      // link.download = fileName;
-      link.download = filename;
-      link.click();
-      // let subinp = document.querySelector(".subinput");
-      // subinp.innerHTML = `<a href="${res}" download="${filename}"></a>`;
+      let tt = JSON.parse(localStorage.getItem("imgupload"));
+      console.log(tt);
+      tt.push(testlocal);
+      // localStorage.setItem(
+      //   "imgupload",
+      //   `${JSON.stringify(tt)}` + "::" + `${JSON.stringify(testlocal)}`
+      // );
+      localStorage.setItem("imgupload", JSON.stringify(tt));
     }
-  };
+  }
 }
 
-// 로컬 스토리지에 이미지 저장하기
-// 이미지 파일 경로
-// const imagePath = 'image.png';
-const imagePath = "image.png";
+let tat = JSON.parse(localStorage.getItem("imgupload"));
+console.log(tat[0].nickname);
+console.log(tat[2].description);
+console.log(tat[3].title);
 
-// 이미지를 Base64로 인코딩
-const getBase64Image = (img) => {
-  const canvas = document.createElement("canvas");
-  canvas.width = img.width;
-  canvas.height = img.height;
+//////////////////////////////////////////////////
 
-  const ctx = canvas.getContext("2d");
-  ctx.drawImage(img, 0, 0);
+// // a 태그를 사용한 이미지 다운로드(이미지가 다운로드 파일로 받아짐)
+// function dataURLtoBlob(dataurl) {
+//   var arr = dataurl.split(","),
+//     mime = arr[0].match(/:(.*?);/)[1],
+//     bstr = atob(arr[1]),
+//     n = bstr.length,
+//     u8arr = new Uint8Array(n);
+//   while (n--) {
+//     u8arr[n] = bstr.charCodeAt(n);
+//   }
+//   return new Blob([u8arr], {
+//     type: mime,
+//   });
+// }
 
-  const dataURL = canvas.toDataURL("image/png");
-  return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-};
+// function downloadImg(imgSrc) {
+//   console.log(res);
+//   console.log(filename);
+//   var image = new Image();
+//   image.crossOrigin = "anonymous";
+//   image.src = imgSrc;
+//   var fileName = image.src.split("/").pop();
+//   image.onload = function () {
+//     var canvas = document.createElement("canvas");
+//     canvas.width = this.width;
+//     canvas.height = this.height;
+//     canvas.getContext("2d").drawImage(this, 0, 0);
 
-// 이미지 엘리먼트 생성
-const img = new Image();
-img.crossOrigin = "anonymous";
-img.src = imagePath;
+//     if (typeof window.navigator.msSaveBlob !== "undefined") {
+//       window.navigator.msSaveBlob(dataURLtoBlob(canvas.toDataURL()), fileName);
+//     } else {
+//       var link = document.createElement("a");
+//       // link.href = canvas.toDataURL();
+//       link.href = res;
+//       // link.download = fileName;
+//       link.download = filename;
+//       link.click();
+//       // let subinp = document.querySelector(".subinput");
+//       // subinp.innerHTML = `<a href="${res}" download="${filename}"></a>`;
+//     }
+//   };
+// }
 
-// 이미지 로드 완료 후 localStorage에 저장
-img.onload = () => {
-  const base64Image = getBase64Image(img);
-  localStorage.setItem("imageData", base64Image);
-};
+// // 로컬 스토리지에 이미지 저장하기
+// // 이미지 파일 경로
+// // const imagePath = 'image.png';
+// const imagePath = "image.png";
+
+// // 이미지를 Base64로 인코딩
+// const getBase64Image = (img) => {
+//   const canvas = document.createElement("canvas");
+//   canvas.width = img.width;
+//   canvas.height = img.height;
+
+//   const ctx = canvas.getContext("2d");
+//   ctx.drawImage(img, 0, 0);
+
+//   const dataURL = canvas.toDataURL("image/png");
+//   return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+// };
+
+// // 이미지 엘리먼트 생성
+// const img = new Image();
+// img.crossOrigin = "anonymous";
+// img.src = imagePath;
+
+// // 이미지 로드 완료 후 localStorage에 저장
+// img.onload = () => {
+//   const base64Image = getBase64Image(img);
+//   localStorage.setItem("imageData", base64Image);
+// };

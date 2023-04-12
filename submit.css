@@ -83,17 +83,54 @@ body {
   height: 100%;
 }
 
+/* 컨텐츠 끝 */
+
+/* 사진 정보 입력 시작 */
 .subcon .subconwrap .subinput {
   width: 100%;
   height: 600px;
-  border: 1px solid;
   margin-left: 40px;
 }
 
-.submitbtn {
-  width: 100px;
-  height: 100px;
-  border: 1px solid;
-  cursor: pointer;
+.subinput .subinputs {
+  padding-right: 30px;
 }
-/* 컨텐츠 끝 */
+
+.subinput .subinputs span {
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 20px;
+}
+.subinput .subinputs span:first-child {
+  margin-top: 0;
+}
+.subinput .subinputs input {
+  display: block;
+  width: 100%;
+  height: 30px;
+  font-size: 12px;
+  padding: 10px;
+}
+
+.btnbox {
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btnbox .submitbtn {
+  width: 130px;
+  height: 60px;
+  background-color: #ee3024;
+  border-radius: 30px;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+/* 사진 정보 입력 끝 */
