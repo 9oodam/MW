@@ -550,3 +550,248 @@ flex-wrap: wrap;
 
     object-fit: cover;
 }
+
+
+
+
+/* ------------- ✅ Featured Places START ✅ ----------------- */
+
+.featured-section {
+    background-color: #f8f3e4;
+
+    /* 📛 패딩 주의 📛  */
+    padding-top: 3rem;
+    padding-bottom: 3.5rem;
+
+    position: relative;
+
+}
+
+
+.featured-header .header-headline {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+
+    font-family: 'freight_sans_pro_black_regular';
+
+    font-weight: 900;
+    text-transform: uppercase;
+
+    /* 📛 패딩 주의 📛 */
+    padding-left: 3rem;
+
+    /* background-color: rebeccapurple; */
+}
+
+
+.featured-gallery {
+
+    /* 📛 하드코딩 주의  */
+    width: 1900px;
+    height: 600px;
+
+}
+
+
+.gallery-slide-container {
+    width: 1800px;
+    height: 610px;
+    background-color: blue;
+
+    /* 📛 가운데 맞추려고, 임시방편 📛 */
+    margin: 0 auto;
+
+    /* 📛 임시 방편으로 간격 띄움 */
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.gallery-slide-container .gallery-slide-item {
+    
+    width: 385px;
+    height: 100%;
+
+    /* float: left; */
+
+    background-color: lightcyan;
+}
+
+.gallery-slide-item .card {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+
+
+.card .card-inner {
+    overflow: hidden;
+    position: relative;
+    border-radius: 12px;
+
+    /* background-color: red; */
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.card-inner.card-inner-img {
+    position: relative;
+}
+
+.card-inner-img a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+.card-inner-img a img {
+
+    /* 📛 임시, 하드코딩 주의 */
+    width: 386px;
+    height: 386px;
+    
+    object-fit: cover;
+    
+}
+
+
+.card-inner .card-inner-desc {
+    background-color: white;
+
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+
+    /* z-index: 0; */
+    position: absolute;
+    
+    /* 📛📛 하드코딩으로 우선 맞춤 📛📛 */
+    bottom: 40px;
+
+    /* 📛 패딩주의 📛  */
+    padding: 35px 15px 40px;
+}
+
+.card-inner-desc .sub-title {
+    font-size: 14px;
+    line-height: 16px;
+    color: #ee3024;
+    text-transform: uppercase;
+    
+    /* 📛 마진주의 📛  */
+    margin-top: -12px;
+}
+
+.card-inner-desc a {
+    color: #3e4240;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.card-inner-desc a .desc-header {
+    /* 📛 마진주의 📛  */
+    margin-top: -12px;
+
+    color: #231f20;
+
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+
+    font-family: 'freight_sans_pro_light_regular';
+
+    
+}
+
+.card-inner-desc .desc-subdescription {
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: .07px;
+    color: #3e4240;
+
+    font-family: 'freight_sans_pro_medium_regular', sans-serif;
+}
+
+
+/* -------------  Featured Places END  ----------------- */
+
+
+/* ------------- ✅ Featured Places START ✅ ----------------- */
+
+.road-trip-section {
+
+}
+
+
+.inner-content .text-icon img {
+    
+    max-height: 56px;
+
+}
+
+.inner-content .text-headline h2 {
+    color: #000;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    text-transform: uppercase;
+    font-family: 'freight_sans_pro_black_regular';
+}
+
+
+.inner-content .text-desc p {
+    max-width: 860px;
+    font-family: 'freight_sans_pro_light_regular', sans-serif;
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: #000;
+
+}
+
+
+.inner-content .text-btn {
+    
+    padding: 1rem 2.5rem;
+    font-weight: 900;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    color: #fff;
+    background: #ee3024;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------- 밑에 쫘악 선이 그어지는 것 -----------  */
+/*  https://github.com/9oodam/Project-MW/blob/JH/test.css */
+.title .title_bottom .title_bottom_txt a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ee3024;
+    transform-origin: bottom left;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .title .title_bottom .title_bottom_txt a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
