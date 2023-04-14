@@ -439,7 +439,8 @@ let arch06 = new createcard2(
 
 let arch07 = new createcard2(
   "https://accidentallywesanderson.com/wp-content/uploads/2021/09/IMG_2072-1-800x800.jpg",
-  `Not Your Average Leggings","This 5km canal tunnel once required 4 hours-worth of "leg-power."`,
+  "Not Your Average Leggings",
+  `"This 5km canal tunnel once required 4 hours-worth of "leg-power."`,
   archtab
 );
 
@@ -499,7 +500,8 @@ let arch = [
   arch04,
   arch05,
   arch06,
-  arch07.arch08,
+  arch07,
+  arch08,
   arch09,
   arch10,
   arch11,
@@ -652,113 +654,155 @@ localStorage.setItem("QUALITY", JSON.stringify(quality));
 let contenttab = document.querySelector(".contenttab");
 let tabs = contenttab.querySelectorAll("span");
 
+// 이미지 그려주는 함수
+function imgcard5(a) {
+  // console.log(a);
+  // console.log(a.mainimg);
+  let imgcards = document.querySelector(".imgcards");
+  let imgcard = document.createElement("div");
+  let imgcardin = document.createElement("div");
+  let img = document.createElement("img");
+  let img2 = document.createElement("img");
+  let imgbtm = document.createElement("div");
+  let imgbtmtxt = document.createElement("div");
+  let ctspan = document.createElement("span");
+  let cardtxtbox = document.createElement("div");
+  let cardtxt = document.createElement("div");
+  let cta = document.createElement("a");
+  let ctp = document.createElement("p");
+  let ctp2 = document.createElement("p");
+  let cardimg = document.createElement("div");
+
+  imgcard.className = "imgcard";
+  imgcardin.className = "imgcardin";
+  img.src = a.mainimg;
+  imgbtm.className = "imgbtm";
+  imgbtmtxt.className = "imgbtmtxt";
+  ctspan.innerHTML = "PRESENTED WITH";
+  img2.src = a.logoimg;
+  cardtxtbox.className = "cardtxtbox";
+  cardtxt.className = "cardtxt";
+  cta.innerHTML = a.title;
+  ctp.innerHTML = a.text;
+  ctp2.innerHTML = a.tab;
+
+  cardimg.className = "cardimg";
+  cardtxt.append(cta);
+  cardtxt.append(ctp);
+  cardtxt.append(ctp2);
+  cardtxtbox.append(cardtxt);
+
+  imgbtmtxt.append(ctspan);
+  imgbtmtxt.append(img2);
+  imgbtm.append(imgbtmtxt);
+
+  cardimg.append(img);
+  cardimg.append(imgbtm);
+  imgcardin.append(cardimg);
+  imgcardin.append(cardtxtbox);
+  imgcard.append(imgcardin);
+  imgcards.append(imgcard);
+}
+
+function imgcard4(a) {
+  let imgcards = document.querySelector(".imgcards");
+  let imgcard = document.createElement("div");
+  let imgcardin = document.createElement("div");
+  let img = document.createElement("img");
+  let cardtxtbox = document.createElement("div");
+  let cardtxt = document.createElement("div");
+  let cta = document.createElement("a");
+  let ctp = document.createElement("p");
+  let ctp2 = document.createElement("p");
+  let cardimg = document.createElement("div");
+
+  imgcard.className = "imgcard";
+  imgcardin.className = "imgcardin";
+  img.src = a.mainimg;
+  cardtxtbox.className = "cardtxtbox";
+  cardtxt.className = "cardtxt";
+  cta.innerHTML = a.title;
+  ctp.innerHTML = a.text;
+  ctp2.innerHTML = a.tab;
+
+  cardimg.className = "cardimg";
+  cardtxt.append(cta);
+  cardtxt.append(ctp);
+  cardtxt.append(ctp2);
+  cardtxtbox.append(cardtxt);
+
+  cardimg.append(img);
+  imgcardin.append(cardimg);
+  imgcardin.append(cardtxtbox);
+  imgcard.append(imgcardin);
+  imgcards.append(imgcard);
+}
+
+// stories 페이지 로딩시 ALL 표출
+window.onload = function () {
+  allcard();
+};
+
+// 전체 이미지 출력 함수
+function allcard() {
+  let spl;
+  let splarr = [];
+  // console.log(tabs[0]);
+  let tabarr = [];
+  let tmparr = [];
+  tabs.forEach((a, index) => {
+    spl = a.innerHTML.split(" ");
+    splarr.push(spl[0]);
+    tmparr = JSON.parse(localStorage.getItem(spl[0]));
+    tabarr.push(tmparr);
+  });
+  tabarr.shift();
+  splarr.shift();
+
+  tabarr.forEach((value, index) => {
+    // console.log(Object.keys(tabarr[index][index]).length);
+    // console.log(tabarr[index]);
+    if (Object.keys(tabarr[index][0]).length == 5) {
+      tabarr[index].forEach((value) => {
+        imgcard5(value);
+      });
+    }
+    if (Object.keys(tabarr[index][0]).length == 4) {
+      tabarr[index].forEach((value) => {
+        imgcard4(value);
+      });
+    }
+  });
+}
 // tab 누르면 누른 탭의 내용 실행
+// tabs[0].addEventListener("click", function () {
+//   alla();
+// });
 tabs.forEach(function (a, b) {
   tabs[b].addEventListener("click", function () {
+    // console.log(tabs[b].innerHTML);
     // console.log(typeof a.innerHTML);
     let spl = a.innerHTML.split(" ");
     // console.log(spl[0]);
     let aabb = JSON.parse(localStorage.getItem(spl[0]));
     // console.log(Object.keys(aabb[0]).length);
+    let imgcards = document.querySelector(".imgcards");
+
+    imgcards.innerHTML = "";
+
+    if (tabs[b].innerHTML == "ALL") {
+      allcard();
+      return;
+    }
 
     if (Object.keys(aabb[0]).length == 5) {
-      aabb.forEach((a, b) => {
-        let imgcards = document.querySelector(".imgcards");
-        let imgcard = document.createElement("div");
-        let imgcardin = document.createElement("div");
-        let img = document.createElement("img");
-        let img2 = document.createElement("img");
-        let imgbtm = document.createElement("div");
-        let imgbtmtxt = document.createElement("div");
-        let ctspan = document.createElement("span");
-        let cardtxtbox = document.createElement("div");
-        let cardtxt = document.createElement("div");
-        let cta = document.createElement("a");
-        let ctp = document.createElement("p");
-        let ctp2 = document.createElement("p");
-        let cardimg = document.createElement("div");
-
-        // imgcards.replaceChildren();
-
-        imgcard.className = "imgcard";
-        imgcardin.className = "imgcardin";
-        img.src = aabb[b].mainimg;
-        imgbtm.className = "imgbtm";
-        imgbtmtxt.className = "imgbtmtxt";
-        ctspan.innerHTML = "PRESENTED WITH";
-        img2.src = aabb[b].logoimg;
-        cardtxtbox.className = "cardtxtbox";
-        cardtxt.className = "cardtxt";
-        cta.innerHTML = aabb[b].title;
-        ctp.innerHTML = aabb[b].text;
-        ctp2.innerHTML = aabb[b].tab;
-
-        cardimg.className = "cardimg";
-        cardtxt.append(cta);
-        cardtxt.append(ctp);
-        cardtxt.append(ctp2);
-        cardtxtbox.append(cardtxt);
-
-        imgbtmtxt.append(ctspan);
-        imgbtmtxt.append(img2);
-        imgbtm.append(imgbtmtxt);
-
-        cardimg.append(img);
-        cardimg.append(imgbtm);
-        imgcardin.append(cardimg);
-        imgcardin.append(cardtxtbox);
-        imgcard.append(imgcardin);
-        imgcards.append(imgcard);
+      aabb.forEach((a) => {
+        imgcard5(a);
       });
     }
     if (Object.keys(aabb[0]).length == 4) {
-      aabb.forEach((a, b) => {
-        let imgcards = document.querySelector(".imgcards");
-        let imgcard = document.createElement("div");
-        let imgcardin = document.createElement("div");
-        let img = document.createElement("img");
-        // let img2 = document.createElement("img");
-        // let imgbtm = document.createElement("div");
-        // let imgbtmtxt = document.createElement("div");
-        // let ctspan = document.createElement("span");
-        let cardtxtbox = document.createElement("div");
-        let cardtxt = document.createElement("div");
-        let cta = document.createElement("a");
-        let ctp = document.createElement("p");
-        let ctp2 = document.createElement("p");
-        let cardimg = document.createElement("div");
-
-        // imgcards.replaceChildren();
-
-        imgcard.className = "imgcard";
-        imgcardin.className = "imgcardin";
-        img.src = aabb[b].mainimg;
-        // imgbtm.className = "imgbtm";
-        // imgbtmtxt.className = "imgbtmtxt";
-        // ctspan.innerHTML = "PRESENTED WITH";
-        // img2.src = aabb[b].logoimg;
-        cardtxtbox.className = "cardtxtbox";
-        cardtxt.className = "cardtxt";
-        cta.innerHTML = aabb[b].title;
-        ctp.innerHTML = aabb[b].text;
-        ctp2.innerHTML = aabb[b].tab;
-
-        cardimg.className = "cardimg";
-        cardtxt.append(cta);
-        cardtxt.append(ctp);
-        cardtxt.append(ctp2);
-        cardtxtbox.append(cardtxt);
-
-        // imgbtmtxt.append(ctspan);
-        // imgbtmtxt.append(img2);
-        // imgbtm.append(imgbtmtxt);
-
-        cardimg.append(img);
-        // cardimg.append(imgbtm);
-        imgcardin.append(cardimg);
-        imgcardin.append(cardtxtbox);
-        imgcard.append(imgcardin);
-        imgcards.append(imgcard);
+      aabb.forEach((a) => {
+        imgcard4(a);
       });
     }
   });
