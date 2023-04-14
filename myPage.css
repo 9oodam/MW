@@ -24,7 +24,10 @@ body {
 
 /* profile */
 .profile_wrap {
-    padding: 25px 0;
+    padding: 25px 25px 25px 25px;
+}
+.profile_wrap .profile {
+    width: 100%;
 }
 @media only screen and (min-width: 767px) {
     .profile_wrap, .profile {
@@ -33,7 +36,7 @@ body {
 }
 /* profile panel */
 .profile_wrap .profile .profile_panel {
-    margin: 0 10px 15px 50px;
+    margin: 0 10px 15px 10px;
     border-radius: 12px;
 }
 @media only screen and (min-width: 767px) {
@@ -129,23 +132,255 @@ body {
     font-size: 13px;
 }
 /* profile content */
+.profile_content {
+    margin: 0 10px 15px 10px;
+    height: 500px;
+    position: relative;
+}
 @media only screen and (min-width: 767px) {
     .profile_wrap .profile .profile_content {
         flex: 1;
-        width: calc(100% - 280px);
+        width: 100%;
+        height: 100%;
     }
 }
-.profile_content {
-    width: 640px;
-}
 .profile_content .profile_content_header {
-    width: 100%; height: 30px;
-    margin: 30px 12px 10px;
+    width: 100px; height: 30px;
+    margin: 30px 0 30px 0;
     border-bottom: 1px solid #fad0c3;
     color: #ee3024;
     font-size: 14px; font-weight: 700;
     border-bottom: 2px solid #ee3024;
 }
-.profile_content .profile_list {
-    
+.profile_content .profile_content_list {
+    width: 100%; height: 400px;
+    border: 1px solid #ee3024;
+    border-style: dashed;
+    position: absolute; left: 50%;
+    transform: translateX(-50%);
+}
+@media only screen and (min-width: 767px) {
+    .profile_content .profile_content_list {
+        display: flex; flex-wrap: wrap;
+        padding: 10px 0;
+    }
+}
+
+
+/* 프로필 수정 팝업 */
+.edit_popup_wrap {
+    width: 100%; height: 100%;
+    position: fixed;
+    top: 0; left: 0;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.edit_popup_wrap.is-active {
+    display: block;
+}
+.edit_popup_wrap .edit_popup {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 800px;
+    background-color: #f8f3e4;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+}
+.edit_popup .popup_btn {
+    width: 50px; height: 50px;
+    display: block;
+    float: right;
+    position: relative;
+    cursor: pointer;
+}
+.popup_btn::before, .popup_btn::after {
+    content: '';
+    width: 20px; height: 2px;
+    background-color: black;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.popup_btn::before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+.edit_popup .profile_img {
+    width: 90px; height: 90px;
+    margin: 40px auto;
+    border-radius: 100px;
+    overflow: hidden;
+}
+.profile_img img {
+    width: 100%; height: auto;
+    max-width: 100%;
+}
+.edit_popup .edit_popup_body {
+    max-width: 360px;
+    text-align: left;
+    margin: 0 auto;
+    position: relative;
+}
+.edit_popup_body .label {
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: .55px;
+}
+.edit_popup_body input {
+    width: calc(100% - 30px);
+    margin: 10px 0 10px 0;
+    padding: 10px;
+    border: none;
+    font-size: 16px;
+}
+.edit_popup_body textarea {
+    width: calc(100% - 30px);
+    margin: 10px 0 10px 0;
+    resize: none;
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+}
+.edit_popup_body .save_btn {
+    width: 200px; height: 60px;
+    background-color: #ee3024;
+    color: #fff; font-size: 16px; font-weight: 900;
+    text-align: center;
+    margin: 20px auto 0;
+    border: transparent;
+    border-radius: 50px;
+    transition: all .25s ease;
+    position: relative;
+}
+.save_btn:hover {
+    background-color: white;
+    color: #ee3024;
+    box-shadow: 2px 2px 7px 0 rgba(0, 0, 0, 0.1);
+}
+.save_btn span {
+    width: 100%;
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* 세팅(계정삭제) 팝업 */
+.settings_popup_wrap {
+    width: 100%; height: 100%;
+    position: fixed;
+    top: 0; left: 0;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.settings_popup_wrap.is-active {
+    display: block;
+}
+.settings_popup_wrap .settings_popup {
+    position: relative;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; max-width: 700px; height: 500px;
+    background-color: #f8f3e4;
+    text-align: center;
+    border-radius: 12px;
+}
+.settings_popup .popup_btn {
+    width: 50px; height: 50px;
+    display: block;
+    float: right;
+    position: relative;
+    cursor: pointer;
+}
+.settings_popup .settings_popup_header {
+    height: 210px;
+    border-radius: 12px 12px 0 0;
+    padding-top: 50px;
+}
+.settings_popup_header img {
+    width: 80px; height: auto;
+    margin-bottom: 10px;
+}
+.settings_popup_header h2 {
+    font-weight: bold;
+}
+.settings_popup .settings_popup_body {
+    height: 290px;
+    background-color: #fad0c3;
+    border-radius: 0 0 12px 12px;
+    padding: 40px;
+}
+.settings_popup_body .delete_form {
+    width: calc(100% - 90px); height: 200px;
+    margin: 40px auto;
+    display: flex; flex-direction: column;
+}
+.delete_form .checkbox {
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+}
+.delete_form label {
+    position: relative;
+    margin: 10px 0 10px 0;
+    font-size: 15px; font-weight: 400;
+    letter-spacing: .3px;
+    padding-left: 25px;
+    user-select: none;
+    cursor: pointer;
+    text-align: left;
+}
+.delete_form input {
+    position: absolute;
+    opacity: 0; width: 0; height: 0;
+    cursor: pointer;
+    padding: 0 40px 0 0;
+    font-size: 14px;
+}
+.delete_form label .checkmark {
+    position: absolute;
+    left: 0;
+    width: 15px; height: 15px;
+    background-color: #fff;
+    border: 1px solid #ee3024;
+}
+.checkmark::before, .checkmark::after {
+    content: '';
+    position: absolute;
+    left: 2px; top: 6px;
+    width: 11px; height: 2px;
+    color: #ee3024;
+    background-color: #ee3024;
+    border-radius: 10px;
+    transform: rotate(45deg);
+    display: none;
+}
+.checkmark::after {
+    transform: rotate(-45deg);
+}
+.checkbox_label input:checked~.checkmark:before,
+.checkbox_label input:checked~.checkmark:after {
+    display: block;
+}
+.delete_form .delete_btn {
+    width: 220px; height: 50px;
+    color: #ee3024; font-size: 16px; font-weight: 900;
+    text-align: center;
+    margin: 20px auto 0;
+    border: 4px solid #ee3024;
+    border-radius: 50px;
+    transition: all .25s ease;
+    position: relative;
+    cursor: pointer;
+}
+.delete_btn:hover {
+    background-color: #ee3024;
+    color: #fff;
+    box-shadow: 2px 2px 7px 0 rgba(0, 0, 0, 0.1);
+}
+.delete_btn span {
+    width: 100%;
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
 }

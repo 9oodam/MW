@@ -66,7 +66,7 @@
                     <p class="label">Your Name</p>
                     <div class="user_nickname"></div>
                     <label for="" class="label">Title*</label>
-                    <input type="text" class="title" id="title">
+                    <input type="text" class="titleText" id="title">
                     <label for="" class="label">Details*</label>
                     <textarea class="details" name="" id="details" cols="30" rows="10"></textarea>
                 </div>
@@ -91,6 +91,14 @@
                     <div class="input_title"></div>
                     <p class="label">Details</p>
                     <div class="input_details"></div>
+                    <p class="label">Admin Answer</p>
+                    <div class="answer_wrap">
+                        <div class="input_answer_user"></div>
+                        <div class="delete_btn" onclick="deleteList()">Delete</div>
+
+                        <input type="text" class="input_answer_admin" id="input_answer_admin">
+                        <div class="save_btn">Save</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -98,5 +106,5 @@
 
 
 </body>
-<script src="./board.js"></script>
+<script src="./board2.js"></script>
 </html>

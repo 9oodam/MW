@@ -84,21 +84,21 @@ function addList() {
     if(value == null) {
         _index = 1;
     }else {
-        _index = value.split("|").length;
-        console.log(_index);
-    }
+        let valueLength = value.split("|").length;
+        _index = valueLength + 1;
+    }    
 
     if(window.localStorage.length == 0) {
         console.log("리스트 첫 추가");
         window.localStorage.setItem("bulletin-board", `{"index" : "${_index}", "title" : "${_title}", "details" : "${_details}", "nickname" : "", "date" : "${_date}"}`);
     }else {
         console.log("리스트 추가 추가");
-        window.localStorage.setItem("bulletin-board", value + "|" + `{"index" : "${_index+1}", "title" : "${_title}", "details" : "${_details}", "nickname" : "", "date" : "${_date}"}`);
+        window.localStorage.setItem("bulletin-board", value + "|" + `{"index" : "${_index}", "title" : "${_title}", "details" : "${_details}", "nickname" : "", "date" : "${_date}"}`);
     }
     console.log(window.localStorage.getItem("bulletin-board"));
 
     _board.innerHTML = "";
-    render();
+    render();    
 }
 
 // 렌더링
@@ -166,7 +166,6 @@ window.onload = function() {
     render();
 }
 
-
 // 작성된 게시글 보여주는 팝업창 열고 닫기
 let popupBtn2 = document.querySelector(".popup_btn2");
 function popupOpen2(_index, indexNum) {
@@ -178,14 +177,23 @@ function popupOpen2(_index, indexNum) {
         msgPopup.classList.remove("is-active");
     }else {
         msgPopup.classList.add("is-active");
+        renderTD(_index, indexNum);
     }
-    renderTD(_index, indexNum);
 }
 
 // 게시글 팝업에 로컬스토리지에 저장된 title, details 불러오기
 function renderTD(_index, indexNum) {
     console.log("선택된 게시글의 ID: " + _index);
     console.log("선택된 게시글의 No: " + indexNum);
+
+    let deleteBtn = document.querySelector(".delete_btn");
+    deleteBtn.addEventListener("click", function() {
+        console.log("삭제 버튼 눌림");
+        console.log("선택된 게시글의 ID: " + _index);
+        console.log("선택된 게시글의 No: " + indexNum);
+        deleteList(_index, indexNum);
+    });
+
     let inputIndex = document.querySelector(".input_index");
     let inputTitle = document.querySelector(".input_title");
     let inputDetails = document.querySelector(".input_details");
@@ -212,12 +220,7 @@ function renderTD(_index, indexNum) {
         }
     }
   
-    let deleteBtn = document.querySelector(".delete_btn");
-    deleteBtn.addEventListener("click", function() {
-        deleteList(_index, indexNum);
-        popupOpen2();
-        render();
-    })
+
 }
 
 // 게시판 리스트 삭제
@@ -234,8 +237,10 @@ function deleteList(_index, indexNum) {
 
     for (let i = 0; i < _json.length; i++) {
         if((i+1) == indexNum) {
+            console.log("삭제되는 리스트: " + _json2[i]);
             _json2.splice(i, 1);
         }else {
+            console.log("남아있는 리스트: " + _json[i]);
             _json2.push(_json[i]);
         }     
     }
@@ -254,19 +259,8 @@ function deleteList(_index, indexNum) {
         let _board = document.querySelector(".board_body");
         _board.innerHTML = "";
     }
+    let msgPopup = document.querySelector(".content_popup_wrap");
+    msgPopup.classList.remove("is-active");
+    //render();
+    location.reload(true);
 }
-
-
-// 페이지네이션
-let paging = document.querySelector(".paging");
-
-let totalData = 100; // 총 게시글 개수
-let dataPerPage = 10; // 한 페이지 당 나타낼 게시글 개수
-let totalPage = Math.ceil(totalData / dataPerPage); // 총 페이지 개수
-
-let currentPage = 1; // 현재 페이지
-let pageCount = 5; // 화면에 나타날 페이지 개수
-let pageGroup = Math.ceil(currentPage / pageCount); // 화면에 보여질 페이지 그룹
-
-let lastNum = pageGroup * pageCount;
-let firstNum = lastNum - (pageCount - 1) <= 0 ? 1 : lastNum - (pageCount - 1);

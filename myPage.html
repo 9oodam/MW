@@ -16,6 +16,7 @@
     <div class="content_wrap">
         <div class="profile_wrap">
             <div class="profile">
+                <!-- 프로필 판넬 -->
                 <div class="profile_panel">
                     <div class="profile_panel_header">
                         <div class="profile_img">
@@ -26,8 +27,8 @@
                         <p class="profile_date">Adventurer since April 2023</p>
                     </div>
                     <div class="profile_panel_body">
-                        <div class="profile_edit">EDIT PROFILE</div>
-                        <div class="profile_settings">SETTINGS</div>
+                        <div class="profile_edit" onclick="popupOpen()">EDIT PROFILE</div>
+                        <div class="profile_settings" onclick="popupOpen2()">SETTINGS</div>
                     </div>
                     <div class="profile_panel_footer">
                         <h4 class="profile_badges">BADGES</h4>
@@ -40,9 +41,61 @@
                         </div>
                     </div>
                 </div>
+                <!-- 사용자가 업로드한 사진 보여주는 부분 -->
                 <div class="profile_content">
                     <div class="profile_content_header">COLLECTIONS</div>
                     <div class="profile_content_list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 프로필 수정 팝업 -->
+        <div class="edit_popup_wrap">
+            <div class="edit_popup">
+                <span class="popup_btn" onclick="popupOpen()"></span>
+                <div class="edit_popup_header">
+                    <h2 style="font-size: 28px;">Edit profile</h2>
+                    <p>Save your favorite places and add your own photos to the map!</p>
+                    <div class="profile_img">
+                        <img src="./img/default-profile-photo.webp" alt="">
+                    </div>
+                </div>
+                <div class="edit_popup_body">
+                    <label for="" class="label">Nickname</label>
+                    <input type="text" class="edit_nickname" id="edit_nickname">
+                    <label for="" class="label">Your Name</label>
+                    <input type="text" class="edit_name" id="edit_name">
+                    <label for="" class="label">Introduction</label>
+                    <textarea class="edit_introduction" name="" id="edit_introduction" cols="30" rows="10"></textarea>
+                
+                    <div class="save_btn"><span>SAVE CHANGES</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 세팅(계정삭제) 팝업 -->
+        <div class="settings_popup_wrap">
+            <div class="settings_popup">
+                <span class="popup_btn" onclick="popupOpen2()"></span>
+                <div class="settings_popup_header">
+                    <img src="./img/awa-hat.svg" alt="">
+                    <h2>Delete your MW Account</h2>
+                </div>
+                <div class="settings_popup_body">
+                    <h3>Warning: this cannot be undone.</h3>
+                    <div class="delete_form">
+                        <label for="check1" class="checkbox_label">
+                            All Favorites will be removed from your account.
+                            <input type="checkbox" id="check1" name="delete_profile" value="1">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label for="check2" class="checkbox_label">
+                            You will have to create a new account if you change your mind later.
+                            <input type="checkbox" id="check2" name="delete_profile" value="1">
+                            <span class="checkmark"></span>
+                        </label>
+                        <div class="delete_btn"><span>DELETE MY PROFILE</span></div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -300,6 +300,12 @@ li > div {
     font-size: 16px;
     padding: 10px;
 }
+.msg_body .titleText.is-empty {
+    border: 1px solid #EE3024;
+}
+.details.is-empty {
+    border: 1px solid #EE3024;
+}
 
 .msg_popup .msg_footer {
     width: 100%; height: 130px;
@@ -345,6 +351,9 @@ li > div {
     border-style: dashed;
     padding: 0 30px 0 30px;
 }
+.content_popup .content_header {
+    width: 100%; height: 100px;
+}
 .content_popup .content_header .popup_btn2 {
     width: 50px; height: 50px;
     display: block;
@@ -371,17 +380,15 @@ li > div {
     color: #EE3024;
     padding: 40px 0 40px 0;
 }
-
-.msg_poup .msg_body {
-    width: 100%; height: 100%;
-    border: 1px solid black;
-}
 .user_nickname {
     width: calc(100% - 30px); height: 20px;
     margin: 10px 0 10px 0;
     padding: 10px;
     background-color: #EE3024;
     border: 1px solid #bbb;
+}
+.content_popup .content_body {
+    width: 100%; height: 600px;
 }
 .content_body .label {
     font-weight: 500;
@@ -394,6 +401,47 @@ li > div {
     padding: 10px;
     border: 1px solid #bbb;
     font-size: 16px;
+}
+.input_details {
+    height: 120px;
+}
+.answer_wrap {
+    width: calc(100% - 30px); height: 150px;
+    margin: 10px 0 10px 0;
+    padding: 10px;
+    border: 1px solid red;
+    position: relative;
+}
+.input_answer_user,
+.input_answer_admin {
+    width: 100%; height: 90px;
+    position: absolute; top: 0; left: 0;
+    border: 1px solid #bbb;
+    display: none;
+}
+.input_answer_user.is-active, .delete_btn.is-active,
+.input_answer_admin.is-active, .save_btn.is-active {
+    display: block;
+}
+.content_popup .delete_btn,
+.content_popup .save_btn {
+    width: 80px; height: 35px;
+    position: absolute; bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    background-color: #EE3024;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 15px;
+    cursor: pointer;
+    display: none;
+}
+.content_popup .content_footer h3 {
+    text-align: center;
+    color: #EE3024;
+    padding: 40px 0 40px 0;
+    position: absolute; bottom: 5px; left: 50%;
+    transform: translateX(-50%);
 }
 
 
