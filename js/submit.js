@@ -87,10 +87,10 @@ pvimg.addEventListener("click", function () {
   res = "";
 });
 
-function testcreate(nickname, title, description, img) {
-  this.nickname = nickname;
-  this.title = title;
-  this.description = description;
+function testcreate(country, city, location, img) {
+  this.country = country;
+  this.city = city;
+  this.location = location;
   this.img = img;
 }
 
@@ -121,14 +121,14 @@ function subimg() {
       inputval[3].value,
       res
     );
-    console.log(testlocal);
-    console.log();
+    // console.log(testlocal);
+    // console.log();
     if (!localempchk) {
       // localStorage.setItem("imgupload", `${JSON.stringify(testlocal)}`);
       localStorage.setItem("imgupload", `${JSON.stringify([testlocal])}`);
     } else {
       let tt = JSON.parse(localStorage.getItem("imgupload"));
-      console.log(tt);
+      // console.log(tt);
       tt.push(testlocal);
       // localStorage.setItem(
       //   "imgupload",
@@ -140,9 +140,9 @@ function subimg() {
 }
 
 let tat = JSON.parse(localStorage.getItem("imgupload"));
-console.log(tat[0].nickname);
-console.log(tat[2].description);
-console.log(tat[3].title);
+// console.log(tat[0].nickname);
+// console.log(tat[2].description);
+// console.log(tat[3].title);
 
 //////////////////////////////////////////////////
 
