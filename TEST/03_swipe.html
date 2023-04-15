@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .swiper-wrap {
+        width: 500px;
+        height: max-content;
+        /* 해석 
+            height: max-content : 하위 요소의 크기 대로 > height 가 설정
+            그러면, 너무, 들쭉 날쭉 되는거 아냐?  */
+        
+        background-color: wheat;
+
+        position: relative;
+        /* [해석] 
+            이동 시켜야 함 = 이걸, position absolute 로 하기 위해? */
+
+        margin: auto;
+        /* [해석]
+            이 div 의 여백을 '상하좌우'로 자동정렬 */
+    }
+
+
+    .swiper {
+        width: 500px;
+        height: 500px;
+    }
+
+</style>
+
+<body>
+
+
+<!-- swiper 라이브러리  -->
+
+<div class="swiper-wrap" id="swipe-frame">
+
+    <!-- 여기가 사진이 여러장 오게 되는 곳인가 -->
+    <div class="swiper">
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

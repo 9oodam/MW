@@ -69,10 +69,6 @@ body {
 }
 
 
-a {
-    color: #3e4240;
-    text-decoration: none;
-}
 
 
 /* ------------ 맨 위 빨간 배너 START ------------------ */
@@ -576,12 +572,13 @@ flex-wrap: wrap;
 
 }
 
-.featured-section .featured-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.featured-header {
+    position: absolute;
+    z-index: 1000;
+    width: 1000px;
+    height: 1000px;
+    background-color: red;
 }
-
 
 .featured-header .header-headline {
     font-size: 2.25rem;
@@ -594,47 +591,30 @@ flex-wrap: wrap;
 
     /* 📛 패딩 주의 📛 */
     padding-left: 3rem;
-    margin: 0; 
 
     /* background-color: rebeccapurple; */
 }
 
 
-.featured-header .arrow-nav {
-    display: flex;
-    align-items: center;
-    
-    /* 📛임시📛 */
-    width: 68px;
-    height: 30px;
-    /* background-color: lightgreen; */
+.featured-section .featured-header .arrow-nav {
+    background-color: yellow;
+    /* z-index: 10; */
 
-    /* 📛 마진 주의 📛 */
-    margin-right: 3rem;
+    /* 📛 임시 */
+    width: 1000px;
+    height: 1000px;
 }
 
-.arrow-nav .nav-right-arrow,
-.arrow-nav .nav-left-arrow {
+
+
+.nav-left-arrow {
     display: inline-block;
     width: 26px;
     height: 26px;
     background-image: url(https://accidentallywesanderson.com/wp-content/themes/awa/assets/img/nav-right-red.svg);
     opacity: .3;
     transition: opacity .25s ease;
-
-    cursor: pointer;
-
 }
-
-
-.arrow-nav .nav-left-arrow {
-    transform: rotate(180deg);
-}
-
-.arrow-nav .nav-right-arrow {
-    margin-left: 1rem;
-}
-
 
 
 .featured-section .featured-gallery {
@@ -646,7 +626,7 @@ flex-wrap: wrap;
 }
 
 
-.featured-gallery .gallery-slide-container {
+.gallery-slide-container {
     width: 1800px;
     height: 610px;
     background-color: blue;
@@ -1562,3 +1542,17 @@ flex-wrap: wrap;
     transform: scaleX(1);
     transform-origin: bottom left;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  

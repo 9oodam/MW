@@ -1,0 +1,48 @@
+
+.frame {
+    overflow: hidden;
+    /* [해석]
+        이렇게 하면, 스크롤바가 없어진다. ⭐⭐⭐
+        아.. 근데, width랑 height 를 안 해줬는데... 신기하네  */
+}
+
+.wrapper {
+    width: 500vw;
+    /* [해석]
+        300vw 인 이유는 ⭐'100vw 짜리 inner div'⭐ 가 3개 니까. */
+
+    /* transform: translate(-100vw); */
+    /* [해석]
+        1) margin 을 하지 않고, translate 를 한 이유는, 나중에 animation 까지 주려고 */
+
+
+    transition: transform 0.5s  ;
+
+    /* 이건 클론 사이트 애니메이션 값👇 */
+    /* transition: opacity .25s ease; */
+}
+
+.inner {
+    float: left;
+    /* [해석]
+        딱 사진을 넣었을 때 > '세로' 로 늘여져 있는걸, '가로' 로 보이게 하는 기능  */
+    
+    width: 100vw;
+    /* [해석] 
+        - 보이는 뷰 포트 기준임. 
+        - 그리고 '사진' 에게 준게  아니라, ⭐'사진을 감싸는 div'⭐ 에 줬음. 
+        - 사진에 준다면, 사진으로 꽉 찰까?  
+            응 사진으로 꽉차. */
+}
+
+
+.inner img {
+    width: 100%;
+
+    /* width : 100% 를 하면 > (일반적으로) 부모의 width 를 가져옴
+        그러면, ⭐부모까지 돌아가지 않고, 바로 .inner img 에 width : 100vw 를 하면? ⭐ 
+        돌아가지 않고, 동일하게 작동함. 
+        그러면, inner div 가 굳이 필요없는거 아냐?❓❓❓ 
+        기다려보자. */
+
+}
