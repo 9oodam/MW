@@ -5,7 +5,7 @@ let _title = document.querySelector("#title").value;
 let _detailsPrev = document.querySelector("#details").value;
 let _details = _detailsPrev.replace(/(?:\r\n|\r|\n)/g, '<br>');
 
-// 게시글 제출하는 팝업창 열고 닫기
+// 게시글 제출하는 팝업창 열고 닫기 (write 버튼)
 let popupBtn = document.querySelector(".popup_btn");
 function popupOpen() {
     let msgPopup = document.querySelector(".msg_popup_wrap");
@@ -16,7 +16,7 @@ function popupOpen() {
     }
 }
 
-// 게시글 제출하기 (비어있는지 체크)
+// 게시글 제출하기 (input 창이 비어있는지 체크)
 let submitBtn = document.querySelector(".submit_btn");
 submitBtn.addEventListener("click", submitCheck);
 function submitCheck() {
@@ -141,10 +141,10 @@ function render() {
         let _div3 = document.createElement("div");
         let _div4 = document.createElement("div");
     
-        let indexNum = index+1; // 리스트에 보여지는 인덱스 번호
-        _div1.innerHTML = indexNum;
+        let indexNum = index; 
+        _div1.innerHTML = indexNum+1; // 리스트에 보여지는 번호
         _div2.innerHTML = JSON.parse(i).title;
-        _div3.innerHTML = "nickname";
+        _div3.innerHTML = JSON.parse(i).nickname;
         _div4.innerHTML = JSON.parse(i).date;
     
         _div1.classList.add("list_no");
@@ -164,6 +164,7 @@ function render() {
 }
 window.onload = function() {
     render();
+    pagination();
 }
 
 // 작성된 게시글 보여주는 팝업창 열고 닫기
@@ -178,6 +179,7 @@ function popupOpen2(_index, indexNum) {
     }else {
         msgPopup.classList.add("is-active");
         renderTD(_index, indexNum);
+        adminAnswer(_index, indexNum);
     }
 }
 
@@ -212,15 +214,9 @@ function renderTD(_index, indexNum) {
     console.log(typeof _json2); // object
     console.log(_json2);
 
-    for(let i = 0; i < _json2.length; i++) {
-        if(_index == _json2[i].index) {
-            inputIndex.innerHTML = `No. ${indexNum}`;
-            inputTitle.innerHTML = _json2[i].title;
-            inputDetails.innerHTML = _json2[i].details;
-        }
-    }
-  
-
+    inputIndex.innerHTML = `No. ${indexNum+1}`;
+    inputTitle.innerHTML = _json2[indexNum].title;
+    inputDetails.innerHTML = _json2[indexNum].details;
 }
 
 // 게시판 리스트 삭제
@@ -236,7 +232,7 @@ function deleteList(_index, indexNum) {
     console.log(_json);
 
     for (let i = 0; i < _json.length; i++) {
-        if((i+1) == indexNum) {
+        if((i) == indexNum) {
             console.log("삭제되는 리스트: " + _json2[i]);
             _json2.splice(i, 1);
         }else {
@@ -261,6 +257,131 @@ function deleteList(_index, indexNum) {
     }
     let msgPopup = document.querySelector(".content_popup_wrap");
     msgPopup.classList.remove("is-active");
-    //render();
-    location.reload(true);
+    render();
+    //location.reload(true);
 }
+
+
+// Admin 답글
+function adminAnswer(_index, indexNum) {
+    let adminView = document.querySelector(".admin_view");
+    let userView = document.querySelector(".user_view");
+
+    // 나중에 로그인, 회원가입과 합치면 삭제할 구문
+    userView.classList.add("is-active");
+
+    // 로컬스토리지 불러와서 배열로 만들기
+    let _json = window.localStorage.getItem("bulletin-board");
+    let _json2 = [];
+    let _split = _json.split("|");
+    _split.forEach(function(i, index) {
+        _json2.push(JSON.parse(_split[index]));
+    });
+    console.log(_json2);
+
+    let _nickname = _json2[indexNum].nickname;
+    console.log(_nickname);
+
+    // 유저가 로그인 한 상태 -> 게시글을 눌렀을 때 admin의 답글과 delete 버튼이 보임
+    // Admin이 로그인 한 상태 -> 게시글을 눌렀을 때 답글을 달 수 있는 input창과 save 버튼이 보임
+    /*
+    if(_nickname == "admin") {
+        if(adminView.classList.contains("is-active")) {
+            adminView.classList.remove("is-active");
+        }else {
+            adminView.classList.add("is-active");
+        }
+    }else {
+        if(userView.classList.contains("is-active")) {
+            userView.classList.remove("is-active")
+        }else {
+            userView.classList.add("is-active");
+        }
+    }
+    */
+}
+
+
+// 게시판 Search
+let searchSubmit = document.querySelector(".search_submit");
+searchSubmit.addEventListener("click", function() {
+    let searchInput = document.querySelector(".search_field").value;
+    console.log("찾고 싶은 제목 or 이름: " + searchInput);
+
+    let _json = window.localStorage.getItem("bulletin-board");
+    let _json2 = [];
+    let _split = _json.split("|");
+    _split.forEach(function(i, index) {
+        _json2.push(JSON.parse(_split[index]));
+    });
+    console.log(_json2);
+
+    let noSearched = document.querySelector(".no_searched");
+
+    for (let i = 0; i < _json2.length; i++) {
+        let findTitle = _json2[i].title;
+        let findName = _json2[i].nickname;
+        //console.log(findTitle, findName);
+
+        let _ul = document.createElement("ul");
+
+        if(findTitle.includes(searchInput) || findName.includes(searchInput)) {
+            noSearched.classList.remove("is-active");
+            console.log("찾았다", _json2[i]);
+
+            render();
+            
+            /*
+            let _li = document.createElement("li");
+
+            let _div1 = document.createElement("div");
+            let _div2 = document.createElement("div");
+            let _div3 = document.createElement("div");
+            let _div4 = document.createElement("div");
+        
+            _div1.innerHTML = i+1; // 리스트에 보여지는 번호
+            _div2.innerHTML = _json2[i].title;
+            _div3.innerHTML = _json2[i].nickname;
+            _div4.innerHTML = _json2[i].date;
+        
+            _div1.classList.add("list_no");
+            _div2.classList.add("list_title");
+            _div3.classList.add("list_name");
+            _div4.classList.add("list_date");
+
+            _li.append(_div1, _div2, _div3, _div4);
+            _ul.append(_li);
+            
+            let _index = JSON.parse(i).index;
+            _div2.addEventListener("click", function() {
+                popupOpen2(_index, indexNum); // title 누르면 게시글 팝업창 열림 
+            });
+            _board.append(_ul);
+            */
+        }else {
+            noSearched.classList.add("is-active");
+        }
+    }
+
+    // search input창 초기화
+    for(let i=0; i<searchInput.length; i++){
+        searchInput[i].value = '';
+    }
+});
+
+
+// Pagination
+/*
+function pagination() {
+    let paging = document.querySelector(".paging"); // 페이징 번호 div
+    let pagingBtn = document.createElement("button");
+
+    let totalPage;
+    
+
+    pagingBtn.classList.add("paging_btn");
+
+    paging.append(pagingBtn);
+
+}
+*/

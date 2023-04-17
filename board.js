@@ -5,7 +5,7 @@ let _title = document.querySelector("#title").value;
 let _detailsPrev = document.querySelector("#details").value;
 let _details = _detailsPrev.replace(/(?:\r\n|\r|\n)/g, '<br>');
 
-// 게시글 제출하는 팝업창 열고 닫기
+// 게시글 제출하는 팝업창 열고 닫기 (write 버튼)
 let popupBtn = document.querySelector(".popup_btn");
 function popupOpen() {
     let msgPopup = document.querySelector(".msg_popup_wrap");
@@ -16,7 +16,7 @@ function popupOpen() {
     }
 }
 
-// 게시글 제출하기 (비어있는지 체크)
+// 게시글 제출하기 (input 창이 비어있는지 체크)
 let submitBtn = document.querySelector(".submit_btn");
 submitBtn.addEventListener("click", submitCheck);
 function submitCheck() {
@@ -77,35 +77,35 @@ function addList() {
     console.log(_date);
     
     let value = window.localStorage.getItem("bulletin-board");
-    console.log(value);
-
-    // 페이지 새로고침 되어도 인덱스 번호 초기화 되지 않게 기존에 저장되어 있는 배열의 길이를 읽어옴
-    let _index = 0;
-    if(value == null) {
-        _index = 1;
-    }else {
-        _index = value.split("|").length;
-        console.log(_index);
-    }
+    console.log(value); 
 
     if(window.localStorage.length == 0) {
         console.log("리스트 첫 추가");
-        window.localStorage.setItem("bulletin-board", `{"index" : "${_index}", "title" : "${_title}", "details" : "${_details}", "nickname" : "", "date" : "${_date}"}`);
+        window.localStorage.setItem("bulletin-board", `{"title" : "${_title}", "details" : "${_details}", "nickname" : "", "date" : "${_date}"}`);
     }else {
         console.log("리스트 추가 추가");
-        window.localStorage.setItem("bulletin-board", value + "|" + `{"index" : "${_index+1}", "title" : "${_title}", "details" : "${_details}", "nickname" : "", "date" : "${_date}"}`);
+        window.localStorage.setItem("bulletin-board", value + "|" + `{"title" : "${_title}", "details" : "${_details}", "nickname" : "", "date" : "${_date}"}`);
     }
     console.log(window.localStorage.getItem("bulletin-board"));
 
     _board.innerHTML = "";
-    render();
+
+    // 만들어진 로컬스토리지를 배열로
+    let _json = window.localStorage.getItem("bulletin-board");
+    let _json2 = []; // 빈 배열 생성
+    let _split = _json.split("|");
+    _split.forEach(function(i, index) {
+        _json2.push(JSON.parse(_split[index]));
+    });
+    console.log(_json2);
+
+    render(_json2);
+    location.reload();
 }
 
 // 렌더링
-function render() {
-    let _json = window.localStorage.getItem("bulletin-board");
-    _json = _json.split("|");
-    console.log(_json);
+function render(_json2) {
+    console.log(_json2);
 
     let _ul = document.createElement("ul");
     let _li = document.createElement("li");
@@ -132,8 +132,7 @@ function render() {
     _li.append(_div1, _div2, _div3, _div4);
     _ul.append(_li);
 
-    _json.forEach(function(i, index) {
-
+    for (let i = 0; i < _json2.length; i++) {
         let _li = document.createElement("li");
 
         let _div1 = document.createElement("div");
@@ -141,11 +140,11 @@ function render() {
         let _div3 = document.createElement("div");
         let _div4 = document.createElement("div");
     
-        let indexNum = index+1; // 리스트에 보여지는 인덱스 번호
-        _div1.innerHTML = indexNum;
-        _div2.innerHTML = JSON.parse(i).title;
-        _div3.innerHTML = "nickname";
-        _div4.innerHTML = JSON.parse(i).date;
+        let indexNum = i; 
+        _div1.innerHTML = indexNum+1; // 리스트에 보여지는 번호
+        _div2.innerHTML = _json2[i].title;
+        _div3.innerHTML = _json2[i].nickname;
+        _div4.innerHTML = _json2[i].date;
     
         _div1.classList.add("list_no");
         _div2.classList.add("list_title");
@@ -155,118 +154,229 @@ function render() {
         _li.append(_div1, _div2, _div3, _div4);
         _ul.append(_li);
         
-        let _index = JSON.parse(i).index;
         _div2.addEventListener("click", function() {
-            popupOpen2(_index, indexNum); // title 누르면 게시글 팝업창 열림 
+            popupOpen2(indexNum, _json2); // title 누르면 게시글 팝업창 열림 
         });
-    })
+    }
     _board.append(_ul);
 }
-window.onload = function() {
-    render();
-}
 
+window.onload = function() {
+    let _json = window.localStorage.getItem("bulletin-board");
+    let _json2 = []; // 빈 배열 생성
+    let _split = _json.split("|");
+    _split.forEach(function(i, index) {
+        _json2.push(JSON.parse(_split[index]));
+    });
+    console.log(_json2);
+
+    render(_json2); 
+    pagination(_json2);
+}
 
 // 작성된 게시글 보여주는 팝업창 열고 닫기
 let popupBtn2 = document.querySelector(".popup_btn2");
-function popupOpen2(_index, indexNum) {
-    console.log("선택된 게시글의 ID: " + _index);
-    console.log("선택된 게시글의 No: " + indexNum);
+let deleteBtn = document.querySelector(".delete_btn");
+function popupOpen2(indexNum, _json2) {
+    console.log("선택된 게시글의 인덱스: " + indexNum);
 
     let msgPopup = document.querySelector(".content_popup_wrap");
     if(msgPopup.classList.contains("is-active")) {
         msgPopup.classList.remove("is-active");
     }else {
         msgPopup.classList.add("is-active");
+        renderTD(indexNum, _json2);
+        adminAnswer(indexNum, _json2);
+
+        deleteBtn.addEventListener("click", function() {
+            console.log("삭제 버튼 눌림");
+            deleteList(indexNum, _json2);
+        });
     }
-    renderTD(_index, indexNum);
 }
 
 // 게시글 팝업에 로컬스토리지에 저장된 title, details 불러오기
-function renderTD(_index, indexNum) {
-    console.log("선택된 게시글의 ID: " + _index);
-    console.log("선택된 게시글의 No: " + indexNum);
+function renderTD(indexNum, _json2) {
+    console.log("선택된 게시글의 인덱스: " + indexNum);
+
     let inputIndex = document.querySelector(".input_index");
     let inputTitle = document.querySelector(".input_title");
     let inputDetails = document.querySelector(".input_details");
 
+    /*
     let _json = window.localStorage.getItem("bulletin-board");
-
     let _json2 = []; // 빈 배열 생성
-
     let _split = _json.split("|");
     console.log(_split);
-
     _split.forEach(function(i, index) {
         _json2.push(JSON.parse(_split[index]));
     });
-
-    console.log(typeof _json2); // object
     console.log(_json2);
+    */
 
-    for(let i = 0; i < _json2.length; i++) {
-        if(_index == _json2[i].index) {
-            inputIndex.innerHTML = `No. ${indexNum}`;
-            inputTitle.innerHTML = _json2[i].title;
-            inputDetails.innerHTML = _json2[i].details;
-        }
-    }
-  
-    let deleteBtn = document.querySelector(".delete_btn");
-    deleteBtn.addEventListener("click", function() {
-        deleteList(_index, indexNum);
-        popupOpen2();
-        render();
-    })
+    inputIndex.innerHTML = `No. ${indexNum+1}`;
+    inputTitle.innerHTML = _json2[indexNum].title;
+    inputDetails.innerHTML = _json2[indexNum].details;
 }
 
 // 게시판 리스트 삭제
-function deleteList(_index, indexNum) {
+function deleteList(indexNum, _json2) {
     console.log("리스트 삭제 시작");
-    console.log("선택된 게시글의 ID: " + _index);
-    console.log("선택된 게시글의 No: " + indexNum);
+    console.log(_json2[indexNum]);
+    console.log("선택된 게시글의 인덱스: " + indexNum);
 
     let _json = window.localStorage.getItem("bulletin-board");
-    let _json2 = []; // 빈 배열 생성
-
-    _json = _json.split("|");
-    console.log(_json);
-
-    for (let i = 0; i < _json.length; i++) {
-        if((i+1) == indexNum) {
-            _json2.splice(i, 1);
+    let _jsonArr = [];
+    let _jsonArr2 = [];
+    let _split = _json.split("|");
+    _split.forEach(function(i, index) {
+        _jsonArr.push(JSON.parse(_split[index]));
+    });
+    console.log(_jsonArr);
+   
+    // 두 객체의 title을 비교하여 같으면 삭제
+    for (let i = 0; i < _jsonArr.length; i++) {
+        if(_jsonArr[i].title == _json2[indexNum].title) {
+            console.log("삭제되는 리스트: " + JSON.stringify(_jsonArr[i]));
+            _jsonArr2.splice(i, 1);
         }else {
-            _json2.push(_json[i]);
+            console.log(_jsonArr[i]);
+            console.log(_json2[indexNum]);
+            console.log("남아있는 리스트: " + JSON.stringify(_jsonArr[i]));
+            _jsonArr2.push(JSON.stringify(_jsonArr[i]));
         }     
     }
-    console.log(_json2);
-    _json2 = _json2.join("|");
-    console.log(_json2);
+    _jsonArr = _jsonArr2.join("|");
+    console.log(_jsonArr);
     
-    if(_json2 == "") {
+    if(_jsonArr == "") {
         window.localStorage.removeItem("bulletin-board");
         window.localStorage.getItem("bulletin-board");
         let _board = document.querySelector(".board_body");
         _board.innerHTML = "";
     }else {
-        window.localStorage.setItem("bulletin-board", _json2);
+        window.localStorage.setItem("bulletin-board", _jsonArr);
         window.localStorage.getItem("bulletin-board");
         let _board = document.querySelector(".board_body");
         _board.innerHTML = "";
     }
+
+    let _json3 = window.localStorage.getItem("bulletin-board");
+    let _json4 = []; // 빈 배열 생성
+    let _split2 = _json3.split("|");
+    _split2.forEach(function(i, index) {
+        _json4.push(JSON.parse(_split2[index]));
+    });
+    //console.log(_json4);
+
+    let msgPopup = document.querySelector(".content_popup_wrap");
+    msgPopup.classList.remove("is-active");
+
+    render(_json4);
+}
+
+// Admin 답글
+function adminAnswer(indexNum, _json2) {
+    let adminView = document.querySelector(".admin_view");
+    let userView = document.querySelector(".user_view");
+
+    // 나중에 로그인, 회원가입과 합치면 삭제할 구문
+    userView.classList.add("is-active");
+
+    // 로컬스토리지 불러와서 배열로 만들기
+    // let _json = window.localStorage.getItem("bulletin-board");
+    // let _json2 = [];
+    // let _split = _json.split("|");
+    // _split.forEach(function(i, index) {
+    //     _json2.push(JSON.parse(_split[index]));
+    // });
+    // console.log(_json2);
+
+    let _nickname = _json2[indexNum].nickname;
+    console.log(_nickname);
+
+    // 유저가 로그인 한 상태 -> 게시글을 눌렀을 때 admin의 답글과 delete 버튼이 보임
+    // Admin이 로그인 한 상태 -> 게시글을 눌렀을 때 답글을 달 수 있는 input창과 save 버튼이 보임
+    /*
+    if(_nickname == "admin") {
+        if(adminView.classList.contains("is-active")) {
+            adminView.classList.remove("is-active");
+        }else {
+            adminView.classList.add("is-active");
+        }
+    }else {
+        if(userView.classList.contains("is-active")) {
+            userView.classList.remove("is-active")
+        }else {
+            userView.classList.add("is-active");
+        }
+    }
+    */
 }
 
 
-// 페이지네이션
-let paging = document.querySelector(".paging");
+// 게시판 Search
+let searchSubmit = document.querySelector(".search_submit");
+searchSubmit.addEventListener("click", function() {
+    let searchInput = document.querySelector(".search_field").value;
+    console.log("찾고 싶은 제목 or 이름: " + searchInput);
 
-let totalData = 100; // 총 게시글 개수
-let dataPerPage = 10; // 한 페이지 당 나타낼 게시글 개수
-let totalPage = Math.ceil(totalData / dataPerPage); // 총 페이지 개수
+    let _json = window.localStorage.getItem("bulletin-board");
+    let _json2 = [];
+    let _split = _json.split("|");
+    _split.forEach(function(i, index) {
+        _json2.push(JSON.parse(_split[index]));
+    });
+    console.log(_json2);
 
-let currentPage = 1; // 현재 페이지
-let pageCount = 5; // 화면에 나타날 페이지 개수
-let pageGroup = Math.ceil(currentPage / pageCount); // 화면에 보여질 페이지 그룹
+    let noSearched = document.querySelector(".no_searched");
 
-let lastNum = pageGroup * pageCount;
-let firstNum = lastNum - (pageCount - 1) <= 0 ? 1 : lastNum - (pageCount - 1);
+    let _json3 = [];
+    for (let i = 0; i < _json2.length; i++) {
+        let findTitle = _json2[i].title;
+        let findName = _json2[i].nickname;
+
+        // 찾는 것이 있으면 _json3 배열에 저장
+        if(findTitle.includes(searchInput) || findName.includes(searchInput)) {
+            console.log("찾았다", _json2[i]);
+            _json3.push(_json2[i]);
+        }else {
+            console.log("못찾았다", _json2[i]);
+        }
+
+        // 찾는 것이 없으면 NO SEARCHED 뜨게
+        if(_json3 == "") {
+            noSearched.classList.add("is-active");
+        }else {
+            noSearched.classList.remove("is-active");
+        }
+    }
+    _board.innerHTML = "";
+    render(_json3);
+});
+
+
+// Pagination
+let paging = document.querySelector(".paging"); // 페이징 번호 div
+function pagination(_json2) {
+    console.log(_json2);
+
+    let totalList = _json2.length; // 총 게시글 수
+    console.log(totalList);
+
+    let totalPage = Math.ceil(totalList / 10); // 한 페이지에 10개씩
+    console.log(totalPage); // 총 페이지 수
+
+    for (let i = 1; i <= totalPage; i++) {
+        let pagingBtn = document.createElement("div");
+        pagingBtn.innerHTML = i;
+        pagingBtn.classList.add("paging_btn");
+        paging.append(pagingBtn);
+
+        /*
+        pagingBtn.addEventListener("click", function() {
+            render
+        });
+        */
+    }
+}

@@ -125,6 +125,15 @@ body {
     border: none;  
     cursor: pointer; 
 }
+.no_searched {
+    color: #EE3024;
+    position: absolute; top: 20px; left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+.no_searched.is-active {
+    display: block;
+}
 
 /* 문의 게시판 보여지는 곳 */
 .board_wrap {
@@ -152,6 +161,8 @@ ul {
     height: 550px;
     max-height: 1200px;
     font-size: 20px;
+    border: 1px solid;
+    overflow: hidden;
 }
 li {
     list-style: none;
@@ -188,39 +199,44 @@ li > div {
     left: 50%; transform: translateX(-50%);
 }
 .board_footer .paging-wrap {
+    box-sizing: border-box;
     margin: 0 auto;
     width: 250px;
     height: 100%;
     position: absolute; left: 50%;
     transform: translateX(-50%);
-    border: 1px solid;
-    display: inline-flex;
+    display: inline-flex; justify-content: center; align-items: center;
 }
 .board_footer .paging div {
-    display: flex;
-    float: left;
-    width: 25px;
-    margin: 5px;
-    text-align: center;
+    display: flex; float: left;
+    width: 30px; height: 30px; margin: 5px;
+    text-align: center; color: #fff;
+    font-size: 20px; font-weight: bold;
     justify-content: center; align-items: center;
     cursor: pointer;
-    font-size: 18px;
-    border: 1px solid; box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 50%;
+    background-color: #EE3024;
 }
 .paging div:hover {
-    transform: scale(105%);
+    transform: scale(120%);
 }
 .board_footer .write_btn {
-    width: 80px; height: 35px;
-    display: block;
+    width: 80px; height: 30px;
+    display: flex; justify-content: center; align-items: center;
     background-color: #EE3024;
     color: #fff;
-    font-size: 18px;
+    font-size: 20px; font-weight: bold;
     text-align: center;
-    border-radius: 15px;
+    border-radius: 15px; border: 3px solid #EE3024;
     cursor: pointer;
-    position: absolute; left: calc(50% + 150px);
+    position: absolute; left: calc(50% + 300px);
     top: 50%; transform: translateY(-50%);
+}
+.write_btn:hover {
+    background-color: #fff;
+    color: #EE3024;
+    border: 3px solid #EE3024;
 }
 
 /* 문의 남기는 팝업 */
@@ -409,19 +425,16 @@ li > div {
     width: calc(100% - 30px); height: 150px;
     margin: 10px 0 10px 0;
     padding: 10px;
-    border: 1px solid red;
     position: relative;
+}
+.user_view, .admin_view {
+    display: none;
 }
 .input_answer_user,
 .input_answer_admin {
     width: 100%; height: 90px;
     position: absolute; top: 0; left: 0;
     border: 1px solid #bbb;
-    display: none;
-}
-.input_answer_user.is-active, .delete_btn.is-active,
-.input_answer_admin.is-active, .save_btn.is-active {
-    display: block;
 }
 .content_popup .delete_btn,
 .content_popup .save_btn {
@@ -434,7 +447,9 @@ li > div {
     text-align: center;
     border-radius: 15px;
     cursor: pointer;
-    display: none;
+}
+.user_view.is-active, .admin_view.is-active {
+    display: block;
 }
 .content_popup .content_footer h3 {
     text-align: center;
