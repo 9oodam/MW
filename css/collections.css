@@ -62,11 +62,13 @@ body {
 .themes.addborder,
 .colorpalette.addborder {
   border: 2px solid #ee3024;
+  transition: all 0.25s ease;
 }
 
 .colcontainer .colcardwrap {
   display: flex;
   flex-wrap: wrap;
+  cursor: pointer;
 }
 
 .colcard {
