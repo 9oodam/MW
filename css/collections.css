@@ -76,17 +76,20 @@ body {
   aspect-ratio: 1/1;
   padding: 10px;
   transition: 0.25s;
+  position: relative;
 }
 
 .colcard:hover {
   transform: scale(0.98);
 }
 .colcard:hover .colcardin .gradation {
-  height: 200%;
+  height: 100%;
 }
 
 .colcard:hover .colcardin .gradation h4 {
-  transform: translateY(75%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 30px;
 }
 
@@ -96,6 +99,16 @@ body {
   border-radius: 10px;
   position: relative;
   overflow: hidden;
+}
+
+.colcard .colcardin .colcardcover {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
 }
 .colcard .colcardin img {
   width: 100%;
@@ -112,8 +125,7 @@ body {
   bottom: 0;
   left: 0;
   border-radius: 10px;
-  display: flex;
-  justify-content: center;
+
   background-image: linear-gradient(
     180deg,
     rgba(84, 108, 136, 0),
@@ -121,18 +133,38 @@ body {
     rgba(0, 0, 0, 0.7)
   );
   transition: 0.25s;
-  padding: 20px;
 }
 
 .colcardin .gradation:hover {
   height: 100%;
 }
-.colcardin .gradation h4 {
+/* .colcardin .gradation h4 {
   color: white;
   margin: 0;
   font-size: 24px;
   font-weight: 800;
   transition: 0.25s;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: 0.25s;
+  position: absolute;
+} */
+
+.colcardin h4 {
+  color: white;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  transition: 0.25s;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: 0.25s;
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  transform: translateY(-50%);
 }
 
 /* THEMES, COLOR PALETTE end */

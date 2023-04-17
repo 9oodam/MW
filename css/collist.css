@@ -101,14 +101,38 @@ body {
   margin-bottom: 20px;
   box-sizing: border-box;
 }
+
 .card .cardin {
   height: 460px;
   background-color: white;
   border-radius: 20px;
+  position: relative;
+}
+
+.card .cardcover {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.cardcover:hover {
+  box-shadow: 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
+  transform: translate(-1px, -1px);
+  cursor: pointer;
+}
+.cardcover:hover .cardin {
+  box-shadow: 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
+  transform: translate(-1px, -1px);
+  cursor: pointer;
 }
 .card .cardin:hover {
   box-shadow: 2px 2px 7px 0 rgba(0, 0, 0, 0.2);
   transform: translate(-1px, -1px);
+  cursor: pointer;
 }
 .card .cardin img {
   width: 100%;
