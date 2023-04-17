@@ -1,7 +1,4 @@
 
-
-
-
 // ◼ 전역변수 
 
    // 🔷 버튼 누른 횟수
@@ -13,7 +10,17 @@
     let _wrapper = document.querySelector(".wrapper");
     let _button_prev = document.querySelector(".button-prev");
     let _button_next = document.querySelector(".button-next");
+    let _innerAll = document.querySelectorAll('.inner');
 
+
+
+    // 🔷 _wrapper 에서 보여지는 부분 초기화 
+    function initialShow() {
+        initialPosition = -300;
+        _wrapper.style.transform = `translate(${initialPosition}vw)`
+    }
+    window.onload = initialShow()
+    // initialShow();
 
 
     // 🔷 맨끝으로 이동하게 하는 함수
@@ -27,7 +34,7 @@
     // 🔷 맨 앞으로 이동하게 하는 함수 
         // 📛 하드코딩 주의 
     function moveFirst() {
-        positionOfNow = 0 * 100;    // 맨 앞으로 보내기
+        positionOfNow = -200;    // 맨 앞으로 보내기
         _wrapper.style.transform = `translate(-${positionOfNow}vw)`;
             // console.log(`끝에서, 다음 버튼 눌렀을 때 ${positionOfNow}`)
     }
@@ -41,23 +48,41 @@
 
     // 🔷 왼쪽으로 쉬리릭 넘어가는 것 구현 
         // 양수값을 음수값으로 바꾸면? 
+    function toMinus() {
+        console.log(_innerAll)
+        console.log(_innerAll[3])
+        _innerAll[3].style.transform = `translate(-100vw)`
+        console.log(_innerAll[3])
+    }    
 
 
     // 🔷 전체 swipe 이동
-        function swipeBtn() {
-            // ◼ '이전(prev)' 버튼 클릭
-            document.querySelector('.botton-prev').addEventListener('click', function() {                
-                if (positionOfNow == 0) {
-                    moveLast();
-                } else { 
-                    moveNormal (-100)
-                }
-            })
+    function swipeBtn() {
+        // ◼ '이전(prev)' 버튼 클릭
+        document.querySelector('.botton-prev').addEventListener('click', function() {                
+            if (positionOfNow == 0) {
+                // _wrapper.style.transform = `translate(100vw)`
+                console.log("0에서 이동")
+                // let div_minus01 = document.createElement('div');
+                // div_minus01.classList.add ('inner');
+                // div_minus01.innerHTML = `<img src="/img/test/hospital-naval-800x800.jpeg" alt="">`
+                // div_minus01.style.transform = 'translateX(0vw)';
+                // document.body.appendChild(div_minus01);
+                // document.body.wrapper.appendChild(div_minus01);
+
+                // _wrapper.style.color = `blue`
+                
+                
+            } else { 
+                moveNormal (-100)
+            }
+        })
 
             // ◼ '다음(next)' 버튼 클릭
             document.querySelector('.botton-next').addEventListener('click', function() {                
-                if (positionOfNow == 300) {
-                    moveFirst();
+                if (positionOfNow == 400) {
+                    // moveFirst();
+                    console.log("오른쪽 끝")
                 } else { 
                     moveNormal (100)
                 }

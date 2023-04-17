@@ -1,3 +1,8 @@
+/* 스크롤바 디자인 
+    https://codingbroker.tistory.com/66 
+*/
+
+
 @font-face {
     font-family: 'freight_sans_pro_bold_regular';
     font-weight: 900; 
@@ -569,34 +574,38 @@ flex-wrap: wrap;
     background-color: #f8f3e4;
 
     /* 📛 패딩 주의 📛  */
-    padding-top: 3rem;
+    /* padding-top: 3rem; */
+        /* 근데 이건 왜 안 먹는거지❓❓❓❓❓ */
+    padding-top: 140px;
     padding-bottom: 3.5rem;
-
     position: relative;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .featured-section .featured-header {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
 }
 
 
 .featured-header .header-headline {
     font-size: 2.25rem;
     line-height: 2.5rem;
-
     font-family: 'freight_sans_pro_black_regular';
-
     font-weight: 900;
     text-transform: uppercase;
 
-    /* 📛 패딩 주의 📛 */
-    padding-left: 3rem;
-    margin: 0; 
+    margin: 0;
 
-    /* background-color: rebeccapurple; */
+    /* 📛 z index | absolute 등 주의 */
+    position: absolute;
+    left: 210px;
+    z-index: 1;
+    top: 80px;
+
 }
 
 
@@ -607,10 +616,12 @@ flex-wrap: wrap;
     /* 📛임시📛 */
     width: 68px;
     height: 30px;
-    /* background-color: lightgreen; */
 
-    /* 📛 마진 주의 📛 */
-    margin-right: 3rem;
+    /* 📛 z-index | absolute 등 📛 */
+    z-index: 1;
+    position: absolute;
+    right: 215px;
+    top: 91px;
 }
 
 .arrow-nav .nav-right-arrow,
@@ -640,35 +651,69 @@ flex-wrap: wrap;
 .featured-section .featured-gallery {
 
     /* 📛 하드코딩 주의  */
-    width: 1900px;
-    height: 600px;
 
+width: 1730px;
+        /* ✅ 초반에 gallery-slide-container width 가 1800px 이었음. 그래서 우선 이걸로 */
+
+height: 600px;
+
+overflow: hidden;
+
+position: relative;
 }
 
 
 .featured-gallery .gallery-slide-container {
-    width: 1800px;
-    height: 610px;
-    background-color: blue;
+    
+/* ✅ 여기는 item 개수만큼, 엄청 길어져야 함. */
+    
+width: 1770px;
+    /* CSS 로 하드코딩 할 수 있지만, 
+    JS 로 만들면, 주어진 사이즈에 맞게 변경될 수 있음.⭐⭐  */
+    
+height: 620px;
+    
+position: absolute;
+    
+left: 0;
+    
+/* background-color: blue; */
 
     /* 📛 가운데 맞추려고, 임시방편 📛 */
-    margin: 0 auto;
+    
+margin: -1px auto;
 
     /* 📛 임시 방편으로 간격 띄움 */
-    display: flex;
-    justify-content: space-evenly;
     
+display: flex;
+    
+justify-content: space-evenly;
 }
+
+
+.gallery-slide-container.animated {
+    transition: 0.5s ease-out;
+}
+
 
 .gallery-slide-container .gallery-slide-item {
     
     width: 385px;
     height: 100%;
-
     /* float: left; */
 
     background-color: lightcyan;
 }
+
+
+
+/* ⭐⭐⭐⭐⭐⭐  */
+.gallery-slide-container .gallery-slide-item:not(:last-child) {
+    margin-right: 55px;
+} 
+
+
+
 
 .gallery-slide-item .card {
     width: 100%;
