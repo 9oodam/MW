@@ -28,6 +28,128 @@
     </div>
 
 
+    <!-- 숨어있다가, 나오는 부분 : 검색 popup -->
+    <div class="search-dropdown" id="search-popup">
+
+        <!-- 오른쪽 상단 x 표 -->
+        <a id="popup-close-btn" class="close-btn" href="#"></a>
+
+        <!-- 검색창 -->
+        <!-- <div class="search-div">
+            <input type="search" class="search-field" placeholder="Search by location or keyword">
+        </div> -->
+
+        
+        <div class="input-search-keyword">
+            <!-- 레퍼런스는 form 태그 였음. ✅✅ -->
+            <div class="search-form">
+                <input id="search-popup-btn" class = "keyword-input" type="search" class="search-form" placeholder="Search by location or keyword">
+                <input class= "search-icon-btn" type="" >
+            </div>
+        </div>
+
+
+        <!-- 돋보기 모양 -->
+
+    </div>
+
+
+    <!-- 숨어있다가, 나오는 부분 : 로그인 popup-->
+    <div class="login-popup-content">
+        <div class="login-window">
+            <button id="login-close-btn" class="login-close-btn"> x </button>
+            
+        </div>
+    </div>
+
+    <!-- 숨어있다가, 나오는 부분 : 로그인 popup-->
+    <div class="collections-dropdown">
+        <div class="collections-container">
+
+            <!-- 1) Themes -->
+            <div class="collections-item-wrapper">
+                <!-- 1) headline -->
+                <h3 class="collections-headline">Themes</h3>
+
+                <!-- 2) gallery -->
+                <div class="collections-gallery">
+
+                    <!-- a) 아이템 01 -->
+                        <a class="collections-gallery-item" href="https://accidentallywesanderson.com/theme/cable-cars">
+                            <!-- ◼ 사진 -->
+                            <img class="lazy-entered-loaded"  src="https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/50549683_115085609593916_1961797280330727974_n-500x500.jpg?lossy=1&strip=1&webp=1" alt="">
+                            <!-- ◼ 제목 -->
+                            <span class="collections-item-title">Cable Cars</span>
+                        
+                        </a>
+                        
+                    <!-- a) 아이템 01 -->
+                        <a class="collections-gallery-item" href="https://accidentallywesanderson.com/theme/cable-cars">
+                            <!-- ◼ 사진 -->
+                            <img class="lazy-entered-loaded"  src="https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/50549683_115085609593916_1961797280330727974_n-500x500.jpg?lossy=1&strip=1&webp=1" alt="">
+                            <!-- ◼ 제목 -->
+                            <span class="collections-item-title">Cable Cars</span>
+                        
+                        </a>
+                        
+                    <!-- a) 아이템 01 -->
+                        <a class="collections-gallery-item" href="https://accidentallywesanderson.com/theme/cable-cars">
+                            <!-- ◼ 사진 -->
+                            <img class="lazy-entered-loaded"  src="https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/50549683_115085609593916_1961797280330727974_n-500x500.jpg?lossy=1&strip=1&webp=1" alt="">
+                            <!-- ◼ 제목 -->
+                            <span class="collections-item-title">Cable Cars</span>
+                        
+                        </a>
+                        
+                    <!-- a) 아이템 01 -->
+                        <a class="collections-gallery-item" href="https://accidentallywesanderson.com/theme/cable-cars">
+                            <!-- ◼ 사진 -->
+                            <img class="lazy-entered-loaded"  src="https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/50549683_115085609593916_1961797280330727974_n-500x500.jpg?lossy=1&strip=1&webp=1" alt="">
+                            <!-- ◼ 제목 -->
+                            <span class="collections-item-title">Cable Cars</span>
+                        
+                        </a>
+                        
+                    <!-- a) 아이템 01 -->
+                        <a class="collections-gallery-item" href="https://accidentallywesanderson.com/theme/cable-cars">
+                            <!-- ◼ 사진 -->
+                            <img class="lazy-entered-loaded"  src="https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/50549683_115085609593916_1961797280330727974_n-500x500.jpg?lossy=1&strip=1&webp=1" alt="">
+                            <!-- ◼ 제목 -->
+                            <span class="collections-item-title">Cable Cars</span>
+                        
+                        </a>
+                        
+                    <!-- a) 아이템 01 -->
+                        <a class="collections-gallery-item" href="https://accidentallywesanderson.com/theme/cable-cars">
+                            <!-- ◼ 사진 -->
+                            <img class="lazy-entered-loaded"  src="https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/50549683_115085609593916_1961797280330727974_n-500x500.jpg?lossy=1&strip=1&webp=1" alt="">
+                            <!-- ◼ 제목 -->
+                            <span class="collections-item-title">Cable Cars</span>
+                        
+                        </a>
+                        
+
+
+
+
+
+
+                </div>
+
+                <!-- 3) see all 버튼 -->
+
+
+            </div>
+
+            <!-- 2) color palettes -->
+
+
+
+        </div>
+    </div>
+
+
+
     <!-- 헤더 전체 감싸는 부분-->
     <header class="site_header">
 
@@ -113,13 +235,13 @@
             <div class="site_header__primary-nav--seachlogin">
 
                 <!-- search -->
-                <a href="#">
+                <a id="dropdown-search-form" href="#">
                     <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-search-red.svg" alt="">
                     Search
                 </a>
 
                 <!-- login -->
-                <a href="#login-popup">
+                <a id="id-login-btn" href="#login-popup">
                     <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt="">
                     Login
                 </a>
@@ -128,10 +250,11 @@
             </div>
 
             <!-- d) login 팝업 | 이쪽으로 검색 popup 이동? -->
-            <div class="site_header__primary-nav--loginPopup">
+            <!-- <div class="site_header__primary-nav--loginPopup">
 
-            </div>
+            </div> -->
 
+            
 
         </div>
 

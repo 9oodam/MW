@@ -75,6 +75,7 @@ body {
 
 
 a {
+    FONT-VARIANT: JIS04;
     color: #3e4240;
     text-decoration: none;
 }
@@ -96,7 +97,6 @@ body .top_banner {
     /* color: #3e4240; */
 
 }
-
 
 body .top_banner .top_banner_text {
     color: #ffffff;
@@ -262,6 +262,7 @@ list-style: none;
     display: inline-block;
 }
 
+
 .site_header__primary-nav--seachlogin a:first-child {
     /* 📛 마진 주의 📛 
         ⭐ 좌우로 맞추는 방법 뿐 아니라, 어떤 통일성을 갖고 싶어 */
@@ -287,6 +288,334 @@ list-style: none;
 /* ------------- header END ------------------------------ */
 
 
+
+
+/* ----------------  search - dropdown START ----------------- */
+
+.search-dropdown {
+    display: none;
+
+}
+
+.search-dropdown.is-active {
+    display: block;
+
+    /* transition: transform .25s ease, opacity .25s ease; */
+    transition: transform .25s ease;
+}
+
+
+.search-dropdown .input-search-keyword {
+
+position: fixed;
+
+z-index: 10;
+
+top: 0;
+
+left: 0;
+
+width: 100%;
+
+background-color: white;
+
+padding-top: 50px;
+
+padding-bottom: 50px;
+
+display: flex;
+
+justify-content: center;
+
+box-shadow: 2px 2px 7px 0 rgba(0,0,0,.1);
+
+/* transition: transform .25s ease,opacity .25s ease; */
+}
+
+.search-dropdown .input-search-keyword .search-form {
+    /* background-color: burlywood; */
+    width: 35%;
+    position: relative;
+    
+    /* 📛 마진 주의 📛 */
+    margin: 1px 0 0 1rem;
+    /* flex: 1; */
+
+
+}
+
+
+.search-dropdown .input-search-keyword .search-form .keyword-input {
+
+padding: 15px;
+
+/* padding: 0.9rem 1.5rem; */
+    
+    /* 📛 하드코딩 주의 📛 */
+
+width: calc(100% - 30px);
+
+font-size: 14px;
+
+text-transform: uppercase!important;
+
+/* height: 22px; */
+
+/* line-height: 22; */
+
+font-weight: lighter;
+
+font-family: 'GT_Pressura_Mono_Regular';
+
+letter-spacing: 0.01rem;
+
+text-transform: uppercase;
+    
+    /* ⭐⭐ input 에서 테두리 선을 없앨 수 있음. */
+
+border: none;
+
+border-radius: 50px;
+
+background-color: #fff;
+
+border: 1px solid #ee3024;
+
+color: black;
+
+transition: transform .5s ease,opacity .25s ease;
+}
+
+.search-dropdown .input-search-keyword .search-form .keyword-input::placeholder {
+    color: black;
+}
+
+
+.search-dropdown .input-search-keyword .search-icon-btn {
+    border: none;
+    width: 2.5rem;
+    height: 46px;
+    border-radius: 50px;
+    background-image: url(	https://accidentallywesanderson.com/wp-content/themes/awa/assets/img/icon-search.svg);
+    background-size: 55%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    position: absolute;
+    right: 45px;
+    top: 2px;
+    cursor: pointer;
+}
+
+
+.close-btn::before,
+.close-btn::after {
+    z-index: 11;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: block;
+    width: 17px;
+    height: 2px;
+    background-color: #ee3024;
+    content: "";
+}
+
+.close-btn::before {
+    transform: rotate(-45deg);
+}
+
+.close-btn::after {
+    transform: rotate(45deg);
+}
+
+
+
+
+/* ---------- SEARCH DROPDOWN END ----------------- */
+
+
+/* ---------- LOGIN DROPDOWN START ----------------- */
+.login-popup-content {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(37, 39, 38, 0.8);
+    /* opacity: 0.9; */
+
+    
+    /* 📛📛 z-index 주의 */
+    z-index: 11;
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-popup-content {
+    display: none;
+}
+
+.login-popup-content.is-active {
+    display: block;
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.login-popup-content .login-window {
+    width: 500px;
+    height: 500px;
+    background-color: white;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.login-close-btn {
+    width: 30px;
+    height: 30px;
+    /* background-color: blue; */
+    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 20px;
+    font-weight: 900;
+    font-family: 'GT_Pressura_Mono_Regular', sans-serif;
+
+    cursor: pointer;
+}
+
+/* ---------- LOGIN DROPDOWN END ----------------- */
+
+
+/* ---------- COLLECTIONS DROPDOWN START ----------------- */
+
+
+
+.collections-dropdown {
+    /* position: absolute; */
+    /* top: 167px; */
+    /* right: 50%; */
+
+    /* max-width: 880px; */
+    /* max-width: 100%; */
+    /* min-height: 0; */
+    /* height: 0; */
+
+    /* padding-top: 0; */
+    /* transform: translateX(50%); */
+    /* transition: height .25s ease; */
+    /* box-shadow: 2px 42px 45px 0 rgba(0,0,0,.15); */
+    background-color: #f8f3e4;
+    top: 180px;
+    
+    /* 📛 수동 위치값 */
+    width: 100%;
+    height: 542px;
+    position: absolute;
+
+    /* 📛 z index  */
+    z-index: 2;
+
+    /* 😥 애니메이션 하고 싶은데 */
+    transition: height .25s ease;
+    
+}
+
+
+.collections-dropdown::before {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #ee3024;
+    content: "";
+    display: block;
+}
+
+
+
+.collections-item-wrapper .collections-headline {
+    text-align: center;
+    font-family: 'GT_Pressura_Mono_Regular', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: .5px;
+}
+
+
+.collections-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.collections-gallery-item {
+    width: calc(33% - 17px);
+    flex-basis: calc(33% - 17px);
+
+}
+
+
+/* ⭐⭐⭐⭐⭐ 너무 중요  */
+.collections-gallery .collections-gallery-item::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(180deg,hsla(0,0%,97.6%,0) 14%,rgba(0,0,0,.52));
+    content: "";
+    transition: all .25s ease;
+}
+
+
+.collections-gallery .collections-gallery-item img {
+    max-width: 100%;
+    height: auto;
+
+    border-radius: 9px;
+
+    background-size: cover;
+    background-position: 50%;
+    overflow: hidden;
+    transition: transform .25s ease;
+}
+
+
+.collections-item-title {
+    /* 원래값 */
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    
+    font-family: 'freight_sans_pro_bold_regular', sans-serif;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 24px;
+
+    color: #fff;
+    text-align: center;
+    transition: bottom .25s ease;
+}
+
+/* ---------- COLLECTIONS DROPDOWN END ----------------- */
+
+
+
+
+
+
+
+
 /* ------------- main section START ------------------------------ */
 
 
@@ -309,7 +638,7 @@ list-style: none;
 .main_content .mix_desc_photo::after {
     position: absolute;
     
-    z-index: 10;
+    z-index: 1;
     background-color: #ee3024 ;
 
 
@@ -477,6 +806,7 @@ flex-wrap: wrap;
     margin: 0 0 0 1rem;
 
         /* flex: 1; */
+    
 }
 
 
@@ -597,15 +927,13 @@ flex-wrap: wrap;
     font-family: 'freight_sans_pro_black_regular';
     font-weight: 900;
     text-transform: uppercase;
-
     margin: 0;
 
     /* 📛 z index | absolute 등 주의 */
     position: absolute;
-    left: 210px;
+    left: 100px;
     z-index: 1;
     top: 80px;
-
 }
 
 
@@ -620,7 +948,7 @@ flex-wrap: wrap;
     /* 📛 z-index | absolute 등 📛 */
     z-index: 1;
     position: absolute;
-    right: 215px;
+    right: 110px;
     top: 91px;
 }
 
@@ -630,9 +958,12 @@ flex-wrap: wrap;
     width: 26px;
     height: 26px;
     background-image: url(https://accidentallywesanderson.com/wp-content/themes/awa/assets/img/nav-right-red.svg);
+    
+    background-position: center;
     opacity: .3;
     transition: opacity .25s ease;
 
+    border: none;
     cursor: pointer;
 
 }
@@ -702,7 +1033,7 @@ justify-content: space-evenly;
     height: 100%;
     /* float: left; */
 
-    background-color: lightcyan;
+    /* background-color: lightcyan; */
 }
 
 

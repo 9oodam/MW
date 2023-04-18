@@ -1,20 +1,57 @@
 
 
 // 🔷 중요 전역 변수 
-let itemMarginRight = 40;
-let itemWidth = 400;
 
-// item 바로위 = container
-let _gallerySlideContainer = document.querySelector('.gallery-slide-container')
-// item 전체 가져온 것
-let arrAllItem = document.querySelectorAll('.gallery-slide-item')
+// 🔷 스와이프 관련
+    let itemMarginRight = 40;
+    let itemWidth = 400;
 
-let itemCount = arrAllItem.length
+    // item 바로위 = container
+    let _gallerySlideContainer = document.querySelector('.gallery-slide-container')
+    // item 전체 가져온 것
+    let arrAllItem = document.querySelectorAll('.gallery-slide-item')
 
-let currentIndex = 0; 
+    let itemCount = arrAllItem.length
 
-let rightArrowBtn = document.querySelector('.nav-right-arrow')
-let leftArrowBtn = document.querySelector('.nav-left-arrow')
+    let currentIndex = 0; 
+
+    let rightArrowBtn = document.querySelector('.nav-right-arrow')
+    let leftArrowBtn = document.querySelector('.nav-left-arrow')
+
+
+// 검색 팝업 관련 (숨어있다 나오는)
+let searchPopupBtn = document.querySelector('#dropdown-search-form')
+let searchPopup = document.querySelector('#search-popup')
+let popupCloseBtn = document.querySelector('#popup-close-btn')
+
+// 로그인 팝업 관련 (숨어있다 나오는)
+let loginPopupContent = document.querySelector('.login-popup-content')
+let idLoginBtn = document.querySelector('#id-login-btn')
+
+let logincloseBtn = document.querySelector('#login-close-btn')
+
+
+// 🔷 검색창 popup
+searchPopupBtn.addEventListener('click', function() {
+    searchPopup.classList.add('is-active')
+})
+
+popupCloseBtn.addEventListener('click', function() {
+    searchPopup.classList.remove('is-active')
+
+})
+
+
+// 🔷 로그인 popup
+idLoginBtn.addEventListener('click', function() {
+    loginPopupContent.classList.add('is-active')
+})
+logincloseBtn.addEventListener('click', function(){
+    loginPopupContent.classList.remove('is-active')
+
+})
+
+
 
 // 🔷 clone + container 의 width 업데이트 
 
