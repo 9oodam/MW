@@ -862,9 +862,15 @@ for (let i = 0; i < window.localStorage.length; i++) {
 // | 으로 시작하는 로컬스토리지 key를 찾음
 let listfilter = localnames.filter((ff) => ff[0] == "|");
 
+if (listfilter.length == 0) {
+  alert("잘못된 경로 입니다.");
+  location.href = "./collections.html";
+}
+
+console.log(listfilter.length);
 // 찾아온 로컬스토리지 key로 value를 저장
 let tmplocal = JSON.parse(localStorage.getItem(`${listfilter}`));
-
+// console.log(tmplocal);
 // 만들어진 로컬 스토리지의 group이 THEMES 일 경우
 if (tmplocal.group == "THEMES") {
   let themesname = readthemes[tmplocal.cnt][tmplocal.sub];
