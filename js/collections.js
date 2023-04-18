@@ -22,37 +22,36 @@ function addtag(value) {
   img.src = value.img;
   div1.className = "colcard";
   div2.className = "colcardin";
+
   atag.onclick = function (e) {
-    tmp = e.target.className;
+    tmp = e.target.innerHTML;
 
-    // console.log(tmp);
-
-    if (tmp == "title") {
-      let tb = e.target.innerHTML;
-      console.log(tb);
-      tmp = tb;
-    }
-
-    // tm() 함수가 적용중일 경우
+    // tm() 함수가 적용 중일 경우
     if (themestag.classList.contains("addborder")) {
       gotothemes.forEach((value, index) => {
         if (gotothemes[index].name == tmp) {
           console.log(gotothemes[index]);
           localStorage.setItem("||", JSON.stringify(gotothemes[index]));
+          // let num = gotothemes[index].sub;
+          // let ta = JSON.parse(localStorage.getItem("THEMESIMG"));
+          // let tb = ta[0].cablecars;
+          // let tc = ta[0];
+          // console.log(tb);
+          // console.log(tc);
+        }
+      });
+    }
+
+    // cp() 함수가 적용 중일 경우
+    if (colortag.classList.contains("addborder")) {
+      gotocolor.forEach((value, index) => {
+        if (gotocolor[index].name == tmp) {
+          localStorage.setItem("||", JSON.stringify(gotocolor[index]));
         }
       });
     }
   };
-
-  if (colortag.classList.contains("addborder")) {
-    gotocolor.forEach((value, index) => {
-      if (gotocolor[index].name == tmp) {
-        console.log(gotocolor[index]);
-        localStorage.setItem("||", JSON.stringify(gotocolor[index]));
-      }
-    });
-  }
-  // atag.href = "./collist.html";
+  atag.href = "./collist.html";
 
   div3.className = "gradation";
 
@@ -65,109 +64,177 @@ function addtag(value) {
 }
 
 // 넘어갈 키워드 배열
-let gotocolor = [
+const gotocolor = [
   {
     name: "BLACK",
     sub: "blacks",
+    group: "COLORS",
+    cnt: 0,
+    desc: "Occasionally darkness is required to bring out the pops of color in contrast. Black. The opposite of White.",
   },
   {
     name: "BLUE",
     sub: "blues",
+    group: "COLORS",
+    cnt: 1,
+    desc: "Blue has been an important color since ancient times. Often associated with peace and harmony, explore our collection for calm vibes.",
   },
   {
     name: "BROWN",
     sub: "browns",
+    group: "COLORS",
+    cnt: 2,
+    desc: "Wood, brick, and a variety of construction materials often employ brown as a base color. This collection showcases some of the best browns around.",
   },
   {
     name: "GRAY",
     sub: "grays",
+    group: "COLORS",
+    cnt: 3,
+    desc: "Gray doesn't have to equate to drab. This collection features a wide array of images and locations that are, upon closer inspection, anything but!",
   },
   {
     name: "GREEN",
     sub: "greens",
+    group: "COLORS",
+    cnt: 4,
+    desc: "Lush natural scenery, fields of clover, sporting pitches, and brilliant emeralds - all green. Dive in to a collection filled with green goodness.",
   },
   {
     name: "ORANGE",
     sub: "oranges",
+    group: "COLORS",
+    cnt: 5,
+    desc: "The color and name of a popular fruit. You won't find any citrus in this colorful collection, but it is a tasty one nonetheless.",
   },
   {
     name: "PINK",
     sub: "pinks",
+    group: "COLORS",
+    cnt: 6,
+    desc: `"A "pop of pink" is a quintessential element of the AWA aesthetic. This popular collection provides a feast for the eyes that upon further inspection sets up some equally enchanting stories."`,
   },
   {
     name: "PURPLE",
     sub: "purples",
+    group: "COLORS",
+    cnt: 7,
+    desc: "Royal and regal, Purple has long been associated with the finer things in life. This petite collection is so lush that you can almost feel the velvet through the screen.",
   },
   {
     name: "RED",
     sub: "reds",
+    group: "COLORS",
+    cnt: 8,
+    desc: "Is it warm in here? Red, often associated with love, passion, and all things hot, you might need to cool off after exploring this collection.",
   },
   {
     name: "TURQUOISE",
     sub: "turquoises",
+    group: "COLORS",
+    cnt: 9,
+    desc: "Ahhh... Take a dip in this refreshing collection dominated by aquatic tones of turquoise and teal.",
   },
   {
     name: "WHITE",
     sub: "whites",
+    group: "COLORS",
+    cnt: 10,
+    desc: "Similar to the Black collection, White often serves as a contrast that allows other pops of color to take center stage. One thing is for certain, these snaps & stories aren't vanilla.",
   },
   {
     name: "YELLOW",
     sub: "yellows",
+    group: "COLORS",
+    cnt: 11,
+    desc: "An underrated color in the AWA universe, yellow has a lot to offer. We find that there is a lot to love when yellow appears as a pop of color and hope that you'll be delighted, too.",
   },
 ];
 
-let gotothemes = [
+const gotothemes = [
   {
     name: "CABLE CARS",
     sub: "cablecars",
+    group: "THEMES",
+    cnt: 0,
+    desc: "Aerial lifts, tramways, cableways... Occasionally the best way to get from point A to B is on a wire. Cable Cars were first pioneered for human transportation at the end of the 19th century and have maintained their value and charm with unique variations on the mode of transport across the globe.",
   },
   {
     name: "CLASSIC FACADES",
     sub: "classics",
+    group: "THEMES",
+    cnt: 1,
+    desc: `"The stunners contained within this theme scream AWA. Guess what, they are all real places, each with a story to tell. We invite you to explore some of the most "classic" spots around the globe."`,
   },
   {
     name: "DOORS",
     sub: "doors",
+    group: "THEMES",
+    cnt: 2,
+    desc: `"Many times a door is just a door, but sometimes the door represents passage to a new, fantastical place. Other times, the doors themselves have a certain charm, an undeniable "it factor". This collection contains doors of all kinds. Step through and discover something new."`,
   },
   {
     name: "EDUCATIONAL INSTITUTIONS",
     sub: "edus",
+    group: "THEMES",
+    cnt: 3,
+    desc: "Spanning all cultures and eras, Humanity's quest for knowledge is a constant from time immemorial. Each of the places and spaces within this theme have a connection to learning. Some formal, others less so.",
   },
   {
     name: "GOVERNMENT BUILDINGS",
     sub: "goves",
+    group: "THEMES",
+    cnt: 4,
+    desc: "The thought of a government building might bring to mind drab, unimaginative hallways and unmarked doors. It does not need to be so! These places represent the opposite of that aesthetic.",
   },
   {
     name: "HIDDEN WONDESRS",
     sub: "hiddens",
-  },
-  {
-    name: "HIDDEN WONDERS",
-    sub: "hiddens",
+    group: "THEMES",
+    cnt: 5,
+    desc: "A collection the most unusual places and things with deeper meanings and untold stories. Let's explore together!",
   },
   {
     name: "HOTEL / MOTEL",
     sub: "hms",
+    group: "THEMES",
+    cnt: 6,
+    desc: "Weary travelers have found unique places to lay their head since the beginning of human travel. The locations contained within the collection represent some of the more... extravagant, beautiful, and history-laden options.",
   },
   {
     name: "INTERIORS",
     sub: "inters",
+    group: "THEMES",
+    cnt: 7,
+    desc: "Who doesn't love an immaculately designed interior? It's where we spend most of our waking hours, at least for many of us. This collection represents the best of the best when you need a little inspiration for your own inside spaces.",
   },
   {
     name: "LIBRARY",
     sub: "libs",
+    group: "THEMES",
+    cnt: 8,
+    desc: "To get lost in a book is one of life's simple pleasures. To get lost in one of these libraries, well, you can let us know what you think!",
   },
   {
     name: "LIGHTHOUSE",
     sub: "lights",
+    group: "THEMES",
+    cnt: 9,
+    desc: "Beacons, most often situated on a coast, help watercraft avoid disaster while also guiding them to a friendly port. They come in all shapes and sizes, and each has a story to tell. Learn about these iconic sentinels of the sea (and lakes).",
   },
   {
     name: "MUSEUM",
     sub: "museums",
+    group: "THEMES",
+    cnt: 10,
+    desc: "A night at the museum? We'd need YEARS of exploration to get through all of these lovely homes of art, antiquity and ingenuity.",
   },
   {
     name: "NATURE",
     sub: "natures",
+    group: "THEMES",
+    cnt: 11,
+    desc: "The great outdoors. Sights, sounds, smells. Nature is a wonderful spot to get lost.",
   },
 ];
 // 페이지가 열리면 바로 실행

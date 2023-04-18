@@ -1,29 +1,3 @@
-// 페이지 로딩시 데이터 불러오기 위한 준비
-// let locallist = window.localStorage;
-
-// let localnames = [];
-
-// for (let i = 0; i < window.localStorage.length; i++) {
-//   let temp = window.localStorage.key(i);
-
-//   localnames.push(temp);
-// }
-// console.log(localnames);
-
-// let listfilter = JSON.parse(localnames.filter((e) => e[0] == '"'));
-// // localStorage.removeItem(`"${qwe}"`);
-
-// console.log(listfilter);
-
-// let tmplocal = localStorage.getItem(`"${listfilter}"`);
-// let namechk = tmplocal;
-// console.log(namechk);
-// let qewe = JSON.parse(localStorage.getItem(`${namechk}`));
-// console.log(qewe);
-
-// let po = JSON.parse(localStorage.setItem(`"${qwer}"`));
-// console.log(po);
-
 // card 생성자
 function createcard(title, img, country, location, description) {
   this.title = title;
@@ -37,8 +11,6 @@ function createcard(title, img, country, location, description) {
 
 //////////////////////////////////////////////////
 // create CABLE CARS
-let cabledesc =
-  "Aerial lifts, tramways, cableways... Occasionally the best way to get from point A to B is on a wire. Cable Cars were first pioneered for human transportation at the end of the 19th century and have maintained their value and charm with unique variations on the mode of transport across the globe.";
 
 let cable01 = new createcard(
   "CABLECARS",
@@ -70,7 +42,6 @@ let cable04 = new createcard(
 );
 
 // create CLASSIC FACADES
-let classicdesc = `"The stunners contained within this theme scream AWA. Guess what, they are all real places, each with a story to tell. We invite you to explore some of the most "classic" spots around the globe."`;
 
 let classic01 = new createcard(
   "CLASSIC FACADES",
@@ -102,7 +73,6 @@ let classic04 = new createcard(
 );
 
 // create DOORS
-let doordesc = `"Many times a door is just a door, but sometimes the door represents passage to a new, fantastical place. Other times, the doors themselves have a certain charm, an undeniable "it factor". This collection contains doors of all kinds. Step through and discover something new."`;
 
 let door01 = new createcard(
   "DOORS",
@@ -134,8 +104,6 @@ let door04 = new createcard(
 );
 
 // create EDUCATIONAL INSTITUTIONS
-let edudesc =
-  "Spanning all cultures and eras, Humanity's quest for knowledge is a constant from time immemorial. Each of the places and spaces within this theme have a connection to learning. Some formal, others less so.";
 
 let edu01 = new createcard(
   "EDUCATIONAL INSTITUTIONS",
@@ -167,8 +135,6 @@ let edu04 = new createcard(
 );
 
 // create GOVERNMENT BUILDINGS
-let govedesc =
-  "The thought of a government building might bring to mind drab, unimaginative hallways and unmarked doors. It does not need to be so! These places represent the opposite of that aesthetic.";
 
 let gove01 = new createcard(
   "GOVERNMENT BUILDINGS",
@@ -200,8 +166,6 @@ let gove04 = new createcard(
 );
 
 // create HIDDEN WONDERS
-let hiddendesc =
-  "A collection the most unusual places and things with deeper meanings and untold stories. Let's explore together!";
 
 let hidden01 = new createcard(
   "HIDDEN WONDERS",
@@ -233,8 +197,6 @@ let hidden04 = new createcard(
 );
 
 // create HOTEL / MOTEL
-let hmdesc =
-  "Weary travelers have found unique places to lay their head since the beginning of human travel. The locations contained within the collection represent some of the more... extravagant, beautiful, and history-laden options.";
 
 let hm01 = new createcard(
   "HOTEL / MOTEL",
@@ -266,8 +228,7 @@ let hm04 = new createcard(
 );
 
 // create INTERIORS
-let interdesc =
-  "Who doesn't love an immaculately designed interior? It's where we spend most of our waking hours, at least for many of us. This collection represents the best of the best when you need a little inspiration for your own inside spaces.";
+
 let inter01 = new createcard(
   "INTERIORS",
   "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/image-800x800.jpeg",
@@ -298,8 +259,6 @@ let inter04 = new createcard(
 );
 
 // create LIBRARY
-let libdesc =
-  "To get lost in a book is one of life's simple pleasures. To get lost in one of these libraries, well, you can let us know what you think!";
 
 let lib01 = new createcard(
   "LIBRARY",
@@ -331,8 +290,6 @@ let lib04 = new createcard(
 );
 
 // create LIGHTHOUSE
-let lightdesc =
-  "Beacons, most often situated on a coast, help watercraft avoid disaster while also guiding them to a friendly port. They come in all shapes and sizes, and each has a story to tell. Learn about these iconic sentinels of the sea (and lakes).";
 
 let light01 = new createcard(
   "LIGHTHOUSE",
@@ -364,8 +321,6 @@ let light04 = new createcard(
 );
 
 // create MUSEUM
-let museumdesc =
-  "A night at the museum? We'd need YEARS of exploration to get through all of these lovely homes of art, antiquity and ingenuity.";
 
 let museum01 = new createcard(
   "MUSEUM",
@@ -397,8 +352,7 @@ let museum04 = new createcard(
 );
 
 // create NATURE
-let naturedesc =
-  "The great outdoors. Sights, sounds, smells. Nature is a wonderful spot to get lost.";
+
 let nature01 = new createcard(
   "NATURE",
   "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/01/White-Sands-National-Park-_-Tyshaia-Earnest-_-@_tyshaia-800x800.jpg",
@@ -442,6 +396,7 @@ let lights = [light01, light02, light03, light04];
 let museums = [museum01, museum02, museum03, museum04];
 let natures = [nature01, nature02, nature03, nature04];
 
+// localstorage 생성
 localStorage.setItem(
   "THEMESIMG",
   `[{ "cablecars" : ${JSON.stringify(
@@ -461,20 +416,11 @@ localStorage.setItem(
   )}}]`
 );
 
-let asdf = JSON.parse(localStorage.getItem("THEMESIMG"));
-// console.log(asdf[0][0].cablecars[0]);
-// console.log(asdf[0]);
-
-// let aa = JSON.parse(localStorage.getItem("THEMESIMG"));
-// console.log(aa);
-
 ////////////////////////////////////////////////////////////////
 
 // COLOR PALETTE IMGS
 
 ////////////////////////////////////////////////////////////////
-let blackdesc =
-  "Occasionally darkness is required to bring out the pops of color in contrast. Black. The opposite of White.";
 
 let black01 = new createcard(
   "BLACK",
@@ -507,9 +453,6 @@ let black04 = new createcard(
 
 // create BLUE
 
-let bluedesc =
-  "Blue has been an important color since ancient times. Often associated with peace and harmony, explore our collection for calm vibes.";
-
 let blue01 = new createcard(
   "BLUE",
   "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/01/White-Sands-National-Park-_-Tyshaia-Earnest-_-@_tyshaia-800x800.jpg",
@@ -540,8 +483,6 @@ let blue04 = new createcard(
 );
 
 // create BROWN
-let browndesc =
-  "Wood, brick, and a variety of construction materials often employ brown as a base color. This collection showcases some of the best browns around.";
 
 let brown01 = new createcard(
   "BROWN",
@@ -573,8 +514,6 @@ let brown04 = new createcard(
 );
 
 // create gray
-let graydesc =
-  "Gray doesn't have to equate to drab. This collection features a wide array of images and locations that are, upon closer inspection, anything but!";
 
 let gray01 = new createcard(
   "GRAY",
@@ -606,8 +545,6 @@ let gray04 = new createcard(
 );
 
 // create green
-let greendesc =
-  "Lush natural scenery, fields of clover, sporting pitches, and brilliant emeralds - all green. Dive in to a collection filled with green goodness.";
 
 let green01 = new createcard(
   "GREEN",
@@ -639,8 +576,6 @@ let green04 = new createcard(
 );
 
 // create ORANGE
-let orangedesc =
-  "The color and name of a popular fruit. You won't find any citrus in this colorful collection, but it is a tasty one nonetheless.";
 
 let orange01 = new createcard(
   "ORANGE",
@@ -672,7 +607,6 @@ let orange04 = new createcard(
 );
 
 // create PINK
-let pinkdesc = `"A "pop of pink" is a quintessential element of the AWA aesthetic. This popular collection provides a feast for the eyes that upon further inspection sets up some equally enchanting stories."`;
 
 let pink01 = new createcard(
   "PINK",
@@ -704,8 +638,6 @@ let pink04 = new createcard(
 );
 
 // create PURPLE
-let purpledesc =
-  "Royal and regal, Purple has long been associated with the finer things in life. This petite collection is so lush that you can almost feel the velvet through the screen.";
 
 let purple01 = new createcard(
   "PURPLE",
@@ -737,8 +669,6 @@ let purple04 = new createcard(
 );
 
 // create RED
-let reddesc =
-  "Is it warm in here? Red, often associated with love, passion, and all things hot, you might need to cool off after exploring this collection.";
 
 let red01 = new createcard(
   "RED",
@@ -770,8 +700,6 @@ let red04 = new createcard(
 );
 
 // create TURQUOISE
-let turquoisedesc =
-  "Ahhh... Take a dip in this refreshing collection dominated by aquatic tones of turquoise and teal.";
 
 let turquoise01 = new createcard(
   "TURQUOISE",
@@ -803,8 +731,6 @@ let turquoise04 = new createcard(
 );
 
 // create WHITE
-let whitedesc =
-  "Similar to the Black collection, White often serves as a contrast that allows other pops of color to take center stage. One thing is for certain, these snaps & stories aren't vanilla.";
 
 let white01 = new createcard(
   "WHITE",
@@ -836,8 +762,6 @@ let white04 = new createcard(
 );
 
 // create YELLOW
-let yellowdesc =
-  "An underrated color in the AWA universe, yellow has a lot to offer. We find that there is a lot to love when yellow appears as a pop of color and hope that you'll be delighted, too.";
 
 let yellow01 = new createcard(
   "YELLOW",
@@ -913,6 +837,7 @@ let titletoptxt = document.querySelector(".title_top_txt");
 let titletoptxtp = titletoptxt.querySelector("p");
 
 let titlebottomtxt = document.querySelector(".title_bottom_txt");
+let titlebottomtxta = titlebottomtxt.querySelectorAll("a");
 let titlebottomtxtspan = titlebottomtxt.querySelectorAll("span");
 
 // THEMESIMG 불러오기
@@ -921,32 +846,68 @@ let readthemes = JSON.parse(localStorage.getItem("THEMESIMG"));
 // COLORIMG 불러오기
 let readcolor = JSON.parse(localStorage.getItem("COLORIMG"));
 
+// 페이지 로딩시 데이터 불러오기 위한 준비
+let locallist = window.localStorage;
+
+let localnames = [];
+
+// 로컬 스토리지의 모든 데이터의 key를 불러옴
+for (let i = 0; i < window.localStorage.length; i++) {
+  let temp = window.localStorage.key(i);
+
+  localnames.push(temp);
+}
+// console.log(localnames);
+
+// | 으로 시작하는 로컬스토리지 key를 찾음
+let listfilter = localnames.filter((ff) => ff[0] == "|");
+
+// 찾아온 로컬스토리지 key로 value를 저장
+let tmplocal = JSON.parse(localStorage.getItem(`${listfilter}`));
+
+// 만들어진 로컬 스토리지의 group이 THEMES 일 경우
+if (tmplocal.group == "THEMES") {
+  let themesname = readthemes[tmplocal.cnt][tmplocal.sub];
+
+  selectthemes(themesname);
+}
+
+// 만들어진 로컬 스토리지의 group이 COLORS 일 경우
+if (tmplocal.group == "COLORS") {
+  let colorname = readcolor[tmplocal.cnt][tmplocal.sub];
+
+  selectthemes(colorname);
+}
+
 // title 이미지 출력
 
 // h1 출력 / 변하는 부분 1
-titleh1.innerHTML = "CABLE CARS";
+
+// titleh1.innerHTML = "CABLE CARS";
+titleh1.innerHTML = `${tmplocal.name}`;
 
 // p태그 출력 / 변하는 부분 2
-titletoptxtp.innerHTML =
-  " Aerial lifts, tramways, cableways... Occasionally the best way toget from point A to B is on a wire. Cable Cars were firstpioneered for human transportation at the end of the 19th centuryand have maintained their value and charm with unique variationson the mode of transport across the globe.";
+
+// titletoptxtp.innerHTML =
+//   " Aerial lifts, tramways, cableways... Occasionally the best way toget from point A to B is on a wire. Cable Cars were firstpioneered for human transportation at the end of the 19th centuryand have maintained their value and charm with unique variationson the mode of transport across the globe.";
+titletoptxtp.innerHTML = `${tmplocal.desc}`;
 
 // span 출력 / 변하는 부분 3
-titlebottomtxtspan[4].innerHTML = "CABLE CARS";
 
-// console.log(readthemes[0].cablecars);
-let themesname = readthemes[0].cablecars;
-let colorname = readcolor[0].blacks;
-// console.log(themesname);
-// console.log(colorname);
+// titlebottomtxtspan[4].innerHTML = "CABLE CARS";
+titlebottomtxta[1].innerHTML = `${tmplocal.group}`;
+titlebottomtxtspan[4].innerHTML = `${tmplocal.name}`;
 
-// cardcover.addEventListener("click", function (e) {
-//   console.log(e.target.value);
-// });
+// themse 이미지 가져오기
+// let themesname = readthemes[tmplocal.cnt][tmplocal.sub];
+
+// color 이미지 가져오기
+// let colorname = readcolor[tmplocal.cnt][tmplocal.sub];
 
 // 선택된 이미지만 출력
 
-function selectthemes(themesname) {
-  themesname.forEach((value) => {
+function selectthemes(list) {
+  list.forEach((value) => {
     let readvalue = Object.values(value)[0];
     // console.log(value);
 
@@ -981,14 +942,15 @@ function selectthemes(themesname) {
     readvalue = "";
   });
 }
-selectthemes(themesname);
+
+// selectthemes(themesname);
 
 // 윈도우를 켜면 로딩이 끝난 후 함수 실행
 // 추후 다른곳에서 이미지를 클릭했을대 값을 가져와 데이터 출력해야함
-window.onload = function () {
-  contentwrap.innerHTML = "";
-  selectthemes(themesname);
-};
+// window.onload = function () {
+//   contentwrap.innerHTML = "";
+//   selectthemes(themesname);
+// };
 
 // window.addEventListener("click", function (e) {
 //   console.log(e.target.className);
