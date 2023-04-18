@@ -396,7 +396,7 @@ let lights = [light01, light02, light03, light04];
 let museums = [museum01, museum02, museum03, museum04];
 let natures = [nature01, nature02, nature03, nature04];
 
-// localstorage 생성
+// localstorage에 배열로 객체 생성
 localStorage.setItem(
   "THEMESIMG",
   `[{ "cablecars" : ${JSON.stringify(
@@ -867,7 +867,7 @@ if (listfilter.length == 0) {
   location.href = "./collections.html";
 }
 
-console.log(listfilter.length);
+// console.log(listfilter.length);
 // 찾아온 로컬스토리지 key로 value를 저장
 let tmplocal = JSON.parse(localStorage.getItem(`${listfilter}`));
 // console.log(tmplocal);

@@ -23,26 +23,40 @@ function addtag(value) {
   div1.className = "colcard";
   div2.className = "colcardin";
 
-  atag.onclick = function (e) {
+  div2.onclick = function (e) {
+    // 클릭한 이미지의 tag 값을 가져옴
     tmp = e.target.innerHTML;
+    // h4 태그를 누르면 innerHTML을 가져와 동작이 잘되지만 그라데이션을 누르면 div 부터 가져옴
+    // gradation div를 눌렀을때 하위 h4의 innerHTML을 가져오기 위해
+    // ta 변수에 target의 태그 정보를 저장
+    let ta = e.target;
+
+    // 그라데이션을 눌렀을 경우 실행
+    if (e.target.className == "gradation") {
+      // 그라데이션 자식 태그 h4의 innerHTML 값을 가져와
+      let tb = ta.querySelector("h4");
+      // tmp에 값을 저장해 h4 태그를 눌렀을때와 같은 동작을 하게 함
+      tmp = tb.innerHTML;
+    }
 
     // tm() 함수가 적용 중일 경우
+
+    // themestag에 addborder 클래스가 있는 경우 실행
     if (themestag.classList.contains("addborder")) {
+      // gotothemes 배열에 저장된 값을 가져옴
       gotothemes.forEach((value, index) => {
+        // gotothemes 배열에 저장된 name 값과 tmp 값 비교
         if (gotothemes[index].name == tmp) {
-          console.log(gotothemes[index]);
+          // console.log(gotothemes[index]);
+          // gotothemes 내용 중 name과 tmp가 일치한 객체를 로컬 스토리지에 저장
           localStorage.setItem("||", JSON.stringify(gotothemes[index]));
-          // let num = gotothemes[index].sub;
-          // let ta = JSON.parse(localStorage.getItem("THEMESIMG"));
-          // let tb = ta[0].cablecars;
-          // let tc = ta[0];
-          // console.log(tb);
-          // console.log(tc);
         }
       });
     }
 
     // cp() 함수가 적용 중일 경우
+
+    // colortag addborder 클래스가 있는 경우 실행
     if (colortag.classList.contains("addborder")) {
       gotocolor.forEach((value, index) => {
         if (gotocolor[index].name == tmp) {
@@ -244,13 +258,17 @@ const gotothemes = [
 
 // onclick THEMES
 function tm() {
+  // 이미지 배열 초기화
   colcardwrap.innerHTML = "";
 
+  // 상단 THEMES 클릭시 THEMES에 border가 생기고 COLOR에 border 삭제
   themestag.classList.add("addborder");
   colortag.classList.remove("addborder");
 
+  // 로컬 스토리지에 저장된 THEMES 정보를 가져옴
   let themearr = JSON.parse(localStorage.getItem("THEMES"));
 
+  // 가져온 THEMES 정보를 출력
   themearr.forEach((value) => {
     addtag(value);
   });
@@ -258,11 +276,14 @@ function tm() {
 
 // onclick COLOR PALETTE
 function cp() {
+  // 이미지 배열 초기화
   colcardwrap.innerHTML = "";
 
+  // 상단 COLOR에 클릭시  COLOR에 border가 생기고 THEMES에 border 삭제
   themestag.classList.remove("addborder");
   colortag.classList.add("addborder");
 
+  // 로컬 스토리지에 저장된 COLORPALETTE 정보를 가져와 출력
   let colorarr = JSON.parse(localStorage.getItem("COLORPALETTE"));
   colorarr.forEach((value) => {
     addtag(value);
