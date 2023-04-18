@@ -1,3 +1,74 @@
+// 다른 html 파일 불러오기
+// 헤더파일 하나로 다른 html 문서에 불러 들여 쓸 수 있게 해주는 스크립트
+function includeHTML() {
+    let z, elmnt, file, xhttp;
+  
+    z = document.getElementsByTagName("*");
+  
+    for (let i = 0; i < z.length; i++) {
+      elmnt = z[i];
+      file = elmnt.getAttribute("data-include");
+  
+      if (file) {
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4) {
+            if (this.status == 200) {
+                elmnt.innerHTML = this.responseText;
+                searchlogin();
+            }
+            if (this.status == 404) {
+              elmnt.innerHTML = "Page not found.";
+            }
+            /* Remove the attribute, and call this function once more: */
+            elmnt.removeAttribute("data-include");
+            includeHTML();
+          } //if
+        }; //onreadystatechange
+  
+        xhttp.open("GET", file, true);
+        xhttp.send();
+        return;
+      } //if - file
+    } //for
+} //includeHTML
+  
+  /* 실행 */
+window.addEventListener("DOMContentLoaded", () => {
+    includeHTML();
+});
+  
+// search btn
+function searchlogin(){
+    let ta = document.querySelector(".he");
+    // 검색 팝업 관련 (숨어있다 나오는)
+    let searchPopupBtn = ta.querySelector('#dropdown-search-form');
+    let searchPopup = ta.querySelector('#search-popup');
+    let popupCloseBtn = ta.querySelector('#popup-close-btn');
+    // 로그인 팝업 관련 (숨어있다 나오는)
+    let loginPopupContent = ta.querySelector('.login-popup-content')
+    let idLoginBtn = ta.querySelector('#id-login-btn')
+    
+    let logincloseBtn = ta.querySelector('#login-close-btn')
+  
+    // 🔷 로그인 popup
+    idLoginBtn.addEventListener('click', function() {
+        loginPopupContent.classList.add('is-active')
+    });
+    logincloseBtn.addEventListener('click', function(){
+        loginPopupContent.classList.remove('is-active')
+    });
+  
+    // 🔷 검색창 popup
+    searchPopupBtn.addEventListener('click', function() {
+        searchPopup.classList.add('is-active')
+    });
+  
+    popupCloseBtn.addEventListener('click', function() {
+        searchPopup.classList.remove('is-active')
+    });
+}
+  
 // 전역 변수
 let _json = '{"key" : "value"}';
 let _board = document.querySelector(".board_body");
@@ -79,7 +150,7 @@ function addList() {
     let value = window.localStorage.getItem("bulletin-board");
     console.log(value); 
 
-    if(window.localStorage.length == 0) {
+    if(!value) {
         console.log("리스트 첫 추가");
         window.localStorage.setItem("bulletin-board", `{"title" : "${_title}", "details" : "${_details}", "nickname" : "", "date" : "${_date}"}`);
     }else {
@@ -108,6 +179,7 @@ function render(_json2) {
     console.log(_json2);
 
     let _ul = document.createElement("ul");
+    _ul.classList.add("board_list");
     let _li = document.createElement("li");
 
     let _div1 = document.createElement("div");

@@ -4,29 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Main Page</title>
 
     <link rel="stylesheet" href="/css/home.css">
-
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/signup.css">
 </head>
 
-
 <body>
-
-
     <!-- 맨 위, 빨간 배너  -->
     <div class="top_banner">
-
         <p class="top_banner_text">
             Save favorites.
-            
-            <!-- sign up 페이지로 이동 -->
+            <!-- 회원가입 페이지로 이동 -->
             <a href="https://accidentallywesanderson.com/sign-up/"> Plan your next adventure</a>
         </p>
-        
-
     </div>
-
 
     <!-- 숨어있다가, 나오는 부분 : 검색 popup -->
     <div class="search-dropdown" id="search-popup">
@@ -39,7 +32,6 @@
             <input type="search" class="search-field" placeholder="Search by location or keyword">
         </div> -->
 
-        
         <div class="input-search-keyword">
             <!-- 레퍼런스는 form 태그 였음. ✅✅ -->
             <div class="search-form">
@@ -47,141 +39,165 @@
                 <input class= "search-icon-btn" type="" >
             </div>
         </div>
-
-
         <!-- 돋보기 모양 -->
-
     </div>
-
 
     <!-- 숨어있다가, 나오는 부분 : 로그인 popup-->
     <div class="login-popup-content">
+        <!-- 로그인 popup -->
         <div class="login-window">
             <button id="login-close-btn" class="login-close-btn"> x </button>
+            <div class="center is-active">
+                <h1>login</h1>
+                <div class="form">
+                    <div class="txt_field">
+                        <input type="text" id="username" name="username" required>
+                        <span></span>
+                        <label for="username">name</label>
+                    </div>
+                </div>
+                <div class="form">
+                    <div class="txt_field">
+                        <input type="password" id="password" name="password" required>
+                        <span></span>
+                        <label for="password" >password</label>
+                    </div>
+        
+                    <div class="pass">Forget password?</div>
+                        <input type="submit" value="Login" id="loginButton"onclick="login()">
+                    <div class="signup_link">
+                        Not a member? <a href="signup.html">Signup</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 회원가입 popup -->
+        <div class="center">
+            <h1>Sign up</h1>
+            <div class="login-center">
+                already have an account?  <ins class="text">Log in</ins>   
+            </div>
+            <div class="border"><a href="https://www.google.com">CONTINUE WITH GOOGLE</a>
+            </div>
+            <br>
+            <div class="border1"><a href="https://www.apple.com">  CONTINUE WITH APPLE</a>
+            </div>
+            <div class="form">
+                <div class="txt_field">
+                    <input type="text" id="nickname" required>
+                    <span></span>
+                    <label>nickname</label>
+                </div>
+                <div class="txt_field">
+                    <input type="text" id="name" required>
+                    <span></span>
+                    <label >name</label>
+                </div>
+            </div>
+            <div class="form">
+                <div class="txt_field">
+                    <input type="password" id="password" required>
+                    <span></span>
+                    <label >password</label>
+                </div>
+                <span class="span-position">password must be at least 8 characters</span>
             
+                <input type="checkbox" class="any">
+                "i agree to the"
+                <a href="/privacy-policy/" style="text-decoration: underline;">privacy Policy</a>"and"
+                <a href ="/terms/"style="text-decoration: underline;">terms of use</a>
+                <span class="checkmark">
+                <br>
+                <input type="checkbox" class="checkbox1">
+                "subscribe to the AWA Bi-Weekly Bulletin (ps: we will never share or seel your information to anyone under any circumstance, ever)"
+                <a href="/terms/"style="text-decoration: underline;">terms of use</a>
+                <span class="checkmark"></span>
+                <input type="submit" value="Sign up" id="signup" onclick="signup()">
+            </div>
         </div>
     </div>
-
-    <!-- 숨어있다가, 나오는 부분 : 로그인 popup-->
-
-
-
-
-
-        </div>
-    </div>
-
-
 
     <!-- 헤더 전체 감싸는 부분-->
     <header class="site_header">
-
         <!-- 1) 로고(LOGO), 검색 popup 반응형 목차 | ❓ 검색이 왜 여기에 있지❓-->
         <div class="site_header__top">   
-
             <!-- 1). search 눌렀을 때 나오는 '검색 영역' -->
             <div class="site_header__top_search">      
-
             </div>
-
             <!-- 2). AWA 로고 영역 -->
             <div class="site_header__top_logo"> 
-            
                 <a href="/" class="a_tag">
                     <img class="img_tag" src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/awa-nav-logo.svg" alt="Accidentally Wes Anderson Logo">
                 </a>
             </div>
-
             <!-- 3). 반응형 목차 -->
             <div class="site_header__top_respMenu">
-
             </div>
-
         </div>
 
         <!-- 2) 메뉴 탭 (nav bar) -->
         <div class="site_header__primary-nav"> 
-
             <!-- a) 소셜(인스타,페북) -->
             <div class="site_header__primary-nav--social">
                 <!-- (1) 인스타그램 -->
                 <a href="https://www.instagram.com/accidentallywesanderson/">
                     <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-ig-red.svg" alt="">
                 </a>
-
                 <!-- (2) 페이스북 -->
                 <a href="https://www.facebook.com/accidentallywesanderson/">
                     <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-fb-red.svg" alt="">
                 </a>
-                
             </div>
 
             <!-- b) nav bar (메뉴 bar) -->
             <div class="site_header__primary-nav--menus">
-
                 <ul class="nav_menus">
-                    
                     <!-- (1) collection popup -->
                     <li>
                         <!-- ⭐ collection 은 popup 식으로!
                         이걸 위에 header 에서 처리하네? 왜지? 음. -->
-                        <a href="#"> Collections</a>
+                        <a href="./collections.html"> Collections</a>
                     </li>
-
                     <!-- (2) stories -->
                     <li>
-                        <a href="https://accidentallywesanderson.com/stories/">Stories</a>
+                        <a href="./storiese.html">Stories</a>
                     </li>
-
                     <!-- (3) submit -->
                     <li>
-                        <a href="https://accidentallywesanderson.com/submissions/">Submit</a>
+                        <a href="./submit.html">Submit</a>
                     </li>
-
                     <!-- (4) my page 
                         문제점 : 실제 홈페이지에서는 1) 로그인 2) 우측 상단에 my page 가 생김
                         생각 : 여기에 있을게 아니라, search, login 영역으로 이동해야? -->
                     <li>
-                        <a href="https://accidentallywesanderson.com/user-profile/anotheryear.hm/">MyPage❓</a>
+                        <a href="./myPage.html">MyPage❓</a>
                     </li>
-
                     <!-- (5) board -->
                     <li>
-                        <a href="https://shop.accidentallywesanderson.com/">Board</a>
+                        <a href="./board.html">Board</a>
                     </li>
-
                 </ul>
             </div>
 
-
             <!-- c) search + login -->
             <div class="site_header__primary-nav--seachlogin">
-
                 <!-- search -->
                 <a id="dropdown-search-form" href="#">
                     <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-search-red.svg" alt="">
                     Search
                 </a>
-
                 <!-- login -->
                 <a id="id-login-btn" href="#login-popup">
                     <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt="">
                     Login
                 </a>
-                
-
             </div>
 
             <!-- d) login 팝업 | 이쪽으로 검색 popup 이동? -->
             <!-- <div class="site_header__primary-nav--loginPopup">
 
             </div> -->
-
-            
-
         </div>
-
-
     </header>
 
 
@@ -886,7 +902,9 @@
 
 </body>
 
-
 <script src="./js/home.js"></script>
+<script src="./js/login.js"></script>
+<script src="./js/signup.js"></script>
+<script src="./js/localstorage.js"></script>
 
 </html>

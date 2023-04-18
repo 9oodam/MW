@@ -1,3 +1,76 @@
+// 다른 html 파일 불러오기
+// 헤더파일 하나로 다른 html 문서에 불러 들여 쓸 수 있게 해주는 스크립트
+function includeHTML() {
+  let z, elmnt, file, xhttp;
+
+  z = document.getElementsByTagName("*");
+
+  for (let i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    file = elmnt.getAttribute("data-include");
+
+    if (file) {
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4) {
+          if (this.status == 200) {
+            elmnt.innerHTML = this.responseText;
+            searchlogin();
+          }
+          if (this.status == 404) {
+            elmnt.innerHTML = "Page not found.";
+          }
+          /* Remove the attribute, and call this function once more: */
+          elmnt.removeAttribute("data-include");
+          includeHTML();
+        } //if
+      }; //onreadystatechange
+
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      return;
+    } //if - file
+  } //for
+} //includeHTML
+
+/* 실행 */
+window.addEventListener("DOMContentLoaded", () => {
+  includeHTML();
+});
+
+// search btn
+function searchlogin(){
+let ta = document.querySelector(".he");
+// 검색 팝업 관련 (숨어있다 나오는)
+let searchPopupBtn = ta.querySelector('#dropdown-search-form');
+let searchPopup = ta.querySelector('#search-popup');
+let popupCloseBtn = ta.querySelector('#popup-close-btn');
+// 로그인 팝업 관련 (숨어있다 나오는)
+let loginPopupContent = ta.querySelector('.login-popup-content')
+let idLoginBtn = ta.querySelector('#id-login-btn')
+
+let logincloseBtn = ta.querySelector('#login-close-btn')
+
+// 🔷 로그인 popup
+idLoginBtn.addEventListener('click', function() {
+    loginPopupContent.classList.add('is-active')
+});
+logincloseBtn.addEventListener('click', function(){
+    loginPopupContent.classList.remove('is-active')
+});
+
+// 🔷 검색창 popup
+searchPopupBtn.addEventListener('click', function() {
+  searchPopup.classList.add('is-active')
+});
+
+popupCloseBtn.addEventListener('click', function() {
+  searchPopup.classList.remove('is-active')
+});
+}  
+
+
+    
 // 이미지 그려주는 함수
 let colcardwrap = document.querySelector(".colcardwrap");
 let colcard = document.querySelector(".colcard");
@@ -289,6 +362,11 @@ function cp() {
     addtag(value);
   });
 }
+
+
+
+
+
 
 // 이미지 클릭하면 로컬스토리지 정보 불러오기
 // let gradations = document.querySelectorAll(".gradation");

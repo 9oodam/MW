@@ -132,7 +132,7 @@ body .top_banner .top_banner_text {
 .site_header .site_header__top .site_header__top_logo {
     height: auto;
     width: auto;
-    /* background-color: aqua; */
+    background-color: #ffffff;
 
     display: flex;
     justify-content: center;
@@ -170,7 +170,7 @@ body .top_banner .top_banner_text {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    background-color: #ffffff;
     
 }
 
@@ -471,6 +471,9 @@ transition: transform .5s ease,opacity .25s ease;
 
     display: flex;
     justify-content: flex-end;
+}
+.center.is-active {
+    display: none;
 }
 
 
