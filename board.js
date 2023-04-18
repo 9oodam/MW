@@ -338,10 +338,10 @@ searchSubmit.addEventListener("click", function() {
 
         // 찾는 것이 있으면 _json3 배열에 저장
         if(findTitle.includes(searchInput) || findName.includes(searchInput)) {
-            console.log("찾았다", _json2[i]);
+            //console.log("찾았다", _json2[i]);
             _json3.push(_json2[i]);
         }else {
-            console.log("못찾았다", _json2[i]);
+            //console.log("못찾았다", _json2[i]);
         }
 
         // 찾는 것이 없으면 NO SEARCHED 뜨게
@@ -351,32 +351,70 @@ searchSubmit.addEventListener("click", function() {
             noSearched.classList.remove("is-active");
         }
     }
-    _board.innerHTML = "";
+    _board.innerHTML = ""; // 게시판 초기화
+    paging.innerHTML = ""; // 페이징 번호 초기화
     render(_json3);
+    pagination(_json3);
 });
 
 
 // Pagination
-let paging = document.querySelector(".paging"); // 페이징 번호 div
+let pagingPrev = document.querySelector(".paging_prev");
+let paging = document.querySelector(".paging"); // 페이징 번호 보여주는 곳
+let pagingNext = document.querySelector(".paging_next");
 function pagination(_json2) {
-    console.log(_json2);
+    console.log(_json2); // 리스트에 출력되는 배열 가져옴
+    let _json = [];
 
     let totalList = _json2.length; // 총 게시글 수
-    console.log(totalList);
+    console.log("게시글 수: ", totalList);
 
-    let totalPage = Math.ceil(totalList / 10); // 한 페이지에 10개씩
-    console.log(totalPage); // 총 페이지 수
+    let totalPage = Math.ceil(totalList / 10); // 총 페이지 수
+    console.log("총 페이지 수: ", totalPage);   // 한 페이지에 10개씩
 
+    paging.style.top = "0px";
+
+    // 이전 버튼
+    let prevBtn = document.createElement("div");
+    if(totalPage > 3) {
+        prevBtn.innerHTML = "◀";
+        prevBtn.classList.add("paging_btn");
+        pagingPrev.append(prevBtn);
+        prevBtn.addEventListener("click", function() {
+            console.log("prevBtn 눌림");
+            paging.style.top = `${0}px`;
+        });
+    }
+
+    // 번호
     for (let i = 1; i <= totalPage; i++) {
         let pagingBtn = document.createElement("div");
         pagingBtn.innerHTML = i;
+        pagingBtn.id = i;
+
         pagingBtn.classList.add("paging_btn");
+        pagingBtn.classList.add("paging_btn_number")
         paging.append(pagingBtn);
 
-        /*
         pagingBtn.addEventListener("click", function() {
-            render
+            console.log("pagingBtn 눌림: ", i);
+            _json = _json2.slice(10 * (i-1), 10 * i);
+
+            _board.innerHTML = ""; // 게시판 초기화
+            render(_json);
         });
-        */
+    }
+
+    // 다음 버튼
+    let nextBtn = document.createElement("div");
+    if(totalPage > 3) {
+        nextBtn.innerHTML = "▶";
+        nextBtn.classList.add("paging_btn");
+        pagingNext.append(nextBtn);
+        nextBtn.addEventListener("click", function() {
+            console.log("nextBtn 눌림");
+            // pagingTop = `${pagingTop - 40}px`;
+            paging.style.top = `${-40}px`;
+        });
     }
 }
