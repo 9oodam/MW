@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/submit.css" />
+  </head>
+  <body>
+    <!-- 나중에 헤더 완성되면 연결하면 경로 바꾸면됨 -->
+    <!-- <header data-include="./test.html"></header> -->
+    <!-- 임시 헤더 영역 -->
+    <div class="headerbox"></div>
+
+    <!-- 타이틀 시작 -->
+    <div class="subheader">
+      <div class="subwrap">
+        <h1>SUBMIT YOUR PHOTOS & VIDEOS</h1>
+        <p>
+          Did you know 90% of photos & videos shared by MW were taken on a
+          smartphone camera?
+        </p>
+        <span>
+          Max file size: 6MB. Please save file at highest quality while staying
+          under 6MB. Larger file? Please send via WeTransfer.com to
+          hi@accidentallywesanderson.com – please include contact and credit
+          information in transfer.
+        </span>
+      </div>
+    </div>
+
+    <!-- submit content start -->
+    <div class="subcon">
+      <div class="subconwrap">
+        <div class="imgupload">
+          <input type="file" id="upload" accept="image/*" />
+          <!-- img에 이미지가 없을때 나오는 엑박을 안보이게 해줌 -->
+          <!-- onerror="this.style.display='none'  -->
+          <img id="pv" onerror="this.style.display='none'" />
+          <a href="" download=""></a>
+        </div>
+
+        <!-- 사진 정보 입력 -->
+        <div class="subinput">
+          <div class="subinputs">
+            <span>country*</span>
+            <input type="text" name="" id="" />
+            <span>city*</span>
+            <input type="text" />
+            <span>location*</span>
+            <input type="text" />
+          </div>
+          <div class="btnbox">
+            <div class="submitbtn" onclick="subimg()">SUBMIT</div>
+          </div>
+          <!-- <a href="이미지주소" download="파일명">
+            <img src="이미지주소" />
+          </a> -->
+        </div>
+      </div>
+    </div>
+    <!-- submit content end -->
+  </body>
+  <script src="./js/header.js"></script>
+  <script src="./js/submit.js"></script>
+</html>
