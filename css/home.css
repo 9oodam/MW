@@ -7,28 +7,28 @@
     font-family: 'freight_sans_pro_bold_regular';
     font-weight: 900; 
     font-style: normal; 
-    src: url(./font/FreightSansProBold-Regular.ttf);
+    src: url(/font/FreightSansProBold-Regular.ttf);
 }
 
 @font-face {
     font-family: 'freight_sans_pro_black_regular';
     font-weight: 700;
     font-style: normal; 
-    src: url(./font/FreightSansProBlack-Regular.ttf);
+    src: url(/font/FreightSansProBlack-Regular.ttf);
 }
 
 @font-face {
     font-family: 'freight_sans_pro_semibold_regular';
     font-weight: 500;
     font-style: normal; 
-    src: url(./font/FreightSansProSemibold-Regular.ttf);
+    src: url(/font/FreightSansProSemibold-Regular.ttf);
 }
 
 @font-face {
     font-family: 'freight_sans_pro_medium_regular';
     font-weight: 300;
     font-style: normal; 
-    src: url(./font/FreightSansProMedium-Regular.ttf);
+    src: url(/font/FreightSansProMedium-Regular.ttf);
 }
 
 
@@ -36,14 +36,14 @@
     font-family: 'freight_sans_pro_light_regular';
     font-weight: 100;
     font-style: normal; 
-    src: url(./font/FreightSansProLight-Regular.ttf);
+    src: url(/font/FreightSansProLight-Regular.ttf);
 }
 
 
 
 @font-face {
     font-family: 'GT_Pressura_Mono_Regular';
-    src: url(./font/GT-Pressura-Mono-Regular-Trial.woff2);
+    src: url(/font/GT-Pressura-Mono-Regular-Trial.woff2);
 }
 
 
