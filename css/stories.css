@@ -217,9 +217,13 @@ body {
 }
 .imgcardin .imgbtm {
   width: 100%;
+  height: 40px;
   background-color: #fad0c3;
   padding: 8px 15px;
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .imgbtm .imgbtmtxt {
