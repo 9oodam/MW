@@ -2,6 +2,7 @@
 
 // 🔷 중요 전역 변수 
 
+
 // 🔷 스와이프 관련
     let itemMarginRight = 40;
     let itemWidth = 400;
@@ -29,6 +30,86 @@ let loginPopupContent = document.querySelector('.login-popup-content')
 let idLoginBtn = document.querySelector('#id-login-btn')
 
 let logincloseBtn = document.querySelector('#login-close-btn')
+
+
+// collection 팝업 관련
+let navCollectionsBtn = document.querySelector('.nav-collections-btn')
+let collectionsDropdown = document.querySelector('.collections-dropdown')
+
+
+let siteHeaderprimary = document.querySelector('.site_header__primary-nav')
+let responsiveTopLogo = document.querySelector('.responsive-top-logo')
+let dropdownSearchForm = document.querySelector('#dropdown-search-form')
+let reponsiveLoginBtn = document.querySelector('#id-login-btn')
+let navInstagramBtn = document.querySelector('.nav-instagram-btn')
+let NavResponsiveHham = document.querySelector('.site_header__primary-nav--responsive-ham')
+let primaryNavMenus = document.querySelector('.site_header__primary-nav--menus')
+let primaryNavSocial = document.querySelector('.site_header__primary-nav--social')
+let primaryNavSeachlogin = document.querySelector('.site_header__primary-nav--seachlogin')
+
+
+// 🔷 nav-bar 반응형1 : 1) Y 스크롤에만 반응
+window.addEventListener('scroll', function() {
+    let scrollY = window.pageYOffset
+
+    if (scrollY > 200) {
+        siteHeaderprimary.classList.add('is-scrolled');
+        responsiveTopLogo.classList.add('is-scrolled');
+        dropdownSearchForm.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-search-red.svg" alt="">`
+        reponsiveLoginBtn.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt="">`
+        navInstagramBtn.style.marginRight = '10px'
+        dropdownSearchForm.style.marginRight = '40px'
+
+
+    } else {
+        siteHeaderprimary.classList.remove('is-scrolled')
+        responsiveTopLogo.classList.remove('is-scrolled');
+        navInstagramBtn.style.marginRight = '0px'
+        // dropdownSearchForm.style.marginRight = '100px'
+
+    }
+});
+
+
+// 🔷 nav-bar 반응형2 : 2) width 1200px 이하 에만 반응  
+
+window.addEventListener('resize', function() {
+    if (window.innerWidth < 1200) {
+        // 그러면,  site_header + 가로 클래스를 ON 해주기! 
+
+
+        // 오른쪽 숨겨져 있는 햄버거 메뉴바
+        NavResponsiveHham.classList.add('is-active')
+        primaryNavMenus.style.display = 'none'
+        primaryNavSocial.style.display = 'none'
+        idLoginBtn.style.display = 'none'
+        
+        // 상단 nav bar 디자인
+        // siteHeaderprimary.classList.add('is-scrolled')
+        // primaryNavSeachlogin.style.marginRight = '0px'
+        // siteHeaderprimary.style.justifyContent = 'space-between'
+        // primaryNavSeachlogin.style.height = '20px'
+        // primaryNavSeachlogin.style.height = '20px'
+        
+
+        console.log("1200 아래!")
+    } else {
+        primaryNavMenus.style.display = 'block'
+        primaryNavSocial.style.display = 'block'
+        idLoginBtn.style.display = 'block'
+    }
+})
+
+
+
+
+
+
+// 🔷 콜렉션 popupCloseBtn
+navCollectionsBtn.addEventListener('click', function() {
+    collectionsDropdown.classList.add('is-active')
+})
+
 
 
 // 🔷 검색창 popup
