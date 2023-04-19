@@ -96,6 +96,8 @@ function subimg() {
       //   `${JSON.stringify(tt)}` + "::" + `${JSON.stringify(testlocal)}`
       // );
       localStorage.setItem("imgupload", JSON.stringify(tt));
+
+      location.reload();
     }
   }
 }
