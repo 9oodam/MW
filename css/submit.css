@@ -142,4 +142,21 @@ body {
   font-size: 16px;
 }
 
+@media screen and (max-width: 1150px) {
+  .subcon .subconwrap {
+    display: block;
+  }
+  .subcon .subconwrap .imgupload {
+    width: 50%;
+    margin: 0 auto;
+  }
+  .subcon .subconwrap .subinput {
+    width: 50%;
+    margin: 10px auto 0;
+  }
+  .subinput .subinputs {
+    padding: 0;
+  }
+}
+
 /* 사진 정보 입력 끝 */
