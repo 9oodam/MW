@@ -39,36 +39,35 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // search btn
-function searchlogin(){
-let ta = document.querySelector(".he");
-// 검색 팝업 관련 (숨어있다 나오는)
-let searchPopupBtn = ta.querySelector('#dropdown-search-form');
-let searchPopup = ta.querySelector('#search-popup');
-let popupCloseBtn = ta.querySelector('#popup-close-btn');
-// 로그인 팝업 관련 (숨어있다 나오는)
-let loginPopupContent = ta.querySelector('.login-popup-content')
-let idLoginBtn = ta.querySelector('#id-login-btn')
+function searchlogin() {
+  let ta = document.querySelector(".he");
+  // 검색 팝업 관련 (숨어있다 나오는)
+  let searchPopupBtn = ta.querySelector("#dropdown-search-form");
+  let searchPopup = ta.querySelector("#search-popup");
+  let popupCloseBtn = ta.querySelector("#popup-close-btn");
+  // 로그인 팝업 관련 (숨어있다 나오는)
+  let loginPopupContent = ta.querySelector(".login-popup-content");
+  let idLoginBtn = ta.querySelector("#id-login-btn");
 
-let logincloseBtn = ta.querySelector('#login-close-btn')
+  let logincloseBtn = ta.querySelector("#login-close-btn");
 
-// 🔷 로그인 popup
-idLoginBtn.addEventListener('click', function() {
-    loginPopupContent.classList.add('is-active')
-});
-logincloseBtn.addEventListener('click', function(){
-    loginPopupContent.classList.remove('is-active')
-});
+  // 🔷 로그인 popup
+  idLoginBtn.addEventListener("click", function () {
+    loginPopupContent.classList.add("is-active");
+  });
+  logincloseBtn.addEventListener("click", function () {
+    loginPopupContent.classList.remove("is-active");
+  });
 
-// 🔷 검색창 popup
-searchPopupBtn.addEventListener('click', function() {
-  searchPopup.classList.add('is-active')
-});
+  // 🔷 검색창 popup
+  searchPopupBtn.addEventListener("click", function () {
+    searchPopup.classList.add("is-active");
+  });
 
-popupCloseBtn.addEventListener('click', function() {
-  searchPopup.classList.remove('is-active')
-});
-}  
-
+  popupCloseBtn.addEventListener("click", function () {
+    searchPopup.classList.remove("is-active");
+  });
+}
 
 ////////////////////////////////////////////////////
 
@@ -172,9 +171,9 @@ function allcard() {
   let tabarr = [];
   let tmparr = [];
   tabs.forEach((a, index) => {
-    spl = a.innerHTML.split(" ");
-    splarr.push(spl[0]);
-    tmparr = JSON.parse(localStorage.getItem(spl[0]));
+    spl = a.innerHTML;
+    splarr.push(spl);
+    tmparr = JSON.parse(localStorage.getItem(spl));
     tabarr.push(tmparr);
   });
   tabarr.shift();
@@ -203,10 +202,11 @@ tabs.forEach(function (a, b) {
   tabs[b].addEventListener("click", function () {
     // console.log(tabs[b].innerHTML);
     // console.log(typeof a.innerHTML);
-    let spl = a.innerHTML.split(" ");
+    let spl = a.innerHTML;
+    // console.log(a.innerHTML);
     // console.log(spl[0]);
-    let aabb = JSON.parse(localStorage.getItem(spl[0]));
-    // console.log(Object.keys(aabb[0]).length);
+    let getlocal = JSON.parse(localStorage.getItem(spl));
+    // console.log(Object.keys(getlocal[0]).length);
     let imgcards = document.querySelector(".imgcards");
 
     imgcards.innerHTML = "";
@@ -216,13 +216,13 @@ tabs.forEach(function (a, b) {
       return;
     }
 
-    if (Object.keys(aabb[0]).length == 5) {
-      aabb.forEach((a) => {
+    if (Object.keys(getlocal[0]).length == 5) {
+      getlocal.forEach((a) => {
         imgcard5(a);
       });
     }
-    if (Object.keys(aabb[0]).length == 4) {
-      aabb.forEach((a) => {
+    if (Object.keys(getlocal[0]).length == 4) {
+      getlocal.forEach((a) => {
         imgcard4(a);
       });
     }

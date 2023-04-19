@@ -127,6 +127,7 @@ function createimgupload(nickname, country, city, title, description, img) {
   this.description = description;
   this.img = img;
 }
+
 let selectchk = document.querySelector("select");
 let selectres;
 // console.log(ta);
@@ -134,64 +135,303 @@ selectchk.addEventListener("change", function () {
   selectres = selectchk.options[selectchk.selectedIndex].value;
 });
 
+// localstorage 등록 시 title을 sub와 연결 시키기 위한 객체 생성
+const themesinfo = [
+  {
+    name: "CABLE CARS",
+    sub: "cablecars",
+    group: "THEMES",
+    cnt: 0,
+  },
+  {
+    name: "CLASSIC FACADES",
+    sub: "classics",
+    group: "THEMES",
+    cnt: 1,
+  },
+  {
+    name: "DOORS",
+    sub: "doors",
+    group: "THEMES",
+    cnt: 2,
+  },
+  {
+    name: "EDUCATIONAL INSTITUTIONS",
+    sub: "edus",
+    group: "THEMES",
+    cnt: 3,
+  },
+  {
+    name: "GOVERNMENT BUILDINGS",
+    sub: "goves",
+    group: "THEMES",
+    cnt: 4,
+  },
+  {
+    name: "HIDDEN WONDESRS",
+    sub: "hiddens",
+    group: "THEMES",
+    cnt: 5,
+  },
+  {
+    name: "HOTEL / MOTEL",
+    sub: "hms",
+    group: "THEMES",
+    cnt: 6,
+  },
+  {
+    name: "INTERIORS",
+    sub: "inters",
+    group: "THEMES",
+    cnt: 7,
+  },
+  {
+    name: "LIBRARY",
+    sub: "libs",
+    group: "THEMES",
+    cnt: 8,
+  },
+  {
+    name: "LIGHTHOUSE",
+    sub: "lights",
+    group: "THEMES",
+    cnt: 9,
+  },
+  {
+    name: "MUSEUM",
+    sub: "museums",
+    group: "THEMES",
+    cnt: 10,
+  },
+  {
+    name: "NATURE",
+    sub: "natures",
+    group: "THEMES",
+    cnt: 11,
+  },
+];
+
+const colorinfo = [
+  {
+    name: "BLACK",
+    sub: "blacks",
+    group: "COLORS",
+    cnt: 0,
+  },
+  {
+    name: "BLUE",
+    sub: "blues",
+    group: "COLORS",
+    cnt: 1,
+  },
+  {
+    name: "BROWN",
+    sub: "browns",
+    group: "COLORS",
+    cnt: 2,
+  },
+  {
+    name: "GRAY",
+    sub: "grays",
+    group: "COLORS",
+    cnt: 3,
+  },
+  {
+    name: "GREEN",
+    sub: "greens",
+    group: "COLORS",
+    cnt: 4,
+  },
+  {
+    name: "ORANGE",
+    sub: "oranges",
+    group: "COLORS",
+    cnt: 5,
+  },
+  {
+    name: "PINK",
+    sub: "pinks",
+    group: "COLORS",
+    cnt: 6,
+  },
+  {
+    name: "PURPLE",
+    sub: "purples",
+    group: "COLORS",
+    cnt: 7,
+  },
+  {
+    name: "RED",
+    sub: "reds",
+    group: "COLORS",
+    cnt: 8,
+  },
+  {
+    name: "TURQUOISE",
+    sub: "turquoises",
+    group: "COLORS",
+    cnt: 9,
+  },
+  {
+    name: "WHITE",
+    sub: "whites",
+    group: "COLORS",
+    cnt: 10,
+  },
+  {
+    name: "YELLOW",
+    sub: "yellows",
+    group: "COLORS",
+    cnt: 11,
+  },
+];
+// let readthemes = JSON.parse(localStorage.getItem("THEMESIMG"));
+
+// let taa = "CABLE CARS";
+
+// themesinfo.forEach((value, index) => {
+//   // console.log(value.name);
+//   // if (value.name == taa) {
+//   //   // console.log(value);
+//   // }
+//   // console.log(value.name == taa);
+//   if (value.name == taa) {
+//     // console.log(value);
+//     console.log(readthemes[value.cnt][value.sub]);
+//   }
+// });
+
 function subimg() {
   let subcon = document.querySelector(".subcon");
   let inputval = subcon.querySelectorAll("input");
-  let localempchk = localStorage.getItem("imgupload");
+  let localchk = localStorage.getItem("MYIMG");
 
-  // console.log(inputval[0].value);
+  let readthemes = JSON.parse(localStorage.getItem("THEMESIMG"));
+  let readcolor = JSON.parse(localStorage.getItem("COLORIMG"));
 
-  // console.log(inputval[11].value);
-  // console.log(inputval);
-  // console.log(inputval[1].value);
-  // console.log(inputval[2].value);
-  // console.log(inputval[3].value);
-  if (inputval[0].value == "") {
+  let upimgchk = inputval[0].value;
+  let upnickname = inputval[1].value;
+  let upcountry = inputval[2].value;
+  let upcity = inputval[3].value;
+  let uptitle = inputval[4].value;
+  let updesc = inputval[5].value;
+
+  if (upimgchk == "") {
     alert("사진을 등록해주세요.");
-  } else if (inputval[2].value == "") {
+  } else if (!selectres) {
+    alert("카테고리를 입력해주세요.");
+  } else if (upcountry == "") {
     alert("국가를 입력해주세요.");
-  } else if (inputval[3].value == "") {
+  } else if (upcity == "") {
     alert("도시를 입력해주세요.");
   } else if (selectres == "") {
     alert("제목을 입력해주세요.");
-  } else if (inputval[4].value == "") {
+  } else if (updesc == "") {
     alert("설명을 입력해주세요.");
   } else if (
-    inputval[0].value != "" &&
-    inputval[2].value != "" &&
-    inputval[3].value != "" &&
+    upimgchk != "" &&
+    upcountry != "" &&
+    upcity != "" &&
     selectres != "" &&
-    inputval[4].value != ""
+    uptitle != "" &&
+    updesc != ""
   ) {
+    // 생성자를 통해 업로드할 이미지 객체생성
     let imgupload = new createimgupload(
-      inputval[1].value,
-      inputval[2].value,
-      inputval[3].value,
+      upnickname,
+      upcountry,
+      upcity,
       selectres,
-      inputval[4].value,
+      updesc,
       res
     );
-    // console.log(testlocal);
-    // console.log();
-    if (!localempchk) {
-      // localStorage.setItem("imgupload", `${JSON.stringify(testlocal)}`);
-      localStorage.setItem("imgupload", `${JSON.stringify([imgupload])}`);
+    if (!localchk) {
+      // 등록한 이미지 정보를 imgupload라는 이름의 localstorage 생성
+      localStorage.setItem("MYIMG", `${JSON.stringify([imgupload])}`);
     } else {
-      let tt = JSON.parse(localStorage.getItem("imgupload"));
-      // console.log(tt);
-      tt.push(imgupload);
-      // localStorage.setItem(
-      //   "imgupload",
-      //   `${JSON.stringify(tt)}` + "::" + `${JSON.stringify(testlocal)}`
-      // );
-      localStorage.setItem("imgupload", JSON.stringify(tt));
+      let acceptimg = JSON.parse(localStorage.getItem("MYIMG"));
+      acceptimg.push(imgupload);
+      localStorage.setItem("MYIMG", JSON.stringify(acceptimg));
     }
+
+    let craeteobject = {
+      catagory: selectres,
+      country: upcountry + ", " + upcity,
+      description: updesc,
+      img: res,
+      location: uptitle,
+      nickname: upnickname,
+    };
+
+    themesinfo.forEach((value) => {
+      if (value.name == selectres) {
+        localStorage.setItem("MYIMG", `${JSON.stringify([imgupload])}`);
+
+        console.log(readthemes[value.cnt][value.name]);
+
+        readthemes[value.cnt][value.name].push(craeteobject);
+      }
+      localStorage.setItem("THEMESIMG", `${JSON.stringify(readthemes)}`);
+    });
+
+    colorinfo.forEach((value) => {
+      if (value.name == selectres) {
+        localStorage.setItem("MYIMG", `${JSON.stringify([imgupload])}`);
+
+        console.log(readcolor[value.cnt][value.name]);
+
+        readcolor[value.cnt][value.name].push(craeteobject);
+      }
+      localStorage.setItem("COLORIMG", `${JSON.stringify(readcolor)}`);
+    });
   }
-  selectres = "";
+
+  // 이미지 등록시 카테고리에 이미지 정보 추가
+
   // location.reload();
 }
 
-let tat = JSON.parse(localStorage.getItem("imgupload"));
+// 유저가 이미지 등록하면 THEMESIMG, COLORIMG에 이미지 등록
+
+// // THEMESIMG 불러오기
+// let readthemes = JSON.parse(localStorage.getItem("THEMESIMG"));
+
+// let ta = {
+//   title: "",
+//   img: "",
+//   country: "cc",
+//   location: "dd",
+//   description: "ee",
+// };
+// test1.push(ta);
+
+// // console.log(tb);
+// localStorage.setItem("THEMESIMG", `${JSON.stringify(readthemes)}`);
+
+// // COLORIMG 불러오기
+// let readcolor = JSON.parse(localStorage.getItem("COLORIMG"));
+
+// 찾아온 로컬스토리지 key로 value를 저장
+// let tmplocal = JSON.parse(localStorage.getItem(`${listfilter}`));
+
+// console.log(tmplocal);
+
+// // 만들어진 로컬 스토리지의 group이 THEMES 일 경우
+// if (tmplocal.group == "THEMES") {
+//   let themesname = readthemes[tmplocal.cnt][tmplocal.sub];
+
+//   selectthemes(themesname);
+// }
+
+// // 만들어진 로컬 스토리지의 group이 COLORS 일 경우
+// if (tmplocal.group == "COLORS") {
+//   let colorname = readcolor[tmplocal.cnt][tmplocal.sub];
+
+//   selectthemes(colorname);
+// }
+
+// let tat = JSON.parse(localStorage.getItem("imgupload"));
+
 // console.log(tat[0].nickname);
 // console.log(tat[2].description);
 // console.log(tat[3].title);

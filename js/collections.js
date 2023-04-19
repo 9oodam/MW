@@ -1,3 +1,5 @@
+// localStorage.removeItem("||");
+
 // 다른 html 파일 불러오기
 // 헤더파일 하나로 다른 html 문서에 불러 들여 쓸 수 있게 해주는 스크립트
 function includeHTML() {
@@ -39,38 +41,36 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // search btn
-function searchlogin(){
-let ta = document.querySelector(".he");
-// 검색 팝업 관련 (숨어있다 나오는)
-let searchPopupBtn = ta.querySelector('#dropdown-search-form');
-let searchPopup = ta.querySelector('#search-popup');
-let popupCloseBtn = ta.querySelector('#popup-close-btn');
-// 로그인 팝업 관련 (숨어있다 나오는)
-let loginPopupContent = ta.querySelector('.login-popup-content')
-let idLoginBtn = ta.querySelector('#id-login-btn')
+function searchlogin() {
+  let he = document.querySelector(".he");
+  // 검색 팝업 관련 (숨어있다 나오는)
+  let searchPopupBtn = he.querySelector("#dropdown-search-form");
+  let searchPopup = he.querySelector("#search-popup");
+  let popupCloseBtn = he.querySelector("#popup-close-btn");
+  // 로그인 팝업 관련 (숨어있다 나오는)
+  let loginPopupContent = he.querySelector(".login-popup-content");
+  let idLoginBtn = he.querySelector("#id-login-btn");
 
-let logincloseBtn = ta.querySelector('#login-close-btn')
+  let logincloseBtn = he.querySelector("#login-close-btn");
 
-// 🔷 로그인 popup
-idLoginBtn.addEventListener('click', function() {
-    loginPopupContent.classList.add('is-active')
-});
-logincloseBtn.addEventListener('click', function(){
-    loginPopupContent.classList.remove('is-active')
-});
+  // 🔷 로그인 popup
+  idLoginBtn.addEventListener("click", function () {
+    loginPopupContent.classList.add("is-active");
+  });
+  logincloseBtn.addEventListener("click", function () {
+    loginPopupContent.classList.remove("is-active");
+  });
 
-// 🔷 검색창 popup
-searchPopupBtn.addEventListener('click', function() {
-  searchPopup.classList.add('is-active')
-});
+  // 🔷 검색창 popup
+  searchPopupBtn.addEventListener("click", function () {
+    searchPopup.classList.add("is-active");
+  });
 
-popupCloseBtn.addEventListener('click', function() {
-  searchPopup.classList.remove('is-active')
-});
-}  
+  popupCloseBtn.addEventListener("click", function () {
+    searchPopup.classList.remove("is-active");
+  });
+}
 
-
-    
 // 이미지 그려주는 함수
 let colcardwrap = document.querySelector(".colcardwrap");
 let colcard = document.querySelector(".colcard");
@@ -362,11 +362,6 @@ function cp() {
     addtag(value);
   });
 }
-
-
-
-
-
 
 // 이미지 클릭하면 로컬스토리지 정보 불러오기
 // let gradations = document.querySelectorAll(".gradation");
