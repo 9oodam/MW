@@ -72,51 +72,43 @@ function searchlogin() {
 // 파일 업로드
 const fileupload = document.querySelector("#upload");
 const preview = document.querySelector(".imgupload");
+let lb = document.querySelector("label");
+
 let pvimg = document.querySelector("#pv");
-// 이미지를 Base64로 변환
 let reader = new FileReader();
 let res;
 let filename;
 
-// input을 클릭 했을때 실행
+// 파일을 업로드 후 미리보기
 fileupload.addEventListener("click", function () {
-  // input의 변화가 일어났을때. 이미지를 올렸을때 실행
+  // 파일을 업로드 했을때 변화를 감지하여 실행
   fileupload.onchange = function (e) {
-    // console.log(e.target.files[0]);
-    filename = e.target.files[0].name;
-    profile(e.target.files[0]);
-    fileupload.style.display = "none";
+    filename = e.target.files[0];
+    profile(filename);
+    lb.style.display = "none";
   };
 });
 
-// input에 이미지를 올리면 이미지 미리보기
-function profile(a) {
+// 업로드한 파일을 base64 형태로 변환
+function profile(value) {
   reader.onload = function () {
-    // Base64로 변환된 값 res에 저장
+    // base64로 변환하여 저장
     res = reader.result;
-    // localStorage.setItem("test", res);
-    // let ff = `/Users/jh/Desktop/kyungil/project/javascript/img`;
-    // console.log(ff);
-    // console.log(res);
+    // 변환한 값을 src에 할당
     document.getElementById("pv").setAttribute("src", res);
-    // let subinp = document.querySelector(".subinput");
-    // subinp.innerHTML = `<a href="${res}" download="${filename}" onclick="window.location.href='file:///Users/jh/Desktop/kyungil/project/javascript/img/${filename}';">a</a>`;
-    // 이미지 input에 등록하면 바로 다운 받아짐
-    // var link = document.createElement("a");
-    // link.href = res;
-    // link.download = filename;
-    // document.body.appendChild(link);
-    // link.click();
-    // document.body.removeChild(link);
   };
-  reader.readAsDataURL(a);
+  reader.readAsDataURL(value);
 }
 
-// 미리보기로 올라간 이미지 클릭시 이미지 삭제 (추후 x버튼 만들어서 기능 옮길 예정)
+// 이미지가 올라갔을때 이미지를 클릭하면 이미지 및 올라간 파일의 정보가 삭제됨
 pvimg.addEventListener("click", function () {
   document.getElementById("pv").removeAttribute("src");
-  fileupload.style.display = "inline-block";
+  document.getElementById("pv").removeAttribute("onerror");
+  document.getElementById("pv").style.display = "none";
+  lb.style.display = "flex";
   res = "";
+  filename = "";
+  fileupload.value = "";
 });
 
 function createimgupload(nickname, country, city, title, description, img) {

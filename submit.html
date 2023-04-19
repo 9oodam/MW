@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Submit</title>
     <link rel="stylesheet" href="./css/submit.css" />
     <link rel="stylesheet" href="./css/login.css" />
     <link rel="stylesheet" href="./css/home.css" />
@@ -26,9 +26,9 @@
         </p>
         <span>
           Max file size: 6MB. Please save file at highest quality while staying
-          under 6MB. Larger file? Please send via WeTransfer.com to
-          hi@accidentallywesanderson.com – please include contact and credit
-          information in transfer.
+          under 6MB. Larger file? Please send via mw.com to
+          godamcity98@gmail.com – please include contact and credit information
+          in transfer.
         </span>
       </div>
     </div>
@@ -37,11 +37,17 @@
     <div class="subcon">
       <div class="subconwrap">
         <div class="imgupload">
-          <input type="file" id="upload" accept="image/*" />
+          <label for="upload">File Upload</label>
+          <input
+            type="file"
+            id="upload"
+            accept="image/*"
+            style="display: none"
+          />
           <!-- img에 이미지가 없을때 나오는 엑박을 안보이게 해줌 -->
           <!-- onerror="this.style.display='none'  -->
-          <img id="pv" onerror="this.style.display='none'" />
-          <a href="" download=""></a>
+          <img id="pv" onerror="style.display='none'" />
+          <!-- <a href="" download=""></a> -->
         </div>
 
         <!-- 사진 정보 입력 -->
