@@ -147,11 +147,11 @@ body {
     display: block;
   }
   .subcon .subconwrap .imgupload {
-    width: 50%;
+    width: 600px;
     margin: 0 auto;
   }
   .subcon .subconwrap .subinput {
-    width: 50%;
+    width: 600px;
     margin: 10px auto 0;
   }
   .subinput .subinputs {
