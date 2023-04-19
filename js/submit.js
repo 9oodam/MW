@@ -39,35 +39,35 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // search btn
-function searchlogin(){
-let ta = document.querySelector(".he");
-// 검색 팝업 관련 (숨어있다 나오는)
-let searchPopupBtn = ta.querySelector('#dropdown-search-form');
-let searchPopup = ta.querySelector('#search-popup');
-let popupCloseBtn = ta.querySelector('#popup-close-btn');
-// 로그인 팝업 관련 (숨어있다 나오는)
-let loginPopupContent = ta.querySelector('.login-popup-content')
-let idLoginBtn = ta.querySelector('#id-login-btn')
+function searchlogin() {
+  let ta = document.querySelector(".he");
+  // 검색 팝업 관련 (숨어있다 나오는)
+  let searchPopupBtn = ta.querySelector("#dropdown-search-form");
+  let searchPopup = ta.querySelector("#search-popup");
+  let popupCloseBtn = ta.querySelector("#popup-close-btn");
+  // 로그인 팝업 관련 (숨어있다 나오는)
+  let loginPopupContent = ta.querySelector(".login-popup-content");
+  let idLoginBtn = ta.querySelector("#id-login-btn");
 
-let logincloseBtn = ta.querySelector('#login-close-btn')
+  let logincloseBtn = ta.querySelector("#login-close-btn");
 
-// 🔷 로그인 popup
-idLoginBtn.addEventListener('click', function() {
-    loginPopupContent.classList.add('is-active')
-});
-logincloseBtn.addEventListener('click', function(){
-    loginPopupContent.classList.remove('is-active')
-});
+  // 🔷 로그인 popup
+  idLoginBtn.addEventListener("click", function () {
+    loginPopupContent.classList.add("is-active");
+  });
+  logincloseBtn.addEventListener("click", function () {
+    loginPopupContent.classList.remove("is-active");
+  });
 
-// 🔷 검색창 popup
-searchPopupBtn.addEventListener('click', function() {
-  searchPopup.classList.add('is-active')
-});
+  // 🔷 검색창 popup
+  searchPopupBtn.addEventListener("click", function () {
+    searchPopup.classList.add("is-active");
+  });
 
-popupCloseBtn.addEventListener('click', function() {
-  searchPopup.classList.remove('is-active')
-});
-}  
+  popupCloseBtn.addEventListener("click", function () {
+    searchPopup.classList.remove("is-active");
+  });
+}
 
 // 파일 업로드
 const fileupload = document.querySelector("#upload");
@@ -119,49 +119,67 @@ pvimg.addEventListener("click", function () {
   res = "";
 });
 
-function testcreate(country, city, location, img) {
+function createimgupload(nickname, country, city, title, description, img) {
+  this.nickname = nickname;
   this.country = country;
   this.city = city;
-  this.location = location;
+  this.title = title;
+  this.description = description;
   this.img = img;
 }
+let selectchk = document.querySelector("select");
+let selectres;
+// console.log(ta);
+selectchk.addEventListener("change", function () {
+  selectres = selectchk.options[selectchk.selectedIndex].value;
+});
 
 function subimg() {
-  let inputval = document.querySelectorAll("input");
+  let subcon = document.querySelector(".subcon");
+  let inputval = subcon.querySelectorAll("input");
   let localempchk = localStorage.getItem("imgupload");
-  console.log(inputval);
+
+  // console.log(inputval[0].value);
+
+  // console.log(inputval[11].value);
+  // console.log(inputval);
   // console.log(inputval[1].value);
   // console.log(inputval[2].value);
   // console.log(inputval[3].value);
-  if (inputval[11].value == "") {
+  if (inputval[0].value == "") {
     alert("사진을 등록해주세요.");
-  } else if (inputval[12].value == "") {
-    alert("이름을 등록해주세요.");
-  } else if (inputval[13].value == "") {
-    alert("타이틀을 입력해주세요.");
-  } else if (inputval[14].value == "") {
+  } else if (inputval[2].value == "") {
+    alert("국가를 입력해주세요.");
+  } else if (inputval[3].value == "") {
+    alert("도시를 입력해주세요.");
+  } else if (selectres == "") {
+    alert("제목을 입력해주세요.");
+  } else if (inputval[4].value == "") {
     alert("설명을 입력해주세요.");
   } else if (
-    inputval[11].value != "" &&
-    inputval[12].value != "" &&
-    inputval[13].value != "" &&
-    inputval[14].value != ""
+    inputval[0].value != "" &&
+    inputval[2].value != "" &&
+    inputval[3].value != "" &&
+    selectres != "" &&
+    inputval[4].value != ""
   ) {
-    let testlocal = new testcreate(
-      inputval[12].value,
-      inputval[13].value,
-      inputval[14].value,
+    let imgupload = new createimgupload(
+      inputval[1].value,
+      inputval[2].value,
+      inputval[3].value,
+      selectres,
+      inputval[4].value,
       res
     );
     // console.log(testlocal);
     // console.log();
     if (!localempchk) {
       // localStorage.setItem("imgupload", `${JSON.stringify(testlocal)}`);
-      localStorage.setItem("imgupload", `${JSON.stringify([testlocal])}`);
+      localStorage.setItem("imgupload", `${JSON.stringify([imgupload])}`);
     } else {
       let tt = JSON.parse(localStorage.getItem("imgupload"));
       // console.log(tt);
-      tt.push(testlocal);
+      tt.push(imgupload);
       // localStorage.setItem(
       //   "imgupload",
       //   `${JSON.stringify(tt)}` + "::" + `${JSON.stringify(testlocal)}`
@@ -169,7 +187,8 @@ function subimg() {
       localStorage.setItem("imgupload", JSON.stringify(tt));
     }
   }
-  location.reload();
+  selectres = "";
+  // location.reload();
 }
 
 let tat = JSON.parse(localStorage.getItem("imgupload"));
