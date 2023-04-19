@@ -25,27 +25,32 @@
 
                     <h2>Register For This Site</h2>
                     <form>
-                        <input type="email" class="input-box"
+                        <input type="text" class="input-box" id="Username"
                         placeholder="Username" required>
-                        <input type="password" class="input-box"
+
+                        <input type="password" class="input-box" id="Password"
                         placeholder="password" required>
+
                         <input type="checkbox"><span>Registration confirmation will be emailed to you.</span>
                     </form>  
                     
-                    <div class="btn"><button>Register</button></div>
+                    <div class="btn"><button onclick="signup()" >Register</button></div>
                     <div class="google"><a href="">Continue With Google</a></div>
                     <div class="apple"><a href="">Continue With Apple</a></div>
                     
+                    <div class="google1">
+                        <a href="../admin.html">Log in</a><span><a href="../Register lost password/index.html">|Lost your Password?</a></span>
+                    </div>
                     
                 </div>
                 <div class="card-back"></div>
-            </div>
-            <div class="google1">
-                <a href="../admin.html">Log in</a><span><a href="../Register lost password/index.html">|Lost your Password?</a></span>
             </div>
             
 
         </div>
     </div>
 </body>
+
+
+<script src="./register.js"></script>
 </html>

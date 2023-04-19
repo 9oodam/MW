@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login form Design</title>
+    
     <link rel="stylesheet" href="./admin.css">
+
 </head>
 <body>
     <div class="login-background">
@@ -15,16 +17,16 @@
             <img src="https://accidentallywesanderson.com/wp-admin/images/wordpress-logo.svg?ver=20131107" class="avatar">
             
             <form>
-                <p>Username or Eamil Address</p>
-                
-                <input type="text" name="" placeholder="Enter Username">
-                <p>Password</p>
 
+                <p>Username or Eamil Address</p>
+                <input type="text" name="" placeholder="Enter Username" id="username">
                 
-                <input type="password" name="" placeholder="Enter Password">
+                <p>Password</p>
+                <input type="password" name="" placeholder="Enter Password" id="password">
+                
                 <div class="login-wrap">
                     <input type="checkbox"><label class="">Remember Me?</label>
-                    <input type="submit" name="" value="Login">
+                    <input type="input" name="" value="Login" onclick="login()">
                 </div>
                     <br><a href="#">Continue with Google</a>
                     <br><a href="#">Continue with Apple</a>
@@ -37,7 +39,7 @@
         
         <div class="text">
             <span><a href="./Register/register.html">Register </a>  <a href="./forget password/index.html">| Lost your password?</a></span>
-            <div><a href=""><- Go to Accidentally Wes Anderson</a></div>
+            <div><a href=""> - Go to Accidentally Wes Anderson</a></div>
             <div><a href="https://accidentallywesanderson.com/privacy-policy/">privacy policy</a> </div>
         </div>
 
@@ -51,4 +53,8 @@
     
     
 </body>
+<script src="./admin.js"></script>
+
+
+
 </html>
