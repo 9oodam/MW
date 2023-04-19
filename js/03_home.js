@@ -31,6 +31,34 @@ let idLoginBtn = document.querySelector('#id-login-btn')
 let logincloseBtn = document.querySelector('#login-close-btn')
 
 
+// collection 팝업 관련
+let navCollectionsBtn = document.querySelector('.nav-collections-btn')
+let collectionsDropdown = document.querySelector('.collections-dropdown')
+
+
+
+
+// 🔷 목차 일정 스크롤 값 이상되면, 고정 
+window.addEventListener('scroll', function() {
+    let scrollY = window.pageYOffset
+    if (scrollY > 280) {
+        console.log("280 넘었어~ 이제, nav 변경하자~")
+        // 레퍼런스 사이트에서 'sticky-header visible' class 에 해당하는 이름 나오게 하면 됨
+
+        // 아마도, .site_header__primary-nav.is-active 가 될 것
+        // 차이점은 1) 오른쪽 로그인 & 서치에서 글자가 사라졌음. 2) 왼쪽에 로고가 등장 
+    }
+});
+
+
+
+// 🔷 콜렉션 popupCloseBtn
+navCollectionsBtn.addEventListener('click', function() {
+    collectionsDropdown.classList.add('is-active')
+})
+
+
+
 // 🔷 검색창 popup
 searchPopupBtn.addEventListener('click', function() {
     searchPopup.classList.add('is-active')
