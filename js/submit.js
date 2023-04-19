@@ -363,6 +363,7 @@ function subimg() {
       nickname: upnickname,
     };
 
+    // 이미지 등록시 카테고리에 이미지 정보 추가
     themesinfo.forEach((value) => {
       if (value.name == selectres) {
         localStorage.setItem("MYIMG", `${JSON.stringify([imgupload])}`);
@@ -386,9 +387,11 @@ function subimg() {
     });
   }
 
-  // 이미지 등록시 카테고리에 이미지 정보 추가
+  alert("업로드 성공");
 
-  // location.reload();
+  setTimeout(() => {
+    location.reload();
+  }, 100);
 }
 
 // 유저가 이미지 등록하면 THEMESIMG, COLORIMG에 이미지 등록
