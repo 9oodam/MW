@@ -228,6 +228,8 @@ function selectthemes(list) {
   });
 }
 
+console.log(Object.keys(readthemes[0]));
+
 // selectthemes(themesname);
 
 // 윈도우를 켜면 로딩이 끝난 후 함수 실행
@@ -237,7 +239,7 @@ function selectthemes(list) {
 //   selectthemes(themesname);
 // };
 
-// window.addEventListener("click", function (e) {
+// window.addEventListener("click", function (e) {s
 //   console.log(e.target.className);
 // });
 
