@@ -50,7 +50,7 @@ let primaryNavSeachlogin = document.querySelector('.site_header__primary-nav--se
 let responsiveHamburgMenu = document.querySelector('.responsive-hamburg-menu')
 let responsiveHamburgMenuWidthYscroll = document.querySelector('.responsive-hamburg-menu-width-yscroll')
 let responsSearchX1200Yscroll200 = document.querySelector('.respon-search-form-x1200under-yscroll200over')
-
+let responsHamburgXwidth1200Yscroll200 = document.querySelector('.responsive-hamburg-menu-xwidth1200-yscroll200')
 
 // 뷰포트가 스크롤될 때마다 호출되는 함수
 function handleYScroll() {
@@ -109,12 +109,23 @@ function handleYScroll() {
             responsiveTopLogo.classList.add('is-scrolled');
             // '검색' 중 '아이콘만' 보이게 하기
             responsSearchX1200Yscroll200.classList.add('is-scrolled')
+            // '햄버거 메뉴' '보이게' 하기 
+            responsHamburgXwidth1200Yscroll200.classList.add('is-scrolled')
 
 
         }
         // 2.2 width 1201 이하 & Y Scorll 200 이하 (위로 올림)
         else {
             console.log(" width 1201 이하 & Y Scorll 200 이하 (위로 내림) ")
+
+            // '상단 메뉴바' '제거'
+            siteHeaderprimary.classList.remove('is-scrolled');
+            // '상단 로고' '제거'
+            responsiveTopLogo.classList.remove('is-scrolled');
+            // '검색' 중 '아이콘만' 보이는거 제거
+            responsSearchX1200Yscroll200.classList.remove('is-scrolled')
+            // '햄버거 메뉴' '보이게' 하는거 제거
+            responsHamburgXwidth1200Yscroll200.classList.remove('is-scrolled')
         
 
         }

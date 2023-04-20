@@ -252,6 +252,13 @@ body .top_banner .top_banner_text {
 
 .respon-search-form-x1200under-yscroll200over.is-scrolled{
     display: block;
+    margin-right: 50px;
+}
+
+.respon-search-form-x1200under-yscroll200over.is-scrolled img {
+    width: 60%;
+    height: auto;
+    padding-bottom: 3px;
 }
 
 .responsive-hamburg-menu {
@@ -283,38 +290,42 @@ body .top_banner .top_banner_text {
 }
 
 /* y 스크롤 줄이고 + width 줄였을 때 나타나는 햄버거  */
-.responsive-hamburg-menu-width-yscroll {
-    /* display: flex;
+.responsive-hamburg-menu-xwidth1200-yscroll200 {
+    display: flex;
     align-items: center;
 
     right: 5px;
     position: absolute;
 
-    display: none; */
+    display: none;
 }
 
-
-.responsive-hamburg-menu.is-active {
-    /* display: block;
-    
+.responsive-hamburg-menu-xwidth1200-yscroll200.is-scrolled{
     display: flex;
     justify-content: center;
-    align-items: center; */
-    
+    align-items: center;
+
+    position: absolute;
+
+    display: block;
+}
+
+.responsive-hamburg-menu.is-active {
+/*     
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    display: block; */
 }
 
 .hamburg-menu-button {
-
 margin-right: 20px;
 position: relative;
 z-index: 11;
 width: 17px;
 height: 25px;
 
-/* margin: 0 0 0 auto; */
-
 cursor: pointer;
-/* background-color: #ebc51d; */
 
 display: flex;
 align-items: center;
@@ -323,21 +334,16 @@ justify-content: center;
 
 
 .hamburg-menu-button span:first-child {
-
     transform: translateY(-8px);
-
     position: absolute;
     /* margin-top: 2px; */
     top: 8px;
     display: block;
 
     width: 17px;
-    height: 2px;
-    
+    height: 2px;    
     background-color: #ee3024;
-    
     border-radius: 1px;
-
     /* 원래 있음 ✅ */
     /* transition: transform .25s ease;
         transform-origin: center center; */
@@ -351,7 +357,6 @@ justify-content: center;
     height: 2px;
     background-color: #ee3024;
     border-radius: 1px;
-
     /* 원래 있음 ✅ */
     /* transition: transform .25s ease;
         transform-origin: center center; */
@@ -376,7 +381,6 @@ justify-content: center;
 
 .site_header__primary-nav--social {
     /* background-color: hotpink; */
-
     /* 마진 주의📛 */
     /* margin-left: 60px; */
     display: flex;
@@ -384,7 +388,6 @@ justify-content: center;
     position: absolute;
     left: 15%;
 }
-
 
 .site_header__primary-nav--social a {
     text-decoration: none;
@@ -400,7 +403,6 @@ justify-content: center;
     /* 📛마진주의📛 */
     margin-right: 35px;
 }
-
 
 .site_header__primary-nav--responsive-ham-loginsign{
 
