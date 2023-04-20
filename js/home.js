@@ -43,14 +43,18 @@ let responsiveTopLogo = document.querySelector('.responsive-top-logo')
 let dropdownSearchForm = document.querySelector('.dropdown-search-form')
 let reponsiveLoginBtn = document.querySelector('#id-login-btn')
 let navInstagramBtn = document.querySelector('.nav-instagram-btn')
-let NavResponsiveHham = document.querySelector('.site_header__primary-nav--responsive-ham')
-let primaryNavMenus = document.querySelector('.site_header__primary-nav--menus')
 let primaryNavSocial = document.querySelector('.site_header__primary-nav--social')
 let primaryNavSeachlogin = document.querySelector('.site_header__primary-nav--seachlogin')
 let responsiveHamburgMenu = document.querySelector('.responsive-hamburg-menu')
 let responsiveHamburgMenuWidthYscroll = document.querySelector('.responsive-hamburg-menu-width-yscroll')
 let responsSearchX1200Yscroll200 = document.querySelector('.respon-search-form-x1200under-yscroll200over')
-let responsHamburgXwidth1200Yscroll200 = document.querySelector('.responsive-hamburg-menu-xwidth1200-yscroll200')
+// let responsHamburgXwidth1200Yscroll200 = document.querySelector('.responsive-hamburg-menu-xwidth1200-yscroll200')
+// let responsClickedNavHamburgMenus = document.querySelector('.site_header__primary-nav--menus')
+// let primaryNavMenus = document.querySelector('.site_header__primary-nav--menus')
+// 버튼 위에 있는 태그 까지 해줘야 클릭반응이 옴 ⭐⭐ 
+let hamburgMenuBtn = document.querySelector('.responsive-hamburg-menu-xWidth-under1200')
+// 누르면 나오게되는, 햄버거 메뉴리스트
+let NavResponsiveHham = document.querySelector('.site_header__primary-nav--responsive-ham')
 
 // 뷰포트가 스크롤될 때마다 호출되는 함수
 function handleYScroll() {
@@ -111,6 +115,7 @@ function handleYScroll() {
             responsSearchX1200Yscroll200.classList.add('is-scrolled')
             // '햄버거 메뉴' '보이게' 하기 
             responsHamburgXwidth1200Yscroll200.classList.add('is-scrolled')
+            
 
 
         }
@@ -126,11 +131,18 @@ function handleYScroll() {
             responsSearchX1200Yscroll200.classList.remove('is-scrolled')
             // '햄버거 메뉴' '보이게' 하는거 제거
             responsHamburgXwidth1200Yscroll200.classList.remove('is-scrolled')
-        
+
 
         }
     }
 }
+
+// 햄버거 버튼 클릭되면 -> 메뉴 나오게 
+hamburgMenuBtn.addEventListener('click', function() {
+    console.log("햄버거")
+    NavResponsiveHham.classList.add('is-active')
+    
+})
 
 // 스크롤 발생하면 -> handleYScroll 함수 실행
     window.addEventListener("scroll", handleYScroll);

@@ -157,8 +157,9 @@ body .top_banner .top_banner_text {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /* border-bottom: 1px solid #ee3024; */
     
-
+    
     /* 📛 패딩 주의 📛 */
     padding-top: 20px;
     padding-bottom: 20px;
@@ -190,6 +191,7 @@ body .top_banner .top_banner_text {
     background-color: #ffffff;
     flex-direction: row;
     justify-content: center;
+    border-bottom: 1.5px solid #ee3024;
 }
 
 
@@ -412,7 +414,7 @@ justify-content: center;
 
 
 /* ul 태그 */
- .site_header__primary-nav--menus {
+.site_header__primary-nav--menus {
     /* background-color: lightblue; */
     list-style: none;
     /* background-color: yellow; */
@@ -420,6 +422,7 @@ justify-content: center;
     /* margin-right: 140px; */
     display: flex;
     justify-content: center;
+    
     }
 
 
@@ -505,29 +508,35 @@ display: flex;
     display: none;
 }
 
+
 .site_header__primary-nav--responsive-ham.is-active {
-    display: block;
-    padding-top: 85px;
-    right: 0;
     position: fixed;
     width: 290px;
-    top: 0px;
-    height: 100%;
-    z-index: 100;
-    padding: 71px 0 30px;
-    border-left: 1px solid #ee3024;
-    transition: .25s ease, padding .25s ease;
-    /* background-color: #fff; */
-    background-color: green;
+
+    /* 로그인 완료되면 > 위에 배너 사라지고 > 여기가 변경되야 함✅(@mark) */
+    top: 115px;
     
+    padding-top: 85px;
+    z-index: 10;
+    right: 0;
+    height: 100%;
+    padding: 3px 0 1px;
+    border-left: 1px solid #ee3024;
+    border-top: 1px solid #ee3024;
+    transition: .25s ease, padding .25s ease;
+    background-color: #fff;
+    
+    display: block;    
 }
+
+
 
 
 .site_header__primary-nav--responsive-ham-links {
 
     padding-top: 10px;
 
-    border-top: 1px solid #ee3024;
+    /* border-top: 1px solid #ee3024; */
 
 }
 
