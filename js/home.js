@@ -37,6 +37,7 @@ let navCollectionsBtn = document.querySelector('.nav-collections-btn')
 let collectionsDropdown = document.querySelector('.collections-dropdown')
 
 
+let siteHeader = document.querySelector('.site_header')
 let siteHeaderprimary = document.querySelector('.site_header__primary-nav')
 let responsiveTopLogo = document.querySelector('.responsive-top-logo')
 let dropdownSearchForm = document.querySelector('#dropdown-search-form')
@@ -46,9 +47,10 @@ let NavResponsiveHham = document.querySelector('.site_header__primary-nav--respo
 let primaryNavMenus = document.querySelector('.site_header__primary-nav--menus')
 let primaryNavSocial = document.querySelector('.site_header__primary-nav--social')
 let primaryNavSeachlogin = document.querySelector('.site_header__primary-nav--seachlogin')
+let responsiveHamburgMenu = document.querySelector('.responsive-hamburg-menu')
 
 
-// 🔷 nav-bar 반응형1 : 1) Y 스크롤에만 반응
+// 🔷 nav-bar 반응형1 : 1) Y 스크롤 200 이하 기준 변경
 window.addEventListener('scroll', function() {
     let scrollY = window.pageYOffset
 
@@ -59,46 +61,61 @@ window.addEventListener('scroll', function() {
         reponsiveLoginBtn.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt="">`
         navInstagramBtn.style.marginRight = '10px'
         dropdownSearchForm.style.marginRight = '40px'
-
+        
 
     } else {
         siteHeaderprimary.classList.remove('is-scrolled')
         responsiveTopLogo.classList.remove('is-scrolled');
         navInstagramBtn.style.marginRight = '0px'
         // dropdownSearchForm.style.marginRight = '100px'
+        
+
 
     }
 });
 
 
-// 🔷 nav-bar 반응형2 : 2) width 1200px 이하 에만 반응  
-
+// 🔷 nav-bar 반응형2 : 2) width 1200px 이하 에만 반응 - 2차 시도
 window.addEventListener('resize', function() {
     if (window.innerWidth < 1200) {
-        // 그러면,  site_header + 가로 클래스를 ON 해주기! 
 
-
-        // 오른쪽 숨겨져 있는 햄버거 메뉴바
-        NavResponsiveHham.classList.add('is-active')
-        primaryNavMenus.style.display = 'none'
-        primaryNavSocial.style.display = 'none'
-        idLoginBtn.style.display = 'none'
+        // ◼ 지울 것들 : 1) 소셜 아이콘 2) 메뉴 글씨 3) 로그인 아이콘 + 글 4) 검색은 '글씨만' 
+        primaryNavMenus.style.display = 'none'  // 메뉴
+        primaryNavSocial.style.display = 'none' // 소셜 아이콘
+        idLoginBtn.style.display = 'none'   // 로그인 아이콘
         
-        // 상단 nav bar 디자인
-        // siteHeaderprimary.classList.add('is-scrolled')
-        // primaryNavSeachlogin.style.marginRight = '0px'
-        // siteHeaderprimary.style.justifyContent = 'space-between'
-        // primaryNavSeachlogin.style.height = '20px'
-        // primaryNavSeachlogin.style.height = '20px'
-        
+        dropdownSearchForm.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-search-red.svg" alt="">`
+            // 돋보기 모양
+        responsiveHamburgMenu.classList.add('is-active')    // 햄버거 메뉴
+        siteHeader.style.flexDirection = 'row-reverse'      // 좌우 정렬
+        siteHeader.style.justifyContent = 'space-between'
 
-        console.log("1200 아래!")
-    } else {
-        primaryNavMenus.style.display = 'block'
-        primaryNavSocial.style.display = 'block'
+        
+        // ◼ 햄버거 메뉴 
+        // 만약 버튼 클릭되면 -> class add 
+        // NavResponsiveHham.classList.add('is-active')
+        
+        
+    } else if (window.innerWidth > 1200) {
+        responsiveHamburgMenu.classList.remove('is-active')     // 햄버거 메뉴 삭제
+        // responsiveHamburgMenu.style.display = 'none'
+
+        primaryNavMenus.style.display = 'block'     // 가운데 메뉴 다시 보이게
+        primaryNavSocial.style.display = 'block'    // 인스타, 페북 보이게
+
+        // 여기서 살짝 버그. 라이브 서버 켜면 문제 없음.
         idLoginBtn.style.display = 'block'
+        
+        siteHeader.style.flexDirection = 'column'   // flex 정렬 기능 
+
     }
 })
+
+
+
+
+// 🔷 nav-bar 반응형3 : Y 스크롤 200 이하 'AND' width 1200px 이하 에만 반응 
+
 
 
 
