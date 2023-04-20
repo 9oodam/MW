@@ -17,6 +17,7 @@ function login() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
     
+    
     // 생성한 아이디와 비밀번호를 저장합니다.
     const savedUsername = localStorage.getItem("userName");
     const savedPassword = localStorage.getItem("userPassword");
@@ -34,5 +35,4 @@ function login() {
         alert('Incorrect username or password');
     }
 }
-
 
