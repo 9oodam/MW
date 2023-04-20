@@ -303,18 +303,37 @@
 
         <!-- 1) 로고(LOGO), 검색 popup 반응형 목차 | ❓ 검색이 왜 여기에 있지❓-->
         <div class="site_header__top">   
+
             <!-- 1). search 눌렀을 때 나오는 '검색 영역' -->
             <div class="site_header__top_search">      
             </div>
-            <!-- 2). AWA 로고 영역 -->
+
+
+            <!-- 2). AWA 로고 영역 : 여기에 width 1200px 미만일 때 의 html 이 포함 -->
             <div class="site_header__top_logo"> 
+                
+                <!-- ◼ 검색 -->
+                <a class="dropdown-search-form-xWidth-under1200">
+                    <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-search-red.svg" alt="">
+                </a>
+
+                <!-- ◼ 로고 -->
                 <a href="/" class="a_tag">
                     <img class="img_tag" src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/awa-nav-logo.svg" alt="Accidentally Wes Anderson Logo">
                 </a>
+
+                <!-- ◼ 햄버거 메뉴 -->
+                    <!-- 저기 아래에 있는걸 넣으면 되나❓❓  -->
+                <div class="responsive-hamburg-menu-xWidth-under1200">
+                    <a class="hamburg-menu-button"> 
+                        <span> </span>
+                        <span> </span>
+                        <span> </span>
+                    </a>
+                </div>
+
             </div>
-            <!-- 3). 반응형 목차 -->
-            <div class="site_header__top_respMenu">
-            </div>
+
         </div>
 
         <!-- 2) 메뉴 탭 (nav bar) 3) width 1200px 이하 + 스크롤 200y 이상 떨어질 때 -->
@@ -326,8 +345,6 @@
                     <img class="img_tag" src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/awa-logo-collapsed.svg" alt="Accidentally Wes Anderson Logo">
                 </a>
             </div>
-
-
 
             <!-- a) 소셜(인스타,페북) -->
             <div class="site_header__primary-nav--social">
@@ -374,7 +391,7 @@
             <!-- c) search + login -->
             <div class="site_header__primary-nav--seachlogin">
                 <!-- search -->
-                <a id="dropdown-search-form" href="#">
+                <a class="dropdown-search-form" href="#">
                     <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-search-red.svg" alt="">
                     Search
                 </a>
@@ -384,6 +401,16 @@
                     Login
                 </a>
             </div>
+
+            <!-- ◼ 반응형 검색바 : 평소에 없다가 나타나야 함. 평소에 있는 검색바랑 구별되야 함  -->
+            <div class="respon-search-form-x1200under-yscroll200over">
+                <a class="dropdown-search-form" href="#">
+                    <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-search-red.svg" alt="">
+                    <!-- Search -->
+                </a>
+                
+            </div>
+
 
             <!-- ◼ 반응형 | width 1200 이하 일 때, > 오른쪽 햄버거 메뉴 -->
             <div class="responsive-hamburg-menu-width-yscroll">
@@ -405,14 +432,12 @@
     </header>
 
 
-
     <!-- ◼ 반응형 목차  -->
     <header class="site-header-responsive"> 
 
     </header>
 
 
-    
     <!-- ◼ 반응형 | 햄버거 안에 있는 목차들 -->
     <div class="site_header__primary-nav--responsive-ham">
 

@@ -150,14 +150,15 @@ body .top_banner .top_banner_text {
 
 
 
-.site_header .site_header__top .site_header__top_logo {
+.site_header__top_logo {
     /* height: auto; */
     /* width: auto; */
     background-color: #ffffff;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
     
+
     /* 📛 패딩 주의 📛 */
     padding-top: 20px;
     padding-bottom: 20px;
@@ -175,21 +176,22 @@ body .top_banner .top_banner_text {
 
 
 
-.site_header .site_header__primary-nav {
-    /* background-color: navy; */
-    display: block;
+.site_header__primary-nav {
+    background-color: navy;
+    display: none;
     /* 😥 부모로 부터 받겠다... 근데, site header 는 영역이 없는데... */
 
     /* 아... 😥 지금 width 100% 를 하면 딱 생기는 구나 지금  */
     /* 📛 패딩 주의 📛 */
     /* padding: 0 80px; */
-    width: a;
+    /* width: a; */
     display: flex;
     align-items: center;
-    justify-content: space-between;
     background-color: #ffffff;
     flex-direction: row;
+    justify-content: center;
 }
+
 
 
 .site_header__primary-nav.is-scrolled {
@@ -244,6 +246,14 @@ body .top_banner .top_banner_text {
 }
 
 
+.respon-search-form-x1200under-yscroll200over {
+    display: none;
+}
+
+.respon-search-form-x1200under-yscroll200over.is-scrolled{
+    display: block;
+}
+
 .responsive-hamburg-menu {
     display: flex;
     justify-content: center;
@@ -261,23 +271,35 @@ body .top_banner .top_banner_text {
     display: none;
 }
 
+.responsive-hamburg-menu-xWidth-under1200 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: chartreuse; */
+
+    /* width: 100px; */
+    /* height: 100px; */
+
+}
 
 /* y 스크롤 줄이고 + width 줄였을 때 나타나는 햄버거  */
 .responsive-hamburg-menu-width-yscroll {
-    display: flex;
+    /* display: flex;
     align-items: center;
 
     right: 5px;
     position: absolute;
+
+    display: none; */
 }
 
 
 .responsive-hamburg-menu.is-active {
-    display: block;
+    /* display: block;
     
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     
 }
 
@@ -352,11 +374,15 @@ justify-content: center;
 }
 
 
-.site_header__primary-nav .site_header__primary-nav--social {
-    /* background-color: yellow ; */
+.site_header__primary-nav--social {
+    /* background-color: hotpink; */
 
     /* 마진 주의📛 */
-    margin-left: 60px;
+    /* margin-left: 60px; */
+    display: flex;
+
+    position: absolute;
+    left: 15%;
 }
 
 
@@ -384,11 +410,15 @@ justify-content: center;
 
 
 /* ul 태그 */
-.site_header__primary-nav .site_header__primary-nav--menus {
-/* background-color: lightblue; */
-
-list-style: none;
-}
+ .site_header__primary-nav--menus {
+    /* background-color: lightblue; */
+    list-style: none;
+    /* background-color: yellow; */
+    width: 70%;
+    /* margin-right: 140px; */
+    display: flex;
+    justify-content: center;
+    }
 
 
 .site_header__primary-nav--menus .nav_menus {
@@ -422,23 +452,11 @@ list-style: none;
 }
 
 
-
-
-.site_header__primary-nav .site_header__primary-nav--seachlogin {
-
-position: absolute;
+.site_header__primary-nav--seachlogin {
+background-color: white;
+/* position: absolute; */
 right: 25px;
-
 height: 29px;
-
-/* background-color: lightgreen; */
-
-display: block;
-
-    /* 📛 마진 주의 */
-
-/* margin-right: 70px; */
-
 display: flex;
 }
 
@@ -472,7 +490,7 @@ display: flex;
     left: 2px;
 }
 
-#dropdown-search-form {
+.dropdown-search-form {
     margin-left: 20px;
 }
 
@@ -2276,9 +2294,98 @@ justify-content: space-evenly;
     background-color: #ee3024;
     transform-origin: bottom left;
     transition: transform 0.25s ease-out;
-  }
-  
-  .title .title_bottom .title_bottom_txt a:hover::after {
+}
+
+.title .title_bottom .title_bottom_txt a:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
-  }
+}
+
+
+
+
+
+  /* ----------- START 반응형 ---------------  */
+
+
+/* width 0 ~ 1200px */
+    @media screen and (max-width : 1200px) { 
+        /* 보여야 하는 것들  */
+            /* 1. 검색 */
+            .dropdown-search-form-xWidth-under1200 {
+                margin-left: 10px;
+            }
+
+            /* 2. 햄버거 목차 */
+
+            /* 3.  */
+            .site_header__top_logo {
+                padding: 10px;
+                
+            }
+
+        /* 안 보여야 하는 것들 */
+            /* 애초에 yScroll 로 만들었기 때문에 우선 이게 안 보이게 했어 */
+            .responsive-hamburg-menu-width-yscroll {
+                display: none;
+            }
+            /* 목차 링크들 없애기*/
+            .site_header__primary-nav--menus {
+                background-color: blue;
+                display: none;
+            }
+            /* 검색 + 로그인 없애기 */
+            .site_header__primary-nav--seachlogin {
+                display: none;
+            }
+            /* 소셜(페북+인스타) */
+            .site_header__primary-nav--social {
+                display: none;
+            }
+    } 
+
+
+/* width 1201 이상 ~  */
+    @media screen and (min-width : 1201px) { 
+        /* 보이는 것들 */        
+            /* 로고 가운데로 오게 하기 */
+            .site_header__top_logo{ 
+                display: flex;
+                justify-content: center;
+            }
+
+
+        /* 안 보이게 하기  */
+            /* 햄버거 안 보이게 하기 */
+            .responsive-hamburg-menu-xWidth-under1200 {
+                display: none;
+            }
+            /* 검색 로고 안 보이게 하기  */
+            .dropdown-search-form-xWidth-under1200 {
+                display: none;
+            }
+        
+        
+
+        /* 2번째 햄버거 아이콘 없애기 
+            ❓❓ 필요 없지 않나 ❓❓*/
+        .responsive-hamburg-menu-width-yscroll {
+            display: none;
+        }
+
+
+        /* 검색 + 로그인 */
+        .site_header__primary-nav--seachlogin {
+            /* background-color: aqua; */
+            /* position: absolute; */
+            right: 25px;
+            height: 29px;
+            width: 230px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+
+    }
