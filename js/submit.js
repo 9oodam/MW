@@ -138,9 +138,15 @@ function profile(value) {
 
 // 이미지가 올라갔을때 이미지를 클릭하면 이미지 및 올라간 파일의 정보가 삭제됨
 pvimg.addEventListener("click", function () {
+  if (!document.getElementById("pv").getAttribute("src")) {
+    return;
+  }
   document.getElementById("pv").removeAttribute("src");
   document.getElementById("pv").removeAttribute("onerror");
-  document.getElementById("pv").style.display = "none";
+  // document.getElementById("pv").style.display = "none";
+  document.getElementById("pv").setAttribute("style", "z-index: -1");
+
+  // document.getElementById("pv").setAttribute("onerror", "style.display='none'");
   lb.style.display = "flex";
   res = "";
   filename = "";
