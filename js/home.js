@@ -48,7 +48,7 @@ let primaryNavSeachlogin = document.querySelector('.site_header__primary-nav--se
 let responsiveHamburgMenu = document.querySelector('.responsive-hamburg-menu')
 let responsiveHamburgMenuWidthYscroll = document.querySelector('.responsive-hamburg-menu-width-yscroll')
 let responsSearchX1200Yscroll200 = document.querySelector('.respon-search-form-x1200under-yscroll200over')
-// let responsHamburgXwidth1200Yscroll200 = document.querySelector('.responsive-hamburg-menu-xwidth1200-yscroll200')
+let responsHamburgXwidth1200Yscroll200 = document.querySelector('.responsive-hamburg-menu-xwidth1200-yscroll200')
 // let responsClickedNavHamburgMenus = document.querySelector('.site_header__primary-nav--menus')
 // let primaryNavMenus = document.querySelector('.site_header__primary-nav--menus')
 // 버튼 위에 있는 태그 까지 해줘야 클릭반응이 옴 ⭐⭐ 
@@ -83,6 +83,14 @@ function handleYScroll() {
             navInstagramBtn.style.marginRight = '10px'
             dropdownSearchForm.style.marginRight = '40px'
 
+            // '검색' 중 '아이콘만' 보이는거 제거
+            responsSearchX1200Yscroll200.classList.remove('is-scrolled')
+            // '햄버거 메뉴' '보이게' 하는거 제거
+            responsHamburgXwidth1200Yscroll200.classList.remove('is-scrolled')
+
+
+            
+
         } 
         // 1.2 width 1201 이상 & Y Scroll 200 이하 (위로 올림)
         else {
@@ -96,6 +104,11 @@ function handleYScroll() {
             reponsiveLoginBtn.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt=""> Login`
 
             console.log(" width 1201 이상 & Y Scroll 200 이하 (위로 올림) ")
+
+            // '검색' 중 '아이콘만' 보이게 하기 - 제거
+            responsSearchX1200Yscroll200.classList.remove('is-scrolled')
+            // '햄버거 메뉴' '보이게' 하기 - 제거
+            responsHamburgXwidth1200Yscroll200.classList.remove('is-scrolled')
         }
     } 
 
@@ -115,7 +128,7 @@ function handleYScroll() {
             responsSearchX1200Yscroll200.classList.add('is-scrolled')
             // '햄버거 메뉴' '보이게' 하기 
             responsHamburgXwidth1200Yscroll200.classList.add('is-scrolled')
-            
+
 
 
         }
