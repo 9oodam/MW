@@ -41,33 +41,69 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // search btn
+// header 우상단 search & login btn
 function searchlogin() {
-  let he = document.querySelector(".he");
-  // 검색 팝업 관련 (숨어있다 나오는)
-  let searchPopupBtn = he.querySelector("#dropdown-search-form");
-  let searchPopup = he.querySelector("#search-popup");
-  let popupCloseBtn = he.querySelector("#popup-close-btn");
-  // 로그인 팝업 관련 (숨어있다 나오는)
-  let loginPopupContent = he.querySelector(".login-popup-content");
-  let idLoginBtn = he.querySelector("#id-login-btn");
+  // 검색 팝업 관련 변수
+  let searchPopupBtn = document.querySelector("#dropdown-search-form");
+  let searchPopup = document.querySelector("#search-popup");
+  let popupCloseBtn = document.querySelector("#popup-close-btn");
 
-  let logincloseBtn = he.querySelector("#login-close-btn");
-
-  // 🔷 로그인 popup
-  idLoginBtn.addEventListener("click", function () {
-    loginPopupContent.classList.add("is-active");
-  });
-  logincloseBtn.addEventListener("click", function () {
-    loginPopupContent.classList.remove("is-active");
-  });
-
-  // 🔷 검색창 popup
+  // 검색창 popup
   searchPopupBtn.addEventListener("click", function () {
     searchPopup.classList.add("is-active");
   });
-
   popupCloseBtn.addEventListener("click", function () {
     searchPopup.classList.remove("is-active");
+  });
+
+  // 로그인 팝업 관련 변수
+  let topBanner = document.querySelector(".top_banner"); // 최상단 빨간 배너
+
+  let loginPopupContent = document.querySelector(".login-popup-content");
+  let idLoginBtn = document.querySelector("#id-login-btn");
+  let logincloseBtn = document.querySelector("#login-close-btn");
+  let signupcloseBtn = document.querySelector("#signup-close-btn");
+
+  let loginPopup = document.querySelector(".login_popup"); // 로그인 창
+  let signupPopup = document.querySelector(".signup_popup"); // 회원가입 창
+  let moveToSignup = document.querySelector(".move_to_signup"); // 회원가입으로 이동
+  let moveToLogin = document.querySelector(".move_to_login");
+
+  // 로그인 popup
+  idLoginBtn.addEventListener("click", function () {
+    loginPopupContent.classList.add("is-active");
+    loginPopup.classList.add("is-active");
+  });
+  logincloseBtn.addEventListener("click", function () {
+    loginPopupContent.classList.remove("is-active");
+    loginPopup.classList.remove("is-active");
+    signupPopup.classList.remove("is-active");
+  });
+  signupcloseBtn.addEventListener("click", function () {
+    loginPopupContent.classList.remove("is-active");
+    loginPopup.classList.remove("is-active");
+    signupPopup.classList.remove("is-active");
+  });
+
+  moveToSignup.addEventListener("click", function () {
+    if (!signupPopup.classList.contains("is-active")) {
+      signupPopup.classList.add("is-active");
+    }
+    if (loginPopup.classList.contains("is-active")) {
+      loginPopup.classList.remove("is-active");
+    }
+  });
+  moveToLogin.addEventListener("click", function () {
+    if (!loginPopup.classList.contains("is-active")) {
+      loginPopup.classList.add("is-active");
+    }
+    if (signupPopup.classList.contains("is-active")) {
+      signupPopup.classList.remove("is-active");
+    }
+  });
+  topBanner.addEventListener("click", function () {
+    loginPopupContent.classList.add("is-active");
+    signupPopup.classList.add("is-active");
   });
 }
 

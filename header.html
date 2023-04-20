@@ -1,10 +1,12 @@
-
+<!-- 최상단 빨간색 띠 -->
 <div class="top_banner">
     <p class="top_banner_text">
         Save favorites.
-        <a href="https://accidentallywesanderson.com/sign-up/"> Plan your next adventure</a>
+        <a> Plan your next adventure</a>
     </p>
 </div>
+
+<!-- 검색창 popup wrap -->
 <div class="search-dropdown" id="search-popup">
     <a id="popup-close-btn" class="close-btn" href="#"></a>
     <div class="input-search-keyword">
@@ -14,42 +16,44 @@
         </div>
     </div>
 </div>
+
+<!-- 로그인 & 회원가입 popup wrap -->
 <div class="login-popup-content">
-    <div class="login-window">
+    <!-- 로그인 창 -->
+    <div class="login_popup">
         <button id="login-close-btn" class="login-close-btn"> x </button>
-        <div class="center">
-            <h1>login</h1>
-            <div class="form">
-                <div class="txt_field">
-                    <input type="text" id="username" name="username" required>
-                    <span></span>
-                    <label for="username">name</label>
-                </div>
+        <h1>login</h1>
+        <div class="form">
+            <div class="txt_field">
+                <input type="text" id="username" name="username" required>
+                <span></span>
+                <label for="username">name</label>
             </div>
-            <div class="form">
-                <div class="txt_field">
-                    <input type="password" id="password" name="password" required>
-                    <span></span>
-                    <label for="password" >password</label>
-                </div>
-    
-                <div class="pass">Forget password?</div>
-                    <input type="submit" value="Login" id="loginButton"onclick="login()">
-                <div class="signup_link">
-                    Not a member? <a href="signup.html">Signup</a>
-                </div>
+        </div>
+        <div class="form">
+            <div class="txt_field">
+                <input type="password" id="password" name="password" required>
+                <span></span>
+                <label for="password" >password</label>
+            </div>
+
+            <div class="pass">Forget password?</div>
+                <input type="submit" value="Login" id="loginButton"onclick="login()">
+            <div class="signup_link">
+                Not a member? <div class="move_to_signup">Signup</div>
             </div>
         </div>
     </div>
-    <div class="center is-active">
+    <!-- 회원가입 창 -->
+    <div class="signup_popup">
+        <button id="signup-close-btn" class="login-close-btn"> x </button>
         <h1>Sign up</h1>
-        <div class="login-center">
-            already have an account?  <ins class="text">Log in</ins>   
+        <div class="login_link">
+            already have an account? <div class="move_to_login">Log in</div>   
         </div>
-        <div class="border"><a href="https://www.google.com">CONTINUE WITH GOOGLE</a>
-        </div>
-        <br>
-        <div class="border1"><a href="https://www.apple.com">  CONTINUE WITH APPLE</a>
+        <div class="continue_with">
+            <a href="https://www.google.com">CONTINUE WITH GOOGLE</a>
+            <a href="https://www.apple.com">CONTINUE WITH APPLE</a>
         </div>
         <div class="form">
             <div class="txt_field">
@@ -62,15 +66,14 @@
                 <span></span>
                 <label >name</label>
             </div>
-        </div>
-        <div class="form">
             <div class="txt_field">
                 <input type="password" id="password" required>
                 <span></span>
                 <label >password</label>
+                <span class="span-position">password must be at least 8 characters</span>
             </div>
-            <span class="span-position">password must be at least 8 characters</span>
-        
+        </div>
+        <div class="checkbox_field">
             <input type="checkbox" class="any">
             "i agree to the"
             <a href="/privacy-policy/" style="text-decoration: underline;">privacy Policy</a>"and"
@@ -85,13 +88,15 @@
         </div>
     </div>
 </div>
+
+<!-- header -->
 <header class="site_header">
     <div class="site_header__top">   
         <div class="site_header__top_search">      
         </div>
         <div class="site_header__top_logo"> 
-            <a href="/" class="a_tag">
-                <img class="img_tag" src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/awa-nav-logo.svg" alt="Accidentally Wes Anderson Logo">
+            <a href="./home.html" class="a_tag">
+                <img class="img_tag" src="./img/mw-nav-logo.png" alt="Accidentally Wes Anderson Logo">
             </a>
         </div>
         <div class="site_header__top_respMenu">

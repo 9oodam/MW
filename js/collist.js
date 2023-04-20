@@ -41,37 +41,76 @@ window.addEventListener("DOMContentLoaded", () => {
 // img가 submit 됫을 경우 localstorage에 등록 되고 이미지도 출력 하게 하는 함수
 
 // search btn
+// header 우상단 search & login btn
 function searchlogin() {
-  let ta = document.querySelector(".he");
-  // 검색 팝업 관련 (숨어있다 나오는)
-  let searchPopupBtn = ta.querySelector("#dropdown-search-form");
-  let searchPopup = ta.querySelector("#search-popup");
-  let popupCloseBtn = ta.querySelector("#popup-close-btn");
-  // 로그인 팝업 관련 (숨어있다 나오는)
-  let loginPopupContent = ta.querySelector(".login-popup-content");
-  let idLoginBtn = ta.querySelector("#id-login-btn");
+  // 검색 팝업 관련 변수
+  let searchPopupBtn = document.querySelector("#dropdown-search-form");
+  let searchPopup = document.querySelector("#search-popup");
+  let popupCloseBtn = document.querySelector("#popup-close-btn");
 
-  let logincloseBtn = ta.querySelector("#login-close-btn");
-
-  // 🔷 로그인 popup
-  idLoginBtn.addEventListener("click", function () {
-    loginPopupContent.classList.add("is-active");
-  });
-  logincloseBtn.addEventListener("click", function () {
-    loginPopupContent.classList.remove("is-active");
-  });
-
-  // 🔷 검색창 popup
+  // 검색창 popup
   searchPopupBtn.addEventListener("click", function () {
     searchPopup.classList.add("is-active");
   });
-
   popupCloseBtn.addEventListener("click", function () {
     searchPopup.classList.remove("is-active");
   });
+
+  // 로그인 팝업 관련 변수
+  let topBanner = document.querySelector(".top_banner"); // 최상단 빨간 배너
+
+  let loginPopupContent = document.querySelector(".login-popup-content");
+  let idLoginBtn = document.querySelector("#id-login-btn");
+  let logincloseBtn = document.querySelector("#login-close-btn");
+  let signupcloseBtn = document.querySelector("#signup-close-btn");
+
+  let loginPopup = document.querySelector(".login_popup"); // 로그인 창
+  let signupPopup = document.querySelector(".signup_popup"); // 회원가입 창
+  let moveToSignup = document.querySelector(".move_to_signup"); // 회원가입으로 이동
+  let moveToLogin = document.querySelector(".move_to_login");
+
+  // 로그인 popup
+  idLoginBtn.addEventListener("click", function () {
+    loginPopupContent.classList.add("is-active");
+    loginPopup.classList.add("is-active");
+  });
+  logincloseBtn.addEventListener("click", function () {
+    loginPopupContent.classList.remove("is-active");
+    loginPopup.classList.remove("is-active");
+    signupPopup.classList.remove("is-active");
+  });
+  signupcloseBtn.addEventListener("click", function () {
+    loginPopupContent.classList.remove("is-active");
+    loginPopup.classList.remove("is-active");
+    signupPopup.classList.remove("is-active");
+  });
+
+  moveToSignup.addEventListener("click", function () {
+    if (!signupPopup.classList.contains("is-active")) {
+      signupPopup.classList.add("is-active");
+    }
+    if (loginPopup.classList.contains("is-active")) {
+      loginPopup.classList.remove("is-active");
+    }
+  });
+  moveToLogin.addEventListener("click", function () {
+    if (!loginPopup.classList.contains("is-active")) {
+      loginPopup.classList.add("is-active");
+    }
+    if (signupPopup.classList.contains("is-active")) {
+      signupPopup.classList.remove("is-active");
+    }
+  });
+  topBanner.addEventListener("click", function () {
+    loginPopupContent.classList.add("is-active");
+    signupPopup.classList.add("is-active");
+  });
 }
 
+///////////////////////////////////////////////////////
+
 // 그려주는 함수
+// 그려주는 함수 전역 변수 정리
 let contentwrap = document.querySelector(".content_wrap");
 let card = document.querySelector(".card");
 let cardin = document.querySelector(".cardin");
@@ -112,10 +151,9 @@ if (listfilter.length == 0) {
   location.href = "./collections.html";
 }
 
-// console.log(listfilter.length);
 // 찾아온 로컬스토리지 key로 value를 저장
 let tmplocal = JSON.parse(localStorage.getItem(`${listfilter}`));
-// console.log(tmplocal);
+
 // 만들어진 로컬 스토리지의 group이 THEMES 일 경우
 if (tmplocal.group == "THEMES") {
   let themesname = readthemes[tmplocal.cnt][tmplocal.name];
@@ -133,7 +171,15 @@ if (tmplocal.group == "COLORS") {
 // title 이미지 출력
 
 // h1 출력 / 변하는 부분 1
-titleh1.innerHTML = `${tmplocal.name}`;
+let seartchtxt = "SEARCHED : ";
+// let searchtest = seartchtxt;
+// console.log(seartchtxt != "");
+
+if (seartchtxt != "") {
+  titleh1.innerHTML = seartchtxt + `${tmplocal.name}`;
+} else {
+  titleh1.innerHTML = `${tmplocal.name}`;
+}
 
 // p태그 출력 / 변하는 부분 2
 titletoptxtp.innerHTML = `${tmplocal.desc}`;
@@ -142,8 +188,9 @@ titletoptxtp.innerHTML = `${tmplocal.desc}`;
 titlebottomtxta[1].innerHTML = `${tmplocal.group}`;
 titlebottomtxtspan[4].innerHTML = `${tmplocal.name}`;
 
-// 선택된 이미지만 출력
+///////////////////////////////////////////////////////
 
+// 선택된 이미지만 출력
 function selectthemes(list) {
   list.forEach((value) => {
     let readvalue = Object.values(value)[0];
