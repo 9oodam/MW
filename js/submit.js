@@ -365,21 +365,35 @@ function subimg() {
     updesc != ""
   ) {
     // 생성자를 통해 업로드할 이미지 객체생성
-    let imgupload = new createimgupload(
-      upnickname,
-      upcountry,
-      upcity,
-      selectres,
-      updesc,
-      res
-    );
-    if (!localchk) {
+    // let imgupload = new createimgupload(
+    //   upnickname,
+    //   upcountry,
+    //   upcity,
+    //   selectres,
+    //   updesc,
+    //   res
+    // );
+
+    let imgupload = {
+      nickname: upnickname,
+      country: upcountry,
+      city: upcity,
+      title: selectres,
+      description: updesc,
+      img: res,
+    };
+
+    if (localchk) {
       // 등록한 이미지 정보를 imgupload라는 이름의 localstorage 생성
-      localStorage.setItem("MYIMG", `${JSON.stringify([imgupload])}`);
-    } else {
-      let acceptimg = JSON.parse(localStorage.getItem("MYIMG"));
+      let acceptimg = JSON.parse([localStorage.getItem("MYIMG")]);
+      // console.log(typeof acceptimg);
       acceptimg.push(imgupload);
-      localStorage.setItem("MYIMG", JSON.stringify(acceptimg));
+      // console.log(acceptimg);
+
+      localStorage.setItem("MYIMG", `${JSON.stringify(acceptimg)}`);
+    } else {
+      console.log("else");
+      localStorage.setItem("MYIMG", `${JSON.stringify([imgupload])}`);
     }
 
     let craeteobject = {
@@ -394,9 +408,9 @@ function subimg() {
     // 이미지 등록시 카테고리에 이미지 정보 추가
     themesinfo.forEach((value) => {
       if (value.name == selectres) {
-        localStorage.setItem("MYIMG", `${JSON.stringify([imgupload])}`);
+        // localStorage.setItem("MYIMG", `${JSON.stringify([imgupload])}`);
 
-        console.log(readthemes[value.cnt][value.name]);
+        // console.log(readthemes[value.cnt][value.name]);
 
         readthemes[value.cnt][value.name].push(craeteobject);
       }
@@ -405,9 +419,9 @@ function subimg() {
 
     colorinfo.forEach((value) => {
       if (value.name == selectres) {
-        localStorage.setItem("MYIMG", `${JSON.stringify([imgupload])}`);
+        // localStorage.setItem("MYIMG", `${JSON.stringify([imgupload])}`);
 
-        console.log(readcolor[value.cnt][value.name]);
+        // console.log(readcolor[value.cnt][value.name]);
 
         readcolor[value.cnt][value.name].push(craeteobject);
       }
@@ -418,7 +432,7 @@ function subimg() {
   alert("업로드 성공");
 
   setTimeout(() => {
-    location.reload();
+    // location.reload();
   }, 100);
 }
 
