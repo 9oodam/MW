@@ -106,11 +106,18 @@ function handleYScroll() {
             // 인스타그램 아이콘을 살짝 옆으로 
             navInstagramBtn.style.marginRight = '10px'
             dropdownSearchForm.style.marginRight = '40px'
+            
+            // 인스타 + 페북을 살짝 오른쪽으로
+            primaryNavSocial.style.marginLeft = '145px'
+
 
             // '검색' 중 '아이콘만' 보이는거 제거
             responsSearchX1200Yscroll200.classList.remove('is-scrolled')
             // '햄버거 메뉴' '보이게' 하는거 제거
             responsHamburgXwidth1200Yscroll200.classList.remove('is-scrolled')
+
+            // 검색창이 사라짐
+            searchPopup.classList.remove('is-active')
 
 
 
@@ -273,7 +280,7 @@ dropdownSearchXWidthUnder1200.addEventListener('click', function() {
         
         // 드롭다운 없애기 ⭐⭐⭐⭐⭐⭐ 
             // x 자 만들기 함수 
-            // createXIconBtn()
+            createXIconBtn()
 
             // 파란박스가 스크롤 위치에 따라 상대적으로 움직이게 하기 
             // searchPopupBtnCalcBoxTop.offsetHeight + "px"
@@ -285,6 +292,7 @@ dropdownSearchXWidthUnder1200.addEventListener('click', function() {
             // searchPopupBtnCalcBoxTop.offsetHeight + "px"/
             // x 버튼의 top 에 이 값을 넣어본다. 
 
+            
         // 검색 창에 취소 버튼 붙이기 
         // popupCloseBtn
 
