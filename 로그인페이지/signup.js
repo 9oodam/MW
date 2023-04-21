@@ -49,4 +49,5 @@ function signup() {
   // console.log("👍👍👍👍👍👍👍👍" + savedUsername_test)
 }
 // signup();
-console.log(localStorage.getItem("USER"));
+
+
