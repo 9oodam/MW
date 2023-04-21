@@ -27,7 +27,7 @@
     <div class="search-dropdown" id="search-popup">
 
         <!-- 오른쪽 상단 x 표 -->
-        <a id="popup-close-btn" class="close-btn" href="#"></a>
+        <a id="popup-close-btn" class="close-btn"></a>
 
         <!-- 검색창 -->
         <!-- <div class="search-div">
@@ -41,6 +41,8 @@
                 <input class= "search-icon-btn" type="" >
             </div>
         </div>
+        
+
         <!-- 돋보기 모양 -->
     </div>
 
@@ -325,12 +327,24 @@
                 <!-- ◼ 햄버거 메뉴 -->
                     <!-- 저기 아래에 있는걸 넣으면 되나❓❓  -->
                 <div class="responsive-hamburg-menu-xWidth-under1200">
-                    <a class="hamburg-menu-button"> 
+                    <!-- 1) 햄버거 메뉴 -->
+                    <a class="hamburg-menu-button" id="hamburg-menu-btn-under1200"> 
                         <span> </span>
                         <span> </span>
                         <span> </span>
                     </a>
+
                 </div>
+
+                <!-- ◼ 취소 버튼  -->
+                <a class="close-state-button">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </a>
+                
 
             </div>
 
@@ -392,7 +406,7 @@
             <!-- c) search + login -->
             <div class="site_header__primary-nav--seachlogin">
                 <!-- search -->
-                <a class="dropdown-search-form" href="#">
+                <a class="dropdown-search-form">
                     <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-search-red.svg" alt="">
                     Search
                 </a>
@@ -403,15 +417,14 @@
                 </a>
             </div>
 
-            <!-- ◼ 반응형 검색바 : 평소에 없다가 나타나야 함. 평소에 있는 검색바랑 구별되야 함  -->
+            <!-- ◼ 반응형 검색버튼 : 평소에 없다가 나타나야 함. 평소에 있는 검색바랑 구별되야 함  -->
             <div class="respon-search-form-x1200under-yscroll200over">
-                <a class="dropdown-search-form" href="#">
+                <a id="dropdown-search-form-x1200under-y200over" class="dropdown-search-form">
                     <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-search-red.svg" alt="">
                     <!-- Search -->
                 </a>
                 
             </div>
-
 
             <!-- ◼ 반응형 | width 1200 이하 + y스크롤 200 이상일 때  > 오른쪽 햄버거 메뉴 -->
             <div class="responsive-hamburg-menu-xwidth1200-yscroll200">
@@ -423,6 +436,8 @@
             </div>
 
 
+            <!--  ◼ 반응형 | width 1200 이하 + y스크롤 200 이상일 때 | 드롭다운 검색창 -->
+        
 
 
         </div>
@@ -583,7 +598,11 @@
                         <div class="search-form">
                             <input class = "keyword-input" type="search" class="search-form" placeholder="Search by location or keyword">
                             <input class= "search-icon-btn" type="" >
+
+                            <!-- <p class="x-icon-button"> X </p> -->
+                            
                         </div>
+                    
                     </div>
 
                 </div>

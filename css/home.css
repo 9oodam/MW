@@ -71,6 +71,9 @@ body {
     /* anti aliasing */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: auto;
+
+    /* 콘텐츠가 화면을 넘으면 나오게 하는 것 */
+    overflow-x: hidden;
 }
 
 
@@ -165,6 +168,8 @@ body .top_banner .top_banner_text {
     padding-bottom: 20px;
 }
 
+
+
 .site_header__top_logo .a_tag .img_tag {
     display: block;
 
@@ -175,6 +180,10 @@ body .top_banner .top_banner_text {
     overflow: clip;
 }
 
+
+.dropdown-search-form-xWidth-under1200 {
+    cursor: pointer;
+}
 
 
 .site_header__primary-nav {
@@ -192,6 +201,7 @@ body .top_banner .top_banner_text {
     flex-direction: row;
     justify-content: center;
     border-bottom: 1.5px solid #ee3024;
+    position: relative;
 }
 
 
@@ -289,13 +299,16 @@ body .top_banner .top_banner_text {
     /* width: 100px; */
     /* height: 100px; */
 
+    display: block;
 }
+
+
 
 /* y 스크롤 줄이고 + width 줄였을 때 나타나는 햄버거  */
 .responsive-hamburg-menu-xwidth1200-yscroll200 {
     display: flex;
     align-items: center;
-
+    
     right: 5px;
     position: absolute;
 
@@ -311,6 +324,8 @@ body .top_banner .top_banner_text {
 
     display: block;
 }
+
+
 
 .responsive-hamburg-menu.is-active {
 /*     
@@ -378,6 +393,45 @@ justify-content: center;
     /* 원래 있음 ✅ */
     /* transition: transform .25s ease;
         transform-origin: center center; */
+}
+
+
+.close-state-button {
+    position: fixed;
+    right: 10px;
+    width: 17px;
+    height: 18px;
+    margin: 0 0 0 auto;
+    cursor: pointer;
+    /* background-color: blue; */
+    display: none;
+    z-index: 30;
+}
+
+
+.close-state-button span {
+    position: absolute;
+    
+    top: 5px;
+
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #ee3024;
+    border-radius: 11px;
+    right: 1px;
+    /* bottom: 5px; */
+    opacity: 0;
+}
+
+.close-state-button span:first-child {
+    opacity: 1;
+    transform: rotate(45deg) translateY(0);
+}
+
+.close-state-button span:last-child {
+    opacity: 1;
+    transform: rotate(-45deg) translateY(0);
 }
 
 
@@ -497,6 +551,8 @@ display: flex;
 
 .dropdown-search-form {
     margin-left: 20px;
+    cursor: pointer;
+    
 }
 
 .site_header__primary-nav .site_header__primary-nav--loginPopup {
@@ -504,20 +560,29 @@ display: flex;
 }
 
 
+
+
 .site_header__primary-nav--responsive-ham {
     display: none;
 }
 
+.site_header__primary-nav--responsive-ham-over200 {
+    display: none;
+}
 
 .site_header__primary-nav--responsive-ham.is-active {
     position: fixed;
     width: 290px;
 
     /* 로그인 완료되면 > 위에 배너 사라지고 > 여기가 변경되야 함✅(@mark) */
-    top: 115px;
     
+    /* 스크롤 - over 200  */
+    /* top: 75px; */
+
+     /* 스크롤 기본 위치 - under 200 올라갔을 때 */
+    /* top: 116px; */
     padding-top: 85px;
-    z-index: 10;
+    z-index: 100;
     right: 0;
     height: 100%;
     padding: 3px 0 1px;
@@ -525,20 +590,42 @@ display: flex;
     border-top: 1px solid #ee3024;
     transition: .25s ease, padding .25s ease;
     background-color: #fff;
-    
-    display: block;    
+    display: block;
 }
 
+.site_header__primary-nav--responsive-ham-over200.is-active {
+    position: fixed;
+    width: 290px;
 
+    /* 로그인 완료되면 > 위에 배너 사라지고 > 여기가 변경되야 함✅(@mark) */
+    
+    /* 스크롤 - over 200  */
+    top: 75px;    
+
+    padding-top: 85px;
+    z-index: 100;
+    right: 0;
+    height: 100%;
+    padding: 3px 0 1px;
+    border-left: 1px solid #ee3024;
+    border-top: 1px solid #ee3024;
+    transition: .25s ease, padding .25s ease;
+    background-color: #fff;
+    display: block;
+}
 
 
 .site_header__primary-nav--responsive-ham-links {
-
     padding-top: 10px;
-
     /* border-top: 1px solid #ee3024; */
-
 }
+
+.site_header__primary-nav--responsive-ham-over200 {
+    padding-top: 10px;
+    /* border-top: 1px solid #ee3024; */
+}
+
+
 
 .res-menu-main {
     list-style: none;
@@ -652,6 +739,7 @@ box-shadow: 2px 2px 7px 0 rgba(0,0,0,.1);
 }
 
 
+
 .search-dropdown .input-search-keyword .search-form .keyword-input {
 
 padding: 15px;
@@ -660,7 +748,7 @@ padding: 15px;
     
     /* 📛 하드코딩 주의 📛 */
 
-width: calc(100% - 30px);
+width: calc(100% - 5px);
 
 font-size: 14px;
 
@@ -713,6 +801,14 @@ transition: transform .5s ease,opacity .25s ease;
     cursor: pointer;
 }
 
+
+
+
+
+
+.close-btn {
+    cursor: pointer;
+}
 
 .close-btn::before,
 .close-btn::after {
