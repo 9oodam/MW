@@ -34,7 +34,7 @@ function signup() {
     let userpush = JSON.parse(localStorage.getItem("USER"));
     userpush.push(userlist);
     localStorage.setItem("USER", JSON.stringify(userpush));
-  }
+  } 
 
   //   localStorage.setItem("userNickname", savedNickname);
   //   localStorage.setItem("userName", savedName);
