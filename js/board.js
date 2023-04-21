@@ -33,48 +33,95 @@ function includeHTML() {
     } //for
 } //includeHTML
   
-  /* 실행 */
+/* 실행 */
 window.addEventListener("DOMContentLoaded", () => {
     includeHTML();
 });
-  
-// search btn
+
+// header 우상단 search & login btn
 function searchlogin(){
-    let ta = document.querySelector(".he");
-    // 검색 팝업 관련 (숨어있다 나오는)
-    let searchPopupBtn = ta.querySelector('#dropdown-search-form');
-    let searchPopup = ta.querySelector('#search-popup');
-    let popupCloseBtn = ta.querySelector('#popup-close-btn');
-    // 로그인 팝업 관련 (숨어있다 나오는)
-    let loginPopupContent = ta.querySelector('.login-popup-content')
-    let idLoginBtn = ta.querySelector('#id-login-btn')
-    
-    let logincloseBtn = ta.querySelector('#login-close-btn')
-  
-    // 🔷 로그인 popup
+    // 검색 팝업 관련 변수
+    let searchPopupBtn = document.querySelector('#dropdown-search-form')
+    let searchPopup = document.querySelector('#search-popup')
+    let popupCloseBtn = document.querySelector('#popup-close-btn')
+
+    // 검색창 popup
+    searchPopupBtn.addEventListener('click', function() {
+        searchPopup.classList.add('is-active');
+    });
+    popupCloseBtn.addEventListener('click', function() {
+        searchPopup.classList.remove('is-active');
+    });
+
+    // 로그인 팝업 관련 변수
+    let topBanner = document.querySelector(".top_banner"); // 최상단 빨간 배너
+
+    let loginPopupContent = document.querySelector('.login-popup-content');
+    let idLoginBtn = document.querySelector('#id-login-btn');
+    let logincloseBtn = document.querySelector('#login-close-btn');
+    let signupcloseBtn = document.querySelector('#signup-close-btn');
+
+    let loginPopup = document.querySelector(".login_popup"); // 로그인 창
+    let signupPopup = document.querySelector(".signup_popup"); // 회원가입 창
+    let moveToSignup = document.querySelector(".move_to_signup"); // 회원가입으로 이동
+    let moveToLogin = document.querySelector(".move_to_login");
+
+    // 로그인 popup
     idLoginBtn.addEventListener('click', function() {
-        loginPopupContent.classList.add('is-active')
+        loginPopupContent.classList.add('is-active');
+        loginPopup.classList.add('is-active');
     });
     logincloseBtn.addEventListener('click', function(){
-        loginPopupContent.classList.remove('is-active')
+        loginPopupContent.classList.remove('is-active');
+        loginPopup.classList.remove('is-active');
+        signupPopup.classList.remove('is-active');
     });
-  
-    // 🔷 검색창 popup
-    searchPopupBtn.addEventListener('click', function() {
-        searchPopup.classList.add('is-active')
+    signupcloseBtn.addEventListener('click', function(){
+        loginPopupContent.classList.remove('is-active');
+        loginPopup.classList.remove('is-active');
+        signupPopup.classList.remove('is-active');
     });
-  
-    popupCloseBtn.addEventListener('click', function() {
-        searchPopup.classList.remove('is-active')
+
+    moveToSignup.addEventListener("click", function() {
+        if(!signupPopup.classList.contains('is-active')) {
+            signupPopup.classList.add('is-active');
+        }
+        if(loginPopup.classList.contains('is-active')) {
+            loginPopup.classList.remove('is-active');
+        }
+    });
+    moveToLogin.addEventListener("click", function() {
+        if(!loginPopup.classList.contains('is-active')) {
+            loginPopup.classList.add('is-active');
+        }
+        if(signupPopup.classList.contains('is-active')) {
+            signupPopup.classList.remove('is-active');
+        }
+    });
+    topBanner.addEventListener('click', function() {
+        loginPopupContent.classList.add('is-active');
+        signupPopup.classList.add('is-active');
     });
 }
-  
+
+
+// ❗❗❗❗❗❗❗❗❗❗ board 관련 js 시작 ❗❗❗❗❗❗❗❗❗❗ //
 // 전역 변수
+
+// board list 관련
 let _json = '{"key" : "value"}';
 let _board = document.querySelector(".board_body");
 let _title = document.querySelector("#title").value;
 let _detailsPrev = document.querySelector("#details").value;
 let _details = _detailsPrev.replace(/(?:\r\n|\r|\n)/g, '<br>');
+
+// pagination 관련
+let paging = document.querySelector(".paging"); // 페이징 번호 보여주는 곳
+let pagingPrev = document.querySelector(".paging_prev");
+let pagingNext = document.querySelector(".paging_next");
+let pageCount = 3; // 3개씩 보여주기
+let currentPage = 1; // 현재 페이지
+
 
 // 게시글 제출하는 팝업창 열고 닫기 (write 버튼)
 let popupBtn = document.querySelector(".popup_btn");
@@ -240,10 +287,9 @@ window.onload = function() {
     _split.forEach(function(i, index) {
         _json2.push(JSON.parse(_split[index]));
     });
-    console.log(_json2);
 
     render(_json2); 
-    pagination(_json2);
+    pagination(_json2, currentPage);
 }
 
 // 작성된 게시글 보여주는 팝업창 열고 닫기
@@ -345,6 +391,7 @@ function deleteList(indexNum, _json2) {
     msgPopup.classList.remove("is-active");
 
     render(_json4);
+    location.reload();
 }
 
 // Admin 답글
@@ -425,68 +472,82 @@ searchSubmit.addEventListener("click", function() {
     }
     _board.innerHTML = ""; // 게시판 초기화
     paging.innerHTML = ""; // 페이징 번호 초기화
+    pagingPrev.innerHTML = "";
+    pagingNext.innerHTML = "";
     render(_json3);
-    pagination(_json3);
+    pagination(_json3, currentPage);
 });
 
 
 // Pagination
-let pagingPrev = document.querySelector(".paging_prev");
-let paging = document.querySelector(".paging"); // 페이징 번호 보여주는 곳
-let pagingNext = document.querySelector(".paging_next");
-function pagination(_json2) {
-    console.log(_json2); // 리스트에 출력되는 배열 가져옴
+function pagination(_json2, currentPage) {
     let _json = [];
+    
+    console.log("currentPage: ", currentPage);
 
-    let totalList = _json2.length; // 총 게시글 수
+    let totalList = _json2.length; // 총 게시글 수 32
     console.log("게시글 수: ", totalList);
 
-    let totalPage = Math.ceil(totalList / 10); // 총 페이지 수
-    console.log("총 페이지 수: ", totalPage);   // 한 페이지에 10개씩
-
-    paging.style.top = "0px";
-
-    // 이전 버튼
-    let prevBtn = document.createElement("div");
-    if(totalPage > 3) {
-        prevBtn.innerHTML = "◀";
-        prevBtn.classList.add("paging_btn");
-        pagingPrev.append(prevBtn);
-        prevBtn.addEventListener("click", function() {
-            console.log("prevBtn 눌림");
-            paging.style.top = `${0}px`;
-        });
+    let totalPage = Math.ceil(totalList / 5); // 총 페이지 수 7
+    console.log("총 페이지 수: ", totalPage);  // 한 페이지에 5개씩
+    if(totalPage < pageCount) {
+        pageCount = totalPage;
     }
 
-    // 번호
-    for (let i = 1; i <= totalPage; i++) {
-        let pagingBtn = document.createElement("div");
-        pagingBtn.innerHTML = i;
-        pagingBtn.id = i;
+    let pageGroup = Math.ceil(currentPage / pageCount);
+    console.log("pageGroup: ", pageGroup);
+    
+    let lastNum = pageGroup * pageCount; // 보여지는 마지막 번호
+    if(lastNum > totalPage) {
+        lastNum = totalPage;
+    }
+    let firstNum = lastNum - (pageCount - 1); // 화면에 보여질 첫번째 페이지 번호
+    console.log("firstNum: ", firstNum);
+    console.log("lastNum: ", lastNum);
 
-        pagingBtn.classList.add("paging_btn");
-        pagingBtn.classList.add("paging_btn_number")
-        paging.append(pagingBtn);
+    let next = lastNum + 1;
+    let prev = firstNum - 1;
 
-        pagingBtn.addEventListener("click", function() {
-            console.log("pagingBtn 눌림: ", i);
-            _json = _json2.slice(10 * (i-1), 10 * i);
+    if(lastNum < totalPage) {
+        pagingNext.innerHTML += "<div id='prev'>▶</div>";
+    }
+    if(prev > 0) {
+        pagingPrev.innerHTML += "<div id='prev'>◀</div>";
+    }
+
+    for (let i = firstNum; i <= lastNum; i++) {
+        paging.innerHTML += "<div class='paging_btn' id='" + i + "'>" + i + "</div>";
+    }
+
+    let pagingBtn = document.querySelectorAll(".paging div");
+    for (let i = 0; i < pagingBtn.length; i++) {        
+        pagingBtn[i].addEventListener("click", function() {
+            let _id = pagingBtn[i].id;
+            console.log("페이지 번호: ", _id);
+
+            _json = _json2.slice(5 * (_id-1), 5 * _id);
 
             _board.innerHTML = ""; // 게시판 초기화
             render(_json);
         });
     }
 
-    // 다음 버튼
-    let nextBtn = document.createElement("div");
-    if(totalPage > 3) {
-        nextBtn.innerHTML = "▶";
-        nextBtn.classList.add("paging_btn");
-        pagingNext.append(nextBtn);
-        nextBtn.addEventListener("click", function() {
-            console.log("nextBtn 눌림");
-            // pagingTop = `${pagingTop - 40}px`;
-            paging.style.top = `${-40}px`;
-        });
-    }
+    pagingNext.addEventListener("click", function() {
+        console.log("nextBtn");
+        selectedPage = next;
+        currentPage = selectedPage;
+        paging.innerHTML = "";
+        pagingPrev.innerHTML = "";
+        pagingNext.innerHTML = "";
+        pagination(_json2, currentPage);
+    });
+    pagingPrev.addEventListener("click", function() {
+        console.log("prevBtn");
+        selectedPage = prev;
+        currentPage = selectedPage;
+        paging.innerHTML = "";
+        pagingPrev.innerHTML = "";
+        pagingNext.innerHTML = "";
+        pagination(_json2, currentPage);
+    });
 }

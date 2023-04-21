@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'freight_sans_pro_medium_regular';
+    font-weight: 300;
+    font-style: normal; 
+    src: url(/font/FreightSansProMedium-Regular.ttf);
+}
+
 html {
     box-sizing: border-box;
 }
@@ -79,10 +86,12 @@ body {
 
 /* 컨텐츠 시작 */
 .content_wrap {
-  width: 100%;
-  height: calc(100vh - 330px);
-  background-color: #f8f3e4;
-  padding: 32px 0;
+    font-family: 'freight_sans_pro_medium_regular';
+    width: 100%;
+    /* height: calc(100vh - 330px); */
+    height: 100vh;
+    background-color: #f8f3e4;
+    padding: 32px 0;
 }
 
 /* 게시판 search */
@@ -145,7 +154,7 @@ body {
     position: relative;
 }
 .board_wrap .board_body {
-    width: 100%; height: 600px;
+    width: 100%; height: 350px;
     justify-content: center; align-items: center;
     position: relative;
 }
@@ -153,7 +162,7 @@ body {
     position: absolute;
     left: 50%; transform: translateX(-50%);
     width: 1000px; padding: 0; margin: 0;
-    height: 550px;
+    height: 300px;
     max-height: 1200px;
     font-size: 20px;
     overflow: hidden;
@@ -188,9 +197,10 @@ li > div {
 }
 
 .board_wrap .board_footer {
-    width: 100%; height: 45px;
+    width: 100%; height: 40px;
     position: relative;
     left: 50%; transform: translateX(-50%);
+    box-sizing: border-box;
 }
 .board_footer .paging-wrap {
     box-sizing: border-box;
@@ -200,22 +210,22 @@ li > div {
     position: absolute; left: 50%;
     transform: translateX(-50%);
     display: inline-flex; justify-content: center; align-items: center;
-    overflow: hidden;
-}
-.paging, .paging_prev, .paging_next {
-    /* border: 1px solid; */
+
 }
 .paging {
-    width: 120px;
+    width: 120px; height: 100%;
     display: flex; justify-content: center;
     flex-wrap: wrap;
     position: absolute; top: 0;
+    box-sizing: border-box;
 }
 .paging_prev {
     position: absolute; top: 0; left: 0;
+    box-sizing: border-box;
 }
 .paging_next {
     position: absolute; top: 0; right: 0;
+    box-sizing: border-box;
 }
 .paging_prev.invisable, .paging_next.invisable {
     display: none;
@@ -224,6 +234,7 @@ li > div {
 .board_footer .paging_prev div,
 .board_footer .paging_next div {
     display: flex; float: left;
+    justify-content: center; align-items: center;
     width: 30px; height: 30px; margin: 5px;
     text-align: center; color: #fff;
     font-size: 18px; font-weight: bold;

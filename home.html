@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="./css/login.css">
-    <link rel="stylesheet" href="./css/signup.css">
+    <!-- <link rel="stylesheet" href="./css/signup.css"> -->
 </head>
 
 <body>
@@ -17,7 +17,7 @@
         <p class="top_banner_text">
             Save favorites.
             <!-- 회원가입 페이지로 이동 -->
-            <a href="https://accidentallywesanderson.com/sign-up/"> Plan your next adventure</a>
+            <a> Plan your next adventure</a>
         </p>
     </div>
 
@@ -35,85 +35,86 @@
         <div class="input-search-keyword">
             <!-- 레퍼런스는 form 태그 였음. ✅✅ -->
             <div class="search-form">
+                <div class="no_img_searched">NO SEARCHED :(</div>
                 <input id="search-popup-btn" class = "keyword-input" type="search" class="search-form" placeholder="Search by location or keyword">
                 <input class= "search-icon-btn" type="" >
+            </div>
+            <div class="autocomplete_wrap">
             </div>
         </div>
         <!-- 돋보기 모양 -->
     </div>
 
     <!-- 숨어있다가, 나오는 부분 : 로그인 popup-->
+    <!-- 로그인 & 회원가입 popup wrap -->
     <div class="login-popup-content">
-        <!-- 로그인 popup -->
-        <div class="login-window">
-            <button id="login-close-btn" class="login-close-btn"> x </button>
-            <div class="center is-active">
-                <h1>login</h1>
-                <div class="form">
-                    <div class="txt_field">
-                        <input type="text" id="username" name="username" required>
-                        <span></span>
-                        <label for="username">name</label>
-                    </div>
-                </div>
-                <div class="form">
-                    <div class="txt_field">
-                        <input type="password" id="password" name="password" required>
-                        <span></span>
-                        <label for="password" >password</label>
-                    </div>
-        
-                    <div class="pass">Forget password?</div>
-                        <input type="submit" value="Login" id="loginButton"onclick="login()">
-                    <div class="signup_link">
-                        Not a member? <a href="signup.html">Signup</a>
-                    </div>
-                </div>
+        <!-- 로그인 창 -->
+        <div class="login_popup">
+        <button id="login-close-btn" class="login-close-btn"> x </button>
+        <h1>login</h1>
+        <div class="form">
+            <div class="txt_field">
+                <input type="text" id="username" name="username" required>
+                <span></span>
+                <label for="username">name</label>
             </div>
         </div>
-        <!-- 회원가입 popup -->
-        <div class="center">
-            <h1>Sign up</h1>
-            <div class="login-center">
-                already have an account?  <ins class="text">Log in</ins>   
+        <div class="form">
+            <div class="txt_field">
+                <input type="password" id="password" name="password" required>
+                <span></span>
+                <label for="password" >password</label>
             </div>
-            <div class="border"><a href="https://www.google.com">CONTINUE WITH GOOGLE</a>
+
+            <div class="pass">Forget password?</div>
+                <input type="submit" value="Login" id="loginButton"onclick="login()">
+            <div class="signup_link">
+                Not a member? <div class="move_to_signup">Signup</div>
             </div>
-            <br>
-            <div class="border1"><a href="https://www.apple.com">  CONTINUE WITH APPLE</a>
+        </div>
+        </div>
+        <!-- 회원가입 창 -->
+        <div class="signup_popup">
+        <button id="signup-close-btn" class="login-close-btn"> x </button>
+        <h1>Sign up</h1>
+        <div class="login_link">
+            already have an account? <div class="move_to_login">Log in</div>   
+        </div>
+        <div class="continue_with">
+            <a href="https://www.google.com">CONTINUE WITH GOOGLE</a>
+            <a href="https://www.apple.com">CONTINUE WITH APPLE</a>
+        </div>
+        <div class="form">
+            <div class="txt_field">
+                <input type="text" id="nickname" required>
+                <span></span>
+                <label>nickname</label>
             </div>
-            <div class="form">
-                <div class="txt_field">
-                    <input type="text" id="nickname" required>
-                    <span></span>
-                    <label>nickname</label>
-                </div>
-                <div class="txt_field">
-                    <input type="text" id="name" required>
-                    <span></span>
-                    <label >name</label>
-                </div>
+            <div class="txt_field">
+                <input type="text" id="name" required>
+                <span></span>
+                <label >name</label>
             </div>
-            <div class="form">
-                <div class="txt_field">
-                    <input type="password" id="password" required>
-                    <span></span>
-                    <label >password</label>
-                </div>
+            <div class="txt_field">
+                <input type="password" id="signup_password" required>
+                <span></span>
+                <label >password</label>
                 <span class="span-position">password must be at least 8 characters</span>
-            
-                <input type="checkbox" class="any">
-                "i agree to the"
-                <a href="/privacy-policy/" style="text-decoration: underline;">privacy Policy</a>"and"
-                <a href ="/terms/"style="text-decoration: underline;">terms of use</a>
-                <span class="checkmark">
-                <br>
-                <input type="checkbox" class="checkbox1">
-                "subscribe to the AWA Bi-Weekly Bulletin (ps: we will never share or seel your information to anyone under any circumstance, ever)"
-                <a href="/terms/"style="text-decoration: underline;">terms of use</a>
-                <span class="checkmark"></span>
-                <input type="submit" value="Sign up" id="signup" onclick="signup()">
             </div>
+        </div>
+        <div class="checkbox_field">
+            <input type="checkbox" class="any">
+            "i agree to the"
+            <a href="/privacy-policy/" style="text-decoration: underline;">privacy Policy</a>"and"
+            <a href ="/terms/"style="text-decoration: underline;">terms of use</a>
+            <span class="checkmark">
+            <br>
+            <input type="checkbox" class="checkbox1">
+            "subscribe to the AWA Bi-Weekly Bulletin (ps: we will never share or seel your information to anyone under any circumstance, ever)"
+            <a href="/terms/"style="text-decoration: underline;">terms of use</a>
+            <span class="checkmark"></span>
+            <input type="submit" value="Sign up" id="signup" onclick="signup()">
+        </div>
         </div>
     </div>
 
@@ -126,8 +127,8 @@
             </div>
             <!-- 2). AWA 로고 영역 -->
             <div class="site_header__top_logo"> 
-                <a href="/" class="a_tag">
-                    <img class="img_tag" src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/awa-nav-logo.svg" alt="Accidentally Wes Anderson Logo">
+                <a href="./home.html" class="a_tag">
+                    <img class="img_tag" src="./img/mw-nav-logo.png" alt="Accidentally Wes Anderson Logo">
                 </a>
             </div>
             <!-- 3). 반응형 목차 -->
@@ -170,11 +171,11 @@
                         문제점 : 실제 홈페이지에서는 1) 로그인 2) 우측 상단에 my page 가 생김
                         생각 : 여기에 있을게 아니라, search, login 영역으로 이동해야? -->
                     <li>
-                        <a href="./myPage.html">MyPage❓</a>
+                        <a href="./myPage.html" onclick="loginCheck()">MyPage</a>
                     </li>
                     <!-- (5) board -->
                     <li>
-                        <a href="./board.html">Board</a>
+                        <a href="./board.html" onclick="loginCheck()">Board</a>
                     </li>
                 </ul>
             </div>

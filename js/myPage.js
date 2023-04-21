@@ -38,38 +38,75 @@ function includeHTML() {
     includeHTML();
   });
   
-  // search btn
-  function searchlogin(){
-  let ta = document.querySelector(".he");
-  // 검색 팝업 관련 (숨어있다 나오는)
-  let searchPopupBtn = ta.querySelector('#dropdown-search-form');
-  let searchPopup = ta.querySelector('#search-popup');
-  let popupCloseBtn = ta.querySelector('#popup-close-btn');
-  // 로그인 팝업 관련 (숨어있다 나오는)
-  let loginPopupContent = ta.querySelector('.login-popup-content')
-  let idLoginBtn = ta.querySelector('#id-login-btn')
-  
-  let logincloseBtn = ta.querySelector('#login-close-btn')
-  
-  // 🔷 로그인 popup
-  idLoginBtn.addEventListener('click', function() {
-      loginPopupContent.classList.add('is-active')
-  });
-  logincloseBtn.addEventListener('click', function(){
-      loginPopupContent.classList.remove('is-active')
-  });
-  
-  // 🔷 검색창 popup
-  searchPopupBtn.addEventListener('click', function() {
-    searchPopup.classList.add('is-active')
-  });
-  
-  popupCloseBtn.addEventListener('click', function() {
-    searchPopup.classList.remove('is-active')
-  });
-  }  
+// header 우상단 search & login btn
+function searchlogin(){
+    // 검색 팝업 관련 변수
+    let searchPopupBtn = document.querySelector('#dropdown-search-form')
+    let searchPopup = document.querySelector('#search-popup')
+    let popupCloseBtn = document.querySelector('#popup-close-btn')
 
-  
+    // 검색창 popup
+    searchPopupBtn.addEventListener('click', function() {
+        searchPopup.classList.add('is-active');
+    });
+    popupCloseBtn.addEventListener('click', function() {
+        searchPopup.classList.remove('is-active');
+    });
+
+    // 로그인 팝업 관련 변수
+    let topBanner = document.querySelector(".top_banner"); // 최상단 빨간 배너
+
+    let loginPopupContent = document.querySelector('.login-popup-content');
+    let idLoginBtn = document.querySelector('#id-login-btn');
+    let logincloseBtn = document.querySelector('#login-close-btn');
+    let signupcloseBtn = document.querySelector('#signup-close-btn');
+
+    let loginPopup = document.querySelector(".login_popup"); // 로그인 창
+    let signupPopup = document.querySelector(".signup_popup"); // 회원가입 창
+    let moveToSignup = document.querySelector(".move_to_signup"); // 회원가입으로 이동
+    let moveToLogin = document.querySelector(".move_to_login");
+
+    // 로그인 popup
+    idLoginBtn.addEventListener('click', function() {
+        loginPopupContent.classList.add('is-active');
+        loginPopup.classList.add('is-active');
+    });
+    logincloseBtn.addEventListener('click', function(){
+        loginPopupContent.classList.remove('is-active');
+        loginPopup.classList.remove('is-active');
+        signupPopup.classList.remove('is-active');
+    });
+    signupcloseBtn.addEventListener('click', function(){
+        loginPopupContent.classList.remove('is-active');
+        loginPopup.classList.remove('is-active');
+        signupPopup.classList.remove('is-active');
+    });
+
+    moveToSignup.addEventListener("click", function() {
+        if(!signupPopup.classList.contains('is-active')) {
+            signupPopup.classList.add('is-active');
+        }
+        if(loginPopup.classList.contains('is-active')) {
+            loginPopup.classList.remove('is-active');
+        }
+    });
+    moveToLogin.addEventListener("click", function() {
+        if(!loginPopup.classList.contains('is-active')) {
+            loginPopup.classList.add('is-active');
+        }
+        if(signupPopup.classList.contains('is-active')) {
+            signupPopup.classList.remove('is-active');
+        }
+    });
+    topBanner.addEventListener('click', function() {
+        loginPopupContent.classList.add('is-active');
+        signupPopup.classList.add('is-active');
+    });
+}
+
+
+// ❗❗❗❗❗❗❗❗❗❗ myPage 관련 js 시작 ❗❗❗❗❗❗❗❗❗❗ //
+
 // 프로필 수정 팝업창 열고 닫는 버튼
 let popupBtn = document.querySelector(".popup_btn");
 // 수정 저장하는 버튼
@@ -102,3 +139,39 @@ function popupOpen2() {
         settingsPopup.classList.add("is-active");
     }
 }
+
+
+// Collections
+// submit에서 사진 추가할 때마다 div 추가?
+
+// 추가되는 곳
+let _collections = document.querySelector(".profile_content_list");
+
+function addCollections() {
+    console.log("사진 추가");
+
+    let myImgJson = localStorage.getItem("MYIMG"); // 올린 이미지 읽어오기
+    let myImg = JSON.parse(myImgJson);
+    console.log(myImg);
+
+    myImg.forEach(function(i, index) {
+        let div = document.createElement("div"); // 사진 들어갈 div
+        let deleteImgBtn = document.createElement("div"); // 삭제 버튼
+
+        div.classList.add("collection_img");
+        deleteImgBtn.classList.add("delete_img_btn");
+
+        div.innerHTML = "<img src='" + myImg[index].img + "' alt='myImg" + [index] + "'>";
+        deleteImgBtn.innerHTML = "X";
+        div.append(deleteImgBtn);
+        _collections.appendChild(div);
+
+        let deleteArr = [];
+        deleteImgBtn.addEventListener("click", function() {
+            myImg.splice(index, 1);
+            console.log(myImg);
+        });
+    });
+
+}
+addCollections();
