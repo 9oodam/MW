@@ -1,14 +1,14 @@
 
 const loginButton = document.getElementById("signup");
 
-function test() {
-    let myurl = "login.html";
-    window.location.href = myurl;
-}
+// function test() {
+//     let myurl = "login.html";
+//     window.location.href = myurl;
+// }
 
-loginButton.addEventListener("click", test);
+//loginButton.addEventListener("click", test);
 
-
+console.log(loginButton);
 function signup(){
     let savedUsername_test = "";
     let savedPassword_test = "";

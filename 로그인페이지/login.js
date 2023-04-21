@@ -24,44 +24,49 @@ function login() {
         suName.push(su[index].name);
     })
     console.log(suName);
-    if(!suName.includes(username)){
-        alert("아이디가 없습니다.");
-    }
+   
     console.log(username);
 
+
+    if(!username) { 
+        alert("아이디를 입력해주세요.");
+        return;
+
+    }else if(!password) { 
+        alert("비밀번호를 입력해주세요.");
+        return;
+    }
     // 생성한 아이디와 비밀번호를 저장합니다.
     su.forEach(function(value){
 
         // console.log(value.name);
         // console.log(value.pw);
             // 아이디와 비밀번호를 검증합니다.
-    if (username == value.name && password == value.pw && value.lv == 1) {
-        alert('Login successful');
-        let localuser = JSON.parse(localStorage.getItem("USER"));
-        localuser.forEach(function(value){
-            if(value.name == username){
-                // console.log(value);
-                let logininfo = {
-                    name: value.name,
-                    nickname: value.nickname
+        if (username == value.name && password == value.pw && value.lv == 1) {
+            alert('Login successful');
+            let myurl = "https://www.google.com"
+            let localuser = JSON.parse(localStorage.getItem("USER"));
+            localuser.forEach(function(value){
+                if(value.name == username){
+                    // console.log(value);
+                    let logininfo = {
+                        name: value.name,
+                        nickname: value.nickname
+                    }
+                    sessionStorage.setItem("LOGIN", JSON.stringify(logininfo));
                 }
-                sessionStorage.setItem("LOGIN", JSON.stringify(logininfo));
-            }
+            })
+            // sessionStorage.setItem("LOGIN", username);
+            // location.href="https://accidentallywesanderson.com/";
+
+        } else if(username == value.name && password == value.pw && value.lv == 0){
+            alert("회원가입 대기중입니다"); 
+        } else if(username != value.name && password == value.pw) {
+            alert("아이디가 틀립니다.");
+        } else if(username == value.name && password != value.pw) {
+            alert("비밀번호가 틀립니다.");
+        }
         })
-        // sessionStorage.setItem("LOGIN", username);
-        // location.href="https://accidentallywesanderson.com/";
-
-    } else if(username == value.name && password == value.pw && value.lv == 0){
-        alert("회원가입 대기중입니다");
-    } else if(username == value.name && password != value.pw) {
-        alert("비밀번호가 틀립니다.");
-    }
-    })
-    
-
-
-    
-    
 
 }
 

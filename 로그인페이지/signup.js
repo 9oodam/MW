@@ -1,11 +1,11 @@
-const loginButton = document.getElementById("signup");
+// const loginButton = document.getElementById("signup");
 
-function test() {
-  let myurl = "login.html";
-  window.location.href = myurl;
-}
+// function test() {
+//   let myurl = "login.html";
+//   window.location.href = myurl;
+// }
 
-loginButton.addEventListener("click", test);
+// loginButton.addEventListener("click", test);
 
 function signup() {
   let savedUsername_test = "";
@@ -35,6 +35,15 @@ function signup() {
     userpush.push(userlist);
     localStorage.setItem("USER", JSON.stringify(userpush));
   } 
+  if(!savedName) { 
+    alert("아이디를 입력해주세요.");
+    return;
+  }else if(!savedPassword) { 
+    alert("비밀번호를 입력해주세요.");
+    return;
+  }
+  let myurl = "javascript:void(0)";
+  window.location.href = myurl;
 
   //   localStorage.setItem("userNickname", savedNickname);
   //   localStorage.setItem("userName", savedName);
@@ -48,6 +57,5 @@ function signup() {
   // console.log("👍👍👍👍👍👍👍👍" + savedPassword_test)
   // console.log("👍👍👍👍👍👍👍👍" + savedUsername_test)
 }
-// signup();
 
 
