@@ -1,6 +1,6 @@
 .center {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
 }
 
@@ -21,12 +21,12 @@ button {
     cursor: pointer;
 }
 
-#accept {
+.accept {
     background-color: green;
     color: white;
 }
 
-#reject {
+.reject {
     background-color: red;
     color: white;
 }
