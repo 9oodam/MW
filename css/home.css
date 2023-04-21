@@ -399,7 +399,7 @@ justify-content: center;
 .close-state-button {
     position: fixed;
     right: 8px;
-    /* top: 10px; */
+    top: 80px;
     width: 10px;
     height: -10px;
     margin: 0 0 0 auto;
@@ -582,7 +582,7 @@ display: flex;
     /* top: 75px; */
 
      /* 스크롤 기본 위치 - under 200 올라갔을 때 */
-    /* top: 116px; */
+    top: 116px;
     padding-top: 85px;
     z-index: 100;
     right: 0;
@@ -704,88 +704,105 @@ display: flex;
 .search-dropdown .input-search-keyword {
 
 position: fixed;
-
 z-index: 50;
-
 top: 0;
-
 left: 0;
-
 width: 100%;
-
 background-color: white;
-
 padding-top: 50px;
-
 padding-bottom: 50px;
-
 display: flex;
-
 justify-content: center;
-
 box-shadow: 2px 2px 7px 0 rgba(0,0,0,.1);
+/* transition: transform .25s ease,opacity .25s ease; */
+}
 
+.input-search-keyword-x1200-y200 {
+position: fixed;
+z-index: 50;
+top: 0;
+left: 0;
+width: 100%;
+background-color: white;
+padding-top: 50px;
+padding-bottom: 50px;
+display: flex;
+justify-content: center;
+box-shadow: 2px 2px 7px 0 rgba(0,0,0,.1);
 /* transition: transform .25s ease,opacity .25s ease; */
 }
 
 .search-dropdown .input-search-keyword .search-form {
-    /* background-color: burlywood; */
     width: 35%;
-    position: relative;
-    
+    position: relative;    
     /* 📛 마진 주의 📛 */
     margin: 1px 0 0 1rem;
-    /* flex: 1; */
-
-
 }
 
+.input-search-keyword-x1200-y200 {
+    width: 35%;
+    position: relative;    
+    /* 📛 마진 주의 📛 */
+    margin: 1px 0 0 1rem;
+}
 
 
 .search-dropdown .input-search-keyword .search-form .keyword-input {
-
 padding: 15px;
-
-/* padding: 0.9rem 1.5rem; */
     
     /* 📛 하드코딩 주의 📛 */
-
 width: calc(100% - 5px);
-
 font-size: 14px;
-
 text-transform: uppercase!important;
-
 /* height: 22px; */
-
 /* line-height: 22; */
-
 font-weight: lighter;
-
 font-family: 'GT_Pressura_Mono_Regular';
-
 letter-spacing: 0.01rem;
-
 text-transform: uppercase;
-    
     /* ⭐⭐ input 에서 테두리 선을 없앨 수 있음. */
-
 border: none;
-
 border-radius: 50px;
-
 background-color: #fff;
-
 border: 1px solid #ee3024;
-
 color: black;
-
 transition: transform .5s ease,opacity .25s ease;
 }
+
+
+.input-search-keyword-x1200-y200 {
+padding: 15px;
+    
+    /* 📛 하드코딩 주의 📛 */
+width: calc(100% - 5px);
+font-size: 14px;
+text-transform: uppercase!important;
+/* height: 22px; */
+/* line-height: 22; */
+font-weight: lighter;
+font-family: 'GT_Pressura_Mono_Regular';
+letter-spacing: 0.01rem;
+text-transform: uppercase;
+    /* ⭐⭐ input 에서 테두리 선을 없앨 수 있음. */
+border: none;
+border-radius: 50px;
+background-color: #fff;
+border: 1px solid #ee3024;
+color: black;
+transition: transform .5s ease,opacity .25s ease;
+
+display: none;
+}
+
 
 .search-dropdown .input-search-keyword .search-form .keyword-input::placeholder {
     color: black;
 }
+
+.input-search-keyword-x1200-y200 {
+    color: black;
+}
+
 
 
 .search-dropdown .input-search-keyword .search-icon-btn {
@@ -803,6 +820,21 @@ transition: transform .5s ease,opacity .25s ease;
     cursor: pointer;
 }
 
+
+.input-search-keyword-x1200-y200 {
+    border: none;
+    width: 2.5rem;
+    height: 46px;
+    border-radius: 50px;
+    background-image: url(	https://accidentallywesanderson.com/wp-content/themes/awa/assets/img/icon-search.svg);
+    background-size: 55%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    position: absolute;
+    right: 45px;
+    top: 2px;
+    cursor: pointer;
+}
 
 
 
