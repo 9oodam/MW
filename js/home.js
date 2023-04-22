@@ -1,6 +1,6 @@
 
 
-// 🔷 중요 전역 변수 
+// 📚 중요 전역 변수 
 
 
 // 🔷 스와이프 관련
@@ -20,68 +20,65 @@
     let leftArrowBtn = document.querySelector('.nav-left-arrow')
 
 
-// 검색 팝업 관련 (숨어있다 나오는)
-let searchPopupBtn = document.querySelector('.dropdown-search-form')
-let searchPopup = document.querySelector('#search-popup')
-let popupCloseBtn = document.querySelector('#popup-close-btn')
-let inputSearchKeyword = document.querySelector('.input-search-keyword')
-// 임시
-let xIconTempButton = document.querySelector('.x-icon-temp-button')
+// 🔷 반응형 관련
+    // 검색 팝업 관련 (숨어있다 나오는)
+    let searchPopupBtn = document.querySelector('.dropdown-search-form')
+    let searchPopup = document.querySelector('#search-popup')
+    let popupCloseBtn = document.querySelector('#popup-close-btn')
+    let inputSearchKeyword = document.querySelector('.input-search-keyword')
+
+    // 임시 - 삭제 예정 📛 
+        // let xIconTempButton = document.querySelector('.x-icon-temp-button')
+
+    // 로그인 팝업 관련 (숨어있다 나오는)
+    let loginPopupContent = document.querySelector('.login-popup-content')
+    let idLoginBtn = document.querySelector('#id-login-btn')
+    let logincloseBtn = document.querySelector('#login-close-btn')
+
+    // collection 팝업 관련
+    let navCollectionsBtn = document.querySelector('.nav-collections-btn')
+    let collectionsDropdown = document.querySelector('.collections-dropdown')
+
+    // 기타
+    let siteHeader = document.querySelector('.site_header')
+    let siteHeaderprimary = document.querySelector('.site_header__primary-nav')
+    let responsiveTopLogo = document.querySelector('.responsive-top-logo')
+    let dropdownSearchForm = document.querySelector('.dropdown-search-form')
+    let reponsiveLoginBtn = document.querySelector('#id-login-btn')
+    let navInstagramBtn = document.querySelector('.nav-instagram-btn')
+    let primaryNavSocial = document.querySelector('.site_header__primary-nav--social')
+    let primaryNavSeachlogin = document.querySelector('.site_header__primary-nav--seachlogin')
+    let responsiveHamburgMenu = document.querySelector('.responsive-hamburg-menu')
+    let responsiveHamburgMenuWidthYscroll = document.querySelector('.responsive-hamburg-menu-width-yscroll')
+    let responsSearchX1200Yscroll200 = document.querySelector('.respon-search-form-x1200under-yscroll200over')
+    let responsHamburgXwidth1200Yscroll200 = document.querySelector('.responsive-hamburg-menu-xwidth1200-yscroll200')
+
+    // 햄버거 메뉴 관련
+        // 버튼 위에 있는 태그 까지 해줘야 클릭반응이 옴 ⭐⭐ (햄버거 감싸고 있는 태그)
+        let hamburgMenuBtn = document.querySelector('.responsive-hamburg-menu-xWidth-under1200')
+        // 누르면 나오게되는, 햄버거 메뉴리스트
+        let NavResponsiveHham = document.querySelector('.site_header__primary-nav--responsive-ham')
+        // 드롭다운 메뉴 테스트 - 사용하지 않는 것 같음, 혹시 모르니 살려둠 📛
+        let ResponsiveHamburgerDropdownOver200 = document.querySelector('.site_header__primary-nav--responsive-ham-over200')
+        // 햄버거 버튼 누르면 -> 그 자리에 나오는 'X 버튼' 
+        let closeStateButton = document.querySelector('.close-state-button')
+        // 햄버거 버튼 자체 
+        let hamburgMenuButton = document.querySelector('#hamburg-menu-btn-under1200')
 
 
-// 로그인 팝업 관련 (숨어있다 나오는)
-let loginPopupContent = document.querySelector('.login-popup-content')
-let idLoginBtn = document.querySelector('#id-login-btn')
+    // 검색버튼
+        // under1200 일 때, '검색 버튼'
+        let dropdownSearchXWidthUnder1200 = document.querySelector('.dropdown-search-form-xWidth-under1200')
 
-let logincloseBtn = document.querySelector('#login-close-btn')
+        // 검색 버튼 : x 1200 under, y 스크롤 200 이상일 때, 
+        let SearchformX1200underY200over = document.querySelector('#dropdown-search-form-x1200under-y200over')
+        let searchPopupBtnCalcBoxTop = document.querySelector('#search-popup-btn')
 
-
-// collection 팝업 관련
-let navCollectionsBtn = document.querySelector('.nav-collections-btn')
-let collectionsDropdown = document.querySelector('.collections-dropdown')
-
-
-let siteHeader = document.querySelector('.site_header')
-let siteHeaderprimary = document.querySelector('.site_header__primary-nav')
-let responsiveTopLogo = document.querySelector('.responsive-top-logo')
-let dropdownSearchForm = document.querySelector('.dropdown-search-form')
-let reponsiveLoginBtn = document.querySelector('#id-login-btn')
-let navInstagramBtn = document.querySelector('.nav-instagram-btn')
-let primaryNavSocial = document.querySelector('.site_header__primary-nav--social')
-let primaryNavSeachlogin = document.querySelector('.site_header__primary-nav--seachlogin')
-let responsiveHamburgMenu = document.querySelector('.responsive-hamburg-menu')
-let responsiveHamburgMenuWidthYscroll = document.querySelector('.responsive-hamburg-menu-width-yscroll')
-let responsSearchX1200Yscroll200 = document.querySelector('.respon-search-form-x1200under-yscroll200over')
-let responsHamburgXwidth1200Yscroll200 = document.querySelector('.responsive-hamburg-menu-xwidth1200-yscroll200')
-// let responsClickedNavHamburgMenus = document.querySelector('.site_header__primary-nav--menus')
-// let primaryNavMenus = document.querySelector('.site_header__primary-nav--menus')
-// 버튼 위에 있는 태그 까지 해줘야 클릭반응이 옴 ⭐⭐ (햄버거 감싸고 있는 태그)
-let hamburgMenuBtn = document.querySelector('.responsive-hamburg-menu-xWidth-under1200')
-// 누르면 나오게되는, 햄버거 메뉴리스트
-let NavResponsiveHham = document.querySelector('.site_header__primary-nav--responsive-ham')
-// let ResponsiveHamburguerDropdownIsActive = document.querySelector('.site_header__primary-nav--responsive-ham.is-active')
-
-// 드롭다운 메뉴 테스트 
-let ResponsiveHamburgerDropdownOver200 = document.querySelector('.site_header__primary-nav--responsive-ham-over200')
-// 햄버거 버튼 누르면 -> 그 자리에 나오는 'X 버튼' 
-let closeStateButton = document.querySelector('.close-state-button')
-// 햄버거 버튼 자체 
-let hamburgMenuButton = document.querySelector('#hamburg-menu-btn-under1200')
-
-// under1200 일 때, '검색 버튼'
-let dropdownSearchXWidthUnder1200 = document.querySelector('.dropdown-search-form-xWidth-under1200')
+        // 새롭게 만든 드롭다운 검색 메뉴 
+        let dropDownSearchX1200Y200 = document.querySelector('.input-search-keyword-x1200-y200')
 
 
-// 검색 버튼 : x 1200 under, y 스크롤 200 이상일 때, 
-let SearchformX1200underY200over = document.querySelector('#dropdown-search-form-x1200under-y200over')
-
-
-let searchPopupBtnCalcBoxTop = document.querySelector('#search-popup-btn')
-
-// 새롭게 만든 드롭다운 검색 메뉴 
-let dropDownSearchX1200Y200 = document.querySelector('.input-search-keyword-x1200-y200')
-
-// x1200이하, y200 이상에서, 검색버튼 누르면 > 햄버거 메뉴 살짝 올리려구
+        // x1200이하, y200 이상에서, 검색버튼 누르면 > 햄버거 메뉴 살짝 올리려구
 let navResponsiveHamIsActive = document.querySelector('.site_header__primary-nav--responsive-ham.is-active')
 let navResponsiveHam = document.querySelector('.site_header__primary-nav--responsive-ham')
 
@@ -138,12 +135,6 @@ function handleYScroll() {
             // 검색창이 사라짐
             searchPopup.classList.remove('is-active')
 
-
-
-
-
-            
-
         } 
         // 1.2 width 1201 이상 & Y Scroll 200 이하 (위로 올림)
         else {
@@ -190,10 +181,8 @@ function handleYScroll() {
             // 검색창이 사라짐
             searchPopup.classList.remove('is-active')
 
-            // 따로 태그를 파서, '이 브라우저 컨디션에서, 검색창을 클릭하면, 다른 태그에 x 버튼 묻어나오기'
-            // @mark
-            // searchDropDownX1201Y200()
-
+            // 스크롤 내리면 햄버거 메뉴 나오게 하기 
+            responsHamburgXwidth1200Yscroll200.style.display  = 'block'
 
         }
         // 2.2 width 1201 이하 & Y Scorll 200 이하 (위로 올림)
@@ -218,8 +207,8 @@ function handleYScroll() {
             closeStateButton.style.top = '80px';
             closeStateButton.style.right = '8px';
 
-            // 햄버거 없애려고 했는데 
-            // responsiveMenuXwidth1200Yscroll200.style.display
+            // 스크롤 올렸을 때 나타나는 햄버거 없애기 
+            responsHamburgXwidth1200Yscroll200.style.display  = 'none'
         }
     }
 }

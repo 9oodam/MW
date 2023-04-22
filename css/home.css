@@ -276,17 +276,7 @@ body .top_banner .top_banner_text {
 .responsive-hamburg-menu {
     display: flex;
     justify-content: center;
-    align-items: center;
-    
-    /* 📛임시📛 */
-    /* width: 25px; */
-    
-    /* cursor: pointer; */
-    /* position: absolute; */
-    /* left: 150px; */
-    /* height: 100px; */
-    /* background-color: hotpink; */
-    
+    align-items: center;    
     display: none;
 }
 
