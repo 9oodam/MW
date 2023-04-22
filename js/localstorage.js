@@ -60,30 +60,14 @@ if (window.localStorage.length == 0) {
     "NATURE"
   );
 
-  let themes = [
-    themes01,
-    themes02,
-    themes03,
-    themes04,
-    themes05,
-    themes06,
-    themes07,
-    themes08,
-    themes09,
-    themes10,
-    themes11,
-    themes12,
-  ];
+  let themes = [themes01, themes02, themes03, themes04, themes05, themes06, themes07, themes08, themes09, themes10, themes11, themes12];
 
   let color01 = new createcollections(
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/22429704_133661504049431_4455231951950839808_n-800x699.jpg?lossy=1&strip=1&webp=1",
     "BLACK"
   );
 
-  let color02 = new createcollections(
-    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/8d06ca59-720x800.jpeg?lossy=1&strip=1&webp=1",
-    "BLUE"
-  );
+  let color02 = new createcollections("https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/8d06ca59-720x800.jpeg?lossy=1&strip=1&webp=1", "BLUE");
 
   let color03 = new createcollections(
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/53160753_2586675204695201_169043630707039832_n-800x800.jpg?lossy=1&strip=1&webp=1",
@@ -127,20 +111,7 @@ if (window.localStorage.length == 0) {
     "YELLOW"
   );
 
-  let colorpalette = [
-    color01,
-    color02,
-    color03,
-    color04,
-    color05,
-    color06,
-    color07,
-    color08,
-    color09,
-    color10,
-    color11,
-    color12,
-  ];
+  let colorpalette = [color01, color02, color03, color04, color05, color06, color07, color08, color09, color10, color11, color12];
 
   localStorage.setItem("THEMES", JSON.stringify(themes));
   localStorage.setItem("COLORPALETTE", JSON.stringify(colorpalette));
@@ -161,8 +132,7 @@ if (window.localStorage.length == 0) {
   }
 
   // create ADVENTURE CURIOUSLY
-  let adventurelogo =
-    "https://accidentallywesanderson.com/wp-content/uploads/2022/07/hendricks-bug-new.png";
+  let adventurelogo = "https://accidentallywesanderson.com/wp-content/uploads/2022/07/hendricks-bug-new.png";
   let adventuretab = "ADVENTURE CURIOUSLY";
 
   let adventure01 = new createcard(
@@ -230,20 +200,10 @@ if (window.localStorage.length == 0) {
     adventuretab
   );
 
-  let adventure = [
-    adventure01,
-    adventure02,
-    adventure03,
-    adventure04,
-    adventure05,
-    adventure06,
-    adventure07,
-    adventure08,
-  ];
+  let adventure = [adventure01, adventure02, adventure03, adventure04, adventure05, adventure06, adventure07, adventure08];
 
   // create IN THE DETAILS
-  let itdlogo =
-    "https://accidentallywesanderson.com/wp-content/uploads/2021/12/dlr-group_bug1.png";
+  let itdlogo = "https://accidentallywesanderson.com/wp-content/uploads/2021/12/dlr-group_bug1.png";
   let itdtab = "IN THE DETAILS";
 
   let itd01 = new createcard(
@@ -390,30 +350,10 @@ if (window.localStorage.length == 0) {
     itdtab
   );
 
-  let itd = [
-    itd01,
-    itd02,
-    itd03,
-    itd04,
-    itd05,
-    itd06,
-    itd07,
-    itd08,
-    itd09,
-    itd10,
-    itd11,
-    itd12,
-    itd13,
-    itd14,
-    itd15,
-    itd16,
-    itd17,
-    itd18,
-  ];
+  let itd = [itd01, itd02, itd03, itd04, itd05, itd06, itd07, itd08, itd09, itd10, itd11, itd12, itd13, itd14, itd15, itd16, itd17, itd18];
 
   // create WHALEBONE
-  let whalelogo =
-    "https://accidentallywesanderson.com/wp-content/uploads/2020/06/wb-long-logo.png";
+  let whalelogo = "https://accidentallywesanderson.com/wp-content/uploads/2020/06/wb-long-logo.png";
   let whaletab = "WHALEBONE";
 
   let whale01 = new createcard(
@@ -488,17 +428,7 @@ if (window.localStorage.length == 0) {
     whaletab
   );
 
-  let whale = [
-    whale01,
-    whale02,
-    whale03,
-    whale04,
-    whale05,
-    whale06,
-    whale07,
-    whale08,
-    whale09,
-  ];
+  let whale = [whale01, whale02, whale03, whale04, whale05, whale06, whale07, whale08, whale09];
 
   // create ARCHITECTURAL WONDERS
   let archtab = "ARCHITECTURAL WONDERS";
@@ -601,22 +531,7 @@ if (window.localStorage.length == 0) {
     archtab
   );
 
-  let arch = [
-    arch01,
-    arch02,
-    arch03,
-    arch04,
-    arch05,
-    arch06,
-    arch07,
-    arch08,
-    arch09,
-    arch10,
-    arch11,
-    arch12,
-    arch13,
-    arch14,
-  ];
+  let arch = [arch01, arch02, arch03, arch04, arch05, arch06, arch07, arch08, arch09, arch10, arch11, arch12, arch13, arch14];
 
   // create SKILLED ARTISANS
   let skilledtab = "SKILLED ARTISANS";
@@ -731,17 +646,7 @@ if (window.localStorage.length == 0) {
     qualitytab
   );
 
-  let quality = [
-    qual01,
-    qual02,
-    qual03,
-    qual04,
-    qual05,
-    qual06,
-    qual07,
-    qual08,
-    qual09,
-  ];
+  let quality = [qual01, qual02, qual03, qual04, qual05, qual06, qual07, qual08, qual09];
 
   // create localstorage
 
@@ -758,14 +663,7 @@ if (window.localStorage.length == 0) {
   localStorage.setItem("QUALITY QUIRKS", JSON.stringify(quality));
 
   // card 생성자
-  function createcollectcard(
-    catagory,
-    img,
-    country,
-    location,
-    description,
-    nickname
-  ) {
+  function createcollectcard(catagory, img, country, location, description, nickname) {
     this.catagory = catagory;
     this.img = img;
     this.country = country;
@@ -1214,29 +1112,13 @@ if (window.localStorage.length == 0) {
   // localstorage에 배열로 객체 생성
   localStorage.setItem(
     "THEMESIMG",
-    `[{ "CABLE CARS" : ${JSON.stringify(
-      cablecarss
-    )} },{ "CLASSIC FACADES" : ${JSON.stringify(
-      classics
-    )} },{ "DOORS" : ${JSON.stringify(
+    `[{ "CABLE CARS" : ${JSON.stringify(cablecarss)} },{ "CLASSIC FACADES" : ${JSON.stringify(classics)} },{ "DOORS" : ${JSON.stringify(
       doors
-    )} },{ "EDUCATIONAL INSTITUTIONS" : ${JSON.stringify(
-      edus
-    )}},{ "GOVERNMENT BUILDINGS" : ${JSON.stringify(
-      goves
-    )}},{ "HIDDEN WONDERS" : ${JSON.stringify(
+    )} },{ "EDUCATIONAL INSTITUTIONS" : ${JSON.stringify(edus)}},{ "GOVERNMENT BUILDINGS" : ${JSON.stringify(goves)}},{ "HIDDEN WONDERS" : ${JSON.stringify(
       hiddens
-    )}},{ "HOTEL / MOTEL" : ${JSON.stringify(
-      hms
-    )}},{ "INTERIORS" : ${JSON.stringify(
-      inters
-    )}},{ "LIBRARY" : ${JSON.stringify(
+    )}},{ "HOTEL / MOTEL" : ${JSON.stringify(hms)}},{ "INTERIORS" : ${JSON.stringify(inters)}},{ "LIBRARY" : ${JSON.stringify(
       libs
-    )}},{ "LIGHTHOUSE" : ${JSON.stringify(
-      lights
-    )}},{ "MUSEUM" : ${JSON.stringify(museums)}},{ "NATURE" : ${JSON.stringify(
-      natures
-    )}}]`
+    )}},{ "LIGHTHOUSE" : ${JSON.stringify(lights)}},{ "MUSEUM" : ${JSON.stringify(museums)}},{ "NATURE" : ${JSON.stringify(natures)}}]`
   );
 
   ////////////////////////////////////////////////////////////////
@@ -1245,7 +1127,7 @@ if (window.localStorage.length == 0) {
 
   ////////////////////////////////////////////////////////////////
 
-  let black01 = new createcard(
+  let black01 = new createcollectcard(
     "BLACK",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/12/IMG_4619-800x800.jpg",
     "LONDON, UNITED KINGDOM",
@@ -1253,7 +1135,7 @@ if (window.localStorage.length == 0) {
     "Enjoy a long list of libations at what was voted the world's greatest bar.",
     "system"
   );
-  let black02 = new createcard(
+  let black02 = new createcollectcard(
     "BLACK",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/07/DSC_7804-800x800.jpg",
     "MILTON, DELAWARE, UNITED STATES",
@@ -1261,7 +1143,7 @@ if (window.localStorage.length == 0) {
     "An ice cream shop that serves up the royal treatment.",
     "system"
   );
-  let black03 = new createcard(
+  let black03 = new createcollectcard(
     "BLACK",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/05/DSC_4221-Retouched-650x800.jpg",
     "CAMBRIDGE, UNITED KINGDOM",
@@ -1269,7 +1151,7 @@ if (window.localStorage.length == 0) {
     "Owing its name to two Queens, this hall is located in one of the oldest colleges at Cambridge University.",
     "system"
   );
-  let black04 = new createcard(
+  let black04 = new createcollectcard(
     "BLACK",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/01/272002569_2716402315329780_4598027038124583783_n-800x800.jpg",
     "COMO, COLORADO, UNITED STATES",
@@ -1280,7 +1162,7 @@ if (window.localStorage.length == 0) {
 
   // create BLUE
 
-  let blue01 = new createcard(
+  let blue01 = new createcollectcard(
     "BLUE",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/01/White-Sands-National-Park-_-Tyshaia-Earnest-_-@_tyshaia-800x800.jpg",
     "DOÑA ANA COUNTY, NEW MEXICO, UNITED STATES",
@@ -1288,7 +1170,7 @@ if (window.localStorage.length == 0) {
     "This illusion of a winter wonderland is located within the hot deserts of New Mexico.",
     "system"
   );
-  let blue02 = new createcard(
+  let blue02 = new createcollectcard(
     "BLUE",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/08/Aliens-Landed-800x800.jpeg",
     "RACHEL, NEVADA, UNITED STATES",
@@ -1296,7 +1178,7 @@ if (window.localStorage.length == 0) {
     "Located in the closest town to Area 51, this roadside inn invites travelers to enjoy food, lodging, and all things UFO.",
     "system"
   );
-  let blue03 = new createcard(
+  let blue03 = new createcollectcard(
     "BLUE",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/0152E625-B2A2-462D-8DA4-4AB2B6FB3BA1_1_102_a-1-800x800.jpeg",
     "SAN FRANCISCO, CALIFORNIA, UNITED STATES",
@@ -1304,7 +1186,7 @@ if (window.localStorage.length == 0) {
     `"A club that's earned the title "Olympic" with some medal-winning members."`,
     "system"
   );
-  let blue04 = new createcard(
+  let blue04 = new createcollectcard(
     "BLUE",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/7CBB507E-A4D0-4107-81F0-E8B2441F6541-800x800.jpeg",
     "MONTREAL, CANADA",
@@ -1315,7 +1197,7 @@ if (window.localStorage.length == 0) {
 
   // create BROWN
 
-  let brown01 = new createcard(
+  let brown01 = new createcollectcard(
     "BROWN",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/04/Copy-of-Crescent-Moon-Theater-_-Kanab-UT-800x800.jpeg",
     "KANAB, UTAH, UNITED STATES",
@@ -1323,7 +1205,7 @@ if (window.localStorage.length == 0) {
     "This theater, celebrated for its Western culture, was built in memory of a real life Utah cowboy.",
     "system"
   );
-  let brown02 = new createcard(
+  let brown02 = new createcollectcard(
     "BROWN",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/DSC_6329-800x800.jpg",
     "GRAND JUNCTION, COLORADO, UNITED STATES",
@@ -1331,7 +1213,7 @@ if (window.localStorage.length == 0) {
     "Imagine taking care of 32 square miles for one dollar a year.",
     "system"
   );
-  let brown03 = new createcard(
+  let brown03 = new createcollectcard(
     "BROWN",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/7A89E35B-5BCB-4C2B-9DC2-B15A28F8D8CD-800x800.jpg",
     "EL PASO, TEXAS, UNITED STATES",
@@ -1339,7 +1221,7 @@ if (window.localStorage.length == 0) {
     "In the 1950s, both a wealthy hotelier and a Hollywood legend called this towering hotel home.",
     "system"
   );
-  let brown04 = new createcard(
+  let brown04 = new createcollectcard(
     "BROWN",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/02/mairead-bolger_awa-submission-ireland-eye-howth-800x800.jpg",
     "DUBLIN, IRELAND",
@@ -1350,7 +1232,7 @@ if (window.localStorage.length == 0) {
 
   // create gray
 
-  let gray01 = new createcard(
+  let gray01 = new createcollectcard(
     "GRAY",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/AWA-800x800.jpg",
     "PORTO ALEGRE, BRAZIL",
@@ -1358,7 +1240,7 @@ if (window.localStorage.length == 0) {
     "Palácio do Comércio is not just a source of “architectural pride”, but a historical city-wide landmark.",
     "system"
   );
-  let gray02 = new createcard(
+  let gray02 = new createcollectcard(
     "GRAY",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/villa-empain-insta-1-800x800.jpg",
     "BRUSSELS, BELGIUM",
@@ -1366,7 +1248,7 @@ if (window.localStorage.length == 0) {
     "Let us explain the style of Emplain.",
     "system"
   );
-  let gray03 = new createcard(
+  let gray03 = new createcollectcard(
     "GRAY",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/02/CD94C6BA-4198-4401-AF3C-5647729AF1B2-800x800.jpeg",
     "ANATOLIKI MANI, GREECE",
@@ -1374,7 +1256,7 @@ if (window.localStorage.length == 0) {
     "If you’re an Ancient Greek, though, you’d give this abyss a more… creative description: the gate to the Underworld.",
     "system"
   );
-  let gray04 = new createcard(
+  let gray04 = new createcollectcard(
     "GRAY",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/12/E0EF83D6-F2C6-4931-BC79-C36E787FB4E6-800x800.jpeg",
     "SCHWENDE, SWITZERLAND",
@@ -1385,7 +1267,7 @@ if (window.localStorage.length == 0) {
 
   // create green
 
-  let green01 = new createcard(
+  let green01 = new createcollectcard(
     "GREEN",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/Lindsey-Velde_Gulfport-Casino-FL-800x800.jpg",
     "GULFPORT, FLORIDA, UNITED STATES",
@@ -1393,7 +1275,7 @@ if (window.localStorage.length == 0) {
     "The $10 price of admission includes a free dance lesson, proving that at Gulfport Casino, everyone’s a winner.",
     "system"
   );
-  let green02 = new createcard(
+  let green02 = new createcollectcard(
     "GREEN",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/02/mairead-bolger_awa-submission-ireland-eye-howth-800x800.jpg",
     "DUBLIN, IRELAND",
@@ -1401,7 +1283,7 @@ if (window.localStorage.length == 0) {
     "Sometimes you trade in fishing for tourism.",
     "system"
   );
-  let green03 = new createcard(
+  let green03 = new createcollectcard(
     "GREEN",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/01/image-800x800.jpeg",
     "BOYERTOWN, PENNSYLVANIA, UNITED STATES",
@@ -1409,7 +1291,7 @@ if (window.localStorage.length == 0) {
     "All aboard an old American pastime.",
     "system"
   );
-  let green04 = new createcard(
+  let green04 = new createcollectcard(
     "GREEN",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/07/292601982_145317784771524_8699380577223449671_n-800x800.jpg",
     "LONDON, UNITED KINGDOM",
@@ -1420,7 +1302,7 @@ if (window.localStorage.length == 0) {
 
   // create ORANGE
 
-  let orange01 = new createcard(
+  let orange01 = new createcollectcard(
     "ORANGE",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/Lindsey-Velde_Gulfport-Casino-FL-800x800.jpg",
     "GULFPORT, FLORIDA, UNITED STATES",
@@ -1428,7 +1310,7 @@ if (window.localStorage.length == 0) {
     "The $10 price of admission includes a free dance lesson, proving that at Gulfport Casino, everyone’s a winner.",
     "system"
   );
-  let orange02 = new createcard(
+  let orange02 = new createcollectcard(
     "ORANGE",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/336819521_118907344440832_351575098074494538_n-800x800.jpg",
     "PARIS, FRANCE",
@@ -1436,7 +1318,7 @@ if (window.localStorage.length == 0) {
     "The site of some of the most luxurious brands is also the site of some of the most unusual ... recycling.",
     "system"
   );
-  let orange03 = new createcard(
+  let orange03 = new createcollectcard(
     "ORANGE",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/10/249504219_125015146582690_3068292557799564609_n-800x800.jpg",
     "LA CHAUX-DE-FONDS, SWITZERLAND",
@@ -1444,7 +1326,7 @@ if (window.localStorage.length == 0) {
     "This theatre is a perfect reflection of the precise nature of it's watch-making patrons.",
     "system"
   );
-  let orange04 = new createcard(
+  let orange04 = new createcollectcard(
     "ORANGE",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/03/156448714_781545412470577_5889255509518121176_n-800x800.jpg",
     "AGRA, INDIA",
@@ -1455,7 +1337,7 @@ if (window.localStorage.length == 0) {
 
   // create PINK
 
-  let pink01 = new createcard(
+  let pink01 = new createcollectcard(
     "PINK",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/DSC_6488-2-e1639497801962-800x800.jpg",
     "CLEVELAND, OHIO, UNITED STATES",
@@ -1463,7 +1345,7 @@ if (window.localStorage.length == 0) {
     "Each 88-foot silo could contain ~100,000 pounds of its respective raw ingredient.",
     "system"
   );
-  let pink02 = new createcard(
+  let pink02 = new createcollectcard(
     "PINK",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/23595073_1689113034433739_1346042720501628928_n-800x800.jpg",
     "PRAGUE, CZECH REPUBLIC",
@@ -1471,7 +1353,7 @@ if (window.localStorage.length == 0) {
     "A hot-pink confection of Bohemian Neo-Renaissance style, the Hotel Opera stands in the less touristy Nové Město, or “New Town,” quarter of storied Prague.",
     "system"
   );
-  let pink03 = new createcard(
+  let pink03 = new createcollectcard(
     "PINK",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/07/211307432_4366960029992302_3165379696640939529_n.jpg",
     "KRASNODAR, RUSSIA",
@@ -1479,7 +1361,7 @@ if (window.localStorage.length == 0) {
     "This Museum goes on underwater archeological expeditions to gather artifacts for its exhibits.",
     "system"
   );
-  let pink04 = new createcard(
+  let pink04 = new createcollectcard(
     "PINK",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/09/242114715_540655170523429_7934170419823120741_n-800x800.jpg",
     "HELSINKI, FINLAND",
@@ -1490,7 +1372,7 @@ if (window.localStorage.length == 0) {
 
   // create PURPLE
 
-  let purple01 = new createcard(
+  let purple01 = new createcollectcard(
     "PURPLE",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/11/25_00062_00_N2_st-e1639495838116-800x800.jpg",
     "SAN DIEGO, CALIFORNIA, UNITED STATES",
@@ -1498,7 +1380,7 @@ if (window.localStorage.length == 0) {
     "Built in 1924, this storied theater was slated for demolition just three decades later.",
     "system"
   );
-  let purple02 = new createcard(
+  let purple02 = new createcollectcard(
     "PURPLE",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/05/189913045_920095848844858_3774646512706581676_n-800x800.jpg",
     "WASHINGTON DC, UNITED STATES",
@@ -1506,7 +1388,7 @@ if (window.localStorage.length == 0) {
     "Intellectual debates and lively parties were enjoyed at this residence for Harvard research fellows.",
     "system"
   );
-  let purple03 = new createcard(
+  let purple03 = new createcollectcard(
     "PURPLE",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/02/128453505_502322554059835_3181569347249400351_n-800x800.jpg",
     "RYDE, UNITED KINGDOM",
@@ -1514,7 +1396,7 @@ if (window.localStorage.length == 0) {
     "This railroad pier transports visitors traveling by sea to the town of Ryde on the Isle of Wight.",
     "system"
   );
-  let purple04 = new createcard(
+  let purple04 = new createcollectcard(
     "PURPLE",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/08/104111916_3183897281687968_1202839659952370745_n-800x800.jpg",
     "DERBYSHIRE, UNITED KINGDOM",
@@ -1525,7 +1407,7 @@ if (window.localStorage.length == 0) {
 
   // create RED
 
-  let red01 = new createcard(
+  let red01 = new createcollectcard(
     "RED",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/08/Aliens-Landed-800x800.jpeg",
     "RACHEL, NEVADA, UNITED STATES",
@@ -1533,7 +1415,7 @@ if (window.localStorage.length == 0) {
     "Located in the closest town to Area 51, this roadside inn invites travelers to enjoy food, lodging, and all things UFO.",
     "system"
   );
-  let red02 = new createcard(
+  let red02 = new createcollectcard(
     "RED",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/02/255260CE-78EB-48CE-B285-50DC8F343532-800x800.jpeg",
     "ALMADA, PORTUGAL",
@@ -1541,7 +1423,7 @@ if (window.localStorage.length == 0) {
     "A lighthouse comes back home.",
     "system"
   );
-  let red03 = new createcard(
+  let red03 = new createcollectcard(
     "RED",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/01/JanneMonard-AWAII-800x800.jpg",
     "GHENT, BELGIUM",
@@ -1549,7 +1431,7 @@ if (window.localStorage.length == 0) {
     "Ghent's hero scored big points in the industrial game against England.",
     "system"
   );
-  let red04 = new createcard(
+  let red04 = new createcollectcard(
     "RED",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/01/image-1-1-800x800.jpeg",
     "AMSTERDAM, NETHERLANDS",
@@ -1560,7 +1442,7 @@ if (window.localStorage.length == 0) {
 
   // create TURQUOISE
 
-  let turquoise01 = new createcard(
+  let turquoise01 = new createcollectcard(
     "TURQUOISE",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/image-800x800.jpeg",
     "VICHY, FRANCE",
@@ -1568,7 +1450,7 @@ if (window.localStorage.length == 0) {
     "Water with some healing powers.",
     "system"
   );
-  let turquoise02 = new createcard(
+  let turquoise02 = new createcollectcard(
     "TURQUOISE",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/02/3F186F56-62A8-4FCA-AF45-1ED217EBC733-800x800.jpeg",
     "WOODSTOCK, ILLINOIS, UNITED STATES",
@@ -1576,7 +1458,7 @@ if (window.localStorage.length == 0) {
     "Woodstock would forever be changed by playing the part of a village over 500 miles away—Punxsutawney, Pennsylvania.",
     "system"
   );
-  let turquoise03 = new createcard(
+  let turquoise03 = new createcollectcard(
     "TURQUOISE",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/01/Story-clun-800x800.jpg",
     "CLUN, UNITED KINGDOM",
@@ -1584,7 +1466,7 @@ if (window.localStorage.length == 0) {
     "A peaceful town that wasn't always so tranquil.",
     "system"
   );
-  let turquoise04 = new createcard(
+  let turquoise04 = new createcollectcard(
     "TURQUOISE",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/07/289629751_715387973050315_1441269879910284433_n-800x800.jpg",
     "TUSCANY, ITALY",
@@ -1595,7 +1477,7 @@ if (window.localStorage.length == 0) {
 
   // create WHITE
 
-  let white01 = new createcard(
+  let white01 = new createcollectcard(
     "WHITE",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/01/White-Sands-National-Park-_-Tyshaia-Earnest-_-@_tyshaia-800x800.jpg",
     "DOÑA ANA COUNTY, NEW MEXICO, UNITED STATES",
@@ -1603,7 +1485,7 @@ if (window.localStorage.length == 0) {
     "This illusion of a winter wonderland is located within the hot deserts of New Mexico.",
     "system"
   );
-  let white02 = new createcard(
+  let white02 = new createcollectcard(
     "WHITE",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/08/Aliens-Landed-800x800.jpeg",
     "RACHEL, NEVADA, UNITED STATES",
@@ -1611,7 +1493,7 @@ if (window.localStorage.length == 0) {
     "Located in the closest town to Area 51, this roadside inn invites travelers to enjoy food, lodging, and all things UFO.",
     "system"
   );
-  let white03 = new createcard(
+  let white03 = new createcollectcard(
     "WHITE",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/image-800x800.jpeg",
     "VICHY, FRANCE",
@@ -1619,7 +1501,7 @@ if (window.localStorage.length == 0) {
     "Water with some healing powers.",
     "system"
   );
-  let white04 = new createcard(
+  let white04 = new createcollectcard(
     "WHITE",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/0152E625-B2A2-462D-8DA4-4AB2B6FB3BA1_1_102_a-1-800x800.jpeg",
     "SAN FRANCISCO, CALIFORNIA, UNITED STATES",
@@ -1630,7 +1512,7 @@ if (window.localStorage.length == 0) {
 
   // create YELLOW
 
-  let yellow01 = new createcard(
+  let yellow01 = new createcollectcard(
     "YELLOW",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/01/Lemon-Dome-800x800.jpg",
     "CARTAGO, CALIFORNIA, UNITED STATES",
@@ -1638,7 +1520,7 @@ if (window.localStorage.length == 0) {
     "Squeeze the day!",
     "system"
   );
-  let yellow02 = new createcard(
+  let yellow02 = new createcollectcard(
     "YELLOW",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/7CBB507E-A4D0-4107-81F0-E8B2441F6541-800x800.jpeg",
     "MONTREAL, CANADA",
@@ -1646,7 +1528,7 @@ if (window.localStorage.length == 0) {
     "Not only was Notre-Dame the largest place of worship in North America for a half-decade (before New York’s St. Patrick’s Cathedral), it is perhaps (still) the most impressive church on the continent.",
     "system"
   );
-  let yellow03 = new createcard(
+  let yellow03 = new createcollectcard(
     "YELLOW",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/D29BB590-4E16-4121-B206-8F04F0F8A0B1-800x800.jpeg",
     "MILAN, ITALY",
@@ -1654,7 +1536,7 @@ if (window.localStorage.length == 0) {
     "Would you like to sit down?",
     "system"
   );
-  let yellow04 = new createcard(
+  let yellow04 = new createcollectcard(
     "YELLOW",
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/02/image-1-800x800.jpeg",
     "ALPE DEVERO, ITALY",
@@ -1679,17 +1561,11 @@ if (window.localStorage.length == 0) {
 
   localStorage.setItem(
     "COLORIMG",
-    `[{ "BLACK" : ${JSON.stringify(blacks)} },{ "BLUE" : ${JSON.stringify(
-      blues
-    )} },{ "BROWN" : ${JSON.stringify(browns)} },{ "GRAY" : ${JSON.stringify(
+    `[{ "BLACK" : ${JSON.stringify(blacks)} },{ "BLUE" : ${JSON.stringify(blues)} },{ "BROWN" : ${JSON.stringify(browns)} },{ "GRAY" : ${JSON.stringify(
       grays
-    )}},{ "GREEN" : ${JSON.stringify(greens)}},{ "ORANGE" : ${JSON.stringify(
-      oranges
-    )}},{ "PINK" : ${JSON.stringify(pinks)}},{ "PURPLE" : ${JSON.stringify(
+    )}},{ "GREEN" : ${JSON.stringify(greens)}},{ "ORANGE" : ${JSON.stringify(oranges)}},{ "PINK" : ${JSON.stringify(pinks)}},{ "PURPLE" : ${JSON.stringify(
       purples
-    )}},{ "RED" : ${JSON.stringify(reds)}},{ "TURQUOISE" : ${JSON.stringify(
-      turquoises
-    )}},{ "WHITE" : ${JSON.stringify(whites)}},{ "YELLOW" : ${JSON.stringify(
+    )}},{ "RED" : ${JSON.stringify(reds)}},{ "TURQUOISE" : ${JSON.stringify(turquoises)}},{ "WHITE" : ${JSON.stringify(whites)}},{ "YELLOW" : ${JSON.stringify(
       yellows
     )}}]`
   );
