@@ -22,36 +22,36 @@
 
 // 🔷 반응형 관련
     // 검색 팝업 관련 (숨어있다 나오는)
-    let searchPopupBtn = document.querySelector('.dropdown-search-form')
-    let searchPopup = document.querySelector('#search-popup')
-    let popupCloseBtn = document.querySelector('#popup-close-btn')
-    let inputSearchKeyword = document.querySelector('.input-search-keyword')
+        let searchPopupBtn = document.querySelector('.dropdown-search-form')
+        let searchPopup = document.querySelector('#search-popup')
+        let popupCloseBtn = document.querySelector('#popup-close-btn')
+        let inputSearchKeyword = document.querySelector('.input-search-keyword')
 
     // 임시 - 삭제 예정 📛 
         // let xIconTempButton = document.querySelector('.x-icon-temp-button')
 
     // 로그인 팝업 관련 (숨어있다 나오는)
-    let loginPopupContent = document.querySelector('.login-popup-content')
-    let idLoginBtn = document.querySelector('#id-login-btn')
-    let logincloseBtn = document.querySelector('#login-close-btn')
+        let loginPopupContent = document.querySelector('.login-popup-content')
+        let idLoginBtn = document.querySelector('#id-login-btn')
+        let logincloseBtn = document.querySelector('#login-close-btn')
 
     // collection 팝업 관련
-    let navCollectionsBtn = document.querySelector('.nav-collections-btn')
-    let collectionsDropdown = document.querySelector('.collections-dropdown')
+        let navCollectionsBtn = document.querySelector('.nav-collections-btn')
+        let collectionsDropdown = document.querySelector('.collections-dropdown')
 
     // 기타
-    let siteHeader = document.querySelector('.site_header')
-    let siteHeaderprimary = document.querySelector('.site_header__primary-nav')
-    let responsiveTopLogo = document.querySelector('.responsive-top-logo')
-    let dropdownSearchForm = document.querySelector('.dropdown-search-form')
-    let reponsiveLoginBtn = document.querySelector('#id-login-btn')
-    let navInstagramBtn = document.querySelector('.nav-instagram-btn')
-    let primaryNavSocial = document.querySelector('.site_header__primary-nav--social')
-    let primaryNavSeachlogin = document.querySelector('.site_header__primary-nav--seachlogin')
-    let responsiveHamburgMenu = document.querySelector('.responsive-hamburg-menu')
-    let responsiveHamburgMenuWidthYscroll = document.querySelector('.responsive-hamburg-menu-width-yscroll')
-    let responsSearchX1200Yscroll200 = document.querySelector('.respon-search-form-x1200under-yscroll200over')
-    let responsHamburgXwidth1200Yscroll200 = document.querySelector('.responsive-hamburg-menu-xwidth1200-yscroll200')
+        let siteHeader = document.querySelector('.site_header')
+        let siteHeaderprimary = document.querySelector('.site_header__primary-nav')
+        let responsiveTopLogo = document.querySelector('.responsive-top-logo')
+        let dropdownSearchForm = document.querySelector('.dropdown-search-form')
+        let reponsiveLoginBtn = document.querySelector('#id-login-btn')
+        let navInstagramBtn = document.querySelector('.nav-instagram-btn')
+        let primaryNavSocial = document.querySelector('.site_header__primary-nav--social')
+        let primaryNavSeachlogin = document.querySelector('.site_header__primary-nav--seachlogin')
+        let responsiveHamburgMenu = document.querySelector('.responsive-hamburg-menu')
+        let responsiveHamburgMenuWidthYscroll = document.querySelector('.responsive-hamburg-menu-width-yscroll')
+        let responsSearchX1200Yscroll200 = document.querySelector('.respon-search-form-x1200under-yscroll200over')
+        let responsHamburgXwidth1200Yscroll200 = document.querySelector('.responsive-hamburg-menu-xwidth1200-yscroll200')
 
     // 햄버거 메뉴 관련
         // 버튼 위에 있는 태그 까지 해줘야 클릭반응이 옴 ⭐⭐ (햄버거 감싸고 있는 태그)

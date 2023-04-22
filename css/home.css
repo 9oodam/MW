@@ -40,14 +40,10 @@
 }
 
 
-
 @font-face {
     font-family: 'GT_Pressura_Mono_Regular';
     src: url(/font/GT-Pressura-Mono-Regular-Trial.woff2);
 }
-
-
-
 
 
 * {
@@ -148,9 +144,6 @@ body .top_banner .top_banner_text {
     width: 100%;
     height: 500px;
 }
-
-
-
 
 
 .site_header__top_logo {
