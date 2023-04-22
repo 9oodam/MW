@@ -21,26 +21,16 @@ localStorage.setItem("ADMIN", JSON.stringify(adminAccount));
 
 // loginButton.addEventListener("click", test);
 let su = JSON.parse(localStorage.getItem("USER"));
-console.log();
+// console.log();
 function login() {
+    if(!su){
+        alert("아이디가 없습니다");
+        return;
+    }
+
     // 입력한 아이디와 비밀번호를 가져옵니다.
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-    
-    let admin = JSON.parse(localStorage.getItem("ADMIN"));
-
-    if(username == admin.name) {
-        console.log(admin.name);
-        console.log(admin.pw);
-        if(admin.name == username && admin.pw != password) {
-            alert("Wrong password.");
-            return;
-        }else if(admin.name == username && admin.pw == password) {
-            alert('Login successful');
-            sessionStorage.setItem("ADMINLOGIN", JSON.stringify(admin));
-            return;
-        }
-    }
     
     console.log(su);
     let suName = [];
@@ -48,14 +38,24 @@ function login() {
         suName.push(su[index].name);
     })
     console.log(suName);
-    if(!suName.includes(username)){
-        alert("Account is not found.");
-    }
+   
     console.log(username);
 
+
+    if(!username) { 
+        alert("아이디를 입력해주세요.");
+        return;
+
+    }else if(!password) { 
+        alert("비밀번호를 입력해주세요.");
+        return;
+    }
     // 생성한 아이디와 비밀번호를 저장합니다.
     su.forEach(function(value){
-        // 아이디와 비밀번호를 검증합니다.
+
+        // console.log(value.name);
+        // console.log(value.pw);
+            // 아이디와 비밀번호를 검증합니다.
         if (username == value.name && password == value.pw && value.lv == 1) {
             alert('Login successful');
             let localuser = JSON.parse(localStorage.getItem("USER"));
@@ -73,9 +73,12 @@ function login() {
             // location.href="https://accidentallywesanderson.com/";
 
         } else if(username == value.name && password == value.pw && value.lv == 0){
-            alert("Waiting acception...");
+            alert("회원가입 대기중입니다"); 
+        } else if(username != value.name && password == value.pw) {
+            alert("아이디가 틀립니다.");
         } else if(username == value.name && password != value.pw) {
-            alert("Wrong password.");
+            alert("비밀번호가 틀립니다.");
         }
-    });
+        })
+
 }

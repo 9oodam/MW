@@ -20,7 +20,8 @@ let leftArrowBtn = document.querySelector('.nav-left-arrow')
 
 // header에 들어가는 함수 부분 //
 // 검색 팝업 관련 (숨어있다 나오는)
-let searchPopupBtn = document.querySelector('#dropdown-search-form');
+// let searchPopupBtn = document.querySelector('#dropdown-search-form');
+let searchPopupBtn = document.querySelector('.dropdown-search-form');
 let searchPopup = document.querySelector('#search-popup');
 let popupCloseBtn = document.querySelector('#popup-close-btn');
 

@@ -728,7 +728,7 @@ box-shadow: 2px 2px 7px 0 rgba(0,0,0,.1);
     /* 📛 마진 주의 📛 */
     margin: 1px 0 0 1rem;
 }
-}
+
 .search-dropdown .input-search-keyword .search-form .no_img_searched {
     color: #ee3024;
     text-align: left;
@@ -888,10 +888,22 @@ display: none;
 }
 
 /* ---------- SEARCH DROPDOWN END ----------------- */
+.login-popup-content.is-active {
+    display: block;
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.login-popup-content .login-window {
+    width: 500px;
+    height: 500px;
+    background-color: white;
 
     display: flex;
     justify-content: flex-end;
-}
+}s
 .center.is-active {
     display: none;
 }
@@ -931,6 +943,8 @@ display: none;
     transition: height .25s ease;
 
     display: none;
+
+    margin: 20px 0 0;
     
 }
 

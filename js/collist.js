@@ -173,7 +173,7 @@ if (tmplocal.group == "COLORS") {
 // h1 출력 / 변하는 부분 1
 let seartchtxt = "SEARCHED : ";
 // let searchtest = seartchtxt;
-// console.log(seartchtxt != "");
+// console.log(seartchtxt != ""); 
 
 if (seartchtxt != "") {
   titleh1.innerHTML = seartchtxt + `${tmplocal.name}`;
@@ -182,7 +182,12 @@ if (seartchtxt != "") {
 }
 
 // p태그 출력 / 변하는 부분 2
-titletoptxtp.innerHTML = `${tmplocal.desc}`;
+if(tmplocal.desc){
+  
+  titletoptxtp.innerHTML = `${tmplocal.desc}`;
+} else {
+  tmplocal.desc = "";
+}
 
 // span 출력 / 변하는 부분 3
 titlebottomtxta[1].innerHTML = `${tmplocal.group}`;
