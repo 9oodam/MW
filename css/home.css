@@ -1,6 +1,9 @@
 /* 스크롤바 디자인 
     https://codingbroker.tistory.com/66 
 */
+/* 스크롤바 디자인 
+    https://codingbroker.tistory.com/66 
+*/
 
 
 @font-face {
@@ -40,10 +43,14 @@
 }
 
 
+
 @font-face {
     font-family: 'GT_Pressura_Mono_Regular';
     src: url(/font/GT-Pressura-Mono-Regular-Trial.woff2);
 }
+
+
+
 
 
 * {
@@ -94,7 +101,7 @@ body .top_banner {
 
     font-weight: 400;
     /* color: #3e4240; */
-
+    cursor: pointer;
 }
 
 body .top_banner .top_banner_text {
@@ -135,6 +142,8 @@ body .top_banner .top_banner_text {
 
     /* flex-direction: row-reverse;
     justify-content: space-between; */
+    position: relative;
+    z-index: 100000000000000000000;
     
 }
 
@@ -144,6 +153,9 @@ body .top_banner .top_banner_text {
     width: 100%;
     height: 500px;
 }
+
+
+
 
 
 .site_header__top_logo {
@@ -673,16 +685,13 @@ display: flex;
 
 .search-dropdown {
     display: none;
-
 }
-
 .search-dropdown.is-active {
     display: block;
 
     /* transition: transform .25s ease, opacity .25s ease; */
     transition: transform .25s ease;
 }
-
 
 .search-dropdown .input-search-keyword {
 
@@ -722,13 +731,24 @@ box-shadow: 2px 2px 7px 0 rgba(0,0,0,.1);
     margin: 1px 0 0 1rem;
 }
 
-.input-search-keyword-x1200-y200 {
+.search-dropdown .input-search-keyword .search-form .no_img_searched {
+    color: #ee3024;
+    text-align: left;
+    padding: 0 15px 0 15px;
+    position: absolute;
+    top: -20px; left: 0;
+    display: none;
+}
+.search-dropdown .input-search-keyword .search-form .no_img_searched.is-active {
+    display: block;
+}
+    
+    .input-search-keyword-x1200-y200 {
     width: 35%;
     position: relative;    
     /* 📛 마진 주의 📛 */
     margin: 1px 0 0 1rem;
 }
-
 
 .search-dropdown .input-search-keyword .search-form .keyword-input {
 padding: 15px;
@@ -777,7 +797,6 @@ transition: transform .5s ease,opacity .25s ease;
 display: none;
 }
 
-
 .search-dropdown .input-search-keyword .search-form .keyword-input::placeholder {
     color: black;
 }
@@ -787,21 +806,21 @@ display: none;
 }
 
 
-
 .search-dropdown .input-search-keyword .search-icon-btn {
     border: none;
     width: 2.5rem;
-    height: 46px;
+    height: 40px; /* 삐져나와서 고침 */
     border-radius: 50px;
     background-image: url(	https://accidentallywesanderson.com/wp-content/themes/awa/assets/img/icon-search.svg);
     background-size: 55%;
     background-repeat: no-repeat;
     background-position: 50%;
     position: absolute;
-    right: 45px;
-    top: 2px;
+    top: 50%; right: 15px;
+    transform: translateY(-50%);
     cursor: pointer;
 }
+
 
 
 .input-search-keyword-x1200-y200 {
@@ -843,43 +862,35 @@ display: none;
     background-color: #ee3024;
     content: "";
 }
-
 .close-btn::before {
     transform: rotate(-45deg);
 }
-
 .close-btn::after {
     transform: rotate(45deg);
 }
-
-
-
+.search-dropdown .input-search-keyword .autocomplete_wrap {
+    width: 100%; height: 30px;
+    position: absolute; bottom: 10px;
+    display: flex;
+    justify-content: center; align-items: center;
+}
+.autocomplete_wrap div {
+    width: auto; height: 100%;
+    margin: 0 5px 0 5px;
+    padding: 0 5px 0 5px;
+    border: 1px solid #ee3024;
+    border-radius: 15px;
+    background-color: #fff;
+    color: #ee3024;
+    display: flex; justify-content: center; align-items: center;
+    cursor: pointer;
+}
+.autocomplete_wrap div:hover {
+    background-color: #ee3024;
+    color: white;
+}
 
 /* ---------- SEARCH DROPDOWN END ----------------- */
-
-
-/* ---------- LOGIN DROPDOWN START ----------------- */
-.login-popup-content {
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(37, 39, 38, 0.8);
-    /* opacity: 0.9; */
-
-    
-    /* 📛📛 z-index 주의 */
-    z-index: 11;
-    position: fixed;
-    top: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.login-popup-content {
-    display: none;
-}
-
 .login-popup-content.is-active {
     display: block;
 
@@ -895,30 +906,11 @@ display: none;
 
     display: flex;
     justify-content: flex-end;
-}
+}s
 .center.is-active {
     display: none;
 }
 
-
-.login-close-btn {
-    width: 30px;
-    height: 30px;
-    /* background-color: blue; */
-    border: none;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 20px;
-    font-weight: 900;
-    font-family: 'GT_Pressura_Mono_Regular', sans-serif;
-
-    cursor: pointer;
-}
-
-/* ---------- LOGIN DROPDOWN END ----------------- */
 
 
 /* ---------- COLLECTIONS DROPDOWN START ----------------- */
@@ -951,10 +943,22 @@ display: none;
     z-index: 2;
 
     /* 😥 애니메이션 하고 싶은데 */
-    transition: height .25s ease;
+    /* transition: height .25s ease; */
+    animation: ani 1s linear;
 
     display: none;
+
+    margin: 20px 0 0;
     
+}
+@keyframes ani {
+    0% {
+        top: 0;
+    } 50% {
+        top: 90px;
+    } 100% {
+        top: 180px;
+    }
 }
 
 
@@ -1332,7 +1336,7 @@ flex-wrap: wrap;
 .input-search-keyword .search-icon-btn {
     border: none;
     width: 2.5rem;
-    height: 47px;
+    height: 40px;
     
     border-radius: 50px;
     background-image: url(	https://accidentallywesanderson.com/wp-content/themes/awa/assets/img/icon-search.svg);
@@ -1342,7 +1346,7 @@ flex-wrap: wrap;
 
     position: absolute;
     right: 0.5rem;
-    top: 0px;
+    top: 3px;
     
     cursor: pointer;
 
@@ -1927,18 +1931,15 @@ justify-content: space-evenly;
 .explore-btns-wrap .input-search-keyword .search-icon-btn {
     border: none;
     width: 2.5rem;
-    height: 47px;
-    
+    height: 40px;
     border-radius: 50px;
-    background-image: url(	https://accidentallywesanderson.com/wp-content/themes/awa/assets/img/icon-search.svg);
+    background-image: url(https://accidentallywesanderson.com/wp-content/themes/awa/assets/img/icon-search.svg);
     background-size: 55%;
     background-repeat: no-repeat;
     background-position: 50%;
-
     position: absolute;
     right: 0.5rem;
-    top: 0px;
-    
+    top: 3px;
     cursor: pointer;
 
 }
