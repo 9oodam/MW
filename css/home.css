@@ -142,6 +142,8 @@ body .top_banner .top_banner_text {
 
     /* flex-direction: row-reverse;
     justify-content: space-between; */
+    position: relative;
+    z-index: 100000000000000000000;
     
 }
 
@@ -814,10 +816,11 @@ display: none;
     background-repeat: no-repeat;
     background-position: 50%;
     position: absolute;
-    top: 50%; right: 45px;
+    top: 50%; right: 15px;
     transform: translateY(-50%);
     cursor: pointer;
 }
+
 
 
 .input-search-keyword-x1200-y200 {
@@ -940,12 +943,22 @@ display: none;
     z-index: 2;
 
     /* 😥 애니메이션 하고 싶은데 */
-    transition: height .25s ease;
+    /* transition: height .25s ease; */
+    animation: ani 1s linear;
 
     display: none;
 
     margin: 20px 0 0;
     
+}
+@keyframes ani {
+    0% {
+        top: 0;
+    } 50% {
+        top: 90px;
+    } 100% {
+        top: 180px;
+    }
 }
 
 
@@ -1323,7 +1336,7 @@ flex-wrap: wrap;
 .input-search-keyword .search-icon-btn {
     border: none;
     width: 2.5rem;
-    height: 47px;
+    height: 40px;
     
     border-radius: 50px;
     background-image: url(	https://accidentallywesanderson.com/wp-content/themes/awa/assets/img/icon-search.svg);
@@ -1333,7 +1346,7 @@ flex-wrap: wrap;
 
     position: absolute;
     right: 0.5rem;
-    top: 0px;
+    top: 3px;
     
     cursor: pointer;
 
@@ -1918,18 +1931,15 @@ justify-content: space-evenly;
 .explore-btns-wrap .input-search-keyword .search-icon-btn {
     border: none;
     width: 2.5rem;
-    height: 47px;
-    
+    height: 40px;
     border-radius: 50px;
-    background-image: url(	https://accidentallywesanderson.com/wp-content/themes/awa/assets/img/icon-search.svg);
+    background-image: url(https://accidentallywesanderson.com/wp-content/themes/awa/assets/img/icon-search.svg);
     background-size: 55%;
     background-repeat: no-repeat;
     background-position: 50%;
-
     position: absolute;
     right: 0.5rem;
-    top: 0px;
-    
+    top: 3px;
     cursor: pointer;
 
 }
