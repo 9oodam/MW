@@ -275,7 +275,7 @@ body {
     padding: 0 10px;
   }
   .storiesimgs .storiescontent .contenttab {
-    padding: 0 10px;
+    padding: 0 20px;
   }
   .imgs .imgcards .imgcard {
     width: 100%;
@@ -287,7 +287,7 @@ body {
     padding: 0 10px;
   }
   .storiesimgs .storiescontent .contenttab {
-    padding: 0 10px;
+    padding: 0 20px;
   }
   .imgs .imgcards .imgcard {
     width: 50%;
@@ -314,7 +314,7 @@ body {
     width: 33.33333%;
   }
   .storiesimgs .storiescontent .contenttab {
-    padding: 0 10px;
+    padding: 0 30px;
   }
 }
 @media screen and (max-width: 1500px) and (min-width: 1041px) {
@@ -322,7 +322,7 @@ body {
     padding: 0 20px;
   }
   .storiesimgs .storiescontent .contenttab {
-    padding: 0 20px;
+    padding: 0 30px;
   }
 }
 @media screen and (max-width: 1500px) {
