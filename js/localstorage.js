@@ -1695,3 +1695,942 @@ if (window.localStorage.length == 0) {
   );
 }
 ////////////////////////////////////////////////////////////////
+
+  // card 생성자
+  function createcollectcard(
+    catagory,
+    img,
+    country,
+    location,
+    description,
+    nickname
+  ) {
+    this.catagory = catagory;
+    this.img = img;
+    this.country = country;
+    this.location = location;
+    this.description = description;
+    this.nickname = nickname;
+  }
+
+  // THEMES IMGS
+
+  //////////////////////////////////////////////////
+  // create CABLE CARS
+
+  let cable01 = new createcollectcard(
+    "CABLE CARS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/03/IMG_8088-800x800.jpg",
+    "ANON CITY, COLORADO, UNITED STATES",
+    "Royal Gorge Bridge & Park",
+    "Once the world's highest suspension bridge. Don't look down.",
+    "system"
+  );
+  let cable02 = new createcollectcard(
+    "CABLE CARS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/10/DSC_6102_Final_3-800x800.jpg",
+    "Fort William, Scotland",
+    "The Nevis Range Mountain Gondola",
+    "Following in the footsteps of your heroes is never easy, but if your hero is Sir Hugh Munro you’ve got a tough mountain to climb to reach your goal.",
+    "system"
+  );
+  let cable03 = new createcollectcard(
+    "CABLE CARS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/08/224-finicular-800x800.jpg",
+    "Tbilisi, Georgia",
+    "Finicular Tbilisi",
+    "A beloved symbol of Tbilisi whose popularity increased when a grand leisure park was constructed on the plateau in the 1930s.",
+    "system"
+  );
+  let cable04 = new createcollectcard(
+    "CABLE CARS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/07/225651493_572220817131126_7887283526794437294_n-800x800.jpg",
+    "Beatenberg, Switzerland",
+    "Beatenberg – Niederhorn Cable Car",
+    "This Swiss Cable Car is located in a town with medieval origins - and an origin story that involves slaying a dragon.",
+    "system"
+  );
+
+  // create CLASSIC FACADES
+
+  let classic01 = new createcollectcard(
+    "CLASSIC FACADES",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/AWA-800x800.jpg",
+    "PORTO ALEGRE, BRAZIL",
+    "Palácio do Comércio",
+    "Palácio do Comércio is not just a source of “architectural pride”, but a historical city-wide landmark.",
+    "system"
+  );
+  let classic02 = new createcollectcard(
+    "CLASSIC FACADES",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/7A89E35B-5BCB-4C2B-9DC2-B15A28F8D8CD-800x800.jpg",
+    "EL PASO, TEXAS, UNITED STATES",
+    "The Plaza Hotel Pioneer Park",
+    "In the 1950s, both a wealthy hotelier and a Hollywood legend called this towering hotel home.",
+    "system"
+  );
+  let classic03 = new createcollectcard(
+    "CLASSIC FACADES",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/villa-empain-insta-1-800x800.jpg",
+    "BRUSSELS, BELGIUM",
+    "Villa Empain",
+    "Let us explain the style of Emplain.",
+    "system"
+  );
+  let classic04 = new createcollectcard(
+    "CLASSIC FACADES",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/336819521_118907344440832_351575098074494538_n-800x800.jpg",
+    "PARIS, FRANCE",
+    "Place Vendôme",
+    "The site of some of the most luxurious brands is also the site of some of the most unusual ... recycling.",
+    "system"
+  );
+
+  // create DOORS
+
+  let door01 = new createcollectcard(
+    "DOORS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/12/5800546B-AD10-407F-AFEF-3A7C4F0DF5EA-800x800.jpeg",
+    "PHILADELPHIA, PENNSYLVANIA, UNITED STATES",
+    "Horace Jayne House",
+    "This building which drew inspiration from the battlefield is the missing link from Thomas Jefferson's Monticello to Frank Lloyd Wright's organic architecture.",
+    "system"
+  );
+  let door02 = new createcollectcard(
+    "DOORS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/03/156448714_781545412470577_5889255509518121176_n-800x800.jpg?lossy=1&strip=1&webp=1",
+    "AGRA, INDIA",
+    "Agra Fort",
+    "Totaling 94 acres, this massive fortress made of red sandstone was the former residence and capital city of India's medieval Mughal Dynasty.",
+    "system"
+  );
+  let door03 = new createcollectcard(
+    "DOORS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/08/296096599_441339587721502_9000750911016865526_n-800x800.jpg",
+    "LONDON, UNITED KINGDOM",
+    "The Mildmay Club",
+    `"One of the last "Working Men's Clubs" in London, Mildmay is a testament to Community and belonging."`,
+    "system"
+  );
+  let door04 = new createcollectcard(
+    "DOORS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/07/295617042_5562616073773094_7564432010437480444_n-800x800.jpg",
+    "CLEVELAND, OHIO, UNITED STATES",
+    "Cleveland Institute of Music",
+    "Like the best compositions, this conservatory's story began with the humility of a single note, then built and built until something truly beautiful was born…",
+    "system"
+  );
+
+  // create EDUCATIONAL INSTITUTIONS
+
+  let edu01 = new createcollectcard(
+    "EDUCATIONAL INSTITUTIONS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/02/20220124_104522-800x800.jpg",
+    "DEBRECEN, HUNGARY",
+    "University of Debrecen",
+    "This university is celebrated for its academic programs -- and its cactus collection.",
+    "system"
+  );
+  let edu02 = new createcollectcard(
+    "EDUCATIONAL INSTITUTIONS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/07/294554016_185299867253649_1417697834781966114_n-800x800.jpg",
+    "LUGO, SPAIN",
+    "The Círculo de las Artes",
+    "The only city in the world to be completely surrounded by intact Roman walls.",
+    "system"
+  );
+  let edu03 = new createcollectcard(
+    "EDUCATIONAL INSTITUTIONS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/12/inbound2161675608016262826-800x800.jpg",
+    "CASSOPOLIS, MICHIGAN, UNITED STATES",
+    "Geneva School",
+    "The county and a story about one of it's most famous citizens will lure you in.",
+    "system"
+  );
+  let edu04 = new createcollectcard(
+    "EDUCATIONAL INSTITUTIONS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/07/295617042_5562616073773094_7564432010437480444_n-800x800.jpg",
+    "CLEVELAND, OHIO, UNITED STATES",
+    "Cleveland Institute of Music",
+    "Like the best compositions, this conservatory's story began with the humility of a single note, then built and built until something truly beautiful was born…",
+    "system"
+  );
+
+  // create GOVERNMENT BUILDINGS
+
+  let gove01 = new createcollectcard(
+    "GOVERNMENT BUILDINGS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/04/279000231_528048965549113_3734253335068831328_n-800x720.jpg",
+    "HANOI, VIETNAM",
+    "Presidential Palace",
+    "A symbol of when it was a French colony, the presidential palaces offers a glimpse into the storied history of Vietnam.",
+    "system"
+  );
+  let gove02 = new createcollectcard(
+    "GOVERNMENT BUILDINGS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/03/DSC_6071-1-800x800.jpg",
+    "GRAND JUNCTION, COLORADO, UNITED STATES",
+    "Wayne N. Aspinall Federal Building and Courthouse",
+    "A painting removed for a routine cleaning disappeared for decades.",
+    "system"
+  );
+  let gove03 = new createcollectcard(
+    "GOVERNMENT BUILDINGS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/04/277603393_506043934413764_4578293418272300498_n-800x800.jpg",
+    "SARAJEVO, BOSNIA AND HERZEGOVINA",
+    "Vijećnica",
+    "Playing host to the killing that sparked WWI was only the beginning of this heralded hall’s story — it’s one of triumph, tragedy, and a tantalizing return to glory.",
+    "system"
+  );
+  let gove04 = new createcollectcard(
+    "GOVERNMENT BUILDINGS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/02/273174039_1043305403066496_3991599836811027518_n-800x800.jpg",
+    "LANGLEY, BRITISH COLUMBIA, CANADA",
+    "Fort Langley Community Hall",
+    "In 1924, the construction of this town hall was funded for a total of $137.13.",
+    "system"
+  );
+
+  // create HIDDEN WONDERS
+
+  let hidden01 = new createcollectcard(
+    "HIDDEN WONDERS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/01/4F8D0B2D-A777-4796-A19B-5DD8FCF98259-1-800x800.jpeg",
+    "SOUTH SARDINIA, ITALY",
+    "Porto Flavia",
+    "A fanciful doorway hides a masterpiece of engineering.",
+    "system"
+  );
+  let hidden02 = new createcollectcard(
+    "HIDDEN WONDERS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/05/DSC_4147-800x800.jpg",
+    "NEW YORK, NEW YORK, UNITED STATES",
+    "American Museum of Natural History",
+    "That spirit of exploration is shared by museum goers, as they’re invited to observe 45 permanent exhibition halls—including one dedicated to the extraordinary achievements of intrepid polar explorer.",
+    "system"
+  );
+  let hidden03 = new createcollectcard(
+    "HIDDEN WONDERS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/126231979_131777811752478_3368863512616670864_n-800x800.jpg",
+    "DAYTONA BEACH, FLORIDA, UNITED STATES",
+    "Daytona International Speedway",
+    "If Daytona was going to be the world capital for competitive speed, it was going to need a precise timer.",
+    "system"
+  );
+  let hidden04 = new createcollectcard(
+    "HIDDEN WONDERS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/05/DSC_3980copy-1-800x800.jpg",
+    "NEW YORK, NEW YORK, UNITED STATES",
+    "The Metropolitan Museum of Art",
+    "David Webb found his muse by frequenting the Met.",
+    "system"
+  );
+
+  // create HOTEL / MOTEL
+
+  let hm01 = new createcollectcard(
+    "HOTEL / MOTEL",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/08/Aliens-Landed-800x800.jpeg",
+    "RACHEL, NEVADA, UNITED STATES",
+    "Little A’Le’Inn",
+    "Located in the closest town to Area 51, this roadside inn invites travelers to enjoy food, lodging, and all things UFO.",
+    "system"
+  );
+  let hm02 = new createcollectcard(
+    "HOTEL / MOTEL",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/7A89E35B-5BCB-4C2B-9DC2-B15A28F8D8CD-800x800.jpg",
+    "EL PASO, TEXAS, UNITED STATES",
+    "The Plaza Hotel Pioneer Park",
+    "In the 1950s, both a wealthy hotelier and a Hollywood legend called this towering hotel home.",
+    "system"
+  );
+  let hm03 = new createcollectcard(
+    "HOTEL / MOTEL",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/01/DSC_3529-800x800.jpg",
+    "SAWTOOTH CITY, IDAHO, UNITED STATES",
+    "Smiley Creek Lodge",
+    "The best darn milkshakes in the valley.",
+    "system"
+  );
+  let hm04 = new createcollectcard(
+    "HOTEL / MOTEL",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/12/IMG_4619-800x800.jpg",
+    "LONDON, UNITED KINGDOM",
+    "The Connaught Bar",
+    "Enjoy a long list of libations at what was voted the world's greatest bar.",
+    "system"
+  );
+
+  // create INTERIORS
+
+  let inter01 = new createcollectcard(
+    "INTERIORS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/image-800x800.jpeg",
+    "VICHY, FRANCE",
+    "Hall des Sources",
+    "Water with some healing powers.",
+    "system"
+  );
+  let inter02 = new createcollectcard(
+    "INTERIORS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/0152E625-B2A2-462D-8DA4-4AB2B6FB3BA1_1_102_a-1-800x800.jpeg",
+    "SAN FRANCISCO, CALIFORNIA, UNITED STATES",
+    "Olympic Club",
+    `"A club that's earned the title "Olympic" with some medal-winning members."`,
+    "system"
+  );
+  let inter03 = new createcollectcard(
+    "INTERIORS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/7CBB507E-A4D0-4107-81F0-E8B2441F6541-800x800.jpeg",
+    "MONTREAL, CANADA",
+    "Notre-Dame Basilica",
+    "Not only was Notre-Dame the largest place of worship in North America for a half-decade (before New York’s St. Patrick’s Cathedral), it is perhaps (still) the most impressive church on the continent.",
+    "system"
+  );
+  let inter04 = new createcollectcard(
+    "INTERIORS",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/02/LGP_6250-69-800x800.jpeg",
+    "SAN JOSE, COSTA RICA",
+    "National Theatre of Costa Rica",
+    "A theatre built by the coffee bean.",
+    "system"
+  );
+
+  // create LIBRARY
+
+  let lib01 = new createcollectcard(
+    "LIBRARY",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/89EC38C4-BA20-4DA3-827F-8994A720BA16-800x800.jpeg",
+    "PUHOI, NEW ZEALAND",
+    "Puhoi Town Library",
+    "In a country known for exemplifying the phrase “tiny-but-mighty,” one of the most delightful, and heroic, little buildings belongs to a small river-front community.",
+    "system"
+  );
+  let lib02 = new createcollectcard(
+    "LIBRARY",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/11/Library2-800x800.jpg",
+    "DERBY LINE, VERMONT, UNITED STATES",
+    "Haskell Free Library & Opera House",
+    "Purposely built to pledge allegiance to two flags, this structure automatically enrolls performers into an international tour.",
+    "system"
+  );
+  let lib03 = new createcollectcard(
+    "LIBRARY",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/08/DSCF7611-Edited-800x800.jpg",
+    "KETCHUM, IDAHO, UNITED STATES",
+    "Community Library",
+    "Located all around the world. Founded by a group of 17 enterprising women from the Sun Valley area, the Community Library holds a unique chapter in the region’s history.",
+    "system"
+  );
+  let lib04 = new createcollectcard(
+    "LIBRARY",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/07/291342886_574273087651240_2828036662521882592_n-800x800.jpg",
+    "KESZTHELY, HUNGARY",
+    "Festetics Palace",
+    "Some of us are just late bloomers, but this hulking Hungarian palace had a bit longer of an awkward phase than we're used to.",
+    "system"
+  );
+
+  // create LIGHTHOUSE
+
+  let light01 = new createcollectcard(
+    "LIGHTHOUSE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/02/255260CE-78EB-48CE-B285-50DC8F343532-800x800.jpeg",
+    "ALMADA, PORTUGAL",
+    "Farol de Cacilhas",
+    "A lighthouse comes back home.",
+    "system"
+  );
+  let light02 = new createcollectcard(
+    "LIGHTHOUSE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/02/CD94C6BA-4198-4401-AF3C-5647729AF1B2-800x800.jpeg",
+    "ANATOLIKI MANI, GREECE",
+    "Lighthouse Tenaro",
+    "If you’re an Ancient Greek, though, you’d give this abyss a more… creative description: the gate to the Underworld.",
+    "system"
+  );
+  let light03 = new createcollectcard(
+    "LIGHTHOUSE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/09/IMG_3846-720x800.jpg",
+    "NEWFOUNDLAND AND LABRADOR, CANADA",
+    "Cape Spear Lighthouse",
+    "It was a foggy morning on the easternmost point of North America. The route to the wharf was primed for celebration — but disaster was about to strike.",
+    "system"
+  );
+  let light04 = new createcollectcard(
+    "LIGHTHOUSE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/08/DSC_3335-Edited-800x800.jpg",
+    "BRISTOL, MAINE, UNITED STATES",
+    "Pemaquid Point Lighthouse",
+    "A former Keeper of this lighthouse is the only person to be awarded both the Medal of Honor and the Gold Lifesaving Medal–America’s highest military and civilian decorations.",
+    "system"
+  );
+
+  // create MUSEUM
+
+  let museum01 = new createcollectcard(
+    "MUSEUM",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/villa-empain-insta-1-800x800.jpg",
+    "BRUSSELS, BELGIUM",
+    "Villa Empain",
+    "Let us explain the style of Emplain.",
+    "system"
+  );
+  let museum02 = new createcollectcard(
+    "MUSEUM",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/01/Sir-John-Soanes-Museum-800x800.jpg",
+    "LONDON, UNITED KINGDOM",
+    "Sir John Soane’s Museum",
+    "Sir John Soane was attempting to collect everything during his lifetime - paintings, sculptures, even sarcophagi. By the end of his life, Parliament had no other choice but to turn his collection into a museum.",
+    "system"
+  );
+  let museum03 = new createcollectcard(
+    "MUSEUM",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/12/Schlosspark-Hellbrunn-800x800.jpg",
+    "SALZBURG, AUSTRIA",
+    "Schloss Hellbrunn",
+    "This Austrian palace is celebrated for its fountains and water tricks.",
+    "system"
+  );
+  let museum04 = new createcollectcard(
+    "MUSEUM",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/07/211307432_4366960029992302_3165379696640939529_n.jpg",
+    "KRASNODAR, RUSSIA",
+    "The Krasnodar State Historic and Archaeological Museum-Reserve of Felitsyn E.D.",
+    "This Museum goes on underwater archeological expeditions to gather artifacts for its exhibits.",
+    "system"
+  );
+
+  // create NATURE
+
+  let nature01 = new createcollectcard(
+    "NATURE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/01/White-Sands-National-Park-_-Tyshaia-Earnest-_-@_tyshaia-800x800.jpg",
+    "DOÑA ANA COUNTY, NEW MEXICO, UNITED STATES",
+    "White Sands National Park",
+    "This illusion of a winter wonderland is located within the hot deserts of New Mexico.",
+    "system"
+  );
+  let nature02 = new createcollectcard(
+    "NATURE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/DSC_6329-800x800.jpg",
+    "GRAND JUNCTION, COLORADO, UNITED STATES",
+    "Colorado National Monument",
+    "Imagine taking care of 32 square miles for one dollar a year.",
+    "system"
+  );
+  let nature03 = new createcollectcard(
+    "NATURE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/02/mairead-bolger_awa-submission-ireland-eye-howth-800x800.jpg",
+    "DUBLIN, IRELAND",
+    "Ireland’s Eye",
+    "Sometimes you trade in fishing for tourism.",
+    "system"
+  );
+  let nature04 = new createcollectcard(
+    "NATURE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/01/DSC_3717-800x800.jpg",
+    "SUN VALLEY, IDAHO, UNITED STATES",
+    "Sun Valley Ski Patrol",
+    "These pups know snow.",
+    "system"
+  );
+
+  // content별 배열에 저장
+  let cablecarss = [cable01, cable02, cable03, cable04];
+  let classics = [classic01, classic02, classic03, classic04];
+  let doors = [door01, door02, door03, door04];
+  let edus = [edu01, edu02, edu03, edu04];
+  let goves = [gove01, gove02, gove03, gove04];
+  let hiddens = [hidden01, hidden02, hidden03, hidden04];
+  let hms = [hm01, hm02, hm03, hm04];
+  let inters = [inter01, inter02, inter03, inter04];
+  let libs = [lib01, lib02, lib03, lib04];
+  let lights = [light01, light02, light03, light04];
+  let museums = [museum01, museum02, museum03, museum04];
+  let natures = [nature01, nature02, nature03, nature04];
+
+  // localstorage에 배열로 객체 생성
+  localStorage.setItem(
+    "THEMESIMG",
+    `[{ "CABLE CARS" : ${JSON.stringify(
+      cablecarss
+    )} },{ "CLASSIC FACADES" : ${JSON.stringify(
+      classics
+    )} },{ "DOORS" : ${JSON.stringify(
+      doors
+    )} },{ "EDUCATIONAL INSTITUTIONS" : ${JSON.stringify(
+      edus
+    )}},{ "GOVERNMENT BUILDINGS" : ${JSON.stringify(
+      goves
+    )}},{ "HIDDEN WONDERS" : ${JSON.stringify(
+      hiddens
+    )}},{ "HOTEL / MOTEL" : ${JSON.stringify(
+      hms
+    )}},{ "INTERIORS" : ${JSON.stringify(
+      inters
+    )}},{ "LIBRARY" : ${JSON.stringify(
+      libs
+    )}},{ "LIGHTHOUSE" : ${JSON.stringify(
+      lights
+    )}},{ "MUSEUM" : ${JSON.stringify(museums)}},{ "NATURE" : ${JSON.stringify(
+      natures
+    )}}]`
+  );
+
+  ////////////////////////////////////////////////////////////////
+
+  // COLOR PALETTE IMGS
+
+  ////////////////////////////////////////////////////////////////
+
+  let black01 = new createcard(
+    "BLACK",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/12/IMG_4619-800x800.jpg",
+    "LONDON, UNITED KINGDOM",
+    "The Connaught Bar",
+    "Enjoy a long list of libations at what was voted the world's greatest bar.",
+    "system"
+  );
+  let black02 = new createcard(
+    "BLACK",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/07/DSC_7804-800x800.jpg",
+    "MILTON, DELAWARE, UNITED STATES",
+    "King’s Ice Cream",
+    "An ice cream shop that serves up the royal treatment.",
+    "system"
+  );
+  let black03 = new createcard(
+    "BLACK",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/05/DSC_4221-Retouched-650x800.jpg",
+    "CAMBRIDGE, UNITED KINGDOM",
+    "Queens’ College",
+    "Owing its name to two Queens, this hall is located in one of the oldest colleges at Cambridge University.",
+    "system"
+  );
+  let black04 = new createcard(
+    "BLACK",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/01/272002569_2716402315329780_4598027038124583783_n-800x800.jpg",
+    "COMO, COLORADO, UNITED STATES",
+    "Como Depot",
+    "Likely took its name from a large group Italian immigrants who named the Depot after Como, Italy.",
+    "system"
+  );
+
+  // create BLUE
+
+  let blue01 = new createcard(
+    "BLUE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/01/White-Sands-National-Park-_-Tyshaia-Earnest-_-@_tyshaia-800x800.jpg",
+    "DOÑA ANA COUNTY, NEW MEXICO, UNITED STATES",
+    "White Sands National Park",
+    "This illusion of a winter wonderland is located within the hot deserts of New Mexico.",
+    "system"
+  );
+  let blue02 = new createcard(
+    "BLUE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/08/Aliens-Landed-800x800.jpeg",
+    "RACHEL, NEVADA, UNITED STATES",
+    "Little A’Le’Inn",
+    "Located in the closest town to Area 51, this roadside inn invites travelers to enjoy food, lodging, and all things UFO.",
+    "system"
+  );
+  let blue03 = new createcard(
+    "BLUE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/0152E625-B2A2-462D-8DA4-4AB2B6FB3BA1_1_102_a-1-800x800.jpeg",
+    "SAN FRANCISCO, CALIFORNIA, UNITED STATES",
+    "Olympic Club",
+    `"A club that's earned the title "Olympic" with some medal-winning members."`,
+    "system"
+  );
+  let blue04 = new createcard(
+    "BLUE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/7CBB507E-A4D0-4107-81F0-E8B2441F6541-800x800.jpeg",
+    "MONTREAL, CANADA",
+    "Notre-Dame Basilica",
+    "Not only was Notre-Dame the largest place of worship in North America for a half-decade (before New York’s St. Patrick’s Cathedral), it is perhaps (still) the most impressive church on the continent.",
+    "system"
+  );
+
+  // create BROWN
+
+  let brown01 = new createcard(
+    "BROWN",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/04/Copy-of-Crescent-Moon-Theater-_-Kanab-UT-800x800.jpeg",
+    "KANAB, UTAH, UNITED STATES",
+    "Crescent Moon Theater",
+    "This theater, celebrated for its Western culture, was built in memory of a real life Utah cowboy.",
+    "system"
+  );
+  let brown02 = new createcard(
+    "BROWN",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/DSC_6329-800x800.jpg",
+    "GRAND JUNCTION, COLORADO, UNITED STATES",
+    "Colorado National Monument",
+    "Imagine taking care of 32 square miles for one dollar a year.",
+    "system"
+  );
+  let brown03 = new createcard(
+    "BROWN",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/7A89E35B-5BCB-4C2B-9DC2-B15A28F8D8CD-800x800.jpg",
+    "EL PASO, TEXAS, UNITED STATES",
+    "The Plaza Hotel Pioneer Park",
+    "In the 1950s, both a wealthy hotelier and a Hollywood legend called this towering hotel home.",
+    "system"
+  );
+  let brown04 = new createcard(
+    "BROWN",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/02/mairead-bolger_awa-submission-ireland-eye-howth-800x800.jpg",
+    "DUBLIN, IRELAND",
+    "Ireland’s Eye",
+    "Sometimes you trade in fishing for tourism.",
+    "system"
+  );
+
+  // create gray
+
+  let gray01 = new createcard(
+    "GRAY",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/AWA-800x800.jpg",
+    "PORTO ALEGRE, BRAZIL",
+    "Palácio do Comércio",
+    "Palácio do Comércio is not just a source of “architectural pride”, but a historical city-wide landmark.",
+    "system"
+  );
+  let gray02 = new createcard(
+    "GRAY",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/villa-empain-insta-1-800x800.jpg",
+    "BRUSSELS, BELGIUM",
+    "Villa Empain",
+    "Let us explain the style of Emplain.",
+    "system"
+  );
+  let gray03 = new createcard(
+    "GRAY",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/02/CD94C6BA-4198-4401-AF3C-5647729AF1B2-800x800.jpeg",
+    "ANATOLIKI MANI, GREECE",
+    "Lighthouse Tenaro",
+    "If you’re an Ancient Greek, though, you’d give this abyss a more… creative description: the gate to the Underworld.",
+    "system"
+  );
+  let gray04 = new createcard(
+    "GRAY",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/12/E0EF83D6-F2C6-4931-BC79-C36E787FB4E6-800x800.jpeg",
+    "SCHWENDE, SWITZERLAND",
+    "Aescher Berg Gasthaus",
+    "Welcome to the guesthouse with a built-in rock wall, a 100-foot vertical drop below the patio, and nowhere to actually spend the night.",
+    "system"
+  );
+
+  // create green
+
+  let green01 = new createcard(
+    "GREEN",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/Lindsey-Velde_Gulfport-Casino-FL-800x800.jpg",
+    "GULFPORT, FLORIDA, UNITED STATES",
+    "Gulfport Casino",
+    "The $10 price of admission includes a free dance lesson, proving that at Gulfport Casino, everyone’s a winner.",
+    "system"
+  );
+  let green02 = new createcard(
+    "GREEN",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/02/mairead-bolger_awa-submission-ireland-eye-howth-800x800.jpg",
+    "DUBLIN, IRELAND",
+    "Ireland’s Ey",
+    "Sometimes you trade in fishing for tourism.",
+    "system"
+  );
+  let green03 = new createcard(
+    "GREEN",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/01/image-800x800.jpeg",
+    "BOYERTOWN, PENNSYLVANIA, UNITED STATES",
+    "The Colebrookedale Railroad",
+    "All aboard an old American pastime.",
+    "system"
+  );
+  let green04 = new createcard(
+    "GREEN",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/07/292601982_145317784771524_8699380577223449671_n-800x800.jpg",
+    "LONDON, UNITED KINGDOM",
+    "Wimbledon Court 18",
+    "This pitch witnessed the longest match in tennis history.",
+    "system"
+  );
+
+  // create ORANGE
+
+  let orange01 = new createcard(
+    "ORANGE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/Lindsey-Velde_Gulfport-Casino-FL-800x800.jpg",
+    "GULFPORT, FLORIDA, UNITED STATES",
+    "Gulfport Casino",
+    "The $10 price of admission includes a free dance lesson, proving that at Gulfport Casino, everyone’s a winner.",
+    "system"
+  );
+  let orange02 = new createcard(
+    "ORANGE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/336819521_118907344440832_351575098074494538_n-800x800.jpg",
+    "PARIS, FRANCE",
+    "Place Vendôme",
+    "The site of some of the most luxurious brands is also the site of some of the most unusual ... recycling.",
+    "system"
+  );
+  let orange03 = new createcard(
+    "ORANGE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/10/249504219_125015146582690_3068292557799564609_n-800x800.jpg",
+    "LA CHAUX-DE-FONDS, SWITZERLAND",
+    "Salle de Musique",
+    "This theatre is a perfect reflection of the precise nature of it's watch-making patrons.",
+    "system"
+  );
+  let orange04 = new createcard(
+    "ORANGE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/03/156448714_781545412470577_5889255509518121176_n-800x800.jpg",
+    "AGRA, INDIA",
+    "Agra Fort",
+    "Totaling 94 acres, this massive fortress made of red sandstone was the former residence and capital city of India's medieval Mughal Dynasty.",
+    "system"
+  );
+
+  // create PINK
+
+  let pink01 = new createcard(
+    "PINK",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/DSC_6488-2-e1639497801962-800x800.jpg",
+    "CLEVELAND, OHIO, UNITED STATES",
+    "Malley’s Chocolates",
+    "Each 88-foot silo could contain ~100,000 pounds of its respective raw ingredient.",
+    "system"
+  );
+  let pink02 = new createcard(
+    "PINK",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/23595073_1689113034433739_1346042720501628928_n-800x800.jpg",
+    "PRAGUE, CZECH REPUBLIC",
+    "Hotel Opera",
+    "A hot-pink confection of Bohemian Neo-Renaissance style, the Hotel Opera stands in the less touristy Nové Město, or “New Town,” quarter of storied Prague.",
+    "system"
+  );
+  let pink03 = new createcard(
+    "PINK",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/07/211307432_4366960029992302_3165379696640939529_n.jpg",
+    "KRASNODAR, RUSSIA",
+    "The Krasnodar State Historic and Archaeological Museum-Reserve of Felitsyn E.D.",
+    "This Museum goes on underwater archeological expeditions to gather artifacts for its exhibits.",
+    "system"
+  );
+  let pink04 = new createcard(
+    "PINK",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/09/242114715_540655170523429_7934170419823120741_n-800x800.jpg",
+    "HELSINKI, FINLAND",
+    "Ihantola",
+    "Ihantola translates to “Wonderful Place” and oh, what a wonder it is!",
+    "system"
+  );
+
+  // create PURPLE
+
+  let purple01 = new createcard(
+    "PURPLE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/11/25_00062_00_N2_st-e1639495838116-800x800.jpg",
+    "SAN DIEGO, CALIFORNIA, UNITED STATES",
+    "Balboa Theater",
+    "Built in 1924, this storied theater was slated for demolition just three decades later.",
+    "system"
+  );
+  let purple02 = new createcard(
+    "PURPLE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/05/189913045_920095848844858_3774646512706581676_n-800x800.jpg",
+    "WASHINGTON DC, UNITED STATES",
+    "Fellows Building – Dumbarton Oaks",
+    "Intellectual debates and lively parties were enjoyed at this residence for Harvard research fellows.",
+    "system"
+  );
+  let purple03 = new createcard(
+    "PURPLE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/02/128453505_502322554059835_3181569347249400351_n-800x800.jpg",
+    "RYDE, UNITED KINGDOM",
+    "Ryde Pier Head Railway Station",
+    "This railroad pier transports visitors traveling by sea to the town of Ryde on the Isle of Wight.",
+    "system"
+  );
+  let purple04 = new createcard(
+    "PURPLE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/08/104111916_3183897281687968_1202839659952370745_n-800x800.jpg",
+    "DERBYSHIRE, UNITED KINGDOM",
+    "East Midlands Trains",
+    "Established in 2007, East Midlands Trains (EMT) provided train services to the East Midlands area of England for twelve years and are now known as East Midlands Railway.",
+    "system"
+  );
+
+  // create RED
+
+  let red01 = new createcard(
+    "RED",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/08/Aliens-Landed-800x800.jpeg",
+    "RACHEL, NEVADA, UNITED STATES",
+    "Little A’Le’Inn",
+    "Located in the closest town to Area 51, this roadside inn invites travelers to enjoy food, lodging, and all things UFO.",
+    "system"
+  );
+  let red02 = new createcard(
+    "RED",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/02/255260CE-78EB-48CE-B285-50DC8F343532-800x800.jpeg",
+    "ALMADA, PORTUGAL",
+    "Farol de Cacilhas",
+    "A lighthouse comes back home.",
+    "system"
+  );
+  let red03 = new createcard(
+    "RED",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/01/JanneMonard-AWAII-800x800.jpg",
+    "GHENT, BELGIUM",
+    "UGent Sports Centre / Ghent University",
+    "Ghent's hero scored big points in the industrial game against England.",
+    "system"
+  );
+  let red04 = new createcard(
+    "RED",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/01/image-1-1-800x800.jpeg",
+    "AMSTERDAM, NETHERLANDS",
+    "Pathe Tuschinski",
+    "One man's dream to create one of the most beautiful cinema's in the world.",
+    "system"
+  );
+
+  // create TURQUOISE
+
+  let turquoise01 = new createcard(
+    "TURQUOISE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/image-800x800.jpeg",
+    "VICHY, FRANCE",
+    "Hall des Sources",
+    "Water with some healing powers.",
+    "system"
+  );
+  let turquoise02 = new createcard(
+    "TURQUOISE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/02/3F186F56-62A8-4FCA-AF45-1ED217EBC733-800x800.jpeg",
+    "WOODSTOCK, ILLINOIS, UNITED STATES",
+    "Sunnyside Farms",
+    "Woodstock would forever be changed by playing the part of a village over 500 miles away—Punxsutawney, Pennsylvania.",
+    "system"
+  );
+  let turquoise03 = new createcard(
+    "TURQUOISE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/01/Story-clun-800x800.jpg",
+    "CLUN, UNITED KINGDOM",
+    "Clun Post Office",
+    "A peaceful town that wasn't always so tranquil.",
+    "system"
+  );
+  let turquoise04 = new createcard(
+    "TURQUOISE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/07/289629751_715387973050315_1441269879910284433_n-800x800.jpg",
+    "TUSCANY, ITALY",
+    "Versilia",
+    "During Roman times, Versilia was not an area where the Emperor was known to roam. A few centuries later, the Tuscans had a holiday hotspot on their hands.",
+    "system"
+  );
+
+  // create WHITE
+
+  let white01 = new createcard(
+    "WHITE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2022/01/White-Sands-National-Park-_-Tyshaia-Earnest-_-@_tyshaia-800x800.jpg",
+    "DOÑA ANA COUNTY, NEW MEXICO, UNITED STATES",
+    "White Sands National Park",
+    "This illusion of a winter wonderland is located within the hot deserts of New Mexico.",
+    "system"
+  );
+  let white02 = new createcard(
+    "WHITE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/08/Aliens-Landed-800x800.jpeg",
+    "RACHEL, NEVADA, UNITED STATES",
+    "Little A’Le’Inn",
+    "Located in the closest town to Area 51, this roadside inn invites travelers to enjoy food, lodging, and all things UFO.",
+    "system"
+  );
+  let white03 = new createcard(
+    "WHITE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/image-800x800.jpeg",
+    "VICHY, FRANCE",
+    "Hall des Sources",
+    "Water with some healing powers.",
+    "system"
+  );
+  let white04 = new createcard(
+    "WHITE",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/0152E625-B2A2-462D-8DA4-4AB2B6FB3BA1_1_102_a-1-800x800.jpeg",
+    "SAN FRANCISCO, CALIFORNIA, UNITED STATES",
+    "Olympic Club",
+    `"A club that's earned the title "Olympic" with some medal-winning members."`,
+    "system"
+  );
+
+  // create YELLOW
+
+  let yellow01 = new createcard(
+    "YELLOW",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2021/01/Lemon-Dome-800x800.jpg",
+    "CARTAGO, CALIFORNIA, UNITED STATES",
+    "The Lemon House",
+    "Squeeze the day!",
+    "system"
+  );
+  let yellow02 = new createcard(
+    "YELLOW",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/7CBB507E-A4D0-4107-81F0-E8B2441F6541-800x800.jpeg",
+    "MONTREAL, CANADA",
+    "Notre-Dame Basilica",
+    "Not only was Notre-Dame the largest place of worship in North America for a half-decade (before New York’s St. Patrick’s Cathedral), it is perhaps (still) the most impressive church on the continent.",
+    "system"
+  );
+  let yellow03 = new createcard(
+    "YELLOW",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/03/D29BB590-4E16-4121-B206-8F04F0F8A0B1-800x800.jpeg",
+    "MILAN, ITALY",
+    "Yellow Line",
+    "Would you like to sit down?",
+    "system"
+  );
+  let yellow04 = new createcard(
+    "YELLOW",
+    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2023/02/image-1-800x800.jpeg",
+    "ALPE DEVERO, ITALY",
+    "Bar Pensione Fattorini",
+    "The only place in the world one can find Bettelmatt cheese.",
+    "system"
+  );
+
+  // contect save arr
+  let blacks = [black01, black02, black03, black04];
+  let blues = [blue01, blue02, blue03, blue04];
+  let browns = [brown01, brown02, brown03, brown04];
+  let grays = [gray01, gray02, gray03, gray04];
+  let greens = [green01, green02, green03, green04];
+  let oranges = [orange01, orange02, orange03, orange04];
+  let pinks = [pink01, pink02, pink03, pink04];
+  let purples = [purple01, purple02, purple03, purple04];
+  let reds = [red01, red02, red03, red04];
+  let turquoises = [turquoise01, turquoise02, turquoise03, turquoise04];
+  let whites = [white01, white02, white03, white04];
+  let yellows = [yellow01, yellow02, yellow03, yellow04];
+
+  localStorage.setItem(
+    "COLORIMG",
+    `[{ "BLACK" : ${JSON.stringify(blacks)} },{ "BLUE" : ${JSON.stringify(
+      blues
+    )} },{ "BROWN" : ${JSON.stringify(browns)} },{ "GRAY" : ${JSON.stringify(
+      grays
+    )}},{ "GREEN" : ${JSON.stringify(greens)}},{ "ORANGE" : ${JSON.stringify(
+      oranges
+    )}},{ "PINK" : ${JSON.stringify(pinks)}},{ "PURPLE" : ${JSON.stringify(
+      purples
+    )}},{ "RED" : ${JSON.stringify(reds)}},{ "TURQUOISE" : ${JSON.stringify(
+      turquoises
+    )}},{ "WHITE" : ${JSON.stringify(whites)}},{ "YELLOW" : ${JSON.stringify(
+      yellows
+    )}}]`
+  );
+}
+////////////////////////////////////////////////////////////////

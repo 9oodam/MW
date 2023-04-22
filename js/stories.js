@@ -39,27 +39,28 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // search btn
-function searchlogin(){
+// header 우상단 search & login btn
+function searchlogin() {
   // 검색 팝업 관련 변수
-  let searchPopupBtn = document.querySelector('#dropdown-search-form')
-  let searchPopup = document.querySelector('#search-popup')
-  let popupCloseBtn = document.querySelector('#popup-close-btn')
+  let searchPopupBtn = document.querySelector("#dropdown-search-form");
+  let searchPopup = document.querySelector("#search-popup");
+  let popupCloseBtn = document.querySelector("#popup-close-btn");
 
   // 검색창 popup
-  searchPopupBtn.addEventListener('click', function() {
-      searchPopup.classList.add('is-active');
+  searchPopupBtn.addEventListener("click", function () {
+    searchPopup.classList.add("is-active");
   });
-  popupCloseBtn.addEventListener('click', function() {
-      searchPopup.classList.remove('is-active');
+  popupCloseBtn.addEventListener("click", function () {
+    searchPopup.classList.remove("is-active");
   });
 
   // 로그인 팝업 관련 변수
   let topBanner = document.querySelector(".top_banner"); // 최상단 빨간 배너
 
-  let loginPopupContent = document.querySelector('.login-popup-content');
-  let idLoginBtn = document.querySelector('#id-login-btn');
-  let logincloseBtn = document.querySelector('#login-close-btn');
-  let signupcloseBtn = document.querySelector('#signup-close-btn');
+  let loginPopupContent = document.querySelector(".login-popup-content");
+  let idLoginBtn = document.querySelector("#id-login-btn");
+  let logincloseBtn = document.querySelector("#login-close-btn");
+  let signupcloseBtn = document.querySelector("#signup-close-btn");
 
   let loginPopup = document.querySelector(".login_popup"); // 로그인 창
   let signupPopup = document.querySelector(".signup_popup"); // 회원가입 창
@@ -67,43 +68,42 @@ function searchlogin(){
   let moveToLogin = document.querySelector(".move_to_login");
 
   // 로그인 popup
-  idLoginBtn.addEventListener('click', function() {
-      loginPopupContent.classList.add('is-active');
-      loginPopup.classList.add('is-active');
+  idLoginBtn.addEventListener("click", function () {
+    loginPopupContent.classList.add("is-active");
+    loginPopup.classList.add("is-active");
   });
-  logincloseBtn.addEventListener('click', function(){
-      loginPopupContent.classList.remove('is-active');
-      loginPopup.classList.remove('is-active');
-      signupPopup.classList.remove('is-active');
+  logincloseBtn.addEventListener("click", function () {
+    loginPopupContent.classList.remove("is-active");
+    loginPopup.classList.remove("is-active");
+    signupPopup.classList.remove("is-active");
   });
-  signupcloseBtn.addEventListener('click', function(){
-      loginPopupContent.classList.remove('is-active');
-      loginPopup.classList.remove('is-active');
-      signupPopup.classList.remove('is-active');
+  signupcloseBtn.addEventListener("click", function () {
+    loginPopupContent.classList.remove("is-active");
+    loginPopup.classList.remove("is-active");
+    signupPopup.classList.remove("is-active");
   });
 
-  moveToSignup.addEventListener("click", function() {
-      if(!signupPopup.classList.contains('is-active')) {
-          signupPopup.classList.add('is-active');
-      }
-      if(loginPopup.classList.contains('is-active')) {
-          loginPopup.classList.remove('is-active');
-      }
+  moveToSignup.addEventListener("click", function () {
+    if (!signupPopup.classList.contains("is-active")) {
+      signupPopup.classList.add("is-active");
+    }
+    if (loginPopup.classList.contains("is-active")) {
+      loginPopup.classList.remove("is-active");
+    }
   });
-  moveToLogin.addEventListener("click", function() {
-      if(!loginPopup.classList.contains('is-active')) {
-          loginPopup.classList.add('is-active');
-      }
-      if(signupPopup.classList.contains('is-active')) {
-          signupPopup.classList.remove('is-active');
-      }
+  moveToLogin.addEventListener("click", function () {
+    if (!loginPopup.classList.contains("is-active")) {
+      loginPopup.classList.add("is-active");
+    }
+    if (signupPopup.classList.contains("is-active")) {
+      signupPopup.classList.remove("is-active");
+    }
   });
-  topBanner.addEventListener('click', function() {
-      loginPopupContent.classList.add('is-active');
-      signupPopup.classList.add('is-active');
+  topBanner.addEventListener("click", function () {
+    loginPopupContent.classList.add("is-active");
+    signupPopup.classList.add("is-active");
   });
-} 
-
+}
 
 ////////////////////////////////////////////////////
 
@@ -207,9 +207,9 @@ function allcard() {
   let tabarr = [];
   let tmparr = [];
   tabs.forEach((a, index) => {
-    spl = a.innerHTML.split(" ");
-    splarr.push(spl[0]);
-    tmparr = JSON.parse(localStorage.getItem(spl[0]));
+    spl = a.innerHTML;
+    splarr.push(spl);
+    tmparr = JSON.parse(localStorage.getItem(spl));
     tabarr.push(tmparr);
   });
   tabarr.shift();
@@ -238,10 +238,11 @@ tabs.forEach(function (a, b) {
   tabs[b].addEventListener("click", function () {
     // console.log(tabs[b].innerHTML);
     // console.log(typeof a.innerHTML);
-    let spl = a.innerHTML.split(" ");
+    let spl = a.innerHTML;
+    // console.log(a.innerHTML);
     // console.log(spl[0]);
-    let aabb = JSON.parse(localStorage.getItem(spl[0]));
-    // console.log(Object.keys(aabb[0]).length);
+    let getlocal = JSON.parse(localStorage.getItem(spl));
+    // console.log(Object.keys(getlocal[0]).length);
     let imgcards = document.querySelector(".imgcards");
 
     imgcards.innerHTML = "";
@@ -251,13 +252,13 @@ tabs.forEach(function (a, b) {
       return;
     }
 
-    if (Object.keys(aabb[0]).length == 5) {
-      aabb.forEach((a) => {
+    if (Object.keys(getlocal[0]).length == 5) {
+      getlocal.forEach((a) => {
         imgcard5(a);
       });
     }
-    if (Object.keys(aabb[0]).length == 4) {
-      aabb.forEach((a) => {
+    if (Object.keys(getlocal[0]).length == 4) {
+      getlocal.forEach((a) => {
         imgcard4(a);
       });
     }

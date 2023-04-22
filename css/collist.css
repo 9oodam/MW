@@ -101,6 +101,21 @@ body {
   margin-bottom: 20px;
   box-sizing: border-box;
 }
+@media screen and (max-width: 420px) {
+  .card {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 700px) and (min-width: 421px) {
+  .card {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 1150px) and (min-width: 701px) {
+  .card {
+    width: 33.333333%;
+  }
+}
 
 .card .cardin {
   /* height: 460px; */
