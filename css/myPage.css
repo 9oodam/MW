@@ -183,8 +183,8 @@ body {
   /* 767px 이상 */
   width: 100%;
   height: auto;
-  border: 1px solid #ee3024;
-  border-style: dashed;
+  /* border: 1px solid #ee3024;
+  border-style: dashed; */
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
