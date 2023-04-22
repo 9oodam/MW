@@ -1,0 +1,398 @@
+@font-face {
+    font-family: 'freight_sans_pro_bold_regular';
+    font-weight: 900; 
+    font-style: normal; 
+    src: url(./font/FreightSansProBold-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'freight_sans_pro_black_regular';
+    font-weight: 900;
+    font-style: normal; 
+    src: url(./font/FreightSansProBlack-Regular.ttf);
+}
+
+
+
+@font-face {
+    font-family: 'GT_Pressura_Mono_Regular';
+    src: url(./font/GT-Pressura-Mono-Regular-Trial.woff2);
+}
+
+
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    /* 이렇게 하면 적용 되려나?  */
+    /* 아, 그리고, 개발자도구에서는, 그렇게 보이지만, 까보면, 보조 폰트 였어 */
+    font-family: 'freight_sans_pro_bold_regular', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+
+    color: #3e4240;
+
+
+    line-height: 1;
+
+}
+
+
+
+/* ------------ 맨 위 빨간 배너 START ------------------ */
+
+body .top_banner {
+    height: auto;
+    width: 100%;
+
+    background-color: #e2010d;
+    display: block;
+
+    min-height: 30px;
+    padding: 10px 0px;
+
+    font-weight: 400;
+    /* color: #3e4240; */
+
+}
+
+
+body .top_banner .top_banner_text {
+    color: #ffffff;
+    text-align: center;
+    display: block;
+
+    font-size: 1rem;
+        /* 글꼴 크기에 "rem" 단위를 사용하는 것은 글꼴 크기를 루트 요소의 글꼴 크기에 기반하여 확장 가능하고 반응형으로 만드는 좋은 방법입니다. */
+
+    font-weight: 700 !important;
+
+    
+    /* ⭐⭐ margin 0 을 해서 > 딱 붙네 이게  */
+    margin: 0;
+
+    /* background-color: yellow; */
+
+}
+
+
+.top_banner .top_banner_text a {
+    color : #fff ;
+
+    /* ⭐⭐⭐⭐⭐ 밑줄이 조금 더 글자 밑으로 내려오게 하는 부분 */
+    text-underline-offset : 4px;
+}
+
+/* ------------ 맨 위 빨간 배너 END ------------------ */
+
+
+/* ------------- header START ------------------------------ */
+
+.site_header .site_header__top .site_header__top_logo {
+    height: auto;
+    width: auto;
+    /* background-color: aqua; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* 📛 패딩 주의 📛 */
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+
+.site_header__top_logo .a_tag .img_tag {
+    display: block;
+
+    height: auto;
+    width: 250px;
+    max-width: 100%;
+    
+    overflow: clip;
+}
+
+
+
+.site_header .site_header__primary-nav {
+    /* background-color: navy; */
+    
+    display: block;
+    /* 😥 부모로 부터 받겠다... 근데, site header 는 영역이 없는데... */
+
+    /* 아... 😥 지금 width 100% 를 하면 딱 생기는 구나 지금  */
+    /* 📛 패딩 주의 📛 */
+    /* padding: 0 80px; */
+    width: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    
+}
+
+
+
+.site_header__primary-nav .site_header__primary-nav--social {
+    /* background-color: yellow ; */
+
+    /* 마진 주의📛 */
+    margin-left: 70px;
+}
+
+
+.site_header__primary-nav--social a {
+    text-decoration: none;
+}
+
+.site_header__primary-nav--social a img {
+    width: auto;
+    height: 15px;
+    max-width: 100%;
+}
+
+.site_header__primary-nav--social a img:first-child{
+    /* 📛마진주의📛 */
+    margin-right: 35px;
+}
+
+
+/* ul 태그 */
+.site_header__primary-nav .site_header__primary-nav--menus {
+/* background-color: lightblue; */
+
+list-style: none;
+}
+
+
+.site_header__primary-nav--menus .nav_menus {
+    /* 텍스트가 중앙정렬됨 */
+    text-align: center;
+
+    /* 📛 마진 주의 📛 */
+    margin: 0;
+}
+
+
+.site_header__primary-nav--menus .nav_menus li {
+    /* ⭐⭐⭐⭐⭐ 이걸 하면 완전히 옆으로 오네 */
+    display: inline-block;
+
+    /* 📛 패딩주의 📛 */
+    padding: 20px 30px;
+
+}
+
+
+.nav_menus li a {
+    font-family: 'GT_Pressura_Mono_Regular',sans-serif;
+    font-size: 13px;
+    letter-spacing: .04;
+    color: #231f20;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+
+
+
+.site_header__primary-nav .site_header__primary-nav--seachlogin {
+
+    /* background-color: lightgreen; */
+    display: block;
+
+    /* 📛 마진 주의 */
+    margin-right: 70px;
+}
+
+.site_header__primary-nav--seachlogin a {
+    font-family: 'GT_Pressura_Mono_Regular',sans-serif;
+    font-size: 13px;
+    letter-spacing: .04;
+    color: #231f20;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    display: inline-block;
+}
+
+.site_header__primary-nav--seachlogin a:first-child {
+    /* 📛 마진 주의 📛 
+        ⭐ 좌우로 맞추는 방법 뿐 아니라, 어떤 통일성을 갖고 싶어 */
+    margin-right: 35px;
+}
+
+
+
+.site_header__primary-nav--seachlogin a img{
+    max-width: 100%;
+    height: auto;
+    width: 13px;
+
+    position: relative;
+    top: 2px;
+    left: 2px;
+}
+
+
+.site_header__primary-nav .site_header__primary-nav--loginPopup {
+    display: none;
+}
+/* ------------- header END ------------------------------ */
+
+
+/* ------------- main section START ------------------------------ */
+
+
+.main_content .mix_desc_photo {
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: green;
+
+}
+
+
+.main_content .mix_desc_photo .mix_desc_photo__desc {
+    width: 50%;
+    text-align: left;
+
+    /* 패딩 주의⭐⭐⭐⭐⭐ 
+        ✅ 이게 반응형에서 중요한 수치인가?*/
+    padding: 12rem 5rem;
+
+    background-color: #fad0c3;
+    color: #ee3024;
+}
+
+.mix_desc_photo__desc .mix_desc_photo__desc--top {
+max-width: 100%;
+/* height: 100%; */
+margin: 0;
+background-color: gold;
+
+display: flex;
+flex-wrap: wrap;
+/* justify-content: flex-start; */
+/* align-items: center; */
+
+/* height: 100px; */
+}
+
+
+.mix_desc_photo__desc--top .title_wrapper {
+    background-color: lightblue;
+    max-width: 500px;
+    /* margin: 0; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.title_wrapper .title_headline {
+    
+    /* max width, rem 의 역할을 잘 이해 못 하고 있음😥😥😥 */
+    max-width: 80%;
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+    
+    /* ⭐⭐⭐⭐⭐ 오 대문자로 바꿔주네 */
+    text-transform: uppercase;
+
+
+    font-family: 'freight_sans_pro_black_regular' , sans-serif;
+    font-weight: 900;
+}
+
+.title_wrapper .title_icon {
+    width: auto;
+    height: auto;
+    max-width: 110px;
+
+    /* 📛 마진 주의 📛 */
+    margin-left: 30px;
+
+}
+
+.title_under_description {
+    width: 70%;
+ 
+    font-size: 2rem;
+    line-height: 2.25rem;
+}
+
+
+.mix_desc_photo .mix_desc_photo__gallery {
+
+    width: 50%;
+    background-color: blue;
+    overflow: hidden;
+}
+
+.mix_desc_photo__gallery .slick-initialized {
+    display: block;
+    /* position: relative; */
+    height: 100%;
+    min-height: 250px;
+}
+
+.slick-initialized .slick-list {
+ height: 100%;
+ overflow: hidden;
+ margin: 0;
+ padding: 0;
+}
+
+.slick-list .slick-track {
+    height: 100%;
+    width: 12936px;
+    opacity: 1;
+    position: relative;
+
+    left: 0;
+    top: 0;
+
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.slick-track .slick-slide {
+    width: 924px;
+    float: left;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+.slick-slide div .gallery-item {
+    width: 100%;
+}
+
+.gallery-item__img {
+    height: 100%;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.gallery-item__img img {
+    width: 100%;
+    /* max-height: none; */
+    height: auto;
+}

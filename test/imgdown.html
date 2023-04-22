@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .wrap {
+        width: 500px;
+        height: 500px;
+        border: 1px solid;
+        position: relative;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+      .wrap input {
+        position: absolute;
+        z-index: 2;
+      }
+      .wrap2 img {
+        width: 500px;
+        height: 500px;
+        border: 1px solid;
+        position: fixed;
+        top: 0;
+        left: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <input type="file" id="imginput" />
+      <img id="pv" onerror="this.style.display='none'" />
+    </div>
+
+    <div class="wrap2">
+      <img id="pv2" onerror="this.style.display='none'" />
+    </div>
+  </body>
+  <script src="./imgdown.js"></script>
+  <!-- <script src="./imgdown2.js"></script> -->
+</html>
