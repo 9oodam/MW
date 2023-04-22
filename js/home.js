@@ -86,7 +86,6 @@ let navResponsiveHamIsActive = document.querySelector('.site_header__primary-nav
 let navResponsiveHam = document.querySelector('.site_header__primary-nav--responsive-ham')
 
 // x1200 이하, y200 이하에서, x 클릭하면, 햄버거 버튼 안 보이게
-// let responsiveHamburgMenuXwidth1200Yscroll200 = document.querySelector('.responsive-hamburg-menu-xwidth1200-yscroll200')
 let responsiveMenuXwidth1200Yscroll200 = document.querySelector('.responsive-hamburg-menu-xwidth1200-yscroll200')
 
 // width 1201 이하 & yscroll 200 이상 & 검색 아이콘 클릭 일 때, 검색 떨어지게 하는 함수 
@@ -210,6 +209,7 @@ function handleYScroll() {
             // '햄버거 메뉴' '보이게' 하는거 제거
             responsHamburgXwidth1200Yscroll200.classList.remove('is-scrolled')
 
+
             // 햄버거 메뉴, 좁아졌을 때 보다, 살짝 크게 하기
             navResponsiveHam.style.top = "116px"
 
@@ -314,7 +314,7 @@ dropdownSearchXWidthUnder1200.addEventListener('click', function() {
     SearchformX1200underY200over.addEventListener('click', function() {
 
         // 검색창 바로 떨어지게 하기 
-        // searchPopup.classList.add('is-active')
+        searchPopup.classList.add('is-active')
             // 이걸 다른 검색창을 만들어서 거기에는 x 자를 붙여서 나오기
 
         // 새롭게 드롭다운 검색 + 취소 표시창 떨어지게 하기 
