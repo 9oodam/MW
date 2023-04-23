@@ -124,6 +124,7 @@ if (window.localStorage.length == 0) {
     this.text = text;
     this.tab = tab;
   }
+
   function createcard2(mainimg, title, text, tab) {
     this.mainimg = mainimg;
     this.title = title;
@@ -663,13 +664,13 @@ if (window.localStorage.length == 0) {
   localStorage.setItem("QUALITY QUIRKS", JSON.stringify(quality));
 
   // card 생성자
-  function createcollectcard(catagory, img, country, location, description, nickname) {
+  function createcollectcard(catagory, img, country, location, description, name) {
     this.catagory = catagory;
     this.img = img;
     this.country = country;
     this.location = location;
     this.description = description;
-    this.nickname = nickname;
+    this.name = name;
   }
 
   // THEMES IMGS
