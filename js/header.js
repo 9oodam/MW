@@ -63,12 +63,12 @@ function loginCheck1() {
 
 // header nav bar 중 board
 function loginCheck2() {
-  // let loginCheck = window.sessionStorage.getItem("LOGIN");
-  // if(!loginCheck) {
-  //   alert("Please login first.");
-  // }else {
-  //   location.href = "./board.html";
-  // }
+  let loginCheck = window.sessionStorage.getItem("LOGIN");
+  if(!loginCheck) {
+    alert("Please login first.");
+  }else {
+    location.href = "./board.html";
+  }
   location.href = "./board.html";
 }
 
