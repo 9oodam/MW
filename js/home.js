@@ -678,6 +678,7 @@ function searchDropDownX1201Y200() {
 
 
 
+
 // 🟦 로그인 완료되면, login 대신, 'nickname' 표시 되게 하기
 
     // 🔷 값이 로컬스토리지에 있으므로, 로컬스토리지에 있는 nickname 가져와서, login 에 넣기
@@ -710,177 +711,44 @@ function searchDropDownX1201Y200() {
 
 
 
+// 🔷 'collection 영역 밖' 클릭하면 > collection 꺼지게 하기 
+function outsideClickCloseModal() {
 
+    // let 전체 모달창 영역
+    let collectionDropdownArea = document.querySelector('.collections-dropdown')
 
-
-
-// ------------------------ 🎏🎏🎏🎏🎏🎏🎏🎏🎏 ------------------------
-// // 🔷 nav-bar 반응형1 : 1) Y 스크롤 200 이하 기준 변경
-// window.addEventListener('scroll',  function() {
-//     let scrollY = window.pageYOffset
-
-//     if (scrollY > 200) {
-//         siteHeaderprimary.classList.add('is-scrolled');
-//         responsiveTopLogo.classList.add('is-scrolled');
-//         dropdownSearchForm.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-search-red.svg" alt="">`
-//         reponsiveLoginBtn.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt="">`
-//         navInstagramBtn.style.marginRight = '10px'
-//         dropdownSearchForm.style.marginRight = '40px'
-        
-
-//     } else {
-//         siteHeaderprimary.classList.remove('is-scrolled')
-//         responsiveTopLogo.classList.remove('is-scrolled');
-//         navInstagramBtn.style.marginRight = '0px'
-//         // dropdownSearchForm.style.marginRight = '100px'
-        
-
-
-//     }
-// });
-
-
-
-
-// // // 🔷 nav-bar 반응형2 : 2) width 1200px 이하 에만 반응 - 2차 시도
-// window.addEventListener('resize', function() {
-//     if (window.innerWidth < 1200) {
-
-//         // ◼ 지울 것들 : 1) 소셜 아이콘 2) 메뉴 글씨 3) 로그인 아이콘 + 글 4) 검색은 '글씨만' 
-//         // primaryNavMenus.style.display = 'none'  // 메뉴
-//         // primaryNavSocial.style.display = 'none' // 소셜 아이콘
-//         idLoginBtn.style.display = 'none'   // 로그인 아이콘 - 이건 미디어 쿼리로 구현
-        
-//         dropdownSearchForm.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-search-red.svg" alt="">`
-//             // 돋보기 모양
-//         responsiveHamburgMenu.classList.add('is-active')    // 햄버거 메뉴
-//         siteHeader.style.flexDirection = 'row-reverse'      // 좌우 정렬
-//         siteHeader.style.justifyContent = 'space-between'
-
-//         // width + scroll 동시에 적용받는, 오른쪽 햄버거 버튼 
-//         responsiveHamburgMenuWidthYscroll.style.display = 'block'
-//         // width + scroll 동시에 적용받는, 검색 버튼 
-//         primaryNavSeachlogin.style.display = 'block'
-
-        
-//         // ◼ 햄버거 메뉴 
-//         // 만약 버튼 클릭되면 -> class add 
-//         // NavResponsiveHham.classList.add('is-active')
-        
-        
-//     } else if (window.innerWidth > 1200) {
-//         responsiveHamburgMenu.classList.remove('is-active')     // 햄버거 메뉴 삭제
-//         // responsiveHamburgMenu.style.display = 'none'
-
-//         primaryNavMenus.style.display = 'block'     // 가운데 메뉴 다시 보이게
-//         primaryNavSocial.style.display = 'block'    // 인스타, 페북 보이게
-
-//         // 여기서 살짝 버그. 라이브 서버 켜면 문제 없음.
-//         idLoginBtn.style.display = 'block'
-        
-//         siteHeader.style.flexDirection = 'column'   // flex 정렬 기능 
-
-//         // width + scroll 동시에 적용받는, 오른쪽 햄버거 버튼 삭제
-//         responsiveHamburgMenuWidthYscroll.style.display = 'none'
-
-//         // width + scroll 동시에 적용받는, login, social 버튼 ✅✅✅ 
-//         // primaryNavSeachlogin.style.display = 'none'
-//     }
-// })
-
-
-
-
-// // 🔷 nav-bar 반응형3 : Y 스크롤 200 이하 'AND' width 1200px 이하 에만 반응 - 2차
-// window.addEventListener('scroll', 'resize', function() {
-
-//     console.log("발생")
-//     // let scrollY = window.pageYOffset
-//     // let widthX = window.innerWidth
-
-//     // // ◼ 스크롤 밑으로 내려오고 | width 1200 이상 인 경우 
-//     // if( scrollY > 200) {
-//     //     console.log("테스트")
-//     // } else if (scrollY > 200 && widthX < 1200) {
-//     //     console.log("테스트")
-//     // }
-
-
-
-// })
+    collectionDropdownArea.addEventListener('click', function(event) {
+        if(event.target !== collectionDropdownArea ) {
+            collectionsDropdown.classList.remove('is-active')
+        }}
+    )
+}
+// 'collection 영역 밖' 클릭하면 > collection 꺼지게 하기 
+outsideClickCloseModal()
 
 
 
 
 
-// // 🔷 nav-bar 반응형3 : Y 스크롤 200 이하 'AND' width 1200px 이하 에만 반응 
 
-
-// window.addEventListener('resize', function() {
-//     // 가로 width 가 1200 이하 일 때
-//     if (window.innerWidth < 1200) {
-
-//         // Y 스크롤이 내려왔을 때 
-//         window.addEventListener('scroll', function() {
-//             let scrollY = window.pageYOffset
-            
-//             // ◼ [1] W 1200 이하 'AND' Y 스크롤 내려왔을 때 
-//             if (scrollY > 200) {
-//                 // 돋보기 오른쪽으로 가게 
-//                 primaryNavSeachlogin.style.right = '25px'
-//             }
-//             // ◼ [2] W 1200 이하 'AND' Y 스크롤 올라왔을 때
-//             else {
-//                 // right 을 지워서 > 돋보기가 왼쪽으로 가게 하기 
-//                 primaryNavSeachlogin.style.removeProperty("right")
-//                 primaryNavMenus.style.display = 'none'  // 메뉴
-// //         primaryNavSocial.style.display = 'none' // 소셜 아이콘
-// //         idLoginBtn.style.display = 'none'   // 로그인 아이콘
-
-
-//             }
-//         }
-//     )
-//         // 가로 width 가 1200 이상일 때
-//     } else {
-//         window.addEventListener('scroll', function() {
-//             let scrollY = window.pageYOffset
-            
-//             // ◼ [3] W 1200 이상 'AND' Y 스크롤 내려왔을 때
-//             if (scrollY > 200) {
-//                 // 돋보기 오른쪽으로 가게 
-//                 // primaryNavSeachlogin.style.right = '25px'
-//             }
-
-//             // ◼ [4] W 1200 이상 'AND' Y 스크롤 올라갔을 때
-//             else {
-//                 // 스크롤 올라가면, 왼쪽 위치로
-//                 primaryNavSeachlogin.style.right = '0px'
-//             }
-//         }
-//     )
-
-
-//         // primaryNavSeachlogin.style.right = '0px'
-
-//     }
-
-// }
-
-// )
+// ----------------👇👇👇 DJ DON'T TOUCH 👇👇👇--------------------------
 
 
 
-// 🔷 콜렉션 popupCloseBtn
-navCollectionsBtn.addEventListener('click', function() {
-    collectionsDropdown.classList.add('is-active')
-})
+
+// 🔷 '콜렉션 popupCloseBtn' 누르면 > 콜렉션 창 나오게 하기
+    navCollectionsBtn.addEventListener('click', function() {
+        collectionsDropdown.classList.add('is-active')
+    })
 
 
-let loginPopup = document.querySelector(".login_popup"); // 로그인 창
-let signupPopup = document.querySelector(".signup_popup"); // 회원가입 창
-let moveToSignup = document.querySelector(".move_to_signup"); // 회원가입으로 이동
-let moveToLogin = document.querySelector(".move_to_login");
+    let loginPopup = document.querySelector(".login_popup"); // 로그인 창
+    let signupPopup = document.querySelector(".signup_popup"); // 회원가입 창
+    let moveToSignup = document.querySelector(".move_to_signup"); // 회원가입으로 이동
+    let moveToLogin = document.querySelector(".move_to_login");
+
+
+
 
 // 🔷 검색창 popup
 searchPopupBtn.addEventListener('click', function() {
