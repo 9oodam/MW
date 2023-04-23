@@ -222,11 +222,11 @@ for (let i = 0; i < themesName.length; i++) {
 
 
         // x1200이하, y200 이상에서, 검색버튼 누르면 > 햄버거 메뉴 살짝 올리려구
-let navResponsiveHamIsActive = document.querySelector('.site_header__primary-nav--responsive-ham.is-active')
-let navResponsiveHam = document.querySelector('.site_header__primary-nav--responsive-ham')
+        let navResponsiveHamIsActive = document.querySelector('.site_header__primary-nav--responsive-ham.is-active')
+        let navResponsiveHam = document.querySelector('.site_header__primary-nav--responsive-ham')
 
-// x1200 이하, y200 이하에서, x 클릭하면, 햄버거 버튼 안 보이게
-let responsiveMenuXwidth1200Yscroll200 = document.querySelector('.responsive-hamburg-menu-xwidth1200-yscroll200')
+        // x1200 이하, y200 이하에서, x 클릭하면, 햄버거 버튼 안 보이게
+        let responsiveMenuXwidth1200Yscroll200 = document.querySelector('.responsive-hamburg-menu-xwidth1200-yscroll200')
 
 
 
@@ -678,6 +678,35 @@ function searchDropDownX1201Y200() {
 
 
 
+// 🟦 로그인 완료되면, login 대신, 'nickname' 표시 되게 하기
+
+    // 🔷 값이 로컬스토리지에 있으므로, 로컬스토리지에 있는 nickname 가져와서, login 에 넣기
+        // Cf. 현재 세션 스토리지에 저장된 값이 없는 관계로, 로컬스토리지에서 가져옴. 
+    
+        // localstorage 에서 가져와서 > 파싱 > '배열' 를 return
+        const userFromLocalstorage = JSON.parse(localStorage.getItem("USER"));
+            // console.log(Array.isArray(userFromLocalstorage)); // [결과] true -> array
+
+        // 받아온 object 의 length 저장 
+            let lengthOfUserData = Object.keys(userFromLocalstorage).length
+            
+        // nickname 가져오기 : 가장 끝 값을 방금 저장한 사람이라고 가정하고 가져오게 됨. 
+            let nicknameOfLastUser = userFromLocalstorage[lengthOfUserData -1].nickname 
+            
+        // login 부분에 넣어주기
+            let loginTag = document.querySelector("#id-login-btn");
+            loginTag.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt=""> ${nicknameOfLastUser}`;
+
+    // 🔷 레퍼런스 코드 from 정현
+        // let sessionChk = JSON.parse(sessionStorage.getItem("test"));
+
+        // function sessionLoginChk(sessionChk) {
+        // let loginTag = document.querySelector("#id-login-btn");
+        // if (sessionChk) {
+        //     loginTag.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt=""> ${sessionChk.name}`;
+        // }
+        // return sessionChk;
+        // }
 
 
 
@@ -685,16 +714,7 @@ function searchDropDownX1201Y200() {
 
 
 
-
-
-
-
-
-
-
-
-
-
+// ------------------------ 🎏🎏🎏🎏🎏🎏🎏🎏🎏 ------------------------
 // // 🔷 nav-bar 반응형1 : 1) Y 스크롤 200 이하 기준 변경
 // window.addEventListener('scroll',  function() {
 //     let scrollY = window.pageYOffset
