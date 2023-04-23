@@ -175,7 +175,7 @@ let seartchtxt = "SEARCHED : ";
 // let searchtest = seartchtxt;
 // console.log(seartchtxt != "");
 
-if (seartchtxt != "") {
+if (!tmplocal.desc) {
   titleh1.innerHTML = seartchtxt + `${tmplocal.name}`;
 } else {
   titleh1.innerHTML = `${tmplocal.name}`;
