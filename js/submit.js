@@ -2,8 +2,8 @@ let sessionChk = JSON.parse(sessionStorage.getItem("test"));
 
 if (sessionChk) {
   // console.log(sessionChk.nickname);
-  let submitNickname = document.querySelector("#submitNickname");
-  submitNickname.setAttribute("placeholder", sessionChk.nickname);
+  let submitName = document.querySelector("#submitNickname");
+  submitName.setAttribute("placeholder", sessionChk.name);
 }
 
 // 다른 html 파일 불러오기
@@ -383,7 +383,7 @@ function subimg() {
     // );
 
     let imgupload = {
-      nickname: sessionChk.nickname,
+      name: sessionChk.name,
       country: upcountry,
       city: upcity,
       title: selectres,
@@ -410,7 +410,7 @@ function subimg() {
       description: updesc,
       img: res,
       location: uptitle,
-      nickname: sessionChk.nickname,
+      name: sessionChk.name,
     };
 
     // 이미지 등록시 카테고리에 이미지 정보 추가
