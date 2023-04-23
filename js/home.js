@@ -3,7 +3,7 @@
 
 
 // 📚 중요 전역 변수 
-
+''
 
 // 🔷 스와이프 관련
 let itemMarginRight = 40;
@@ -203,9 +203,11 @@ for (let i = 0; i < themesName.length; i++) {
         let ResponsiveHamburgerDropdownOver200 = document.querySelector('.site_header__primary-nav--responsive-ham-over200')
         // 햄버거 버튼 누르면 -> 그 자리에 나오는 'X 버튼' 
         let closeStateButton = document.querySelector('.close-state-button')
+        let closeStateButtonUnder1200 = document.querySelector('#close-state-button-under1200')
+        let closeStateButtonUnder1200Y200over = document.querySelector('.close-state-button-xwidth1200-yscroll200')
         // 햄버거 버튼 자체 
         let hamburgMenuButton = document.querySelector('#hamburg-menu-btn-under1200')
-
+        let hamburgXwidth1200Yscroll200 = document.querySelector('#hamburg-menu-button-xwidth1200-yscroll200')
 
     // 검색버튼
         // under1200 일 때, '검색 버튼'
@@ -240,8 +242,6 @@ function handleYScroll() {
     // 스크롤 위치 가져오기
     const scrollYPosition = window.scrollY;
 
-    
-
     // 1. width 1201 이상인 경우
     if (window.matchMedia("(min-width: 1201px)").matches) {
         
@@ -267,6 +267,9 @@ function handleYScroll() {
             // 인스타 + 페북을 살짝 오른쪽으로
             primaryNavSocial.style.marginLeft = '145px'
 
+
+            // 햄버거 보이게 하기 
+            hamburgXwidth1200Yscroll200.style.display = 'block'
 
             // '검색' 중 '아이콘만' 보이는거 제거
             responsSearchX1200Yscroll200.classList.remove('is-scrolled')
@@ -314,7 +317,7 @@ function handleYScroll() {
             // '검색' 중 '아이콘만' 보이게 하기
             responsSearchX1200Yscroll200.classList.add('is-scrolled')
             // '햄버거 메뉴' '보이게' 하기 
-            responsHamburgXwidth1200Yscroll200.classList.add('is-scrolled')
+            // responsHamburgXwidth1200Yscroll200.classList.add('is-scrolled')
             
             // 햄버거 메뉴 살짝 위로 올라가게 하기
             navResponsiveHam.style.top = "75px"
@@ -322,7 +325,7 @@ function handleYScroll() {
             // 검색창이 사라짐
             searchPopup.classList.remove('is-active')
 
-            // 스크롤 내리면 햄버거 메뉴 나오게 하기 
+            // 스크롤 내리면 햄버거 메뉴 나오게 하기 : 이게 지금 보이게 하는데?  
             responsHamburgXwidth1200Yscroll200.style.display  = 'block'
 
         }
@@ -348,15 +351,39 @@ function handleYScroll() {
             closeStateButton.style.top = '80px';
             closeStateButton.style.right = '8px';
 
-            // 스크롤 올렸을 때 나타나는 햄버거 없애기 
-            responsHamburgXwidth1200Yscroll200.style.display  = 'none'
+            // 스크롤 올렸을 때 나타나는 햄버거 없애기 ❓❓❓ 이건가? 
+            responsHamburgXwidth1200Yscroll200.style.display  = 'none'  // 테스트
+            // deleteHamburgBtn()
+
+
+            // x Under1200, y over200 햄버거 보이게 하기 
+                // 햄버거 보이게 하기 🔵
+                hamburgXwidth1200Yscroll200.style.display = 'block'
+
+
         }
     }
 }
 
+// 스크롤 y 200 미만에서 햄버거 아이콘 클릭 > 메뉴가 나옴 > 엑스 버튼 클릭 > 위에 nav 에 있는 햄버거가 나오나? 
+    // 엑스 버튼 클릭하고 -> 이거 안 나오게 설정 : respon-search-form-x1200under-yscroll200over
+    // function deleteHamburgBtn() {
+    //     엑스버튼.addEventListener('click', function() {
+    //         햄버거(respon-search-form-x1200under-yscroll200over).style.display = 'none'
+    //     })
+    // }
+
 
 // 스크롤 발생하면 -> handleYScroll 함수 실행
-window.addEventListener("scroll", handleYScroll);
+    window.addEventListener("scroll", handleYScroll);
+// 브라우저가 켜져 있으면, 우선, 실행되게 하기
+    // setInterval(handleYScroll, 11111150);
+        // 성능 저하가 일어나지만, setInterval 로 했음...
+            // 그러니까, 브라우저가 작아졌을 때, 목차 클릭 후 목차가 나타나는 속도가 빨라지긴 함. 
+            // ⭐⭐⭐ 이게 큰 변화를 가져왔음. 
+            // 근데 문제는 이게, 검색을 막는다. 
+
+
 
 
 // x 버튼 클릭시 -> 스크롤 생성 함수 
@@ -392,6 +419,36 @@ hamburgMenuBtn.addEventListener('click', function() {
     xBtnClickCreateScroll();
 })
 
+
+// x under 1200, y scroll 200 이상 | 햄버거 버튼 클릭 > 1) 햄버거 메뉴 나오게 2) x 버튼 나오게 
+hamburgXwidth1200Yscroll200.addEventListener('click', function() {
+    console.log("햄버거1200200")
+    // 드롭다운 메뉴 : 나오고 있음. 
+
+    // 햄버거 클릭시 > 스크롤 사라지게 하기 
+    document.body.style.overflow = 'hidden';
+
+    // 햄버거 버튼 누르면 -> 그 자리에 X 버튼 나오기 
+    closeStateButtonUnder1200Y200over.style.display = 'block'
+
+    // 햄버거 버튼 사라지게 하기 (🔵)
+    hamburgXwidth1200Yscroll200.style.display = 'none';
+})
+
+// x under 1200, y scroll 200 이상 | x 버튼 클릭 > 1) 드롭 다운 메뉴 사라지게 하기 
+closeStateButtonUnder1200Y200over.addEventListener('click', function() {
+    console.log("x 버튼 잘 클릭 되고 있나")
+
+    // x 표시 클릭 했을 때 > 드롭다운 메뉴 사라지게 하기  
+    NavResponsiveHham.style.display = 'none'    
+
+    // 스크롤 나타나게 하는 다른 코드. 이게 왜 되는지는 모르겠네. 
+    document.documentElement.style.overflow = 'auto';
+})
+
+
+
+
 // x 버튼 누르면, 드롭다운 리스트 사라지게 하기
 closeStateButton.addEventListener('click', function() {
     console.log('x 버튼 클릭')
@@ -403,6 +460,9 @@ closeStateButton.addEventListener('click', function() {
     hamburgMenuButton.style.display = 'block'
 
 })
+
+
+
 
 
 // 취소 버튼이 클릭되면 -> 햄버거 버튼 생기는 함수
@@ -493,9 +553,9 @@ responsHamburgXwidth1200Yscroll200.addEventListener('click', function() {
         document.body.style.overflow = 'hidden';
     
         // 햄버거 버튼 누르면 -> 그 자리에 X 버튼 놓이게 하기
-        closeStateButton.style.display = 'block'
-        closeStateButton.style.top = '45px';
-        closeStateButton.style.right = '17px';
+        closeStateButtonUnder1200Y200over.style.display = 'block'
+        closeStateButtonUnder1200Y200over.style.top = '45px';
+        closeStateButtonUnder1200Y200over.style.right = '17px';
 
     
         // 햄버거 클릭시 > 햄버거 버튼 사라지게 하기

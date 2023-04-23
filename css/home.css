@@ -330,6 +330,12 @@ body .top_banner .top_banner_text {
     display: block; */
 }
 
+
+#hamburg-menu-button-xwidth1200-yscroll200 {
+    display: block;
+}
+
+
 .hamburg-menu-button {
 margin-right: 20px;
 position: relative;
@@ -390,6 +396,67 @@ justify-content: center;
         transform-origin: center center; */
 }
 
+/* #close-state-button-xwidth1200-yscroll200 {
+    position: fixed;
+    right: 8px;
+    top: 80px;
+    width: 10px;
+    height: -10px;
+    margin: 0 0 0 auto;
+    cursor: pointer;
+
+    z-index: 1000;
+
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    display: none;
+} */
+
+.close-state-button-xwidth1200-yscroll200 {
+    position: fixed;
+    right: 8px;
+    top: 80px;
+    width: 10px;
+    height: -10px;
+    margin: 0 0 0 auto;
+    cursor: pointer;
+
+    z-index: 11110;
+
+    width: 100px;
+    height: 100px;
+    /* background-color: aqua; */
+
+    display: none;
+}
+
+
+.close-state-button-xwidth1200-yscroll200 span {
+    position: absolute;
+    
+    top: -6px;
+    right: 5px;
+
+    display: block;
+    width: 20px;
+    height: 2px;
+
+    background-color: #ee3024;
+    border-radius: 11px;
+    /* bottom: 5px; */
+    opacity: 0;
+}
+
+.close-state-button-xwidth1200-yscroll200 span:first-child {
+    opacity: 1;
+    transform: rotate(45deg) translateY(0);
+}
+
+.close-state-button-xwidth1200-yscroll200 span:last-child {
+    opacity: 1;
+    transform: rotate(-45deg) translateY(0);
+}
 
 .close-state-button {
     position: fixed;
