@@ -16,8 +16,8 @@ function includeHTML() {
           if (this.status == 200) {
               elmnt.innerHTML = this.responseText;
               collectionOpen();
-              // loginCheck1();
-              // loginCheck2();
+              loginCheck1();
+              loginCheck2();
               searchlogin();
           }
           if (this.status == 404) {
