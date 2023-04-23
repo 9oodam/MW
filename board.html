@@ -10,11 +10,7 @@
     <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
-    <!-- 나중에 헤더 완성되면 연결하면 경로 바꾸면됨 -->
     <header data-include="../header.html" class="he"></header>
-
-    <!-- 임시 헤더 영역 -->
-    <!-- <div class="headerbox"></div> -->
 
     <!-- 타이틀 시작 -->
     <div class="title">
@@ -27,13 +23,6 @@
           </div>
         </div>
         <div class="title_bottom">
-          <!-- <div class="title_bottom_txt">
-            <span><a href="">COLLECTIONS</a></span>
-            <span> > </span>
-            <span><a href="">THEMES</a></span>
-            <span> > </span>
-            <span> CABLE CARS </span>
-          </div> -->
         </div>
     </div>
 
@@ -70,7 +59,7 @@
                 </div>
                 <div class="msg_body">
                     <p class="label">Your Name</p>
-                    <div class="user_nickname"></div>
+                    <div id="name1" class="user_nickname"></div>
                     <label for="" class="label">Title*</label>
                     <input type="text" class="titleText" id="title">
                     <label for="" class="label">Details*</label>
@@ -92,7 +81,7 @@
                 </div>
                 <div class="content_body">
                     <p class="label">Your Name</p>
-                    <div class="user_nickname"></div>
+                    <div id="name2" class="user_nickname"></div>
                     <p class="label">Title</p>
                     <div class="input_title"></div>
                     <p class="label">Details</p>
@@ -112,7 +101,9 @@
             </div>
         </div>
     </div>
-
 </body>
+<script src="./js/header.js"></script>
 <script src="./js/board.js"></script>
+<script src="./js/signup.js"></script>
+<script src="./js/login.js"></script>
 </html>

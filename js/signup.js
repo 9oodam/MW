@@ -1,19 +1,8 @@
-const loginButton = document.getElementById("signup");
-
-// function test() {
-//   let myurl = "login.html";
-//   window.location.href = myurl;
-// }
-
-loginButton.addEventListener("click", test);
-
 function signup() {
-  // let savedUsername_test = "";
-  // let savedPassword_test = "";
 
   let savedNickname = document.getElementById("nickname").value; //vaule 가져온다.
   let savedName = document.getElementById("name").value;
-  let savedPassword = document.getElementById("password").value;
+  let savedPassword = document.getElementById("signup_password").value;
 
   // console.log(savedNickname);
   // console.log(savedName);
@@ -34,29 +23,17 @@ function signup() {
     let userpush = JSON.parse(localStorage.getItem("USER"));
     userpush.push(userlist);
     localStorage.setItem("USER", JSON.stringify(userpush));
+    location.href = "./home.html"; // signup 후 home으로
   } 
   if(!savedNickname){
-    alert("nickname is empty.");
+    alert("Nickname is empty. Please fill in the blank.");
     return;
   } else if(!savedName) { 
-    alert("아이디를 입력해주세요.");
+    alert("Name is empty. Please fill in the blank.");
     return;
   }else if(!savedPassword) { 
-    alert("비밀번호를 입력해주세요.");
+    alert("Password is empty. Please fill in the blank.");
     return;
   }
-
-  //   localStorage.setItem("userNickname", savedNickname);
-  //   localStorage.setItem("userName", savedName);
-  //   localStorage.setItem("userPassword", savedPassword);
-
-  // savedUsername_test = localStorage.getItem("userName");
-  // // savedPassword_test = localStroage.getItem("userPassword");
-
-  // savedPassword_test = localStorage.getItem("userPassword"); //login html에 오타는 없었나 ..
-
-  // console.log("👍👍👍👍👍👍👍👍" + savedPassword_test)
-  // console.log("👍👍👍👍👍👍👍👍" + savedUsername_test)
 }
-// signup();
 

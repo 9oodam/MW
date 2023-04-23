@@ -274,6 +274,7 @@ li > div {
     top: 0; left: 0;
     display: none;
     background-color: rgba(0, 0, 0, 0.3);
+    z-index: 10000;
 }
 .msg_popup_wrap .msg_popup {
     position: absolute;
@@ -318,10 +319,10 @@ li > div {
     border: 1px solid black;
 }
 .msg_body .user_nickname {
-    width: calc(100% - 30px); height: 20px;
+    width: calc(100% - 30px); height: 35px;
     margin: 10px 0 10px 0;
     padding: 10px;
-    background-color: #EE3024;
+    font-weight: bold;
     border: 1px solid #bbb;
 }
 .msg_body .label {
@@ -366,6 +367,7 @@ li > div {
     text-align: center;
     border-radius: 15px;
     cursor: pointer;
+    display: flex; justify-content: center; align-items: center;
 }
 .msg_popup .msg_footer h3 {
     text-align: center;
@@ -383,6 +385,7 @@ li > div {
     top: 0; left: 0;
     display: none;
     background-color: rgba(0, 0, 0, 0.3);
+    z-index: 10000;
 }
 .content_popup_wrap .content_popup {
     position: absolute;
@@ -425,11 +428,11 @@ li > div {
     padding: 40px 0 40px 0;
 }
 .user_nickname {
-    width: calc(100% - 30px); height: 20px;
+    width: calc(100% - 30px); height: 35px;
     margin: 10px 0 10px 0;
     padding: 10px;
-    background-color: #EE3024;
     border: 1px solid #bbb;
+    font-weight: bold;
 }
 .content_popup .content_body {
     width: 100%; height: 600px;
@@ -463,6 +466,7 @@ li > div {
     width: 100%; height: 90px;
     position: absolute; top: 0; left: 0;
     border: 1px solid #bbb;
+    padding: 10px;
 }
 .content_popup .delete_btn,
 .content_popup .save_btn {
@@ -475,6 +479,7 @@ li > div {
     text-align: center;
     border-radius: 15px;
     cursor: pointer;
+    display: flex; justify-content: center; align-items: center;
 }
 .user_view.is-active, .admin_view.is-active {
     display: block;

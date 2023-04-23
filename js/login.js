@@ -1,3 +1,4 @@
+// ADMIN 계정 로컬스토리지 생성
 const adminAccount = {
     name : "maple",
     pw : "worrior",
@@ -6,48 +7,50 @@ const adminAccount = {
 localStorage.setItem("ADMIN", JSON.stringify(adminAccount));
 
 
-// // 버튼 요소 가져오기
-// const loginButton = document.getElementById("loginButton");
-
-// function test() {
-//     let myurl = "https://www.google.com";
-//     window.location.href = myurl;
-// }
-// // 버튼 클릭 이벤트 핸들러 등록
-
-// // let myurl = "https://www.google.com";
-// // window.location.href = myurl;
-// // test();
-
-// loginButton.addEventListener("click", test);
+// USER 계정 로컬스토리지 받아와서 로그인
 let su = JSON.parse(localStorage.getItem("USER"));
-// console.log();
 function login() {
+    // 회원가입 된 유저가 없을시
     if(!su){
-        alert("아이디가 없습니다");
+        alert("No account exists");
         return;
     }
 
     // 입력한 아이디와 비밀번호를 가져옵니다.
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-    
+
+    // admin 로그인
+    let admin = JSON.parse(localStorage.getItem("ADMIN"));
+    if(username == admin.name) {
+        console.log(admin.name);
+        console.log(admin.pw);
+        if(admin.name == username && admin.pw != password) {
+            alert("Wrong password. Please try again.");
+            return;
+        }else if(admin.name == username && admin.pw == password) {
+            alert('Login successful');
+            sessionStorage.setItem("ADMINLOGIN", JSON.stringify(admin));
+            location.reload(); // login 성공시 새로고침
+            return;
+        }
+    }
+
+    // user 로그인
     console.log(su);
     let suName = [];
     su.forEach(function(value, index) {
         suName.push(su[index].name);
     })
     console.log(suName);
-   
     console.log(username);
 
-
     if(!username) { 
-        alert("아이디를 입력해주세요.");
+        alert("Name is empty. Please fill in the blank.");
         return;
 
     }else if(!password) { 
-        alert("비밀번호를 입력해주세요.");
+        alert("Password is empty. Please fill in the blank.");
         return;
     }
     // 생성한 아이디와 비밀번호를 저장합니다.
@@ -55,7 +58,7 @@ function login() {
 
         // console.log(value.name);
         // console.log(value.pw);
-            // 아이디와 비밀번호를 검증합니다.
+        // 아이디와 비밀번호를 검증합니다.
         if (username == value.name && password == value.pw && value.lv == 1) {
             alert('Login successful');
             let localuser = JSON.parse(localStorage.getItem("USER"));
@@ -67,18 +70,15 @@ function login() {
                         nickname: value.nickname
                     }
                     sessionStorage.setItem("LOGIN", JSON.stringify(logininfo));
+                    location.reload(); // login 성공시 새로고침
                 }
-            })
-            // sessionStorage.setItem("LOGIN", username);
-            // location.href="https://accidentallywesanderson.com/";
-
+            });
         } else if(username == value.name && password == value.pw && value.lv == 0){
-            alert("회원가입 대기중입니다"); 
+            alert("Waiting account acception..."); 
         } else if(username != value.name && password == value.pw) {
-            alert("아이디가 틀립니다.");
+            alert("Wrong name. Please try again.");
         } else if(username == value.name && password != value.pw) {
-            alert("비밀번호가 틀립니다.");
+            alert("Wrong password. Please try again.");
         }
-        })
-
+    })
 }

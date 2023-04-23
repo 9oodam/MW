@@ -143,7 +143,7 @@ body .top_banner .top_banner_text {
     /* flex-direction: row-reverse;
     justify-content: space-between; */
     position: relative;
-    z-index: 100000000000000000000;
+    z-index: 100; /* search, login 팝업이 가려져서 고침*/
     
 }
 
@@ -549,7 +549,6 @@ display: flex;
 .dropdown-search-form {
     margin-left: 20px;
     cursor: pointer;
-    
 }
 
 .site_header__primary-nav .site_header__primary-nav--loginPopup {
@@ -688,9 +687,11 @@ display: flex;
 }
 .search-dropdown.is-active {
     display: block;
-
     /* transition: transform .25s ease, opacity .25s ease; */
     transition: transform .25s ease;
+    
+    position: relative;
+    z-index: 10000; /* search, login popup 위로 올리기 */
 }
 
 .search-dropdown .input-search-keyword {
@@ -897,6 +898,8 @@ display: none;
     display: flex;
     align-content: center;
     justify-content: center;
+
+    z-index: 1000;
 }
 
 .login-popup-content .login-window {
