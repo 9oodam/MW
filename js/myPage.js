@@ -200,7 +200,7 @@ function addCollections() {
   //   console.log(myImg);
 
   myImgJson.forEach(function (i, index) {
-    if (sessionChk.nickname == i.nickname) {
+    if (sessionChk.name == i.name) {
       let div = document.createElement("div"); // 사진 들어갈 div
       let deleteImgBtn = document.createElement("div"); // 삭제 버튼
 
@@ -228,7 +228,7 @@ function imgdelete() {
   if (confirm("사진을 삭제 하시겠습니까?")) {
     // alert("삭제");
     myImgJson.forEach((value, index) => {
-      if (sessionChk.nickname == value.nickname) {
+      if (sessionChk.name == value.name) {
         // console.log(value.nickname, value.title);
 
         let themesimg = JSON.parse(localStorage.getItem("THEMESIMG"));
@@ -238,7 +238,7 @@ function imgdelete() {
           // }
           if (tvalue[value.title]) {
             tvalue[value.title].forEach((innerValue, innerIndex) => {
-              if (innerValue.nickname == sessionChk.nickname) {
+              if (innerValue.name == sessionChk.name) {
                 // console.log(innerValue);
                 // console.log(tvalue[value.title][innerIndex]);
                 tvalue[value.title].splice(innerIndex, 1);
@@ -398,7 +398,7 @@ function myPageUserUpdate() {
 
     // 객체의 속성을 수정
     sessionChk.nickname = editNickname.value;
-    sessionChk.name = editName.value;
+    // sessionChk.name = editName.value;
 
     // sessionChk.nickname = editNickname.placeholder || sessionChk.nickname;
     // sessionChk.name = editName.placeholder || sessionChk.name;
