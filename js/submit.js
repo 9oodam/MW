@@ -1,3 +1,11 @@
+let sessionChk = JSON.parse(sessionStorage.getItem("test"));
+
+if (sessionChk) {
+  // console.log(sessionChk.nickname);
+  let submitName = document.querySelector("#submitNickname");
+  submitName.setAttribute("placeholder", sessionChk.name);
+}
+
 // 다른 html 파일 불러오기
 // 헤더파일 하나로 다른 html 문서에 불러 들여 쓸 수 있게 해주는 스크립트
 function includeHTML() {
@@ -132,6 +140,7 @@ function profile(value) {
     res = reader.result;
     // 변환한 값을 src에 할당
     document.getElementById("pv").setAttribute("src", res);
+    pv.style.display = "block";
   };
   reader.readAsDataURL(value);
 }
@@ -144,7 +153,7 @@ pvimg.addEventListener("click", function () {
   document.getElementById("pv").removeAttribute("src");
   document.getElementById("pv").removeAttribute("onerror");
   // document.getElementById("pv").style.display = "none";
-  document.getElementById("pv").setAttribute("style", "z-index: -1");
+  document.getElementById("pv").style.display = "none";
 
   // document.getElementById("pv").setAttribute("onerror", "style.display='none'");
   lb.style.display = "flex";
@@ -344,7 +353,7 @@ function subimg() {
   let readcolor = JSON.parse(localStorage.getItem("COLORIMG"));
 
   let upimgchk = inputval[0].value;
-  let upnickname = inputval[1].value;
+  // let upnickname = inputval[1].value;
   let upcountry = inputval[2].value;
   let upcity = inputval[3].value;
   let uptitle = inputval[4].value;
@@ -362,14 +371,7 @@ function subimg() {
     alert("제목을 입력해주세요.");
   } else if (updesc == "") {
     alert("설명을 입력해주세요.");
-  } else if (
-    upimgchk != "" &&
-    upcountry != "" &&
-    upcity != "" &&
-    selectres != "" &&
-    uptitle != "" &&
-    updesc != ""
-  ) {
+  } else if (upimgchk != "" && upcountry != "" && upcity != "" && selectres != "" && uptitle != "" && updesc != "") {
     // 생성자를 통해 업로드할 이미지 객체생성
     // let imgupload = new createimgupload(
     //   upnickname,
@@ -381,7 +383,7 @@ function subimg() {
     // );
 
     let imgupload = {
-      nickname: upnickname,
+      name: sessionChk.name,
       country: upcountry,
       city: upcity,
       title: selectres,
@@ -408,7 +410,7 @@ function subimg() {
       description: updesc,
       img: res,
       location: uptitle,
-      nickname: upnickname,
+      name: sessionChk.name,
     };
 
     // 이미지 등록시 카테고리에 이미지 정보 추가
@@ -438,7 +440,7 @@ function subimg() {
   alert("업로드 성공");
 
   setTimeout(() => {
-    // location.reload();
+    location.reload();
   }, 100);
 }
 

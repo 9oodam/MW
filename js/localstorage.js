@@ -60,30 +60,14 @@ if (!localStorage.getItem("THEMESIMG")) {
     "NATURE"
   );
 
-  let themes = [
-    themes01,
-    themes02,
-    themes03,
-    themes04,
-    themes05,
-    themes06,
-    themes07,
-    themes08,
-    themes09,
-    themes10,
-    themes11,
-    themes12,
-  ];
+  let themes = [themes01, themes02, themes03, themes04, themes05, themes06, themes07, themes08, themes09, themes10, themes11, themes12];
 
   let color01 = new createcollections(
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/22429704_133661504049431_4455231951950839808_n-800x699.jpg?lossy=1&strip=1&webp=1",
     "BLACK"
   );
 
-  let color02 = new createcollections(
-    "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/8d06ca59-720x800.jpeg?lossy=1&strip=1&webp=1",
-    "BLUE"
-  );
+  let color02 = new createcollections("https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/8d06ca59-720x800.jpeg?lossy=1&strip=1&webp=1", "BLUE");
 
   let color03 = new createcollections(
     "https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/53160753_2586675204695201_169043630707039832_n-800x800.jpg?lossy=1&strip=1&webp=1",
@@ -127,20 +111,7 @@ if (!localStorage.getItem("THEMESIMG")) {
     "YELLOW"
   );
 
-  let colorpalette = [
-    color01,
-    color02,
-    color03,
-    color04,
-    color05,
-    color06,
-    color07,
-    color08,
-    color09,
-    color10,
-    color11,
-    color12,
-  ];
+  let colorpalette = [color01, color02, color03, color04, color05, color06, color07, color08, color09, color10, color11, color12];
 
   localStorage.setItem("THEMES", JSON.stringify(themes));
   localStorage.setItem("COLORPALETTE", JSON.stringify(colorpalette));
@@ -153,6 +124,7 @@ if (!localStorage.getItem("THEMESIMG")) {
     this.text = text;
     this.tab = tab;
   }
+
   function createcard2(mainimg, title, text, tab) {
     this.mainimg = mainimg;
     this.title = title;
@@ -161,8 +133,7 @@ if (!localStorage.getItem("THEMESIMG")) {
   }
 
   // create ADVENTURE CURIOUSLY
-  let adventurelogo =
-    "https://accidentallywesanderson.com/wp-content/uploads/2022/07/hendricks-bug-new.png";
+  let adventurelogo = "https://accidentallywesanderson.com/wp-content/uploads/2022/07/hendricks-bug-new.png";
   let adventuretab = "ADVENTURE CURIOUSLY";
 
   let adventure01 = new createcard(
@@ -230,20 +201,10 @@ if (!localStorage.getItem("THEMESIMG")) {
     adventuretab
   );
 
-  let adventure = [
-    adventure01,
-    adventure02,
-    adventure03,
-    adventure04,
-    adventure05,
-    adventure06,
-    adventure07,
-    adventure08,
-  ];
+  let adventure = [adventure01, adventure02, adventure03, adventure04, adventure05, adventure06, adventure07, adventure08];
 
   // create IN THE DETAILS
-  let itdlogo =
-    "https://accidentallywesanderson.com/wp-content/uploads/2021/12/dlr-group_bug1.png";
+  let itdlogo = "https://accidentallywesanderson.com/wp-content/uploads/2021/12/dlr-group_bug1.png";
   let itdtab = "IN THE DETAILS";
 
   let itd01 = new createcard(
@@ -390,30 +351,10 @@ if (!localStorage.getItem("THEMESIMG")) {
     itdtab
   );
 
-  let itd = [
-    itd01,
-    itd02,
-    itd03,
-    itd04,
-    itd05,
-    itd06,
-    itd07,
-    itd08,
-    itd09,
-    itd10,
-    itd11,
-    itd12,
-    itd13,
-    itd14,
-    itd15,
-    itd16,
-    itd17,
-    itd18,
-  ];
+  let itd = [itd01, itd02, itd03, itd04, itd05, itd06, itd07, itd08, itd09, itd10, itd11, itd12, itd13, itd14, itd15, itd16, itd17, itd18];
 
   // create WHALEBONE
-  let whalelogo =
-    "https://accidentallywesanderson.com/wp-content/uploads/2020/06/wb-long-logo.png";
+  let whalelogo = "https://accidentallywesanderson.com/wp-content/uploads/2020/06/wb-long-logo.png";
   let whaletab = "WHALEBONE";
 
   let whale01 = new createcard(
@@ -488,17 +429,7 @@ if (!localStorage.getItem("THEMESIMG")) {
     whaletab
   );
 
-  let whale = [
-    whale01,
-    whale02,
-    whale03,
-    whale04,
-    whale05,
-    whale06,
-    whale07,
-    whale08,
-    whale09,
-  ];
+  let whale = [whale01, whale02, whale03, whale04, whale05, whale06, whale07, whale08, whale09];
 
   // create ARCHITECTURAL WONDERS
   let archtab = "ARCHITECTURAL WONDERS";
@@ -601,22 +532,7 @@ if (!localStorage.getItem("THEMESIMG")) {
     archtab
   );
 
-  let arch = [
-    arch01,
-    arch02,
-    arch03,
-    arch04,
-    arch05,
-    arch06,
-    arch07,
-    arch08,
-    arch09,
-    arch10,
-    arch11,
-    arch12,
-    arch13,
-    arch14,
-  ];
+  let arch = [arch01, arch02, arch03, arch04, arch05, arch06, arch07, arch08, arch09, arch10, arch11, arch12, arch13, arch14];
 
   // create SKILLED ARTISANS
   let skilledtab = "SKILLED ARTISANS";
@@ -731,17 +647,7 @@ if (!localStorage.getItem("THEMESIMG")) {
     qualitytab
   );
 
-  let quality = [
-    qual01,
-    qual02,
-    qual03,
-    qual04,
-    qual05,
-    qual06,
-    qual07,
-    qual08,
-    qual09,
-  ];
+  let quality = [qual01, qual02, qual03, qual04, qual05, qual06, qual07, qual08, qual09];
 
   // create localstorage
 
@@ -758,20 +664,13 @@ if (!localStorage.getItem("THEMESIMG")) {
   localStorage.setItem("QUALITY QUIRKS", JSON.stringify(quality));
 
   // card 생성자
-  function createcollectcard(
-    catagory,
-    img,
-    country,
-    location,
-    description,
-    nickname
-  ) {
+  function createcollectcard(catagory, img, country, location, description, name) {
     this.catagory = catagory;
     this.img = img;
     this.country = country;
     this.location = location;
     this.description = description;
-    this.nickname = nickname;
+    this.name = name;
   }
 
   // THEMES IMGS
@@ -1214,29 +1113,13 @@ if (!localStorage.getItem("THEMESIMG")) {
   // localstorage에 배열로 객체 생성
   localStorage.setItem(
     "THEMESIMG",
-    `[{ "CABLE CARS" : ${JSON.stringify(
-      cablecarss
-    )} },{ "CLASSIC FACADES" : ${JSON.stringify(
-      classics
-    )} },{ "DOORS" : ${JSON.stringify(
+    `[{ "CABLE CARS" : ${JSON.stringify(cablecarss)} },{ "CLASSIC FACADES" : ${JSON.stringify(classics)} },{ "DOORS" : ${JSON.stringify(
       doors
-    )} },{ "EDUCATIONAL INSTITUTIONS" : ${JSON.stringify(
-      edus
-    )}},{ "GOVERNMENT BUILDINGS" : ${JSON.stringify(
-      goves
-    )}},{ "HIDDEN WONDERS" : ${JSON.stringify(
+    )} },{ "EDUCATIONAL INSTITUTIONS" : ${JSON.stringify(edus)}},{ "GOVERNMENT BUILDINGS" : ${JSON.stringify(goves)}},{ "HIDDEN WONDERS" : ${JSON.stringify(
       hiddens
-    )}},{ "HOTEL / MOTEL" : ${JSON.stringify(
-      hms
-    )}},{ "INTERIORS" : ${JSON.stringify(
-      inters
-    )}},{ "LIBRARY" : ${JSON.stringify(
+    )}},{ "HOTEL / MOTEL" : ${JSON.stringify(hms)}},{ "INTERIORS" : ${JSON.stringify(inters)}},{ "LIBRARY" : ${JSON.stringify(
       libs
-    )}},{ "LIGHTHOUSE" : ${JSON.stringify(
-      lights
-    )}},{ "MUSEUM" : ${JSON.stringify(museums)}},{ "NATURE" : ${JSON.stringify(
-      natures
-    )}}]`
+    )}},{ "LIGHTHOUSE" : ${JSON.stringify(lights)}},{ "MUSEUM" : ${JSON.stringify(museums)}},{ "NATURE" : ${JSON.stringify(natures)}}]`
   );
 
   ////////////////////////////////////////////////////////////////
@@ -1679,17 +1562,11 @@ if (!localStorage.getItem("THEMESIMG")) {
 
   localStorage.setItem(
     "COLORIMG",
-    `[{ "BLACK" : ${JSON.stringify(blacks)} },{ "BLUE" : ${JSON.stringify(
-      blues
-    )} },{ "BROWN" : ${JSON.stringify(browns)} },{ "GRAY" : ${JSON.stringify(
+    `[{ "BLACK" : ${JSON.stringify(blacks)} },{ "BLUE" : ${JSON.stringify(blues)} },{ "BROWN" : ${JSON.stringify(browns)} },{ "GRAY" : ${JSON.stringify(
       grays
-    )}},{ "GREEN" : ${JSON.stringify(greens)}},{ "ORANGE" : ${JSON.stringify(
-      oranges
-    )}},{ "PINK" : ${JSON.stringify(pinks)}},{ "PURPLE" : ${JSON.stringify(
+    )}},{ "GREEN" : ${JSON.stringify(greens)}},{ "ORANGE" : ${JSON.stringify(oranges)}},{ "PINK" : ${JSON.stringify(pinks)}},{ "PURPLE" : ${JSON.stringify(
       purples
-    )}},{ "RED" : ${JSON.stringify(reds)}},{ "TURQUOISE" : ${JSON.stringify(
-      turquoises
-    )}},{ "WHITE" : ${JSON.stringify(whites)}},{ "YELLOW" : ${JSON.stringify(
+    )}},{ "RED" : ${JSON.stringify(reds)}},{ "TURQUOISE" : ${JSON.stringify(turquoises)}},{ "WHITE" : ${JSON.stringify(whites)}},{ "YELLOW" : ${JSON.stringify(
       yellows
     )}}]`
   );
