@@ -51,8 +51,9 @@ function collectionOpen() {
 
 // header nav bar 중 myPage
 function loginCheck1() {
-  let loginCheck = window.sessionStorage.getItem("LOGIN");
-  if(!loginCheck) {
+  let userLoginCheck = window.sessionStorage.getItem("LOGIN");
+  let adminLoginCheck = window.sessionStorage.getItem("ADMINLOGIN");
+  if(!userLoginCheck && !adminLoginCheck) {
     alert("Please login first.");
   }else {
     location.href = "./myPage.html";
@@ -61,13 +62,24 @@ function loginCheck1() {
 
 // header nav bar 중 board
 function loginCheck2() {
-  let loginCheck = window.sessionStorage.getItem("LOGIN");
-  if(!loginCheck) {
+  let userLoginCheck = window.sessionStorage.getItem("LOGIN");
+  let adminLoginCheck = window.sessionStorage.getItem("ADMINLOGIN");
+  if(!userLoginCheck && !adminLoginCheck) {
     alert("Please login first.");
   }else {
     location.href = "./board.html";
   }
-  location.href = "./board.html";
+}
+
+// header nav bar 중 submit
+function loginCheck3() {
+  let userLoginCheck = window.sessionStorage.getItem("LOGIN");
+  let adminLoginCheck = window.sessionStorage.getItem("ADMINLOGIN");
+  if(!userLoginCheck && !adminLoginCheck) {
+    alert("Please login first.");
+  }else {
+    location.href = "./submit.html";
+  }
 }
 
 // header nav bar 중 search & login btn
