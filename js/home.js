@@ -1,9 +1,15 @@
 // admin 계정 만들기
+let test = {
+    nickname : 'hello🤟',
+    id : 'test'
+}
+
+sessionStorage.setItem('USER', JSON.stringify(test))
 
 
 
 // 📚 중요 전역 변수 
-''
+
 
 // 🔷 스와이프 관련
 let itemMarginRight = 40;
@@ -484,6 +490,7 @@ function searchDropDownX1201Y200() {
                 closeBtnXwidth1200underY200over__TEST();
         })
     }
+    
     hamburgBtnX1200underY200over__TEST()
     
     // 반응형에서, 햄버거 누르면, 드롭메뉴 나오게 하기 
@@ -579,8 +586,10 @@ function searchDropDownX1201Y200() {
         closeStateButtonUnder1200Y200over.addEventListener('click', function() {
             console.log("x 버튼 잘 클릭 되고 있나")
         
+            NavResponsiveHham.classList.remove('is-active')
             // x 표시 클릭 했을 때 > 드롭다운 메뉴 사라지게 하기  
-            NavResponsiveHham.style.display = 'none'    
+            // NavResponsiveHham.style.display = 'none';  
+            
         
             // 스크롤 나타나게 하는 다른 코드. 이게 왜 되는지는 모르겠네. 
             document.documentElement.style.overflow = 'auto';
@@ -677,26 +686,22 @@ function searchDropDownX1201Y200() {
     searchIconBtn()
 
 
-
-
 // 🟦 로그인 완료되면, login 대신, 'nickname' 표시 되게 하기
 
-    // 🔷 값이 로컬스토리지에 있으므로, 로컬스토리지에 있는 nickname 가져와서, login 에 넣기
-        // Cf. 현재 세션 스토리지에 저장된 값이 없는 관계로, 로컬스토리지에서 가져옴. 
-    
-        // localstorage 에서 가져와서 > 파싱 > '배열' 를 return
-        const userFromLocalstorage = JSON.parse(localStorage.getItem("USER"));
-            // console.log(Array.isArray(userFromLocalstorage)); // [결과] true -> array
+    // 🔷 accept 되면, lv1 로 바뀌어서 > 세션 스토리지에 자동 저장 
+        // so, 세션 스토리지 값을 가져오면, 'accept 완료된, 로그인 성공한 유저' 를 가져오게 됨.  
 
-        // 받아온 object 의 length 저장 
-            let lengthOfUserData = Object.keys(userFromLocalstorage).length
-            
-        // nickname 가져오기 : 가장 끝 값을 방금 저장한 사람이라고 가정하고 가져오게 됨. 
-            let nicknameOfLastUser = userFromLocalstorage[lengthOfUserData -1].nickname 
-            
+        // sesstionStorage 에서 USER KEY 안에 있는 데이터 가져오기
+            const userFromSessionstorage = JSON.parse(sessionStorage.getItem("USER"));
+            // console.log(userFromSessionstorage);
+
+        // 가져온거 변수에 저장
+            let UserNickname = userFromSessionstorage.nickname; 
+            // console.log(UserNickname);
+        
         // login 부분에 넣어주기
             let loginTag = document.querySelector("#id-login-btn");
-            loginTag.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt=""> ${nicknameOfLastUser}`;
+            loginTag.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt=""> ${UserNickname}`;
 
     // 🔷 레퍼런스 코드 from 정현
         // let sessionChk = JSON.parse(sessionStorage.getItem("test"));
@@ -710,6 +715,9 @@ function searchDropDownX1201Y200() {
         // }
 
 
+
+
+        
 
 // 🔷 'collection 영역 밖' 클릭하면 > collection 꺼지게 하기 
 function outsideClickCloseModal() {
