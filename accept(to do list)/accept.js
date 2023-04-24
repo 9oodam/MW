@@ -25,66 +25,79 @@ function test(e,i) {
   // div 요소에 .center 클래스를 추가합니다.
   div.classList.add("center");
 
-  // h2, h3, h4, h5 요소를 생성합니다.
-  let h2 = document.createElement("h2");
-  let h3 = document.createElement("h3");
-  let h4 = document.createElement("h4");
-  let level = document.createElement("h5");
+  // dl 요소를 생성합니다.
+let dl = document.createElement("dl");
 
-  // level 요소에 텍스트 내용을 추가합니다.
-  level.textContent = "lv : " + e.lv;
+// dt, dd 요소를 생성합니다.
+let dt = document.createElement("dt");
+let ddName = document.createElement("dd");
+let ddPw = document.createElement("dd");
+let ddLevel = document.createElement("dd");
 
-  // h2, h3, h4 요소에 텍스트 내용을 추가합니다.
-  h2.textContent = "Nickname : " + e.nickname;
-  h3.textContent = "Name :" +e.name;
-  h4.textContent = "Password : "+ e.pw;
+// dt, dd 요소에 텍스트 내용을 추가합니다.
+dt.textContent = "Nickname : " + e.nickname;
+ddName.textContent = "Name : " + e.name;
+ddPw.textContent = "Password : " + e.pw;
+ddLevel.textContent = "lv : " + e.lv;
 
-  // h2, h3, h4, level 요소를 div 요소에 추가합니다.
-  div.append(h2,h3,h4,level);
+// dt, dd 요소를 dl 요소에 추가합니다.
+dl.append(dt, ddName, ddPw, ddLevel);
 
-  // div 요소를 userlist 요소에 추가합니다.
-  userlist.append(div);
+// dl 요소를 div 요소에 추가합니다.
+div.append(dl);
 
-  // Accept 버튼 요소를 생성합니다.
-  let button = document.createElement("button");
-  button.classList.add("accept");
-  button.textContent = "Accept";
+// div 요소를 userlist 요소에 추가합니다.
+userlist.append(div);
 
-  // Accept 버튼을 div 요소에 추가합니다.
-  div.append(button);
+// Accept 버튼 요소를 생성합니다.
+let button = document.createElement("button");
+button.classList.add("accept");
+button.textContent = "Accept";
 
-  // Reject 버튼 요소를 생성합니다.
-  let button2 = document.createElement("button");
-  button2.classList.add("reject");
-  button2.textContent = "Reject";
+// Accept 버튼을 div 요소에 추가합니다.
+div.append(button);
 
-  // Reject 버튼을 div 요소에 추가합니다.
-  div.append(button2);
+// Reject 버튼 요소를 생성합니다.
+let button2 = document.createElement("button");
+button2.classList.add("reject");
+button2.textContent = "Reject";
 
-  // Accept 버튼에 클릭 이벤트를 추가합니다.
-  button.addEventListener('click', function() {
-    // e 객체의 lv 속성 값을 1로 변경합니다.
-    e.lv = 1;
-    // 변경된 값을 로컬 스토리지에 다시 저장합니다.
-    localStorage.setItem("USER",JSON.stringify(userarr));
-    // level 요소의 텍스트 내용을 변경된 값으로 갱신합니다.
-    level.textContent = "lv : " + e.lv;
-  });
+// Reject 버튼을 div 요소에 추가합니다.
+div.append(button2);
 
-  // Reject 버튼에 클릭 이벤트를 추가합니다.
-  button2.addEventListener('click', function() {
-    // userarr 배열에서 i번째 인덱스의 요소를 삭제합니다.
-    userarr.splice(i,1);
-    // 변경된 배열을 로컬 스토리지에 다시 저장합니다.
-    localStorage.setItem("USER",JSON.stringify(userarr));
-    // div 요소를 삭제합니다.
-    div.remove();
-  });
+// Accept 버튼에 클릭 이벤트를 추가합니다.
+button.addEventListener('click', function() {
+// e 객체의 lv 속성 값을 1로 변경합니다.
+e.lv = 1;
+// 변경된 값을 로컬 스토리지에 다시 저장합니다.
+localStorage.setItem("USER",JSON.stringify(userarr));
+// level 요소의 텍스트 내용을 변경된 값으로 갱신합니다.
+ddLevel.textContent = "lv : " + e.lv;
+});
+
+// Reject 버튼에 클릭 이벤트를 추가합니다.
+button2.addEventListener('click', function() {
+// userarr 배열에서 i번째 인덱스의 요소를 삭제합니다.
+userarr.splice(i,1);
+// 변경된 배열을 로컬 스토리지에 다시 저장합니다.
+localStorage.setItem("USER",JSON.stringify(userarr));
+// div 요소를 삭제합니다.
+div.remove();
+});
 }
 
 // userarr 배열의 각 요소마다 test 함수를실행
 userarr.forEach(function(e,i){
     test(e,i);
+});
+
+userarr.forEach(function(e,i){
+  // 중복 확인
+  if(checkDuplicate(savedNickname, savedName)) {
+    alert("이미 등록된 회원입니다.");
+    return;
+  }
+  test(e,i);
 });
   
 // function test(e) {
