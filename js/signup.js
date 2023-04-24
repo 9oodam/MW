@@ -25,6 +25,7 @@ function signup() {
   // localstroge에 USER가 없으면 if문 실행, 있으면 else문 실행
   if (!localStorage.getItem("USER")) {
     localStorage.setItem("USER", JSON.stringify([userlist]));
+    alert("Member registration completed");
     location.reload();
   } else {
     let userList = JSON.parse(localStorage.getItem("USER"));
