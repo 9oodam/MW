@@ -362,7 +362,17 @@ const gotothemes = [
 ];
 // 페이지가 열리면 바로 실행
 (function () {
-  tm();
+  // if (!localStorage.getItem("||")) {
+  //   tm();
+  // }
+  let collectionsStart = localStorage.getItem("seeAll");
+  if (collectionsStart == "themes") {
+    tm();
+    localStorage.clear("seeAll");
+  } else {
+    cp();
+    localStorage.clear("seeAll");
+  }
 })();
 
 // onclick THEMES
@@ -413,3 +423,6 @@ function cp() {
 //     gh4 = "";
 //   });
 // });
+
+localStorage.setItem("gotothemes", JSON.stringify(gotothemes));
+localStorage.setItem("gotocolor", JSON.stringify(gotocolor));

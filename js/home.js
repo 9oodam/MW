@@ -912,3 +912,49 @@ function moveContainer(num) {
     }, 600);
   }
 }
+
+// header Collections 누르면 나오는 Themes, Color Palettes 이미지 눌렀을때
+let collectionsContainer = document.querySelector(".collections-container");
+let collectionsGallery = document.querySelector(".collections-gallery");
+let collectionsGalleryItem = document.querySelectorAll(
+  ".collections-gallery-item"
+);
+let collectionsItemTitle = collectionsContainer.querySelectorAll("a");
+
+collectionsItemTitle.forEach((v, i) => {
+  collectionsItemTitle[i].addEventListener("click", function () {
+    let getName = collectionsItemTitle[i].querySelector(
+      ".collections-item-title"
+    ).innerHTML;
+
+    console.log(getName);
+
+    let getGotothemes = JSON.parse(localStorage.getItem("gotothemes"));
+    let getGotocolor = JSON.parse(localStorage.getItem("gotocolor"));
+
+    getGotothemes.forEach((value) => {
+      if (value.name == getName) {
+        localStorage.setItem("||", JSON.stringify(value));
+      }
+    });
+
+    getGotocolor.forEach((value) => {
+      if (value.name == getName) {
+        localStorage.setItem("||", JSON.stringify(value));
+      }
+    });
+  });
+});
+
+// Collections Themes, Color Palettes SEE ALL 눌렀을 경우
+let seeAllBtn = document.querySelectorAll(".see-all-btn");
+
+// Themes SEE ALL
+seeAllBtn[0].addEventListener("click", function () {
+  localStorage.setItem("seeAll", "themes");
+});
+
+// Color Palettes SEE ALL
+seeAllBtn[1].addEventListener("click", function () {
+  localStorage.setItem("seeAll", "color");
+});
