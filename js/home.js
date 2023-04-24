@@ -697,7 +697,11 @@ outsideClickCloseModal();
 
 // 🔷 '콜렉션 popupCloseBtn' 누르면 > 콜렉션 창 나오게 하기
 navCollectionsBtn.addEventListener("click", function () {
-  collectionsDropdown.classList.add("is-active");
+  if (!collectionsDropdown.classList.contains("is-active")) {
+    collectionsDropdown.classList.add("is-active");
+  } else {
+    collectionsDropdown.classList.remove("is-active");
+  }
 });
 
 let loginPopup = document.querySelector(".login_popup"); // 로그인 창
