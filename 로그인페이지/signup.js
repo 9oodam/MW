@@ -1,17 +1,8 @@
-// const loginButton = document.getElementById("signup");
-
-// function test() {
-//   let myurl = "login.html";
-//   window.location.href = myurl;
-// }
-
-// loginButton.addEventListener("click", test);
-
 function signup() {
   let savedUsername_test = "";
   let savedPassword_test = "";
 
-  let savedNickname = document.getElementById("nickname").value; //vaule 가져온다.
+  let savedNickname = document.getElementById("nickname").value;
   let savedName = document.getElementById("name").value;
   let savedPassword = document.getElementById("password").value;
 
@@ -19,43 +10,37 @@ function signup() {
   console.log(savedName);
   console.log(savedPassword);
 
-  // create user list
-  let userlist = {
+  let userList = JSON.parse(localStorage.getItem("USER"));
+  let nicknames = userList.map(user => user.nickname);
+  let names = userList.map(user => user.name);
+
+  if (nicknames.includes(savedNickname) && names.includes(savedName)) {
+    alert("이미 존재하는 닉네임과 이름입니다.");
+    return;
+  }
+
+  let newUser = {
     nickname: savedNickname,
     name: savedName,
     pw: savedPassword,
     lv: 0,
   };
 
-  // localstroge에 USER가 없으면 if문 실행, 있으면 else문 실행
-  if (!localStorage.getItem("USER")) {
-    localStorage.setItem("USER", JSON.stringify([userlist]));
+  if (!userList) {
+    localStorage.setItem("USER", JSON.stringify([newUser]));
   } else {
-    let userpush = JSON.parse(localStorage.getItem("USER"));
-    userpush.push(userlist);
-    localStorage.setItem("USER", JSON.stringify(userpush));
-  } 
-  if(!savedName) { 
+    userList.push(newUser);
+    localStorage.setItem("USER", JSON.stringify(userList));
+  }
+
+  if (!savedName) { 
     alert("아이디를 입력해주세요.");
     return;
-  }else if(!savedPassword) { 
+  } else if (!savedPassword) { 
     alert("비밀번호를 입력해주세요.");
     return;
   }
-  let myurl = "javascript:void(0)";
-  window.location.href = myurl;
 
-  //   localStorage.setItem("userNickname", savedNickname);
-  //   localStorage.setItem("userName", savedName);
-  //   localStorage.setItem("userPassword", savedPassword);
-
-  // savedUsername_test = localStorage.getItem("userName");
-  // // savedPassword_test = localStroage.getItem("userPassword");
-
-  // savedPassword_test = localStorage.getItem("userPassword"); //login html에 오타는 없었나 ..
-
-  // console.log("👍👍👍👍👍👍👍👍" + savedPassword_test)
-  // console.log("👍👍👍👍👍👍👍👍" + savedUsername_test)
+  // 회원가입 완료 후 로그인 페이지로 이동
+  window.location.href = "login.html";
 }
-
-
