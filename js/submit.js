@@ -371,14 +371,7 @@ function subimg() {
     alert("제목을 입력해주세요.");
   } else if (updesc == "") {
     alert("설명을 입력해주세요.");
-  } else if (
-    upimgchk != "" &&
-    upcountry != "" &&
-    upcity != "" &&
-    selectres != "" &&
-    uptitle != "" &&
-    updesc != ""
-  ) {
+  } else if (upimgchk != "" && upcountry != "" && upcity != "" && selectres != "" && uptitle != "" && updesc != "") {
     // 생성자를 통해 업로드할 이미지 객체생성
     // let imgupload = new createimgupload(
     //   upnickname,

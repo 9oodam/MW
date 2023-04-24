@@ -403,6 +403,161 @@ function myPageUserUpdate() {
         // console.log(value);
       }
     });
+  } else {
+    return;
+  }
+}
+
+let deleteImgBtn = document.querySelectorAll(".delete_img_btn"); // 삭제 버튼
+
+// if (deleteImgBtn) {
+//   deleteImgBtn.addEventListener("click", function () {
+//     // console.log(myImgJson);
+//     // console.log("push");
+
+//     if (confirm("사진을 삭제 하시겠습니까?")) {
+//       // alert("삭제");
+//       myImgJson.forEach((value, index) => {
+//         if (sessionChk.nickname == value.nickname) {
+//           console.log(value.nickname, value.title);
+//           let themesimg = JSON.parse(localStorage.getItem("THEMESIMG"));
+//           themesimg.forEach((tvalue) => {
+//             // if (tvalue[value.title] == value.title) {
+//             //   console.log(tvalue);
+//             // }
+//             if (tvalue[value.title]) {
+//               tvalue[value.title].forEach((innerValue, innerIndex) => {
+//                 if (innerValue.nickname == sessionChk.nickname) {
+//                   // console.log(innerValue);
+//                   // console.log(tvalue[value.title][innerIndex]);
+//                   tvalue[value.title].splice(innerIndex, 1);
+//                   myImgJson.splice(index, 1);
+//                   // console.log(themesimg);
+//                   // console.log(myImgJson);
+
+//                   localStorage.setItem("THEMESIMG", JSON.stringify(themesimg));
+//                   localStorage.setItem("MYIMG", JSON.stringify(myImgJson));
+//                   addCollections();
+//                 }
+//               });
+//             }
+//             // console.log(tvalue[value.title]);
+//           });
+//           let colorimg = JSON.parse(localStorage.getItem("COLORIMG"));
+
+//           // console.log(themeseimg.length);
+//         }
+//       });
+//     } else {
+//       return;
+//     }
+//   });
+// }
+
+// 세션스토리지에 유저가 있으면 정보를 가져와 로그인 창을 그려줌
+function sessionLoginChk(sessionChk) {
+  let loginTag = document.querySelector("#id-login-btn");
+  if (sessionChk) {
+    loginTag.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt=""> ${sessionChk.name}`;
+  }
+  return sessionChk;
+}
+
+// myPage nickname, name 출력
+function myPageUserInfo(sessionChk) {
+  let profilePanelHeader = document.querySelector(".profile_panel_header");
+  let profilePanelHeaderH2 = profilePanelHeader.querySelector("h2");
+  let profilePanelHeaderH4 = profilePanelHeader.querySelector("h4");
+
+  profilePanelHeaderH2.innerHTML = sessionChk.nickname;
+  profilePanelHeaderH4.innerHTML = sessionChk.name;
+}
+
+// myPage Edit Profile nickname, name 불러오기
+function myPageEditProfile(sessionChk) {
+  let editPopupBody = document.querySelector(".edit_popup_body");
+  let editNickname = editPopupBody.querySelector("#edit_nickname");
+  let editName = editPopupBody.querySelector("#edit_name");
+
+  // editNickname 요소의 placeholder 속성을 sessionChk.nickname 값으로 설정
+  editNickname.setAttribute("placeholder", sessionChk.nickname);
+  // editName 요소의 placeholder 속성을 sessionChk.name 값으로 설정
+  editName.setAttribute("placeholder", sessionChk.name);
+
+  // console.log(editNickname.placeholder);
+  return sessionChk;
+}
+
+// myPage Edit Profile ninkname, name 수정
+function myPageUserUpdate() {
+  let editPopupBody = document.querySelector(".edit_popup_body");
+  let editNickname = editPopupBody.querySelector("#edit_nickname");
+  let editName = editPopupBody.querySelector("#edit_name");
+
+  // console.log(editNickname.placeholder);
+  // console.log(editNickname.value);
+
+  // nickname 유효성 검사
+
+  // localStorage 의 User 데이터 가져오기
+  let _allUserNicknameFromLocalstorage = JSON.parse(
+    localStorage.getItem("USER")
+  );
+
+  let result = 0;
+
+  for (i = 0; i < _allUserNicknameFromLocalstorage.length; i++) {
+    if (editNickname.value === _allUserNicknameFromLocalstorage[i].nickname) {
+      // console.log(`editNickname.value : ${editNickname.value}`)
+      // console.log(`로컬스토리지 값 : ${_allUserNicknameFromLocalstorage[i].nickname}`)
+      result = result + 1;
+      alert("다시 입력!");
+      return;
+    }
+
+    console.log(
+      ` ${_allUserNicknameFromLocalstorage[i].nickname} 결과 : ${result}`
+    );
+  }
+
+  //     // User 중 모든 nickname 가져오기
+  //     console.log(`첫번째 user 확인 ${_userDataFromLocalstorage[0]}`)
+
+  //     // 로컬 스토리지에서 값 가져오기
+  // var localStorageValue = localStorage.getItem('myKey');
+
+  // // JSON 문자열을 JavaScript 객체로 파싱하기
+  // var obj = JSON.parse(localStorageValue);
+
+  // // 첫 번째 닉네임 값 가져오기
+  // var firstNickname = obj[0].nickname;
+
+  // // 가져온 값을 출력하기
+  // console.log(firstNickname);
+
+  // Edit profile 에 아무것도 입력안했을때 기존의 회원 정보 유지
+  if (!editNickname.value) {
+    editNickname.value = editNickname.placeholder;
+  }
+  if (!editName.value) {
+    editName.value = editName.placeholder;
+  }
+  if (editNickname.value && editName.value) {
+    // console.log(editNickname.value);
+
+    users.forEach((value) => {
+      // console.log(value.name);
+      if (
+        value.nickname == sessionChk.nickname &&
+        value.name == sessionChk.name
+      ) {
+        // console.log(editNickname.value);
+        value.nickname = editNickname.value;
+        value.name = editName.value;
+
+        // console.log(value);
+      }
+    });
 
     // 객체의 속성을 수정
     sessionChk.nickname = editNickname.value;

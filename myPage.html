@@ -4,7 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>myPage</title>
+    <link rel="stylesheet" href="./css/myPage.css" />
+    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="stylesheet" href="./css/home.css" />
+  </head>
+  <body>
     <link rel="stylesheet" href="./css/myPage.css" />
     <link rel="stylesheet" href="./css/login.css" />
     <link rel="stylesheet" href="./css/home.css" />
@@ -17,6 +26,11 @@
     <!-- <div class="headerbox"></div> -->
 
     <div class="content_wrap">
+      <div class="profile_wrap">
+        <div class="profile">
+          <!-- 프로필 판넬 -->
+          <div class="profile_panel">
+            <div class="profile_panel_uphead">PROFILE</div>
       <div class="profile_wrap">
         <div class="profile">
           <!-- 프로필 판넬 -->
@@ -90,44 +104,36 @@
         </div>
       </div>
 
-      <!-- 세팅(계정삭제) 팝업 -->
-      <div class="settings_popup_wrap">
-        <div class="settings_popup">
-          <span class="popup_btn" onclick="popupOpen2()"></span>
-          <div class="settings_popup_header">
-            <img src="./img/awa-hat.svg" alt="" />
-            <h2>Delete your MW Account</h2>
-          </div>
-          <div class="settings_popup_body">
-            <h3>Warning: this cannot be undone.</h3>
-            <div class="delete_form">
-              <label for="check1" class="checkbox_label">
-                All Favorites will be removed from your account.
-                <input
-                  type="checkbox"
-                  id="check1"
-                  name="delete_profile"
-                  value="1"
-                />
-                <span class="checkmark"></span>
-              </label>
-              <label for="check2" class="checkbox_label">
-                You will have to create a new account if you change your mind
-                later.
-                <input
-                  type="checkbox"
-                  id="check2"
-                  name="delete_profile"
-                  value="1"
-                />
-                <span class="checkmark"></span>
-              </label>
-              <div class="delete_btn"><span>DELETE MY PROFILE</span></div>
+        <!-- 세팅(계정삭제) 팝업 -->
+        <div class="settings_popup_wrap">
+            <div class="settings_popup">
+                <span class="popup_btn" onclick="popupOpen2()"></span>
+                <div class="settings_popup_header">
+                    <img src="./img/awa-hat.svg" alt="">
+                    <h2>Delete your MW Account</h2>
+                </div>
+                <div class="settings_popup_body">
+                    <h3>Warning: this cannot be undone.</h3>
+                    <div class="delete_form">
+                        <label for="check1" class="checkbox_label">
+                            All Favorites will be removed from your account.
+                            <input type="checkbox" id="check1" name="delete_profile" value="1">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label for="check2" class="checkbox_label">
+                            You will have to create a new account if you change your mind later.
+                            <input type="checkbox" id="check2" name="delete_profile" value="1">
+                            <span class="checkmark"></span>
+                        </label>
+                        <div class="delete_btn"><span>DELETE MY PROFILE</span></div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
+  </body>
+  <script src="./js/myPage.js"></script>
+  <script src="./js/localstorage.js"></script>
   </body>
   <script src="./js/myPage.js"></script>
   <script src="./js/localstorage.js"></script>
