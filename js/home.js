@@ -204,6 +204,16 @@ let responsHamburgXwidth1200Yscroll200 = document.querySelector(
   ".responsive-hamburg-menu-xwidth1200-yscroll200"
 );
 
+// 로그인 했을떄 idLoginBtn innerHTML 이름으로 변경
+if (sessionStorage.getItem("LOGIN")) {
+  let loginSession = JSON.parse(sessionStorage.getItem("LOGIN"));
+
+  idLoginBtn.innerHTML = `<a id="id-login-btn" >
+<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt="">
+${loginSession.name}
+</a>`;
+}
+
 // 햄버거 메뉴 관련
 // 버튼 위에 있는 태그 까지 해줘야 클릭반응이 옴 ⭐⭐ (햄버거 감싸고 있는 태그)
 let hamburgMenuBtn = document.querySelector(
@@ -279,7 +289,7 @@ function handleYScroll() {
   if (window.matchMedia("(min-width: 1201px)").matches) {
     // 1.1 width 1201 이상 & Y Scorll 200 이상 (밑으로 내림)
     if (scrollYPosition > 200) {
-      console.log(" width 1201 이상 & Y Scorll 200 이상 (밑으로 내림) ");
+      //   console.log(" width 1201 이상 & Y Scorll 200 이상 (밑으로 내림) ");
 
       // '상단 메뉴바' 떨어지게 하기
       siteHeaderprimary.classList.add("is-scrolled");
@@ -321,7 +331,7 @@ function handleYScroll() {
       // '로그인 아이콘 + 텍스트' 다 보이게 하기
       reponsiveLoginBtn.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt=""> Login`;
 
-      console.log(" width 1201 이상 & Y Scroll 200 이하 (위로 올림) ");
+      //   console.log(" width 1201 이상 & Y Scroll 200 이하 (위로 올림) ");
 
       // '검색' 중 '아이콘만' 보이게 하기 - 제거
       responsSearchX1200Yscroll200.classList.remove("is-scrolled");
@@ -334,8 +344,8 @@ function handleYScroll() {
   else {
     // 2.1 width 1201 이하 & Y Scorll 200 이상 (밑으로 내림)
     if (scrollYPosition > 200) {
-      console.log(" width 1201 이하 & Y Scorll 200 이상 (밑으로 내림) ");
-      console.log("띠링 목차 변형");
+      //   console.log(" width 1201 이하 & Y Scorll 200 이상 (밑으로 내림) ");
+      //   console.log("띠링 목차 변형");
 
       // '상단 메뉴바' 떨어지게 하기
       siteHeaderprimary.classList.add("is-scrolled");
@@ -358,7 +368,7 @@ function handleYScroll() {
     }
     // 2.2 width 1201 이하 & Y Scorll 200 이하 (위로 올림)
     else {
-      console.log(" width 1201 이하 & Y Scorll 200 이하 (위로 올림) ");
+      //   console.log(" width 1201 이하 & Y Scorll 200 이하 (위로 올림) ");
 
       // '상단 메뉴바' '제거'
       siteHeaderprimary.classList.remove("is-scrolled");
@@ -413,7 +423,7 @@ window.addEventListener("scroll", handleYScroll);
 // '스크롤 맨 위 AND width 1200 이하' 에서, 햄버거 버튼 클릭되면 -> 1) 메뉴 나오게 2) x 버튼 나오게
 function showDropMenuCloseBtnX1200under() {
   hamburgMenuBtn.addEventListener("click", function () {
-    console.log("햄버거");
+    // console.log("햄버거");
     // 햄버거 클릭시 > '드롭다운 메뉴' 나오게 하기
     NavResponsiveHham.classList.add("is-active");
     // 햄버거 클릭시 > 스크롤 사라지게 하기
@@ -436,7 +446,7 @@ showDropMenuCloseBtnX1200under();
 // x under 1200, y scroll 200 이상 | 햄버거 버튼 클릭 > 1) 햄버거 메뉴 나오게 2) x 버튼 나오게
 function hamburgBtnX1200underY200over() {
   hamburgXwidth1200Yscroll200.addEventListener("click", function () {
-    console.log("햄버거1200200");
+    // console.log("햄버거1200200");
     // 드롭다운 메뉴 : 나오고 있음.
 
     // 햄버거 클릭시 > 스크롤 사라지게 하기
@@ -456,7 +466,7 @@ function hamburgBtnX1200underY200over() {
 // 👇 이름은 TEST 이지만, 현재, 이게 작동하고 있음.
 function hamburgBtnX1200underY200over__TEST() {
   hamburgXwidth1200Yscroll200.addEventListener("click", function () {
-    console.log("햄버거 클릭💪💪");
+    // console.log("햄버거 클릭💪💪");
     // 햄버거 클릭시 > '드롭다운 메뉴' 나오게 하기
     NavResponsiveHham.classList.add("is-active");
     // 햄버거 클릭시 > 스크롤 사라지게 하기
@@ -558,7 +568,7 @@ function closeBtnXwidth1200underY200over() {
   // 👇 이 버튼 자체가 나타나지 않고 있는 상황📛
   // ✅ 클릭 순서대로 함수를 정렬하면, 좀 더 파악이 쉬울 것 같음.
   closeStateButtonUnder1200Y200over.addEventListener("click", function () {
-    console.log("x 버튼 잘 클릭 되고 있나");
+    // console.log("x 버튼 잘 클릭 되고 있나");
 
     NavResponsiveHham.classList.remove("is-active");
     // x 표시 클릭 했을 때 > 드롭다운 메뉴 사라지게 하기
@@ -722,7 +732,7 @@ search.addEventListener("keyup", function () {
   let autocomplete = categoryNames.filter(function (e) {
     return e.startsWith(searchInput);
   });
-  console.log(autocomplete);
+  //   console.log(autocomplete);
 
   autocomplete.forEach(function (suggested) {
     let div = document.createElement("div");
@@ -732,7 +742,7 @@ search.addEventListener("keyup", function () {
     div.onclick = () => {
       searchInput = div.innerHTML;
       autocompleteWrap.innerHTML = "";
-      console.log(searchInput);
+      //   console.log(searchInput);
       moveToCollist(searchInput);
     };
   });
@@ -744,18 +754,18 @@ search.addEventListener("keyup", function () {
 // 돋보기 버튼 눌렀을 때
 searchSubmit.addEventListener("click", function () {
   let searchInput = search.value.toUpperCase();
-  console.log("검색: ", searchInput);
+  //   console.log("검색: ", searchInput);
 
   // 찾는 게 있을 경우 & 없을 경우
   let findCategory = [];
   for (let i = 0; i < categoryNames.length; i++) {
     if (categoryNames[i].startsWith(searchInput)) {
-      console.log("검색 성공");
+      //   console.log("검색 성공");
       findCategory.push(categoryNames[i]);
     }
 
     if (findCategory == "") {
-      console.log("검색 실패");
+      //   console.log("검색 실패");
       noImgSearched.classList.add("is-active");
     } else {
       noImgSearched.classList.remove("is-active");
@@ -766,7 +776,7 @@ searchSubmit.addEventListener("click", function () {
 
 // 검색 값 받아서 collist로 이동
 function moveToCollist(input) {
-  console.log(input);
+  //   console.log(input);
 
   // input값 받아와서 로컬스토리지 생성
   for (let i = 0; i < colorsName.length; i++) {
@@ -788,7 +798,16 @@ function moveToCollist(input) {
 
 // 🔷 로그인 popup
 idLoginBtn.addEventListener("click", function () {
-  console.log("Login 시작");
+  // 로그아웃 기능 추가
+  if (sessionStorage.getItem("LOGIN")) {
+    if (confirm("로그아웃 하시겠습니까?")) {
+      sessionStorage.clear();
+      location.reload();
+    } else {
+      return;
+    }
+  }
+  //   console.log("Login 시작");
   loginPopupContent.classList.add("is-active");
   loginPopup.classList.add("is-active");
 });
