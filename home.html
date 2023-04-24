@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
+    <title>Main Page</title>
 
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="./css/login.css">
-    <link rel="stylesheet" href="./css/signup.css">
+    <!-- <link rel="stylesheet" href="./css/signup.css"> -->
 </head>
 
 <body>
@@ -17,35 +18,41 @@
         <p class="top_banner_text">
             Save favorites.
             <!-- 회원가입 페이지로 이동 -->
-            <a href="https://accidentallywesanderson.com/sign-up/"> Plan your next adventure</a>
+            <a> Plan your next adventure</a>
         </p>
     </div>
 
     <!-- 숨어있다가, 나오는 부분 : 검색 popup -->
     <div class="search-dropdown" id="search-popup">
-
-        <!-- 오른쪽 상단 x 표 -->
-        <a id="popup-close-btn" class="close-btn" href="#"></a>
-
-        <!-- 검색창 -->
-        <!-- <div class="search-div">
-            <input type="search" class="search-field" placeholder="Search by location or keyword">
-        </div> -->
-
+        <!-- 전체 검색창 -->
         <div class="input-search-keyword">
-            <!-- 레퍼런스는 form 태그 였음. ✅✅ -->
+            <!-- 실제로 검색하는 부분 -->
             <div class="search-form">
-                <input id="search-popup-btn" class = "keyword-input" type="search" class="search-form" placeholder="Search by location or keyword">
-                <input class= "search-icon-btn" type="" >
+                <div class="no_img_searched">NO SEARCHED :(</div>
+                <input id="search-popup-btn" class = "keyword-input" class="search-form" placeholder="Search by location or keyword">
+                <input class= "search-icon-btn" type="" onfocus="this.blur()">
             </div>
+            <div class="autocomplete_wrap">
+            </div>
+            <!-- 오른쪽 상단 x 표 : 전체 검색창이 나올 때, x 표도 나오게 했음. ⭐⭐ -->
+            <a id="popup-close-btn" class="close-btn"> </a>
+
+        </div>
+        
+
+
+
+            <!-- <div class="autocomplete_wrap">
+            </div> -->
         </div>
         <!-- 돋보기 모양 -->
     </div>
 
     <!-- 숨어있다가, 나오는 부분 : 로그인 popup-->
-    <div class="login-popup-content">
+    <!-- 로그인 & 회원가입 popup wrap -->
+    <!-- <div class="login-popup-content"> -->
         <!-- 로그인 popup -->
-        <div class="login-window">
+        <!-- <div class="login-window">
             <button id="login-close-btn" class="login-close-btn"> x </button>
             <div class="center is-active">
                 <h1>login</h1>
@@ -70,9 +77,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- 회원가입 popup -->
-        <div class="center">
+        <!-- <div class="center">
             <h1>Sign up</h1>
             <div class="login-center">
                 already have an account?  <ins class="text">Log in</ins>   
@@ -115,36 +122,320 @@
                 <input type="submit" value="Sign up" id="signup" onclick="signup()">
             </div>
         </div>
+    </div> -->
+
+    <!-- 숨어있다가, 나오는 부분 : 로그인 popup-->
+    <!-- 로그인 & 회원가입 popup wrap -->
+    <div class="login-popup-content">
+        <!-- 로그인 창 -->
+        <div class="login_popup">
+        <button id="login-close-btn" class="login-close-btn"> x </button>
+        <h1>login</h1>
+        <div class="form">
+            <div class="txt_field">
+                <input type="text" id="username" name="username" required>
+                <span></span>
+                <label for="username">name</label>
+            </div>
+        </div>
+        <div class="form">
+            <div class="txt_field">
+                <input type="password" id="password" name="password" required>
+                <span></span>
+                <label for="password" >password</label>
+            </div>
+
+            <div class="pass">Forget password?</div>
+                <input type="submit" value="Login" id="loginButton"onclick="login()">
+            <div class="signup_link">
+                Not a member? <div class="move_to_signup">Signup</div>
+            </div>
+        </div>
+        </div>
+        <!-- 회원가입 창 -->
+        <div class="signup_popup">
+        <button id="signup-close-btn" class="login-close-btn"> x </button>
+        <h1>Sign up</h1>
+        <div class="login_link">
+            already have an account? <div class="move_to_login">Log in</div>   
+        </div>
+        <div class="continue_with">
+            <a href="https://www.google.com">CONTINUE WITH GOOGLE</a>
+            <a href="https://www.apple.com">CONTINUE WITH APPLE</a>
+        </div>
+        <div class="form">
+            <div class="txt_field">
+                <input type="text" id="nickname" required>
+                <span></span>
+                <label>nickname</label>
+            </div>
+            <div class="txt_field">
+                <input type="text" id="name" required>
+                <span></span>
+                <label >name</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" id="signup_password" required>
+                <span></span>
+                <label >password</label>
+                <span class="span-position">password must be at least 8 characters</span>
+            </div>
+        </div>
+        <div class="checkbox_field">
+            <input type="checkbox" class="any">
+            "i agree to the"
+            <a href="/privacy-policy/" style="text-decoration: underline;">privacy Policy</a>"and"
+            <a href ="/terms/"style="text-decoration: underline;">terms of use</a>
+            <span class="checkmark">
+            <br>
+            <input type="checkbox" class="checkbox1">
+            "subscribe to the AWA Bi-Weekly Bulletin (ps: we will never share or seel your information to anyone under any circumstance, ever)"
+            <a href="/terms/"style="text-decoration: underline;">terms of use</a>
+            <span class="checkmark"></span>
+            <input type="submit" value="Sign up" id="signup" onclick="signup()">
+        </div>
+        </div>
     </div>
+
+
+    <!-- 숨어있다가, 나오는 부분 : collection popup-->
+    <div class="collections-dropdown">
+        <div class="collections-container">
+
+            <!-- 1) Themes -->
+            <div class="collections-item-wrapper">
+
+                <!-- 1) headline -->
+                <h3 class="collections-headline">Themes</h3>
+
+                <!-- 2) gallery -->
+                <div class="collections-gallery">
+
+                    <!-- a) 아이템 01 -->
+                        <a class="collections-gallery-item" href="./collist.html">
+                            <!-- ◼ 사진 -->
+                            <img class="lazy-entered-loaded"  src="https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/50549683_115085609593916_1961797280330727974_n-500x500.jpg?lossy=1&strip=1&webp=1" alt="">
+                            <!-- ◼ 제목 -->
+                            <span class="collections-item-title">Cable Cars</span>
+                        
+                        </a>
+                    
+                    <!-- a) 아이템 02 -->
+                        <a class="collections-gallery-item" href="./collist.html">
+                            <!-- ◼ 사진 -->
+                            <img class="lazy-entered-loaded"  src="https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/24838759_1472570436193554_2246699917978370048_n-500x500.jpg?lossy=1&strip=1&webp=1" alt="">
+                            <!-- ◼ 제목 -->
+                            <span class="collections-item-title">Educational Institutions</span>
+                        
+                        </a>
+                    
+                    <!-- a) 아이템 03 -->
+                        <a class="collections-gallery-item" href="./collist.html">
+                            <!-- ◼ 사진 -->
+                            <img class="lazy-entered-loaded"  src="https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/30078104_1018261411661558_7719167807102910464_n-500x500.jpg?lossy=1&strip=1&webp=1" alt="">
+                            <!-- ◼ 제목 -->
+                            <span class="collections-item-title">Library</span>
+                        
+                        </a>
+                    
+                    <!-- a) 아이템 04 -->
+                        <a class="collections-gallery-item" href="./collist.html">
+                            <!-- ◼ 사진 -->
+                            <img class="lazy-entered-loaded"  src="https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/50244801_101488410904785_7804855446322858810_n-500x500.jpg?lossy=1&strip=1&webp=1" alt="">
+                            <!-- ◼ 제목 -->
+                            <span class="collections-item-title">Cable Cars</span>
+                        
+                        </a>
+                    
+                    <!-- a) 아이템 05 -->
+                        <a class="collections-gallery-item" href="./collist.html">
+                            <!-- ◼ 사진 -->
+                            <img class="lazy-entered-loaded"  src="https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/75332701_230779857889483_5510500287028109061_n-500x500.jpg?lossy=1&strip=1&webp=1" alt="">
+                            <!-- ◼ 제목 -->
+                            <span class="collections-item-title">Doors</span>
+                        
+                        </a>
+                    
+                    <!-- a) 아이템 06 -->
+                        <a class="collections-gallery-item" href="./collist.html">
+                            <!-- ◼ 사진 -->
+                            <img class="lazy-entered-loaded"  src="https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/23595073_1689113034433739_1346042720501628928_n-500x500.jpg?lossy=1&strip=1&webp=1" alt="">
+                            <!-- ◼ 제목 -->
+                            <span class="collections-item-title">Classic Facades</span>
+                        
+                        </a>
+                    
+                    
+
+
+
+
+
+                </div>
+
+                <!-- 3) see all 버튼 -->
+                <a class="see-all-btn" href="./collections.html">
+                    See all
+                </a>
+
+
+            </div> 
+
+            <!-- 2) color palettes -->
+            <div class="collections-item-wrapper">
+
+                <!-- 1) headline -->
+                <h3 class="collections-headline">Color Palettes</h3>
+
+                <!-- 2) gallery -->
+                <div class="collections-gallery">
+
+                <!-- a) 아이템 01 -->
+                    <a class="collections-gallery-item" href="./collist.html">
+                        <!-- ◼ 사진 -->
+                        <img class="lazy-entered-loaded"  src="https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/05/90086492_938096936642763_5437379437826734322_n-500x500.jpg?lossy=1&strip=1&webp=1" alt="">
+                        <!-- ◼ 제목 -->
+                        <span class="collections-item-title">Green</span>
+                    
+                    </a>
+                
+                <!-- a) 아이템 01 -->
+                    <a class="collections-gallery-item" href="./collist.html">
+                        <!-- ◼ 사진 -->
+                        <img class="lazy-entered-loaded"  src="https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/26070394_131546737646213_8637264551781335040_n-500x500.jpg?lossy=1&strip=1&webp=1" alt="">
+                        <!-- ◼ 제목 -->
+                        <span class="collections-item-title">Pink</span>
+                    
+                    </a>
+                
+                <!-- a) 아이템 01 -->
+                    <a class="collections-gallery-item" href="./collist.html">
+                        <!-- ◼ 사진 -->
+                        <img class="lazy-entered-loaded"  src="https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/64961088_951069728396673_7248425327418930885_n-500x500.jpg?lossy=1&strip=1&webp=1" alt="">
+                        <!-- ◼ 제목 -->
+                        <span class="collections-item-title">Orange</span>
+                    
+                    </a>
+                
+                <!-- a) 아이템 01 -->
+                    <a class="collections-gallery-item" href="./collist.html">
+                        <!-- ◼ 사진 -->
+                        <img class="lazy-entered-loaded"  src="https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/78918357_454329888812771_7390690440755563381_n-500x500.jpg?lossy=1&strip=1&webp=1" alt="">
+                        <!-- ◼ 제목 -->
+                        <span class="collections-item-title">Turquoise</span>
+                    
+                    </a>
+                
+                <!-- a) 아이템 01 -->
+                    <a class="collections-gallery-item" href="./collist.html">
+                        <!-- ◼ 사진 -->
+                        <img class="lazy-entered-loaded"  src="https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/8d06ca59-500x500.jpeg?lossy=1&strip=1&webp=1" alt="">
+                        <!-- ◼ 제목 -->
+                        <span class="collections-item-title">Blue</span>
+                    
+                    </a>
+                
+                <!-- a) 아이템 01 -->
+                    <a class="collections-gallery-item" href="./collist.html">
+                        <!-- ◼ 사진 -->
+                        <img class="lazy-entered-loaded"  src="https://b2581825.smushcdn.com/2581825/wp-content/uploads/2020/04/22429704_133661504049431_4455231951950839808_n-500x500.jpg?lossy=1&strip=1&webp=1" alt="">
+                        <!-- ◼ 제목 -->
+                        <span class="collections-item-title">Black</span>
+                    
+                    </a>
+                
+                
+
+
+
+
+
+                </div>
+
+            <!-- 3) see all 버튼 -->
+                <a class="see-all-btn" href="./collections.html">
+                    See all
+                </a>
+
+
+            </div>
+            
+
+
+        </div>
+    </div>
+
 
     <!-- 헤더 전체 감싸는 부분-->
     <header class="site_header">
+
+
+        <!-- ◼ 반응형 | width 1200 이하 일 때, > 오른쪽 햄버거 메뉴 -->
+        <div class="responsive-hamburg-menu">
+            <a class="hamburg-menu-button"> 
+                <span> </span>
+                <span> </span>
+                <span> </span>
+            </a>
+        </div>
+
         <!-- 1) 로고(LOGO), 검색 popup 반응형 목차 | ❓ 검색이 왜 여기에 있지❓-->
         <div class="site_header__top">   
             <!-- 1). search 눌렀을 때 나오는 '검색 영역' -->
             <div class="site_header__top_search">      
             </div>
-            <!-- 2). AWA 로고 영역 -->
+
+            <!-- 2). AWA 로고 영역 : 여기에 width 1200px 미만일 때 의 html 이 포함 -->
             <div class="site_header__top_logo"> 
-                <a href="/" class="a_tag">
-                    <img class="img_tag" src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/awa-nav-logo.svg" alt="Accidentally Wes Anderson Logo">
+                    <!-- ◼ 검색 -->
+                <a class="dropdown-search-form-xWidth-under1200">
+                    <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-search-red.svg" alt="">
                 </a>
-            </div>
-            <!-- 3). 반응형 목차 -->
-            <div class="site_header__top_respMenu">
+
+                <!-- ◼ 로고 -->
+                <a href="./home.html" class="a_tag">
+                    <img class="img_tag" src="./img/mw-nav-logo.png" alt="Accidentally Wes Anderson Logo">
+                </a>
+
+                <!-- ◼ 햄버거 메뉴 -->
+                <div class="responsive-hamburg-menu-xWidth-under1200">
+                    <!-- 1) 햄버거 메뉴 -->
+                    <a class="hamburg-menu-button" id="hamburg-menu-btn-under1200"> 
+                        <span> </span>
+                        <span> </span>
+                        <span> </span>
+                    </a>
+                </div>
+
+                <!-- ◼ 취소 버튼  --> 
+                <a class="close-state-button">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </a>
             </div>
         </div>
 
-        <!-- 2) 메뉴 탭 (nav bar) -->
+        <!-- 2) 메뉴 탭 (nav bar) 3) width 1200px 이하 + 스크롤 200y 이상 떨어질 때 -->
         <div class="site_header__primary-nav"> 
+
+            <!-- ◼ 반응형 | Y 스크롤 다운시 나타나는 로고 -->
+            <div class="responsive-top-logo">
+                <a href="/" class="a_tag">
+                    <img class="img_tag" src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/awa-logo-collapsed.svg" alt="Accidentally Wes Anderson Logo">
+                </a>
+            </div>
+
             <!-- a) 소셜(인스타,페북) -->
             <div class="site_header__primary-nav--social">
                 <!-- (1) 인스타그램 -->
-                <a href="https://www.instagram.com/accidentallywesanderson/">
+                <a class="nav-instagram-btn" href="https://www.instagram.com/accidentallywesanderson/">
                     <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-ig-red.svg" alt="">
                 </a>
                 <!-- (2) 페이스북 -->
-                <a href="https://www.facebook.com/accidentallywesanderson/">
+                <a class="nav-facebook-btn" href="https://www.facebook.com/accidentallywesanderson/">
                     <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-fb-red.svg" alt="">
                 </a>
             </div>
@@ -156,7 +447,8 @@
                     <li>
                         <!-- ⭐ collection 은 popup 식으로!
                         이걸 위에 header 에서 처리하네? 왜지? 음. -->
-                        <a href="./collections.html"> Collections</a>
+                        <!-- <a href="./collections.html"> Collections</a> -->
+                        <a class="nav-collections-btn" href="#"> Collections</a>
                     </li>
                     <!-- (2) stories -->
                     <li>
@@ -170,11 +462,11 @@
                         문제점 : 실제 홈페이지에서는 1) 로그인 2) 우측 상단에 my page 가 생김
                         생각 : 여기에 있을게 아니라, search, login 영역으로 이동해야? -->
                     <li>
-                        <a href="./myPage.html">MyPage❓</a>
+                        <a href="./myPage.html" onclick="loginCheck()">MyPage</a>
                     </li>
                     <!-- (5) board -->
                     <li>
-                        <a href="./board.html">Board</a>
+                        <a href="./board.html" onclick="loginCheck()">Board</a>
                     </li>
                 </ul>
             </div>
@@ -182,7 +474,7 @@
             <!-- c) search + login -->
             <div class="site_header__primary-nav--seachlogin">
                 <!-- search -->
-                <a id="dropdown-search-form" href="#">
+                <a class="dropdown-search-form">
                     <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-search-red.svg" alt="">
                     Search
                 </a>
@@ -193,12 +485,144 @@
                 </a>
             </div>
 
-            <!-- d) login 팝업 | 이쪽으로 검색 popup 이동? -->
-            <!-- <div class="site_header__primary-nav--loginPopup">
+            <!-- ◼ 반응형 검색버튼 : 평소에 없다가 나타나야 함. 평소에 있는 검색바랑 구별되야 함  -->
+            <div class="respon-search-form-x1200under-yscroll200over">
+                <a id="dropdown-search-form-x1200under-y200over" class="dropdown-search-form">
+                    <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-search-red.svg" alt="">
+                    <!-- Search -->
+                </a>
+                
+            </div>
 
-            </div> -->
+            <!-- ◼ 반응형 | width 1200 이하 + y스크롤 200 이상일 때  > 오른쪽 햄버거 메뉴 -->
+            <div class="responsive-hamburg-menu-xwidth1200-yscroll200">
+                <a class="hamburg-menu-button"> 
+                    <span> </span>
+                    <span> </span>
+                    <span> </span>
+                </a>
+
+            </div>
+
         </div>
+
     </header>
+
+
+    <!-- ◼ 반응형 목차 : 삭제 예정 ✅   -->
+        <!-- <header class="site-header-responsive"> 
+
+        </header> -->
+
+
+    <!-- ◼ 반응형 | 햄버거 안에 있는 목차들 -->
+    <div class="site_header__primary-nav--responsive-ham">
+
+        <!-- 1) 목차 링크들 -->
+        <div class="site_header__primary-nav--responsive-ham-links">
+            <ul class="res-menu-main">
+                
+                <!-- list item : collections -->
+                <li class="res-menu-main-list">
+                    <!-- collections 누르면 > 화면에 다 보이기 -->
+                    <a class="res-menu-main-list-item" href="#">
+                        Collections
+                    </a>
+                </li>
+
+                <!-- list item : Stories -->
+                <li class="res-menu-main-list">
+                    <!-- collections 누르면 > 화면에 다 보이기 -->
+                    <a class="res-menu-main-list-item" href="https://accidentallywesanderson.com/stories/">
+                        Stories
+                    </a>
+                </li>
+                
+                <!-- list item : Submit -->
+                <li class="res-menu-main-list">
+                    <!-- collections 누르면 > 화면에 다 보이기 -->
+                    <a class="res-menu-main-list-item" href="https://accidentallywesanderson.com/submissions/">
+                        Submit
+                    </a>
+                </li>
+                
+                <!-- list item : MyPage -->
+                <li class="res-menu-main-list">
+                    <!-- collections 누르면 > 화면에 다 보이기 -->
+                    <a class="res-menu-main-list-item" href="https://accidentallywesanderson.com/submissions/">
+                        MyPage
+                    </a>
+                </li>
+                
+                <!-- list item : Board -->
+                <li class="res-menu-main-list">
+                    <!-- collections 누르면 > 화면에 다 보이기 -->
+                    <a class="res-menu-main-list-item" href="https://accidentallywesanderson.com/submissions/">
+                        Board
+                    </a>
+                </li>
+
+
+
+
+
+
+            </ul>
+            
+        </div>
+
+
+        <!-- 2) login/sign up 링크 -->
+        <div class="site_header__primary-nav--responsive-ham-loginsign">
+            <ul class="res-menu-main">
+                <li class="res-menu-main-list">
+                    <a class="res-menu-main-list-item" href="https://accidentallywesanderson.com/submissions/">
+                        <img class="res-menu-main-list-a-img" src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-black.svg" alt="">
+                        login / signup
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <!-- 3) social 링크 (인스타, 페북)-->
+        <div class="site_header__primary-nav--responsive-ham-social">
+
+            <!-- (1) 인스타그램 -->
+            <a class="nav-instagram-btn" href="https://www.instagram.com/accidentallywesanderson/">
+                <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-ig-red.svg" alt="">
+            </a>
+            <!-- (2) 페이스북 -->
+            <a class="nav-facebook-btn" href="https://www.facebook.com/accidentallywesanderson/">
+                <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-fb-red.svg" alt="">
+            </a>
+            
+        </div>
+
+
+    </div>
+
+
+    <!-- ◼ 반응형 | width under 1200, yscroll 200 이상 | 검색 드롭다운 -->
+        <!-- 애초 클래스명 : input-search-keyword -->
+    <div class="input-search-keyword-x1200-y200">
+        <!-- 레퍼런스는 form 태그 였음. ✅✅ -->
+        <div class="search-form-x1200-y200">
+            <input class = "keyword-input" class="search-form" placeholder="Search by location or keyword">
+            <input class= "search-icon-btn" type="" onfocus="this.blur()">
+
+            <!-- <p class="x-icon-button"> X </p> -->
+                    <!-- 오른쪽 상단 x 표 -->
+                    <!-- before, after 로 줬음.  -->
+            <a style="background-color: blue; width: 100px; height: 100px;" id="popup-close-btn-x1200-y200" class="close-btn">
+
+            </a>
+
+
+            
+        </div>
+    
+    </div>
 
 
     <!-- SECTION ITEM 시작 -->
@@ -255,9 +679,13 @@
                     <div class="input-search-keyword">
                         <!-- 레퍼런스는 form 태그 였음. ✅✅ -->
                         <div class="search-form">
-                            <input class = "keyword-input" type="search" class="search-form" placeholder="Search by location or keyword">
-                            <input class= "search-icon-btn" type="" >
+                            <input class = "keyword-input" class="search-form" placeholder="Search by location or keyword">
+                            <input class= "search-icon-btn" type="" onfocus="this.blur()">
+
+                            <!-- <p class="x-icon-button"> X </p> -->
+                            
                         </div>
+                    
                     </div>
 
                 </div>
@@ -593,9 +1021,9 @@
                         <div class="input-search-keyword">
                             <!-- 레퍼런스는 form 태그 였음. ✅✅ -->
                             <div class="search-form">
-                                <input class = "keyword-input" type="search" class="search-form" placeholder="Search by location or keyword">
+                                <input class = "keyword-input" class="search-form" placeholder="Search by location or keyword">
                                 
-                                <input class= "search-icon-btn" type="" >
+                                <input class= "search-icon-btn" type="" onfocus="this.blur()">
 
                             </div>
                         </div>
@@ -670,8 +1098,8 @@
                         </div>
 <!-- 
                         <div class="search-form">
-                            <input class = "keyword-input" type="search" class="search-form" placeholder="Search by location or keyword">
-                            <input class= "search-icon-btn" type="" >
+                            <input class = "keyword-input" class="search-form" placeholder="Search by location or keyword">
+                            <input class= "search-icon-btn" type="" onfocus="this.blur()">
                         </div> -->
                     
                     </div>

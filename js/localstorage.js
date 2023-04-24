@@ -1,4 +1,4 @@
-if (window.localStorage.length == 0) {
+if (!localStorage.getItem("THEMESIMG")) {
   // COLLECTIONS THEMES create localstorage
 
   function createcollections(img, title) {

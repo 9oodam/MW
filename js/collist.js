@@ -82,7 +82,11 @@ if (!tmplocal.desc) {
 }
 
 // p태그 출력 / 변하는 부분 2
-titletoptxtp.innerHTML = `${tmplocal.desc}`;
+if (tmplocal.desc) {
+  titletoptxtp.innerHTML = `${tmplocal.desc}`;
+} else {
+  tmplocal.desc = "";
+}
 
 // span 출력 / 변하는 부분 3
 titlebottomtxta[1].innerHTML = `${tmplocal.group}`;

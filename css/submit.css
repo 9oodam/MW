@@ -94,6 +94,27 @@ body {
   transition: all 0.25s;
 }
 
+.subcon .subconwrap .imgupload label {
+  width: 100px;
+  height: 30px;
+  border: 2px solid #ee3024;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  cursor: pointer;
+  color: #ee3024;
+  transition: all 0.25s;
+}
+
+.subcon .subconwrap .imgupload label:hover {
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  background-color: #ee3024;
+  transition: all 0.25s;
+}
+
 #upload {
   z-index: 1;
 }
@@ -141,6 +162,15 @@ body {
   height: 30px;
   font-size: 12px;
   margin-top: 2px;
+  margin-top: 2px;
+}
+
+.subinput .subinputs select {
+  display: block;
+  width: 100%;
+  height: 30px;
+  font-size: 12px;
+  margin-top: 2px;
 }
 
 .btnbox {
@@ -162,6 +192,23 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 16px;
+}
+
+@media screen and (max-width: 1150px) {
+  .subcon .subconwrap {
+    display: block;
+  }
+  .subcon .subconwrap .imgupload {
+    width: 600px;
+    margin: 0 auto;
+  }
+  .subcon .subconwrap .subinput {
+    width: 600px;
+    margin: 10px auto 0;
+  }
+  .subinput .subinputs {
+    padding: 0;
+  }
 }
 
 @media screen and (max-width: 1150px) {

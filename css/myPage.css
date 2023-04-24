@@ -19,15 +19,15 @@ body {
   padding: 32px 0;
 }
 @media only screen and (max-width: 767px) {
-  .content_wrap {
-    height: 200vh;
-  }
+    .content_wrap {
+        height: 200vh;
+    }
 }
 
 /* profile */
 .profile_wrap {
-  height: 100%;
-  padding: 25px 25px 25px 25px;
+    height: 100%;
+    padding: 25px 25px 25px 25px;
 }
 .profile_wrap .profile {
   width: 100%;
@@ -100,26 +100,20 @@ body {
   cursor: pointer;
 }
 .profile_edit::before {
-  content: "";
-  background-image: url(../img/icon-edit-profile.svg);
-  background-size: 80%;
-  position: absolute;
-  top: 1px;
-  left: 0px;
-  width: 20px;
-  height: 18px;
-  background-repeat: no-repeat;
+    content: '';
+    background-image: url(../img/icon-edit-profile.svg);
+    background-size: 80%;
+    position: absolute; top: 1px; left: 0px;
+    width: 20px; height: 18px;
+    background-repeat: no-repeat;
 }
 .profile_settings:before {
-  content: "";
-  background-image: url(../img/icon-settings.svg);
-  background-size: 80%;
-  position: absolute;
-  top: 1px;
-  left: -2px;
-  width: 20px;
-  height: 18px;
-  background-repeat: no-repeat;
+    content: '';
+    background-image: url(../img/icon-settings.svg);
+    background-size: 80%;
+    position: absolute; top: 1px; left: -2px;
+    width: 20px; height: 18px;
+    background-repeat: no-repeat;
 }
 .profile_panel .profile_panel_footer {
   padding: 20px 20px 40px;
@@ -154,19 +148,17 @@ body {
 
 /* profile content */
 .profile_wrap .profile .profile_content {
-  margin: 0 10px 15px 10px;
-  width: 100%;
-  height: auto;
-  position: relative;
+    margin: 0 10px 15px 10px;
+    width: 100%; height: auto;
+    position: relative;
 }
-@media only screen and (max-width: 767px) {
-  /* 767 이하 */
-  .profile_wrap .profile .profile_content {
-    flex: 1;
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-  }
+@media only screen and (max-width: 767px) { /* 767 이하 */
+    .profile_wrap .profile .profile_content {
+        flex: 1;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
 }
 .profile_panel .profile_panel_uphead,
 .profile_content .profile_content_header {
@@ -179,36 +171,38 @@ body {
   font-weight: 700;
   border-bottom: 2px solid #ee3024;
 }
-.profile_content .profile_content_list {
-  /* 767px 이상 */
-  width: 100%;
-  height: auto;
-  /* border: 1px solid #ee3024;
-  border-style: dashed; */
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 0;
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
+.profile_content .profile_content_list { /* 767px 이상 */
+    width: 100%; height: auto;
+    border: 1px solid #ee3024;
+    border-style: dashed;
+    position: absolute; left: 50%;
+    transform: translateX(-50%);
+    margin: 0; padding: 10px;
+    display: flex; flex-wrap: wrap;
 }
 .profile_content_list .collection_img {
-  width: 25%;
-  height: auto;
-  padding: 10px;
-  position: relative;
+    width: 25%; height: auto;
+    padding: 10px;
+    position: relative;
 }
 @media only screen and (max-width: 1500px) {
-  .profile_content_list .collection_img {
-    width: 33.333333333333333%;
-  }
+    .profile_content_list .collection_img {
+        width: 33.333333333333333%;
+    }
 }
 @media only screen and (max-width: 1040px) {
-  .profile_content_list .collection_img {
-    width: 50%;
-  }
+    .profile_content_list .collection_img {
+        width: 50%;
+    }
 }
+@media only screen and (max-width: 767px) { /* 767 이하 */
+    .profile_content .profile_content_list {
+        display: block;
+        height: auto;
+    }
+    .profile_content_list .collection_img {
+        width: 100%;
+    }
 @media only screen and (max-width: 767px) {
   /* 767 이하 */
   .profile_content .profile_content_list {
@@ -219,6 +213,50 @@ body {
     width: 100%;
   }
 }
+
+.profile_content_list .collection_img img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 15px;
+}
+.profile_content_list .collection_img img:hover {
+    transform: scale(102%);
+    cursor: pointer;
+}
+.delete_img_btn {
+    width: 20px; height: 20px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px; font-weight: bold;
+    display: none;    position: absolute; right: 20px; top: 20px;
+}
+.profile_content_list .collection_img:hover .delete_img_btn {
+    display: block;
+}
+
+
+
+.profile_content_list .collection_img img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 15px;
+}
+.profile_content_list .collection_img img:hover {
+    transform: scale(102%);
+    cursor: pointer;
+}
+.delete_img_btn {
+    width: 20px; height: 20px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px; font-weight: bold;
+    display: none;    position: absolute; right: 20px; top: 20px;
+}
+.profile_content_list .collection_img:hover .delete_img_btn {
+    display: block;
+}
+
+
 
 .profile_content_list .collection_img img {
   width: 100%;
