@@ -201,6 +201,14 @@ li > div {
     position: relative;
     left: 50%; transform: translateX(-50%);
     box-sizing: border-box;
+    display: flex; flex-direction: column;
+}
+.board_footer .current_page {
+    width: 100px; height: 100%;
+    color: #EE3024;
+    font-size: 20px; font-weight: bold;
+    position: absolute; right: calc(50% + 300px);
+    display: flex; justify-content: center; align-items: center;
 }
 .board_footer .paging-wrap {
     box-sizing: border-box;

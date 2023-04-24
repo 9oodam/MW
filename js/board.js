@@ -260,7 +260,8 @@ function render(_json2) {
     _li.append(_div1, _div2, _div3, _div4);
     _ul.append(_li);
 
-    for (let i = 0; i < _json2.length; i++) {
+    _json2.forEach(function(i, index) {
+        // for (let i = 0; i < _json2.length; i++) {
         let _li = document.createElement("li");
 
         let _div1 = document.createElement("div");
@@ -268,12 +269,12 @@ function render(_json2) {
         let _div3 = document.createElement("div");
         let _div4 = document.createElement("div");
     
-        let indexNum = i;
-        let writerName = _json2[i].nickname;
+        let indexNum = index;
+        let writerName = _json2[index].nickname;
         _div1.innerHTML = indexNum+1; // 리스트에 보여지는 번호
-        _div2.innerHTML = _json2[i].title;
+        _div2.innerHTML = _json2[index].title;
         _div3.innerHTML = writerName;
-        _div4.innerHTML = _json2[i].date;
+        _div4.innerHTML = _json2[index].date;
     
         _div1.classList.add("list_no");
         _div2.classList.add("list_title");
@@ -286,7 +287,7 @@ function render(_json2) {
         _div2.addEventListener("click", function() {
             popupOpen2(indexNum, _json2, writerName); // title 누르면 게시글 팝업창 열림 
         });
-    }
+    });
     _board.append(_ul);
 }
 
@@ -434,6 +435,14 @@ function deleteList(indexNum, _json2, writerName) {
 function adminAnswer(indexNum, _json2) {
     console.log(_json2[indexNum]);
 
+    //input 초기화
+    let inputAnswerAdminText = document.getElementsByClassName("input_answer_admin");
+    console.log(inputAnswerAdminText);
+    for(let i=0; i<inputAnswerAdminText.length; i++){
+        console.log("초기화");
+        inputAnswerAdminText[i].value = '';
+    }
+
     let userView = document.querySelector(".user_view");
     let adminView = document.querySelector(".admin_view");
 
@@ -458,36 +467,41 @@ function adminAnswer(indexNum, _json2) {
     else if(!userInfo && adminInfo) {
         console.log("관리자 로그인ing");
 
-        let saveBtn = document.querySelector(".save_btn");
-
         if(userView.classList.contains("is-active")) {
             userView.classList.remove("is-active");
         }
         if(!adminView.classList.contains("is-active")) {
             adminView.classList.add("is-active");
         }
-
-        saveBtn.addEventListener("click", function() {
-            let inputAnswerAdmin = document.querySelector(".input_answer_admin").value;
-            console.log("저장된 answer: ", inputAnswerAdmin);
-            if(!inputAnswerAdmin) {
-                alert("Admin Answer is empty. Please fill in the blank");
-            }else if(inputAnswerAdmin) {
-                _json2[indexNum].answer = inputAnswerAdmin;
-                console.log(_json2);
-                let _jsonArr = [];
-                _json2.forEach(function(i, index) {
-                    _jsonArr.push(JSON.stringify(_json2[index]));
-                });
-                let _jsonArr2 = _jsonArr.join("|");
-
-                console.log(_jsonArr);
-                console.log(JSON.stringify(_json2));
-                window.localStorage.setItem("bulletin-board", dummyDataArr2 + "|" +_jsonArr2);
-                alert("Admin Answer is saved.");
-            }
-        });
+        console.log(indexNum);
+        let saveBtn = document.querySelector(".save_btn");
+        saveBtn.onclick = function() {
+            saveAnswer(indexNum, _json2);
+        }
     }
+}
+function saveAnswer(indexNum, _json2) {
+    console.log(indexNum);
+    console.log("saveBtn 눌림");
+    console.log(_json2[indexNum]);
+    let inputAnswerAdmin = document.querySelector(".input_answer_admin").value;
+    console.log("저장된 answer: ", inputAnswerAdmin);
+    if(!inputAnswerAdmin) {
+        alert("Admin Answer is empty. Please fill in the blank");
+    }else if(inputAnswerAdmin) {
+        _json2[indexNum].answer = inputAnswerAdmin;
+        console.log(_json2);
+        let _jsonArr = [];
+        _json2.forEach(function(i, index) {
+            _jsonArr.push(JSON.stringify(_json2[index]));
+        });
+        let _jsonArr2 = _jsonArr.join("|");
+        console.log(_jsonArr2);
+        window.localStorage.setItem("bulletin-board", dummyDataArr2 + "|" +_jsonArr2);
+        alert("Admin Answer is saved.");
+    }
+    indexNum = 0;
+    return indexNum;
 }
 
 
@@ -539,8 +553,6 @@ searchSubmit.addEventListener("click", function() {
 // Pagination
 function pagination(_json2, currentPage) {
     let _json = [];
-    
-    console.log("currentPage: ", currentPage);
 
     let totalList = _json2.length; // 총 게시글 수 32
     console.log("게시글 수: ", totalList);
@@ -552,15 +564,15 @@ function pagination(_json2, currentPage) {
     }
 
     let pageGroup = Math.ceil(currentPage / pageCount);
-    console.log("pageGroup: ", pageGroup);
+    //console.log("pageGroup: ", pageGroup);
     
     let lastNum = pageGroup * pageCount; // 보여지는 마지막 번호
     if(lastNum > totalPage) {
         lastNum = totalPage;
     }
     let firstNum = lastNum - (pageCount - 1); // 화면에 보여질 첫번째 페이지 번호
-    console.log("firstNum: ", firstNum);
-    console.log("lastNum: ", lastNum);
+    //console.log("firstNum: ", firstNum);
+    //console.log("lastNum: ", lastNum);
 
     let next = lastNum + 1;
     let prev = firstNum - 1;
@@ -581,6 +593,8 @@ function pagination(_json2, currentPage) {
         pagingBtn[i].addEventListener("click", function() {
             let _id = pagingBtn[i].id;
             console.log("페이지 번호: ", _id);
+            let currentPageWrap = document.querySelector(".current_page");
+            currentPageWrap.innerHTML = `Page: ${_id}`;
 
             _json = _json2.slice(5 * (_id-1), 5 * _id);
 
