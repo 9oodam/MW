@@ -1,3 +1,5 @@
+// localStorage.removeItem("||");
+
 // 다른 html 파일 불러오기
 // 헤더파일 하나로 다른 html 문서에 불러 들여 쓸 수 있게 해주는 스크립트
 function includeHTML() {
@@ -39,38 +41,72 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 // search btn
-function searchlogin(){
-let ta = document.querySelector(".he");
-// 검색 팝업 관련 (숨어있다 나오는)
-let searchPopupBtn = ta.querySelector('#dropdown-search-form');
-let searchPopup = ta.querySelector('#search-popup');
-let popupCloseBtn = ta.querySelector('#popup-close-btn');
-// 로그인 팝업 관련 (숨어있다 나오는)
-let loginPopupContent = ta.querySelector('.login-popup-content')
-let idLoginBtn = ta.querySelector('#id-login-btn')
+// header 우상단 search & login btn
+function searchlogin() {
+  // 검색 팝업 관련 변수
+  let searchPopupBtn = document.querySelector("#dropdown-search-form");
+  let searchPopup = document.querySelector("#search-popup");
+  let popupCloseBtn = document.querySelector("#popup-close-btn");
 
-let logincloseBtn = ta.querySelector('#login-close-btn')
+  // 검색창 popup
+  searchPopupBtn.addEventListener("click", function () {
+    searchPopup.classList.add("is-active");
+  });
+  popupCloseBtn.addEventListener("click", function () {
+    searchPopup.classList.remove("is-active");
+  });
 
-// 🔷 로그인 popup
-idLoginBtn.addEventListener('click', function() {
-    loginPopupContent.classList.add('is-active')
-});
-logincloseBtn.addEventListener('click', function(){
-    loginPopupContent.classList.remove('is-active')
-});
+  // 로그인 팝업 관련 변수
+  let topBanner = document.querySelector(".top_banner"); // 최상단 빨간 배너
 
-// 🔷 검색창 popup
-searchPopupBtn.addEventListener('click', function() {
-  searchPopup.classList.add('is-active')
-});
+  let loginPopupContent = document.querySelector(".login-popup-content");
+  let idLoginBtn = document.querySelector("#id-login-btn");
+  let logincloseBtn = document.querySelector("#login-close-btn");
+  let signupcloseBtn = document.querySelector("#signup-close-btn");
 
-popupCloseBtn.addEventListener('click', function() {
-  searchPopup.classList.remove('is-active')
-});
-}  
+  let loginPopup = document.querySelector(".login_popup"); // 로그인 창
+  let signupPopup = document.querySelector(".signup_popup"); // 회원가입 창
+  let moveToSignup = document.querySelector(".move_to_signup"); // 회원가입으로 이동
+  let moveToLogin = document.querySelector(".move_to_login");
 
+  // 로그인 popup
+  idLoginBtn.addEventListener("click", function () {
+    loginPopupContent.classList.add("is-active");
+    loginPopup.classList.add("is-active");
+  });
+  logincloseBtn.addEventListener("click", function () {
+    loginPopupContent.classList.remove("is-active");
+    loginPopup.classList.remove("is-active");
+    signupPopup.classList.remove("is-active");
+  });
+  signupcloseBtn.addEventListener("click", function () {
+    loginPopupContent.classList.remove("is-active");
+    loginPopup.classList.remove("is-active");
+    signupPopup.classList.remove("is-active");
+  });
 
-    
+  moveToSignup.addEventListener("click", function () {
+    if (!signupPopup.classList.contains("is-active")) {
+      signupPopup.classList.add("is-active");
+    }
+    if (loginPopup.classList.contains("is-active")) {
+      loginPopup.classList.remove("is-active");
+    }
+  });
+  moveToLogin.addEventListener("click", function () {
+    if (!loginPopup.classList.contains("is-active")) {
+      loginPopup.classList.add("is-active");
+    }
+    if (signupPopup.classList.contains("is-active")) {
+      signupPopup.classList.remove("is-active");
+    }
+  });
+  topBanner.addEventListener("click", function () {
+    loginPopupContent.classList.add("is-active");
+    signupPopup.classList.add("is-active");
+  });
+}
+
 // 이미지 그려주는 함수
 let colcardwrap = document.querySelector(".colcardwrap");
 let colcard = document.querySelector(".colcard");
@@ -362,11 +398,6 @@ function cp() {
     addtag(value);
   });
 }
-
-
-
-
-
 
 // 이미지 클릭하면 로컬스토리지 정보 불러오기
 // let gradations = document.querySelectorAll(".gradation");

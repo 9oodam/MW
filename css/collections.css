@@ -78,6 +78,21 @@ body {
   transition: 0.25s;
   position: relative;
 }
+@media screen and (max-width: 420px) {
+  .colcard {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 700px) and (min-width: 421px) {
+  .colcard {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 1150px) and (min-width: 701px) {
+  .colcard {
+    width: 33.333333%;
+  }
+}
 
 .colcard:hover {
   transform: scale(0.98);
