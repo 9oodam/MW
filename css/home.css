@@ -977,6 +977,7 @@ s .center.is-active {
 
 .collections-dropdown.is-active {
   display: block;
+  z-index: 1;
 }
 /* home.html Collections z-index 값 주기 위해 따로사용 */
 .collections-dropdown.is-active-for-home {

@@ -825,6 +825,7 @@ searchSubmit.addEventListener("click", function () {
     if (findCategory == "") {
       //   console.log("검색 실패");
       noImgSearched.classList.add("is-active");
+      return;
     } else {
       noImgSearched.classList.remove("is-active");
     }
