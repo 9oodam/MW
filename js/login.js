@@ -2,18 +2,36 @@
 const adminAccount = {
   name: "maple",
   pw: "worrior",
+  nickname: "admin",
   lv: 2,
 };
 localStorage.setItem("ADMIN", JSON.stringify(adminAccount));
 
 // USER 계정 로컬스토리지 받아와서 로그인
 let su = JSON.parse(localStorage.getItem("USER"));
+let admin = JSON.parse(localStorage.getItem("ADMIN"));
+
 function login() {
   // 회원가입 된 유저가 없을시
 
   // 입력한 아이디와 비밀번호를 가져옵니다.
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
+
+  // admin 로그인
+  if (username == admin.name) {
+    // console.log(admin.name);
+    // console.log(admin.pw);
+    if (admin.name == username && admin.pw != password) {
+      alert("Wrong password. Please try again.");
+      return;
+    } else if (admin.name == username && admin.pw == password) {
+      alert("Login successful");
+      sessionStorage.setItem("ADMINLOGIN", JSON.stringify(admin));
+      location.reload(); // login 성공시 새로고침
+      return;
+    }
+  }
 
   if (!username) {
     alert("Name is empty. Please fill in the blank.");
@@ -24,22 +42,6 @@ function login() {
   } else if (!su) {
     alert("No account exists");
     return;
-  }
-
-  // admin 로그인
-  let admin = JSON.parse(localStorage.getItem("ADMIN"));
-  if (username == admin.name) {
-    console.log(admin.name);
-    console.log(admin.pw);
-    if (admin.name == username && admin.pw != password) {
-      alert("Wrong password. Please try again.");
-      return;
-    } else if (admin.name == username && admin.pw == password) {
-      alert("Login successful");
-      sessionStorage.setItem("ADMINLOGIN", JSON.stringify(admin));
-      location.reload(); // login 성공시 새로고침
-      return;
-    }
   }
 
   // user 로그인

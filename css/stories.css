@@ -57,11 +57,10 @@ body {
   padding: 20px 0 20px 40px;
 }
 
-.stmain_rt a {
+.stmain_rt span {
   color: #ee3024;
   text-decoration: none;
   font-size: 16px;
-  position: relative;
   width: 60px;
 }
 

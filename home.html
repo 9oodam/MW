@@ -448,7 +448,7 @@
                         <!-- ⭐ collection 은 popup 식으로!
                         이걸 위에 header 에서 처리하네? 왜지? 음. -->
                         <!-- <a href="./collections.html"> Collections</a> -->
-                        <a class="nav-collections-btn" href="#"> Collections</a>
+                        <a class="nav-collections-btn"> Collections</a>
                     </li>
                     <!-- (2) stories -->
                     <li>
@@ -456,17 +456,17 @@
                     </li>
                     <!-- (3) submit -->
                     <li>
-                        <a href="./submit.html">Submit</a>
+                        <a onclick="loginCheck3()">Submit</a>
                     </li>
                     <!-- (4) my page 
                         문제점 : 실제 홈페이지에서는 1) 로그인 2) 우측 상단에 my page 가 생김
                         생각 : 여기에 있을게 아니라, search, login 영역으로 이동해야? -->
                     <li>
-                        <a href="./myPage.html" onclick="loginCheck()">MyPage</a>
+                        <a onclick="loginCheck1()">MyPage</a>
                     </li>
                     <!-- (5) board -->
                     <li>
-                        <a href="./board.html" onclick="loginCheck()">Board</a>
+                        <a onclick="loginCheck2()">Board</a>
                     </li>
                 </ul>
             </div>
@@ -538,7 +538,7 @@
                 <!-- list item : collections -->
                 <li class="res-menu-main-list">
                     <!-- collections 누르면 > 화면에 다 보이기 -->
-                    <a class="res-menu-main-list-item" href="https://accidentallywesanderson.com/collections/themes/">
+                    <a class="res-menu-main-list-item" href="./collections.html">
                         Collections
                     </a>
                 </li>
@@ -546,7 +546,7 @@
                 <!-- list item : Stories -->
                 <li class="res-menu-main-list">
                     <!-- collections 누르면 > 화면에 다 보이기 -->
-                    <a class="res-menu-main-list-item" href="https://accidentallywesanderson.com/stories/">
+                    <a class="res-menu-main-list-item" href="./storiese.html">
                         Stories
                     </a>
                 </li>
@@ -554,7 +554,7 @@
                 <!-- list item : Submit -->
                 <li class="res-menu-main-list">
                     <!-- collections 누르면 > 화면에 다 보이기 -->
-                    <a class="res-menu-main-list-item" href="https://accidentallywesanderson.com/submissions/">
+                    <a class="res-menu-main-list-item" onclick="loginCheck3()">
                         Submit
                     </a>
                 </li>
@@ -562,7 +562,7 @@
                 <!-- list item : MyPage -->
                 <li class="res-menu-main-list">
                     <!-- collections 누르면 > 화면에 다 보이기 -->
-                    <a class="res-menu-main-list-item" href="https://accidentallywesanderson.com/submissions/">
+                    <a class="res-menu-main-list-item" onclick="loginCheck1()">
                         MyPage
                     </a>
                 </li>
@@ -570,7 +570,7 @@
                 <!-- list item : Board -->
                 <li class="res-menu-main-list">
                     <!-- collections 누르면 > 화면에 다 보이기 -->
-                    <a class="res-menu-main-list-item" href="https://accidentallywesanderson.com/submissions/">
+                    <a class="res-menu-main-list-item" onclick="loginCheck2()">
                         Board
                     </a>
                 </li>
@@ -589,7 +589,7 @@
         <div class="site_header__primary-nav--responsive-ham-loginsign">
             <ul class="res-menu-main">
                 <li class="res-menu-main-list">
-                    <a class="res-menu-main-list-item" href="https://accidentallywesanderson.com/submissions/">
+                    <a class="res-menu-main-list-item">
                         <img class="res-menu-main-list-a-img" src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-black.svg" alt="">
                         login / signup
                     </a>
@@ -602,11 +602,11 @@
         <div class="site_header__primary-nav--responsive-ham-social">
 
             <!-- (1) 인스타그램 -->
-            <a class="nav-instagram-btn" href="https://www.instagram.com/accidentallywesanderson/">
+            <a class="nav-instagram-btn">
                 <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-ig-red.svg" alt="">
             </a>
             <!-- (2) 페이스북 -->
-            <a class="nav-facebook-btn" href="https://www.facebook.com/accidentallywesanderson/">
+            <a class="nav-facebook-btn">
                 <img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-fb-red.svg" alt="">
             </a>
             

@@ -129,11 +129,12 @@ body .top_banner .top_banner_text {
   /* flex-direction: row-reverse;
     justify-content: space-between; */
   position: relative;
+  z-index: 100;
 
   /* collection 애니메이션 수정 이후 변경👇 */
-  z-index: 10;
+  /* z-index: 10; */
 
-  z-index: 100; /* search, login 팝업이 가려져서 고침*/
+  /* z-index: 100; search, login 팝업이 가려져서 고침 */
 }
 
 .site_header.responsive {
@@ -647,12 +648,17 @@ body .top_banner .top_banner_text {
   padding: 10px;
 }
 
+.res-menu-main-list:last-child {
+  font-size: 19px;
+}
+
 .res-menu-main-list-item {
   position: relative;
   font-family: "GT_Pressura_Mono_Regular", sans-serif;
   font-size: 19px;
   letter-spacing: 0.04px;
   color: #231f20;
+  cursor: pointer;
 }
 
 .res-menu-main-list-a-img {
@@ -947,7 +953,7 @@ s .center.is-active {
   position: absolute;
 
   /* 📛 z index  */
-  z-index: 2;
+  z-index: 0;
 
   /* 😥 애니메이션 하고 싶은데 */
   /* transition: height .25s ease; */
@@ -970,6 +976,11 @@ s .center.is-active {
 }
 
 .collections-dropdown.is-active {
+  display: block;
+}
+/* home.html Collections z-index 값 주기 위해 따로사용 */
+.collections-dropdown.is-active-for-home {
+  z-index: 2;
   display: block;
 }
 

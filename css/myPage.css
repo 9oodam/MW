@@ -257,6 +257,7 @@ body {
 }
 .edit_popup_wrap.is-active {
   display: block;
+  z-index: 101;
 }
 .edit_popup_wrap .edit_popup {
   position: absolute;

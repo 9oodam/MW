@@ -1,3 +1,12 @@
+// myPage에서 회원 탈퇴했을때 USER가 한명도 없을 경우
+setTimeout(() => {
+  if (localStorage.getItem("USER")) {
+    if (localStorage.getItem("USER").length == 2) {
+      localStorage.removeItem("USER");
+    }
+  }
+}, 100);
+
 // admin 계정 만들기
 // let test = {
 //     nickname : 'hello🤟',
@@ -322,6 +331,8 @@ function handleYScroll() {
     }
     // 1.2 width 1201 이상 & Y Scroll 200 이하 (위로 올림)
     else {
+      let loginSession = JSON.parse(sessionStorage.getItem("LOGIN"));
+
       // '상단 메뉴바' '제거'
       siteHeaderprimary.classList.remove("is-scrolled");
       // '상단 로고' '제거'
@@ -329,7 +340,7 @@ function handleYScroll() {
       // '검색 아이콘 + 텍스트' 다 보이게 하기
       dropdownSearchForm.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-search-red.svg" alt=""> Search`;
       // '로그인 아이콘 + 텍스트' 다 보이게 하기
-      reponsiveLoginBtn.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt=""> Login`;
+      reponsiveLoginBtn.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt=""> ${loginSession.name}`;
 
       //   console.log(" width 1201 이상 & Y Scroll 200 이하 (위로 올림) ");
 
@@ -655,19 +666,56 @@ searchIconBtn();
 // 🔷 accept 되면, lv1 로 바뀌어서 > 세션 스토리지에 자동 저장
 // so, 세션 스토리지 값을 가져오면, 'accept 완료된, 로그인 성공한 유저' 를 가져오게 됨.
 
+//////////////////////////////////////////////////////////
+
 // sesstionStorage 에서 USER KEY 안에 있는 데이터 가져오기
-if (JSON.parse(sessionStorage.getItem("USER"))) {
-  const userFromSessionstorage = JSON.parse(sessionStorage.getItem("USER"));
-  // console.log(userFromSessionstorage);
+let resMenuMainList = document.querySelectorAll(".res-menu-main-list");
+let resMenuMainListItem = resMenuMainList[5].querySelector(
+  ".res-menu-main-list-item"
+);
+
+if (JSON.parse(sessionStorage.getItem("LOGIN"))) {
+  let userSession = JSON.parse(sessionStorage.getItem("LOGIN"));
 
   // 가져온거 변수에 저장
-  let UserNickname = userFromSessionstorage.nickname;
-  // console.log(UserNickname);
+  let UserNickname = userSession.nickname;
 
   // login 부분에 넣어주기
   let loginTag = document.querySelector("#id-login-btn");
+
   loginTag.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt=""> ${UserNickname}`;
+
+  resMenuMainListItem.innerHTML = `<img class="res-menu-main-list-a-img" src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-black.svg" alt="">
+  ${UserNickname}`;
+} else if (sessionStorage.getItem("ADMINLOGIN")) {
+  let adminSession = JSON.parse(sessionStorage.getItem("ADMINLOGIN"));
+
+  let adminName = adminSession.name;
+
+  let adminTag = document.querySelector("#id-login-btn");
+
+  adminTag.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt=""> ${adminName}`;
+  resMenuMainListItem.innerHTML = `<img class="res-menu-main-list-a-img" src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-black.svg" alt="">
+  ${adminName}`;
 }
+
+resMenuMainListItem.addEventListener("click", function () {
+  // 로그아웃 기능 추가
+  if (sessionStorage.getItem("LOGIN") || sessionStorage.getItem("ADMINLOGIN")) {
+    if (confirm("로그아웃 하시겠습니까?")) {
+      sessionStorage.clear();
+      location.reload();
+    } else {
+      return;
+    }
+  }
+
+  //   console.log("Login 시작");
+  loginPopupContent.classList.add("is-active");
+  loginPopup.classList.add("is-active");
+});
+/////////////////////////////////////////////////////////////////////
+
 // 🔷 레퍼런스 코드 from 정현
 // let sessionChk = JSON.parse(sessionStorage.getItem("test"));
 
@@ -697,10 +745,10 @@ outsideClickCloseModal();
 
 // 🔷 '콜렉션 popupCloseBtn' 누르면 > 콜렉션 창 나오게 하기
 navCollectionsBtn.addEventListener("click", function () {
-  if (!collectionsDropdown.classList.contains("is-active")) {
-    collectionsDropdown.classList.add("is-active");
+  if (!collectionsDropdown.classList.contains("is-active-for-home")) {
+    collectionsDropdown.classList.add("is-active-for-home");
   } else {
-    collectionsDropdown.classList.remove("is-active");
+    collectionsDropdown.classList.remove("is-active-for-home");
   }
 });
 
@@ -803,7 +851,7 @@ function moveToCollist(input) {
 // 🔷 로그인 popup
 idLoginBtn.addEventListener("click", function () {
   // 로그아웃 기능 추가
-  if (sessionStorage.getItem("LOGIN")) {
+  if (sessionStorage.getItem("LOGIN") || sessionStorage.getItem("ADMINLOGIN")) {
     if (confirm("로그아웃 하시겠습니까?")) {
       sessionStorage.clear();
       location.reload();
@@ -811,6 +859,7 @@ idLoginBtn.addEventListener("click", function () {
       return;
     }
   }
+
   //   console.log("Login 시작");
   loginPopupContent.classList.add("is-active");
   loginPopup.classList.add("is-active");
@@ -914,6 +963,40 @@ function moveContainer(num) {
     setTimeout(function () {
       _gallerySlideContainer.classList.add("animated");
     }, 600);
+  }
+}
+
+////////////////////////////////////////////////////////////////////
+// header nav bar 중 myPage
+function loginCheck1() {
+  let userLoginCheck = window.sessionStorage.getItem("LOGIN");
+  let adminLoginCheck = window.sessionStorage.getItem("ADMINLOGIN");
+  if (!userLoginCheck && !adminLoginCheck) {
+    alert("Please login first.");
+  } else {
+    location.href = "./myPage.html";
+  }
+}
+
+// header nav bar 중 board
+function loginCheck2() {
+  let userLoginCheck = window.sessionStorage.getItem("LOGIN");
+  let adminLoginCheck = window.sessionStorage.getItem("ADMINLOGIN");
+  if (!userLoginCheck && !adminLoginCheck) {
+    alert("Please login first.");
+  } else {
+    location.href = "./board.html";
+  }
+}
+
+// header nav bar 중 submit
+function loginCheck3() {
+  let userLoginCheck = window.sessionStorage.getItem("LOGIN");
+  let adminLoginCheck = window.sessionStorage.getItem("ADMINLOGIN");
+  if (!userLoginCheck && !adminLoginCheck) {
+    alert("Please login first.");
+  } else {
+    location.href = "./submit.html";
   }
 }
 

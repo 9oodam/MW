@@ -1,11 +1,24 @@
+// sessionstorage에 admin 게정이 없을 경우 접근 제한
+if (!sessionStorage.getItem("ADMINLOGIN")) {
+  alert("잘못된 접근입니다.");
+  setTimeout(() => {
+    location.href = "./home.html";
+  }, 100);
+}
+
+// accept 페이지에서 다른 페이지로 벗어날때
+window.addEventListener("unload", function () {
+  sessionStorage.removeItem("ADMINLOGIN");
+});
+
 // 로컬 스토리지에서 "USER" 키의 값을 가져와 저장합니다.
 const savedNickname = localStorage.getItem("USER");
 
 // 가져온 값을 콘솔에 출력합니다.
-console.log(savedNickname);
+// console.log(savedNickname);
 
 // JSON 형식으로 가져온 값을 파싱하여 다시 출력합니다.
-console.log(JSON.parse(savedNickname));
+// console.log(JSON.parse(savedNickname));
 
 // JSON 형식으로 가져온 값을 변수 userarr에 저장합니다.
 let userarr = JSON.parse(savedNickname);

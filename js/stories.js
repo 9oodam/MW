@@ -16,6 +16,10 @@ function includeHTML() {
           if (this.status == 200) {
             elmnt.innerHTML = this.responseText;
             searchlogin();
+            navCollections();
+            getStartName();
+            seeAllbtn();
+            CollectionImg();
           }
           if (this.status == 404) {
             elmnt.innerHTML = "Page not found.";
@@ -46,12 +50,51 @@ function searchlogin() {
   let searchPopup = document.querySelector("#search-popup");
   let popupCloseBtn = document.querySelector("#popup-close-btn");
 
+  let search = document.querySelector(".keyword-input"); // 검색 input 창
+  let searchSubmit = document.querySelector(".search-icon-btn"); // 돋보기 버튼
+  let autocompleteWrap = document.querySelector(".autocomplete_wrap");
+
   // 검색창 popup
   searchPopupBtn.addEventListener("click", function () {
     searchPopup.classList.add("is-active");
   });
   popupCloseBtn.addEventListener("click", function () {
     searchPopup.classList.remove("is-active");
+  });
+
+  // 🔷 검색 함수
+  search.addEventListener("keyup", function () {
+    // Enter 누르면 submit 됨
+    if (window.event.keyCode === 13) {
+      window.event.preventDefault();
+      searchSubmit.click();
+    }
+
+    // autocomplete 비우기
+    autocompleteWrap.innerHTML = "";
+    let searchInput = search.value.toUpperCase();
+
+    // input 창에 입력한 문자로 시작하는 것만 배열로 담음
+    let autocomplete = categoryNames.filter(function (e) {
+      return e.startsWith(searchInput);
+    });
+    //   console.log(autocomplete);
+
+    autocomplete.forEach(function (suggested) {
+      let div = document.createElement("div");
+      div.innerHTML = suggested;
+      autocompleteWrap.appendChild(div);
+
+      div.onclick = () => {
+        searchInput = div.innerHTML;
+        autocompleteWrap.innerHTML = "";
+        //   console.log(searchInput);
+        moveToCollist(searchInput);
+      };
+    });
+    if (searchInput == "") {
+      autocompleteWrap.innerHTML = "";
+    }
   });
 
   // 로그인 팝업 관련 변수
@@ -69,6 +112,18 @@ function searchlogin() {
 
   // 로그인 popup
   idLoginBtn.addEventListener("click", function () {
+    // 로그아웃 기능 추가
+    if (
+      sessionStorage.getItem("LOGIN") ||
+      sessionStorage.getItem("ADMINLOGIN")
+    ) {
+      if (confirm("로그아웃 하시겠습니까?")) {
+        sessionStorage.clear();
+        location.reload();
+      } else {
+        return;
+      }
+    }
     loginPopupContent.classList.add("is-active");
     loginPopup.classList.add("is-active");
   });
@@ -264,6 +319,89 @@ tabs.forEach(function (a, b) {
     }
   });
 });
+
+// header collections 누르면 나오는 창
+function navCollections() {
+  let navCollectionsBtn = document.querySelector(".nav-collections-btn");
+  let collectionsDropdown = document.querySelector(".collections-dropdown");
+  navCollectionsBtn.addEventListener("click", function () {
+    if (!collectionsDropdown.classList.contains("is-active")) {
+      collectionsDropdown.classList.add("is-active");
+    } else {
+      collectionsDropdown.classList.remove("is-active");
+    }
+  });
+}
+
+function getStartName() {
+  if (sessionStorage.getItem("LOGIN")) {
+    let loginchk = JSON.parse(sessionStorage.getItem("LOGIN"));
+
+    // 가져온거 변수에 저장
+    let UserNickname = loginchk.nickname;
+
+    // login 부분에 넣어주기
+    let loginTag = document.querySelector("#id-login-btn");
+    loginTag.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt=""> ${UserNickname}`;
+  } else if (sessionStorage.getItem("ADMINLOGIN")) {
+    let adminSession = JSON.parse(sessionStorage.getItem("ADMINLOGIN"));
+
+    let adminName = adminSession.name;
+
+    let adminTag = document.querySelector("#id-login-btn");
+
+    adminTag.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt=""> ${adminName}`;
+  }
+}
+
+// header Collections 누르면 나오는 Themes, Color Palettes 이미지 눌렀을때
+function CollectionImg() {
+  let collectionsContainer = document.querySelector(".collections-container");
+  let collectionsGallery = document.querySelector(".collections-gallery");
+  let collectionsGalleryItem = document.querySelectorAll(
+    ".collections-gallery-item"
+  );
+  let collectionsItemTitle = collectionsContainer.querySelectorAll("a");
+
+  collectionsItemTitle.forEach((v, i) => {
+    collectionsItemTitle[i].addEventListener("click", function () {
+      let getName = collectionsItemTitle[i].querySelector(
+        ".collections-item-title"
+      ).innerHTML;
+
+      console.log(getName);
+
+      let getGotothemes = JSON.parse(localStorage.getItem("gotothemes"));
+      let getGotocolor = JSON.parse(localStorage.getItem("gotocolor"));
+
+      getGotothemes.forEach((value) => {
+        if (value.name == getName) {
+          localStorage.setItem("||", JSON.stringify(value));
+        }
+      });
+
+      getGotocolor.forEach((value) => {
+        if (value.name == getName) {
+          localStorage.setItem("||", JSON.stringify(value));
+        }
+      });
+    });
+  });
+}
+// Collections Themes, Color Palettes SEE ALL 눌렀을 경우
+function seeAllbtn() {
+  let seeAllBtn = document.querySelectorAll(".see-all-btn");
+
+  // Themes SEE ALL
+  seeAllBtn[0].addEventListener("click", function () {
+    localStorage.setItem("seeAll", "themes");
+  });
+
+  // Color Palettes SEE ALL
+  seeAllBtn[1].addEventListener("click", function () {
+    localStorage.setItem("seeAll", "color");
+  });
+}
 
 // let te = ["a", "b", "c", "d", "e"];
 // let tee = ["a", "b", "c", "d"];
