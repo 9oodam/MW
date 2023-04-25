@@ -135,7 +135,7 @@ function searchlogin() {
       sessionStorage.getItem("LOGIN") ||
       sessionStorage.getItem("ADMINLOGIN")
     ) {
-      if (confirm("로그아웃 하시겠습니까?")) {
+      if (confirm("Do you want to logout?")) {
         sessionStorage.clear();
         let lp = location.pathname;
         // console.log(lp);
@@ -390,7 +390,7 @@ let deleteImgBtn = document.querySelectorAll(".delete_img_btn"); // 삭제 버�
 function sessionLoginChk(sessionChk) {
   let loginTag = document.querySelector("#id-login-btn");
   if (sessionChk) {
-    loginTag.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt=""> ${sessionChk.name}`;
+    loginTag.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt=""> ${sessionChk.nickname}`;
   }
   return sessionChk;
 }
@@ -464,7 +464,7 @@ function myPageUserUpdate() {
 
     sessionStorage.setItem("LOGIN", JSON.stringify(sessionChk));
 
-    alert("회원 정보 수정완료");
+    alert("Member information modification completed");
     setTimeout(() => {
       sessionLoginChk(sessionChk);
       myPageUserInfo(sessionChk);
@@ -487,7 +487,7 @@ function userDelete() {
   // console.log(check2.checked);
 
   if (!check1.checked || !check2.checked) {
-    alert("약관에 동의해주세요.");
+    alert("Please accept the terms and conditions.");
   } else {
     users.forEach((value, index) => {
       if (value.name == sessionChk.name) {
@@ -496,7 +496,7 @@ function userDelete() {
         users.splice(index, 1);
 
         localStorage.setItem("USER", JSON.stringify(users));
-        alert("이용해주셔서 감사합니다.");
+        alert("Thank you for using it.");
         setTimeout(() => {
           sessionStorage.clear();
           location.href = "./home.html";
