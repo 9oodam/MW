@@ -10,6 +10,8 @@ if (sessionStorage.getItem("ADMINLOGIN")) {
 
 let users = JSON.parse(localStorage.getItem("USER"));
 let myImgJson = JSON.parse(localStorage.getItem("MYIMG"));
+let themesimg = JSON.parse(localStorage.getItem("THEMESIMG"));
+let colorimg = JSON.parse(localStorage.getItem("COLORIMG"));
 
 // 다른 html 파일 불러오기
 // 헤더파일 하나로 다른 html 문서에 불러 들여 쓸 수 있게 해주는 스크립트
@@ -445,21 +447,19 @@ addCollections();
 
 // myPage 이미지 X 버튼 클릭시 사진 삭제
 function imgdelete() {
-  if (confirm("사진을 삭제 하시겠습니까?")) {
-    // alert("삭제");
+  if (confirm("Are you sure you want to delete the picture?")) {
     myImgJson.forEach((value, index) => {
       if (sessionChk.name == value.name) {
-        // console.log(value.nickname, value.title);
-
-        let themesimg = JSON.parse(localStorage.getItem("THEMESIMG"));
+        // let themesimg = JSON.parse(localStorage.getItem("THEMESIMG"));
         themesimg.forEach((tvalue) => {
           // if (tvalue[value.title] == value.title) {
-          //   console.log(tvalue);
+          // console.log(value.title);
           // }
           if (tvalue[value.title]) {
             tvalue[value.title].forEach((innerValue, innerIndex) => {
+              console.log(tvalue[value.title]);
               if (innerValue.name == sessionChk.name) {
-                // console.log(innerValue);
+                console.log(innerValue);
                 // console.log(tvalue[value.title][innerIndex]);
                 tvalue[value.title].splice(innerIndex, 1);
                 myImgJson.splice(index, 1);
@@ -475,14 +475,14 @@ function imgdelete() {
           // console.log(tvalue[value.title]);
         });
 
-        let colorimg = JSON.parse(localStorage.getItem("COLORIMG"));
+        // let colorimg = JSON.parse(localStorage.getItem("COLORIMG"));
         colorimg.forEach((tvalue) => {
           // if (tvalue[value.title] == value.title) {
           //   console.log(tvalue);
           // }
           if (tvalue[value.title]) {
             tvalue[value.title].forEach((innerValue, innerIndex) => {
-              if (innerValue.nickname == sessionChk.nickname) {
+              if (innerValue.name == sessionChk.name) {
                 // console.log(innerValue);
                 // console.log(tvalue[value.title][innerIndex]);
                 tvalue[value.title].splice(innerIndex, 1);
@@ -507,6 +507,62 @@ function imgdelete() {
 }
 
 let deleteImgBtn = document.querySelectorAll(".delete_img_btn"); // 삭제 버튼
+
+// mypage 이미지 클릭해서 삭제하거나 회원 탈퇴시 내가 올린 이미지 삭제
+function myimgdelete() {
+  myImgJson.forEach((value, index) => {
+    if (sessionChk.name == value.name) {
+      // let themesimg = JSON.parse(localStorage.getItem("THEMESIMG"));
+      themesimg.forEach((tvalue) => {
+        // if (tvalue[value.title] == value.title) {
+        //   console.log(tvalue);
+        // }
+        if (tvalue[value.title]) {
+          tvalue[value.title].forEach((innerValue, innerIndex) => {
+            if (innerValue.name == sessionChk.name) {
+              // console.log(innerValue);
+              // console.log(tvalue[value.title][innerIndex]);
+              tvalue[value.title].splice(innerIndex, 1);
+              myImgJson.splice(index, 1);
+              // console.log(themesimg);
+              // console.log(myImgJson);
+
+              localStorage.setItem("THEMESIMG", JSON.stringify(themesimg));
+              localStorage.setItem("MYIMG", JSON.stringify(myImgJson));
+              addCollections();
+            }
+          });
+        }
+        // console.log(tvalue[value.title]);
+      });
+
+      // let colorimg = JSON.parse(localStorage.getItem("COLORIMG"));
+      colorimg.forEach((tvalue) => {
+        // if (tvalue[value.title] == value.title) {
+        //   console.log(tvalue);
+        // }
+        if (tvalue[value.title]) {
+          tvalue[value.title].forEach((innerValue, innerIndex) => {
+            if (innerValue.nickname == sessionChk.nickname) {
+              // console.log(innerValue);
+              // console.log(tvalue[value.title][innerIndex]);
+              tvalue[value.title].splice(innerIndex, 1);
+              myImgJson.splice(index, 1);
+              // console.log(colorimg);
+              // console.log(myImgJson);
+
+              localStorage.setItem("COLORIMG", JSON.stringify(colorimg));
+              localStorage.setItem("MYIMG", JSON.stringify(myImgJson));
+              addCollections();
+            }
+          });
+        }
+        // console.log(tvalue[value.title]);
+      });
+      // console.log(themeseimg.length);
+    }
+  });
+}
 
 // if (deleteImgBtn) {
 //   deleteImgBtn.addEventListener("click", function () {
@@ -643,21 +699,64 @@ function myPageUserUpdate() {
 }
 
 // Delete your MW Account
+
 function userDelete() {
   let check1 = document.querySelector("#check1");
   let check2 = document.querySelector("#check2");
-  // console.log(check1.checked);
-  // console.log(check2.checked);
 
   if (!check1.checked || !check2.checked) {
     alert("Please accept the terms and conditions.");
   } else {
+    let imageDeleted;
+    do {
+      imageDeleted = false;
+
+      users.forEach((value, index) => {
+        if (value.name == sessionChk.name) {
+          myImgJson.forEach((value, index) => {
+            if (sessionChk.name == value.name) {
+              themesimg.forEach((tvalue) => {
+                if (tvalue[value.title]) {
+                  tvalue[value.title].forEach((innerValue, innerIndex) => {
+                    if (innerValue.name == sessionChk.name) {
+                      tvalue[value.title].splice(innerIndex, 1);
+                      myImgJson.splice(index, 1);
+
+                      localStorage.setItem("THEMESIMG", JSON.stringify(themesimg));
+                      localStorage.setItem("MYIMG", JSON.stringify(myImgJson));
+                      addCollections();
+
+                      imageDeleted = true;
+                    }
+                  });
+                }
+              });
+
+              colorimg.forEach((tvalue) => {
+                if (tvalue[value.title]) {
+                  tvalue[value.title].forEach((innerValue, innerIndex) => {
+                    if (innerValue.name == sessionChk.name) {
+                      tvalue[value.title].splice(innerIndex, 1);
+                      myImgJson.splice(index, 1);
+
+                      localStorage.setItem("COLORIMG", JSON.stringify(colorimg));
+                      localStorage.setItem("MYIMG", JSON.stringify(myImgJson));
+                      addCollections();
+
+                      imageDeleted = true;
+                    }
+                  });
+                }
+              });
+            }
+          });
+        }
+      });
+    } while (imageDeleted);
+
     users.forEach((value, index) => {
       if (value.name == sessionChk.name) {
-        // console.log(value);
-        // console.log(index);
         users.splice(index, 1);
-
         localStorage.setItem("USER", JSON.stringify(users));
         alert("Thank you for using it.");
         setTimeout(() => {
