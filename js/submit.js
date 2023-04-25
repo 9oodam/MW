@@ -187,6 +187,164 @@ function searchlogin() {
   });
 }
 
+// 자동완성 데이터 설정
+let categoryNames = [];
+let colorsName = [
+  {
+    name: "BLACK",
+    group: "COLORS",
+    cnt: 0,
+  },
+  {
+    name: "BLUE",
+    group: "COLORS",
+    cnt: 1,
+  },
+  {
+    name: "BROWN",
+    group: "COLORS",
+    cnt: 2,
+  },
+  {
+    name: "GRAY",
+    group: "COLORS",
+    cnt: 3,
+  },
+  {
+    name: "GREEN",
+    group: "COLORS",
+    cnt: 4,
+  },
+  {
+    name: "ORANGE",
+    group: "COLORS",
+    cnt: 5,
+  },
+  {
+    name: "PINK",
+    group: "COLORS",
+    cnt: 6,
+  },
+  {
+    name: "PURPLE",
+    group: "COLORS",
+    cnt: 7,
+  },
+  {
+    name: "RED",
+    group: "COLORS",
+    cnt: 8,
+  },
+  {
+    name: "TURQUOISE",
+    group: "COLORS",
+    cnt: 9,
+  },
+  {
+    name: "WHITE",
+    group: "COLORS",
+    cnt: 10,
+  },
+  {
+    name: "YELLOW",
+    group: "COLORS",
+    cnt: 11,
+  },
+];
+let themesName = [
+  {
+    name: "CABLE CARS",
+    group: "THEMES",
+    cnt: 0,
+  },
+  {
+    name: "CLASSIC FACADES",
+    group: "THEMES",
+    cnt: 1,
+  },
+  {
+    name: "DOORS",
+    group: "THEMES",
+    cnt: 2,
+  },
+  {
+    name: "EDUCATIONAL INSTITUTIONS",
+    group: "THEMES",
+    cnt: 3,
+  },
+  {
+    name: "GOVERNMENT BUILDINGS",
+    group: "THEMES",
+    cnt: 4,
+  },
+  {
+    name: "HIDDEN WONDESRS",
+    group: "THEMES",
+    cnt: 5,
+  },
+  {
+    name: "HOTEL / MOTEL",
+    group: "THEMES",
+    cnt: 6,
+  },
+  {
+    name: "INTERIORS",
+    group: "THEMES",
+    cnt: 7,
+  },
+  {
+    name: "LIBRARY",
+    group: "THEMES",
+    cnt: 8,
+  },
+  {
+    name: "LIGHTHOUSE",
+    group: "THEMES",
+    cnt: 9,
+  },
+  {
+    name: "MUSEUM",
+    group: "THEMES",
+    cnt: 10,
+  },
+  {
+    name: "NATURE",
+    group: "THEMES",
+    cnt: 11,
+  },
+];
+
+for (let i = 0; i < colorsName.length; i++) {
+  let temp = colorsName[i].name;
+  categoryNames.push(temp);
+}
+for (let i = 0; i < themesName.length; i++) {
+  let temp = themesName[i].name;
+  categoryNames.push(temp);
+}
+
+// 검색 값 받아서 collist로 이동
+function moveToCollist(input) {
+  console.log(input);
+
+  // input값 받아와서 로컬스토리지 생성
+  for (let i = 0; i < colorsName.length; i++) {
+    let temp = colorsName[i].name;
+    if (input == temp) {
+      localStorage.setItem("||", JSON.stringify(colorsName[i]));
+    }
+  }
+  for (let i = 0; i < themesName.length; i++) {
+    let temp = themesName[i].name;
+    if (input == temp) {
+      localStorage.setItem("||", JSON.stringify(themesName[i]));
+    }
+  }
+
+  // collist로 이동
+  location.href = "./collist.html";
+}
+
 // 파일 업로드
 const fileupload = document.querySelector("#upload");
 const preview = document.querySelector(".imgupload");
