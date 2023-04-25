@@ -1,10 +1,10 @@
 // admin 계정 만들기
-// let test = {
-//     nickname : 'hello🤟',
-//     id : 'test'
-// }
+let test = {
+    nickname : 'hello🤟',
+    id : 'test'
+}
 
-// sessionStorage.setItem('USER', JSON.stringify(test))
+sessionStorage.setItem('USER', JSON.stringify(test))
 
 
 

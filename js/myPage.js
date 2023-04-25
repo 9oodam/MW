@@ -417,6 +417,7 @@ function myPageUserUpdate() {
 
 
 
+
   // Edit profile 에 아무것도 입력안했을때 기존의 회원 정보 유지
   if (!editNickname.value) {
     editNickname.value = editNickname.placeholder;
