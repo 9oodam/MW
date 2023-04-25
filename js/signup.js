@@ -33,10 +33,10 @@ function signup() {
     let names = userList.map((user) => user.name);
 
     if (nicknames.includes(savedNickname)) {
-      alert("이미 존재하는 닉네임입니다.");
+      alert("Nickname already exists.");
       return;
     } else if (names.includes(savedName)) {
-      alert("이미 존재하는 이름입니다.");
+      alert("The name already exists.");
       return;
     }
 
