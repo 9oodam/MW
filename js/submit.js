@@ -132,7 +132,7 @@ function searchlogin() {
       sessionStorage.getItem("LOGIN") ||
       sessionStorage.getItem("ADMINLOGIN")
     ) {
-      if (confirm("로그아웃 하시겠습니까?")) {
+      if (confirm("Do you want to logout?")) {
         sessionStorage.clear();
         let lp = location.pathname;
         // console.log(lp);
@@ -434,17 +434,17 @@ function subimg() {
   let updesc = inputval[5].value;
 
   if (upimgchk == "") {
-    alert("사진을 등록해주세요.");
+    alert("Please register your photo.");
   } else if (!selectres) {
-    alert("카테고리를 입력해주세요.");
+    alert("Please enter a category.");
   } else if (upcountry == "") {
-    alert("국가를 입력해주세요.");
+    alert("Please enter your country.");
   } else if (upcity == "") {
-    alert("도시를 입력해주세요.");
+    alert("Please enter a city.");
   } else if (selectres == "") {
-    alert("제목을 입력해주세요.");
+    alert("Please enter the title.");
   } else if (updesc == "") {
-    alert("설명을 입력해주세요.");
+    alert("Please enter a description.");
   } else if (
     upimgchk != "" &&
     upcountry != "" &&
@@ -518,7 +518,7 @@ function subimg() {
     });
   }
 
-  alert("업로드 성공");
+  alert("Upload successful");
 
   setTimeout(() => {
     location.reload();
