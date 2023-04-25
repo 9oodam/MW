@@ -119,9 +119,10 @@ function searchlogin() {
       sessionStorage.getItem("LOGIN") ||
       sessionStorage.getItem("ADMINLOGIN")
     ) {
-      if (confirm("로그아웃 하시겠습니까?")) {
+      if (confirm("Do you want to logout?")) {
         sessionStorage.clear();
         location.reload();
+        return;
       } else {
         return;
       }
