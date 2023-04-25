@@ -122,10 +122,7 @@ function searchlogin() {
   // 로그인 popup
   idLoginBtn.addEventListener("click", function () {
     // 로그아웃 기능 추가
-    if (
-      sessionStorage.getItem("LOGIN") ||
-      sessionStorage.getItem("ADMINLOGIN")
-    ) {
+    if (sessionStorage.getItem("LOGIN") || sessionStorage.getItem("ADMINLOGIN")) {
       if (confirm("Do you want to logout?")) {
         sessionStorage.clear();
         location.reload();
@@ -368,7 +365,7 @@ for (let i = 0; i < window.localStorage.length; i++) {
 let listfilter = localnames.filter((ff) => ff[0] == "|");
 
 if (listfilter.length == 0) {
-  alert("잘못된 경로 입니다.");
+  alert("Invalid path.");
   location.href = "./collections.html";
 }
 
@@ -492,16 +489,12 @@ function getStartName() {
 function CollectionImg() {
   let collectionsContainer = document.querySelector(".collections-container");
   let collectionsGallery = document.querySelector(".collections-gallery");
-  let collectionsGalleryItem = document.querySelectorAll(
-    ".collections-gallery-item"
-  );
+  let collectionsGalleryItem = document.querySelectorAll(".collections-gallery-item");
   let collectionsItemTitle = collectionsContainer.querySelectorAll("a");
 
   collectionsItemTitle.forEach((v, i) => {
     collectionsItemTitle[i].addEventListener("click", function () {
-      let getName = collectionsItemTitle[i].querySelector(
-        ".collections-item-title"
-      ).innerHTML;
+      let getName = collectionsItemTitle[i].querySelector(".collections-item-title").innerHTML;
 
       console.log(getName);
 
