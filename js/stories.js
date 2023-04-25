@@ -45,6 +45,142 @@ window.addEventListener("DOMContentLoaded", () => {
 // search btn
 // header 우상단 search & login btn
 function searchlogin() {
+  let categoryNames = [];
+  let colorsName = [
+    {
+      name: "BLACK",
+      group: "COLORS",
+      cnt: 0,
+    },
+    {
+      name: "BLUE",
+      group: "COLORS",
+      cnt: 1,
+    },
+    {
+      name: "BROWN",
+      group: "COLORS",
+      cnt: 2,
+    },
+    {
+      name: "GRAY",
+      group: "COLORS",
+      cnt: 3,
+    },
+    {
+      name: "GREEN",
+      group: "COLORS",
+      cnt: 4,
+    },
+    {
+      name: "ORANGE",
+      group: "COLORS",
+      cnt: 5,
+    },
+    {
+      name: "PINK",
+      group: "COLORS",
+      cnt: 6,
+    },
+    {
+      name: "PURPLE",
+      group: "COLORS",
+      cnt: 7,
+    },
+    {
+      name: "RED",
+      group: "COLORS",
+      cnt: 8,
+    },
+    {
+      name: "TURQUOISE",
+      group: "COLORS",
+      cnt: 9,
+    },
+    {
+      name: "WHITE",
+      group: "COLORS",
+      cnt: 10,
+    },
+    {
+      name: "YELLOW",
+      group: "COLORS",
+      cnt: 11,
+    },
+  ];
+  let themesName = [
+    {
+      name: "CABLE CARS",
+      group: "THEMES",
+      cnt: 0,
+    },
+    {
+      name: "CLASSIC FACADES",
+      group: "THEMES",
+      cnt: 1,
+    },
+    {
+      name: "DOORS",
+      group: "THEMES",
+      cnt: 2,
+    },
+    {
+      name: "EDUCATIONAL INSTITUTIONS",
+      group: "THEMES",
+      cnt: 3,
+    },
+    {
+      name: "GOVERNMENT BUILDINGS",
+      group: "THEMES",
+      cnt: 4,
+    },
+    {
+      name: "HIDDEN WONDESRS",
+      group: "THEMES",
+      cnt: 5,
+    },
+    {
+      name: "HOTEL / MOTEL",
+      group: "THEMES",
+      cnt: 6,
+    },
+    {
+      name: "INTERIORS",
+      group: "THEMES",
+      cnt: 7,
+    },
+    {
+      name: "LIBRARY",
+      group: "THEMES",
+      cnt: 8,
+    },
+    {
+      name: "LIGHTHOUSE",
+      group: "THEMES",
+      cnt: 9,
+    },
+    {
+      name: "MUSEUM",
+      group: "THEMES",
+      cnt: 10,
+    },
+    {
+      name: "NATURE",
+      group: "THEMES",
+      cnt: 11,
+    },
+  ];
+
+  for (let i = 0; i < colorsName.length; i++) {
+    let temp = colorsName[i].name;
+    categoryNames.push(temp);
+  }
+  for (let i = 0; i < themesName.length; i++) {
+    let temp = themesName[i].name;
+    categoryNames.push(temp);
+  }
+
+  // function searchlogin() {
   // 검색 팝업 관련 변수
   let searchPopupBtn = document.querySelector("#dropdown-search-form");
   let searchPopup = document.querySelector("#search-popup");
@@ -53,10 +189,14 @@ function searchlogin() {
   let search = document.querySelector(".keyword-input"); // 검색 input 창
   let searchSubmit = document.querySelector(".search-icon-btn"); // 돋보기 버튼
   let autocompleteWrap = document.querySelector(".autocomplete_wrap");
+  let noImgSearched = document.querySelector(".no_img_searched");
 
-  // 검색창 popup
+  // 🔷 검색창 popup
   searchPopupBtn.addEventListener("click", function () {
     searchPopup.classList.add("is-active");
+    if (noImgSearched.classList.contains("is-active")) {
+      noImgSearched.classList.remove("is-active");
+    }
   });
   popupCloseBtn.addEventListener("click", function () {
     searchPopup.classList.remove("is-active");
@@ -97,6 +237,54 @@ function searchlogin() {
     }
   });
 
+  // 돋보기 버튼 눌렀을 때
+  searchSubmit.addEventListener("click", function () {
+    let searchInput = search.value.toUpperCase();
+
+    // 찾는 게 있을 경우 & 없을 경우
+    let findCategory = [];
+    for (let i = 0; i < categoryNames.length; i++) {
+      if (categoryNames[i].startsWith(searchInput)) {
+        //   console.log("검색 성공");
+        findCategory.push(categoryNames[i]);
+      }
+
+      if (findCategory == "") {
+        //   console.log("검색 실패");
+        noImgSearched.classList.add("is-active");
+        return;
+      } else {
+        noImgSearched.classList.remove("is-active");
+        return;
+      }
+    }
+    moveToCollist(findCategory[0]);
+  });
+
+  // 검색 값 받아서 collist로 이동
+  function moveToCollist(input) {
+    //   console.log(input);
+
+    // input값 받아와서 로컬스토리지 생성
+    for (let i = 0; i < colorsName.length; i++) {
+      let temp = colorsName[i].name;
+      if (input == temp) {
+        localStorage.setItem("||", JSON.stringify(colorsName[i]));
+      }
+    }
+    for (let i = 0; i < themesName.length; i++) {
+      let temp = themesName[i].name;
+      if (input == temp) {
+        localStorage.setItem("||", JSON.stringify(themesName[i]));
+      }
+    }
+
+    // collist로 이동
+    location.href = "./collist.html";
+  }
+
+  //////////////////////////////////////////////////////////////////////
+
   // 로그인 팝업 관련 변수
   let topBanner = document.querySelector(".top_banner"); // 최상단 빨간 배너
 
@@ -113,13 +301,11 @@ function searchlogin() {
   // 로그인 popup
   idLoginBtn.addEventListener("click", function () {
     // 로그아웃 기능 추가
-    if (
-      sessionStorage.getItem("LOGIN") ||
-      sessionStorage.getItem("ADMINLOGIN")
-    ) {
-      if (confirm("로그아웃 하시겠습니까?")) {
+    if (sessionStorage.getItem("LOGIN") || sessionStorage.getItem("ADMINLOGIN")) {
+      if (confirm("Do you want to logout?")) {
         sessionStorage.clear();
         location.reload();
+        return;
       } else {
         return;
       }
@@ -358,16 +544,12 @@ function getStartName() {
 function CollectionImg() {
   let collectionsContainer = document.querySelector(".collections-container");
   let collectionsGallery = document.querySelector(".collections-gallery");
-  let collectionsGalleryItem = document.querySelectorAll(
-    ".collections-gallery-item"
-  );
+  let collectionsGalleryItem = document.querySelectorAll(".collections-gallery-item");
   let collectionsItemTitle = collectionsContainer.querySelectorAll("a");
 
   collectionsItemTitle.forEach((v, i) => {
     collectionsItemTitle[i].addEventListener("click", function () {
-      let getName = collectionsItemTitle[i].querySelector(
-        ".collections-item-title"
-      ).innerHTML;
+      let getName = collectionsItemTitle[i].querySelector(".collections-item-title").innerHTML;
 
       console.log(getName);
 

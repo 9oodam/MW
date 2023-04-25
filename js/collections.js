@@ -204,6 +204,7 @@ function searchlogin() {
   let search = document.querySelector(".keyword-input"); // 검색 input 창
   let searchSubmit = document.querySelector(".search-icon-btn"); // 돋보기 버튼
   let autocompleteWrap = document.querySelector(".autocomplete_wrap");
+  let noImgSearched = document.querySelector(".no_img_searched");
 
   // 🔷 검색창 popup
   searchPopupBtn.addEventListener("click", function () {
@@ -253,9 +254,7 @@ function searchlogin() {
 
   // 돋보기 버튼 눌렀을 때
   searchSubmit.addEventListener("click", function () {
-    console.log("ghi");
     let searchInput = search.value.toUpperCase();
-    //   console.log("검색: ", searchInput);
 
     // 찾는 게 있을 경우 & 없을 경우
     let findCategory = [];
@@ -268,8 +267,10 @@ function searchlogin() {
       if (findCategory == "") {
         //   console.log("검색 실패");
         noImgSearched.classList.add("is-active");
+        return;
       } else {
         noImgSearched.classList.remove("is-active");
+        return;
       }
     }
     moveToCollist(findCategory[0]);
@@ -315,10 +316,7 @@ function searchlogin() {
   // 로그인 popup
   idLoginBtn.addEventListener("click", function () {
     // 로그아웃 기능 추가
-    if (
-      sessionStorage.getItem("LOGIN") ||
-      sessionStorage.getItem("ADMINLOGIN")
-    ) {
+    if (sessionStorage.getItem("LOGIN") || sessionStorage.getItem("ADMINLOGIN")) {
       if (confirm("Do you want to logout?")) {
         sessionStorage.clear();
         location.reload();
@@ -702,16 +700,12 @@ function getStartName() {
 function CollectionImg() {
   let collectionsContainer = document.querySelector(".collections-container");
   let collectionsGallery = document.querySelector(".collections-gallery");
-  let collectionsGalleryItem = document.querySelectorAll(
-    ".collections-gallery-item"
-  );
+  let collectionsGalleryItem = document.querySelectorAll(".collections-gallery-item");
   let collectionsItemTitle = collectionsContainer.querySelectorAll("a");
 
   collectionsItemTitle.forEach((v, i) => {
     collectionsItemTitle[i].addEventListener("click", function () {
-      let getName = collectionsItemTitle[i].querySelector(
-        ".collections-item-title"
-      ).innerHTML;
+      let getName = collectionsItemTitle[i].querySelector(".collections-item-title").innerHTML;
 
       console.log(getName);
 
