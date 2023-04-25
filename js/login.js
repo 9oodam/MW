@@ -78,10 +78,13 @@ function login() {
       value.lv == 0
     ) {
       alert("Waiting account acception...");
+      return;
     } else if (username != value.name && password == value.pw) {
       alert("Wrong name. Please try again.");
+      return;
     } else if (username == value.name && password != value.pw) {
       alert("Wrong password. Please try again.");
+      return;
     }
   });
 }
