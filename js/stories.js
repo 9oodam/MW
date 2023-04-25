@@ -444,9 +444,7 @@ window.onload = function () {
 function allcard() {
   let spl;
   let splarr = [];
-  // console.log(tabs[0]);
   let tabarr = [];
-  let tmparr = [];
   tabs.forEach((a, index) => {
     spl = a.innerHTML;
     splarr.push(spl);
@@ -457,8 +455,6 @@ function allcard() {
   splarr.shift();
 
   tabarr.forEach((value, index) => {
-    // console.log(Object.keys(tabarr[index][index]).length);
-    // console.log(tabarr[index]);
     if (Object.keys(tabarr[index][0]).length == 5) {
       tabarr[index].forEach((value) => {
         imgcard5(value);
@@ -472,18 +468,10 @@ function allcard() {
   });
 }
 // tab 누르면 누른 탭의 내용 실행
-// tabs[0].addEventListener("click", function () {
-//   alla();
-// });
 tabs.forEach(function (a, b) {
   tabs[b].addEventListener("click", function () {
-    // console.log(tabs[b].innerHTML);
-    // console.log(typeof a.innerHTML);
     let spl = a.innerHTML;
-    // console.log(a.innerHTML);
-    // console.log(spl[0]);
     let getlocal = JSON.parse(localStorage.getItem(spl));
-    // console.log(Object.keys(getlocal[0]).length);
     let imgcards = document.querySelector(".imgcards");
 
     imgcards.innerHTML = "";
