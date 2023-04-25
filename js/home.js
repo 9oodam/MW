@@ -340,7 +340,11 @@ function handleYScroll() {
       // '검색 아이콘 + 텍스트' 다 보이게 하기
       dropdownSearchForm.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-search-red.svg" alt=""> Search`;
       // '로그인 아이콘 + 텍스트' 다 보이게 하기
-      reponsiveLoginBtn.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt=""> ${loginSession.name}`;
+      if (sessionStorage.getItem("LOGIN")) {
+        reponsiveLoginBtn.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt=""> ${loginSession.nickname}`;
+      } else {
+        reponsiveLoginBtn.innerHTML = `<img src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-red.svg" alt=""> Login`;
+      }
 
       //   console.log(" width 1201 이상 & Y Scroll 200 이하 (위로 올림) ");
 
@@ -369,13 +373,8 @@ function handleYScroll() {
       // responsHamburgXwidth1200Yscroll200.classList.add('is-scrolled')
       // [현재]
       // 스크롤 내리면 햄버거 메뉴 나오게 하기 : 이게 지금 보이게 하는데?
-      responsHamburgXwidth1200Yscroll200.style.display = "block";
-
-      // 햄버거 메뉴 살짝 위로 올라가게 하기
-      navResponsiveHam.style.top = "75px";
-
-      // 검색창이 사라짐
-      searchPopup.classList.remove("is-active");
+      // responsHamburgXwidth1200Yscroll200.style.display = "block"; // ⭐⭐ 이거 삭제
+      responsHamburgXwidth1200Yscroll200.classList.add("is-scrolled"); // 이거 추가 ⭐⭐⭐
     }
     // 2.2 width 1201 이하 & Y Scorll 200 이하 (위로 올림)
     else {
@@ -745,10 +744,17 @@ outsideClickCloseModal();
 
 // 🔷 '콜렉션 popupCloseBtn' 누르면 > 콜렉션 창 나오게 하기
 navCollectionsBtn.addEventListener("click", function () {
-  if (!collectionsDropdown.classList.contains("is-active-for-home")) {
-    collectionsDropdown.classList.add("is-active-for-home");
+  const scrollYPosition = window.scrollY;
+
+  if (scrollYPosition > 200) {
+    window.location = "./collections.html";
+    console.log("찍힘");
   } else {
-    collectionsDropdown.classList.remove("is-active-for-home");
+    if (!collectionsDropdown.classList.contains("is-active-for-home")) {
+      collectionsDropdown.classList.add("is-active-for-home");
+    } else {
+      collectionsDropdown.classList.remove("is-active-for-home");
+    }
   }
 });
 
@@ -852,9 +858,10 @@ function moveToCollist(input) {
 idLoginBtn.addEventListener("click", function () {
   // 로그아웃 기능 추가
   if (sessionStorage.getItem("LOGIN") || sessionStorage.getItem("ADMINLOGIN")) {
-    if (confirm("로그아웃 하시겠습니까?")) {
+    if (confirm("Do you want to logout?")) {
       sessionStorage.clear();
       location.reload();
+      return;
     } else {
       return;
     }
