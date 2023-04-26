@@ -1,3 +1,8 @@
+// 세션이 없을 경우 home.html로 이동 (Submit, MyPage, Board내에서 로그아웃 할시 home으로 이동)
+if (!sessionStorage.getItem("LOGIN") && !sessionStorage.getItem("ADMINLOGIN")) {
+  location.href = "./home.html";
+}
+
 // 다른 html 파일 불러오기
 // 헤더파일 하나로 다른 html 문서에 불러 들여 쓸 수 있게 해주는 스크립트
 function includeHTML() {
@@ -1104,13 +1109,10 @@ function boardLogout() {
     if (sessionStorage.getItem("LOGIN") || sessionStorage.getItem("ADMINLOGIN")) {
       if (confirm("Do you want to logout?")) {
         sessionStorage.clear();
-        let lp = location.pathname;
         // console.log(lp);
-        if (lp == "/myPage.html" || lp == "/submit.html" || lp == "/board.html") {
+        if (location.pathname == "/myPage.html" || location.pathname == "/submit.html" || location.pathname == "/board.html") {
           location.href = "./home.html";
           return;
-        } else {
-          location.reload();
         }
       } else {
         return;

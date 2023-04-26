@@ -809,10 +809,7 @@ body .top_banner .top_banner_text {
   display: none;
 }
 
-.search-dropdown
-  .input-search-keyword
-  .search-form
-  .keyword-input::placeholder {
+.search-dropdown .input-search-keyword .search-form .keyword-input::placeholder {
   color: black;
 }
 
@@ -1056,11 +1053,7 @@ s .center.is-active {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(
-    180deg,
-    hsla(0, 0%, 97.6%, 0) 14%,
-    rgba(0, 0, 0, 0.52)
-  );
+  background-image: linear-gradient(180deg, hsla(0, 0%, 97.6%, 0) 14%, rgba(0, 0, 0, 0.52));
   content: "";
   transition: all 0.25s ease;
   border-radius: 12px;

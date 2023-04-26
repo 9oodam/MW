@@ -1,3 +1,8 @@
+// 세션이 없을 경우 home.html로 이동 (Submit, MyPage, Board내에서 로그아웃 할시 home으로 이동)
+if (!sessionStorage.getItem("LOGIN") && !sessionStorage.getItem("ADMINLOGIN")) {
+  location.href = "./home.html";
+}
+
 let sessionChk;
 // 세션 스토리지에 ADMINLOGIN이 있으면 admin 정보로 입력 아니면 유저정보 입력
 if (sessionStorage.getItem("ADMINLOGIN")) {
