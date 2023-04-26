@@ -688,6 +688,15 @@ function popupOpen2(indexNum, _json2, writerName) {
     renderTD(indexNum, _json2, writerName);
     adminAnswer(indexNum, _json2, writerName);
 
+    // deleteBtn.onclick = function () {
+    //   //   console.log("삭제 버튼 눌림");
+    //   if (confirm("Do you want to delete?")) {
+    //     deleteList(indexNum, _json2, writerName);
+    //   } else {
+    //     return;
+    //   }
+    // };
+
     deleteBtn.addEventListener("click", function () {
       //   console.log("삭제 버튼 눌림");
       if (confirm("Do you want to delete?")) {
@@ -781,7 +790,7 @@ function deleteList(indexNum, _json2, writerName) {
     msgPopup.classList.remove("is-active");
 
     render(_json4);
-    // location.reload();
+    location.reload();
   }
 }
 
