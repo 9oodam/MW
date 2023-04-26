@@ -196,22 +196,12 @@ let responsiveTopLogo = document.querySelector(".responsive-top-logo");
 let dropdownSearchForm = document.querySelector(".dropdown-search-form");
 let reponsiveLoginBtn = document.querySelector("#id-login-btn");
 let navInstagramBtn = document.querySelector(".nav-instagram-btn");
-let primaryNavSocial = document.querySelector(
-  ".site_header__primary-nav--social"
-);
-let primaryNavSeachlogin = document.querySelector(
-  ".site_header__primary-nav--seachlogin"
-);
+let primaryNavSocial = document.querySelector(".site_header__primary-nav--social");
+let primaryNavSeachlogin = document.querySelector(".site_header__primary-nav--seachlogin");
 let responsiveHamburgMenu = document.querySelector(".responsive-hamburg-menu");
-let responsiveHamburgMenuWidthYscroll = document.querySelector(
-  ".responsive-hamburg-menu-width-yscroll"
-);
-let responsSearchX1200Yscroll200 = document.querySelector(
-  ".respon-search-form-x1200under-yscroll200over"
-);
-let responsHamburgXwidth1200Yscroll200 = document.querySelector(
-  ".responsive-hamburg-menu-xwidth1200-yscroll200"
-);
+let responsiveHamburgMenuWidthYscroll = document.querySelector(".responsive-hamburg-menu-width-yscroll");
+let responsSearchX1200Yscroll200 = document.querySelector(".respon-search-form-x1200under-yscroll200over");
+let responsHamburgXwidth1200Yscroll200 = document.querySelector(".responsive-hamburg-menu-xwidth1200-yscroll200");
 
 // 로그인 했을떄 idLoginBtn innerHTML 이름으로 변경
 if (sessionStorage.getItem("LOGIN")) {
@@ -225,60 +215,36 @@ ${loginSession.name}
 
 // 햄버거 메뉴 관련
 // 버튼 위에 있는 태그 까지 해줘야 클릭반응이 옴 ⭐⭐ (햄버거 감싸고 있는 태그)
-let hamburgMenuBtn = document.querySelector(
-  ".responsive-hamburg-menu-xWidth-under1200"
-);
+let hamburgMenuBtn = document.querySelector(".responsive-hamburg-menu-xWidth-under1200");
 // 누르면 나오게되는, 햄버거 메뉴리스트
-let NavResponsiveHham = document.querySelector(
-  ".site_header__primary-nav--responsive-ham"
-);
+let NavResponsiveHham = document.querySelector(".site_header__primary-nav--responsive-ham");
 // 드롭다운 메뉴 테스트 - 사용하지 않는 것 같음, 혹시 모르니 살려둠 📛
-let ResponsiveHamburgerDropdownOver200 = document.querySelector(
-  ".site_header__primary-nav--responsive-ham-over200"
-);
+let ResponsiveHamburgerDropdownOver200 = document.querySelector(".site_header__primary-nav--responsive-ham-over200");
 // 햄버거 버튼 누르면 -> 그 자리에 나오는 'X 버튼'
 let closeStateButton = document.querySelector(".close-state-button");
-let closeStateButtonUnder1200 = document.querySelector(
-  "#close-state-button-under1200"
-);
-let closeStateButtonUnder1200Y200over = document.querySelector(
-  ".close-state-button-xwidth1200-yscroll200"
-);
+let closeStateButtonUnder1200 = document.querySelector("#close-state-button-under1200");
+let closeStateButtonUnder1200Y200over = document.querySelector(".close-state-button-xwidth1200-yscroll200");
 // 햄버거 버튼 자체
 let hamburgMenuButton = document.querySelector("#hamburg-menu-btn-under1200");
-let hamburgXwidth1200Yscroll200 = document.querySelector(
-  "#hamburg-menu-button-xwidth1200-yscroll200"
-);
+let hamburgXwidth1200Yscroll200 = document.querySelector("#hamburg-menu-button-xwidth1200-yscroll200");
 
 // 검색버튼
 // under1200 일 때, '검색 버튼'
-let dropdownSearchXWidthUnder1200 = document.querySelector(
-  ".dropdown-search-form-xWidth-under1200"
-);
+let dropdownSearchXWidthUnder1200 = document.querySelector(".dropdown-search-form-xWidth-under1200");
 
 // 검색 버튼 : x 1200 under, y 스크롤 200 이상일 때,
-let SearchformX1200underY200over = document.querySelector(
-  "#dropdown-search-form-x1200under-y200over"
-);
+let SearchformX1200underY200over = document.querySelector("#dropdown-search-form-x1200under-y200over");
 let searchPopupBtnCalcBoxTop = document.querySelector("#search-popup-btn");
 
 // 새롭게 만든 드롭다운 검색 메뉴
-let dropDownSearchX1200Y200 = document.querySelector(
-  ".input-search-keyword-x1200-y200"
-);
+let dropDownSearchX1200Y200 = document.querySelector(".input-search-keyword-x1200-y200");
 
 // x1200이하, y200 이상에서, 검색버튼 누르면 > 햄버거 메뉴 살짝 올리려구
-let navResponsiveHamIsActive = document.querySelector(
-  ".site_header__primary-nav--responsive-ham.is-active"
-);
-let navResponsiveHam = document.querySelector(
-  ".site_header__primary-nav--responsive-ham"
-);
+let navResponsiveHamIsActive = document.querySelector(".site_header__primary-nav--responsive-ham.is-active");
+let navResponsiveHam = document.querySelector(".site_header__primary-nav--responsive-ham");
 
 // x1200 이하, y200 이하에서, x 클릭하면, 햄버거 버튼 안 보이게
-let responsiveMenuXwidth1200Yscroll200 = document.querySelector(
-  ".responsive-hamburg-menu-xwidth1200-yscroll200"
-);
+let responsiveMenuXwidth1200Yscroll200 = document.querySelector(".responsive-hamburg-menu-xwidth1200-yscroll200");
 
 // width 1201 이하 & yscroll 200 이상 & 검색 아이콘 클릭 일 때, 검색 떨어지게 하는 함수
 function searchDropDownX1201Y200() {
@@ -398,7 +364,7 @@ function handleYScroll() {
       closeStateButton.style.right = "8px";
 
       // 스크롤 올렸을 때 나타나는 햄버거 없애기 ❓❓❓ 이건가?
-      responsHamburgXwidth1200Yscroll200.style.display = "none"; // 테스트
+      // responsHamburgXwidth1200Yscroll200.style.display = "none"; // 테스트
       // deleteHamburgBtn()
 
       // x Under1200, y over200 햄버거 보이게 하기
@@ -437,7 +403,7 @@ function showDropMenuCloseBtnX1200under() {
     // 햄버거 클릭시 > '드롭다운 메뉴' 나오게 하기
     NavResponsiveHham.classList.add("is-active");
     // 햄버거 클릭시 > 스크롤 사라지게 하기
-    document.body.style.overflow = "hidden";
+    // document.body.style.overflow = "hidden";
 
     // 햄버거 버튼 누르면 -> 그 자리에 X 버튼 나오기
     closeStateButton.style.display = "block";
@@ -460,7 +426,7 @@ function hamburgBtnX1200underY200over() {
     // 드롭다운 메뉴 : 나오고 있음.
 
     // 햄버거 클릭시 > 스크롤 사라지게 하기
-    document.body.style.overflow = "hidden";
+    // document.body.style.overflow = "hidden";
 
     // 햄버거 버튼 누르면 -> 그 자리에 X 버튼 나오기
     closeStateButtonUnder1200Y200over.style.display = "block";
@@ -480,7 +446,7 @@ function hamburgBtnX1200underY200over__TEST() {
     // 햄버거 클릭시 > '드롭다운 메뉴' 나오게 하기
     NavResponsiveHham.classList.add("is-active");
     // 햄버거 클릭시 > 스크롤 사라지게 하기
-    document.body.style.overflow = "hidden";
+    // document.body.style.overflow = "hidden";
 
     // 햄버거 버튼 누르면 -> 그 자리에 'X 버튼' 놓이게 하기
     closeStateButtonUnder1200Y200over.style.display = "block";
@@ -549,7 +515,7 @@ function xBtnClickCreateScroll() {
   closeStateButton.addEventListener("click", function () {
     // (드롭다운 메뉴가 나와서 스크롤이 없었는데) 스크롤이 다시 생기게 한다.
     // 이건 closeBtnX1200under 함수로 우선 넣어보자
-    // document.body.style.overflow = 'auto';
+    document.body.style.overflow = "auto";
     // x 버튼 누르면 -> 다시 햄버거 버튼이 생기게 한다.
     // 이건 어떤 x 버튼을 말하는 거지?
     // 아, 지금 x1200, yscroll200 에 있는 버튼을 이야기 하는거 같은데? ❓❓❓
@@ -568,7 +534,7 @@ function closeBtnXwidth1200under() {
     // 햄버거 버튼 다시 나타나게 하기
     hamburgMenuButton.style.display = "block";
     // (드롭다운 메뉴가 나와서 스크롤이 없었는데) 스크롤이 다시 생기게 한다.
-    document.body.style.overflow = "auto";
+    // document.body.style.overflow = "auto";
   });
 }
 closeBtnXwidth1200under();
@@ -669,9 +635,7 @@ searchIconBtn();
 
 // sesstionStorage 에서 USER KEY 안에 있는 데이터 가져오기
 let resMenuMainList = document.querySelectorAll(".res-menu-main-list");
-let resMenuMainListItem = resMenuMainList[5].querySelector(
-  ".res-menu-main-list-item"
-);
+let resMenuMainListItem = resMenuMainList[5].querySelector(".res-menu-main-list-item");
 
 if (JSON.parse(sessionStorage.getItem("LOGIN"))) {
   let userSession = JSON.parse(sessionStorage.getItem("LOGIN"));
@@ -910,8 +874,7 @@ topBanner.addEventListener("click", function () {
 function updateContainerWidth() {
   // container 의 너비 = (358 + 55) * 4
 
-  let xValueContainer =
-    (itemMarginRight + itemWidth) * itemCount - itemMarginRight + "px";
+  let xValueContainer = (itemMarginRight + itemWidth) * itemCount - itemMarginRight + "px";
 
   _gallerySlideContainer.style.width = xValueContainer;
 
@@ -1011,16 +974,12 @@ function loginCheck3() {
 // header Collections 누르면 나오는 Themes, Color Palettes 이미지 눌렀을때
 let collectionsContainer = document.querySelector(".collections-container");
 let collectionsGallery = document.querySelector(".collections-gallery");
-let collectionsGalleryItem = document.querySelectorAll(
-  ".collections-gallery-item"
-);
+let collectionsGalleryItem = document.querySelectorAll(".collections-gallery-item");
 let collectionsItemTitle = collectionsContainer.querySelectorAll("a");
 
 collectionsItemTitle.forEach((v, i) => {
   collectionsItemTitle[i].addEventListener("click", function () {
-    let getName = collectionsItemTitle[i].querySelector(
-      ".collections-item-title"
-    ).innerHTML;
+    let getName = collectionsItemTitle[i].querySelector(".collections-item-title").innerHTML;
 
     console.log(getName);
 
