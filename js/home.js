@@ -665,7 +665,15 @@ if (JSON.parse(sessionStorage.getItem("LOGIN"))) {
 
 // width 1200이하 heigth 200 이상 일때 햄버거 버튼 클릭시 나오는 팝업창에서 collections 누를경우
 resMenuMainListCollections.addEventListener("click", function () {
-  localStorage.setItem("seeAll", "themes");
+  // Themes SEE ALL
+  seeAllBtn[0].addEventListener("click", function () {
+    localStorage.setItem("seeAll", "themes");
+  });
+
+  // Color Palettes SEE ALL
+  seeAllBtn[1].addEventListener("click", function () {
+    localStorage.setItem("seeAll", "color");
+  });
   window.location = "./collections.html";
 });
 
