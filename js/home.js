@@ -635,6 +635,7 @@ searchIconBtn();
 
 // sesstionStorage 에서 USER KEY 안에 있는 데이터 가져오기
 let resMenuMainList = document.querySelectorAll(".res-menu-main-list");
+let resMenuMainListCollections = resMenuMainList[0].querySelector(".res-menu-main-list-item");
 let resMenuMainListItem = resMenuMainList[5].querySelector(".res-menu-main-list-item");
 
 if (JSON.parse(sessionStorage.getItem("LOGIN"))) {
@@ -661,6 +662,12 @@ if (JSON.parse(sessionStorage.getItem("LOGIN"))) {
   resMenuMainListItem.innerHTML = `<img class="res-menu-main-list-a-img" src="https://accidentallywesanderson.com/wp-content/themes/awa/assets/images/icon-user-black.svg" alt="">
   ${adminName}`;
 }
+
+// width 1200이하 heigth 200 이상 일때 햄버거 버튼 클릭시 나오는 팝업창에서 collections 누를경우
+resMenuMainListCollections.addEventListener("click", function () {
+  localStorage.setItem("seeAll", "themes");
+  window.location = "./collections.html";
+});
 
 resMenuMainListItem.addEventListener("click", function () {
   // 로그아웃 기능 추가
@@ -711,6 +718,7 @@ navCollectionsBtn.addEventListener("click", function () {
   const scrollYPosition = window.scrollY;
 
   if (scrollYPosition > 200) {
+    localStorage.setItem("seeAll", "themes");
     window.location = "./collections.html";
     console.log("찍힘");
   } else {
