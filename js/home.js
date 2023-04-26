@@ -515,7 +515,7 @@ function xBtnClickCreateScroll() {
   closeStateButton.addEventListener("click", function () {
     // (드롭다운 메뉴가 나와서 스크롤이 없었는데) 스크롤이 다시 생기게 한다.
     // 이건 closeBtnX1200under 함수로 우선 넣어보자
-    document.body.style.overflow = "auto";
+    // document.body.style.overflow = "auto";
     // x 버튼 누르면 -> 다시 햄버거 버튼이 생기게 한다.
     // 이건 어떤 x 버튼을 말하는 거지?
     // 아, 지금 x1200, yscroll200 에 있는 버튼을 이야기 하는거 같은데? ❓❓❓
@@ -551,7 +551,7 @@ function closeBtnXwidth1200underY200over() {
     // NavResponsiveHham.style.display = 'none';
 
     // 스크롤 나타나게 하는 다른 코드. 이게 왜 되는지는 모르겠네.
-    document.documentElement.style.overflow = "auto";
+    // document.documentElement.style.overflow = "auto";
   });
 }
 closeBtnXwidth1200underY200over();
