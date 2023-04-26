@@ -434,7 +434,7 @@ function selectthemes(list) {
     cardcoverdiv.className = "cardcover";
     img.src = value.img;
     cardtxtdiv.className = "cardtxt";
-    h4.innerHTML = value.country;
+    h4.innerHTML = value.country.toUpperCase();
     h2.innerHTML = value.location;
     ptag.innerHTML = value.description;
 
