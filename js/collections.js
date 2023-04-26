@@ -371,7 +371,8 @@ let tmp;
 
 // let gradations = document.querySelectorAll(".gradation");
 // let colcards = document.querySelectorAll(".colcard");
-
+let getGotothemes = JSON.parse(localStorage.getItem("gotothemes"));
+let getGotocolor = JSON.parse(localStorage.getItem("gotocolor"));
 function addtag(value) {
   let img = document.createElement("img");
   let div1 = document.createElement("div");
@@ -407,12 +408,12 @@ function addtag(value) {
     // themestag에 addborder 클래스가 있는 경우 실행
     if (themestag.classList.contains("addborder")) {
       // gotothemes 배열에 저장된 값을 가져옴
-      gotothemes.forEach((value, index) => {
+      getGotothemes.forEach((value, index) => {
         // gotothemes 배열에 저장된 name 값과 tmp 값 비교
-        if (gotothemes[index].name == tmp) {
+        if (getGotothemes[index].name == tmp) {
           // console.log(gotothemes[index]);
           // gotothemes 내용 중 name과 tmp가 일치한 객체를 로컬 스토리지에 저장
-          localStorage.setItem("||", JSON.stringify(gotothemes[index]));
+          localStorage.setItem("||", JSON.stringify(getGotothemes[index]));
         }
       });
     }
@@ -421,9 +422,9 @@ function addtag(value) {
 
     // colortag addborder 클래스가 있는 경우 실행
     if (colortag.classList.contains("addborder")) {
-      gotocolor.forEach((value, index) => {
-        if (gotocolor[index].name == tmp) {
-          localStorage.setItem("||", JSON.stringify(gotocolor[index]));
+      getGotocolor.forEach((value, index) => {
+        if (getGotocolor[index].name == tmp) {
+          localStorage.setItem("||", JSON.stringify(getGotocolor[index]));
         }
       });
     }
@@ -618,14 +619,12 @@ function addtag(value) {
 // 페이지가 열리면 바로 실행
 (function () {
   let collectionsStart = localStorage.getItem("seeAll");
-  let pipeLineSelect = JSON.parse(localStorage.getItem("||"));
+
   if (collectionsStart) {
-    if (collectionsStart == "themes" || pipeLineSelect.group == "THEMES") {
+    if (collectionsStart == "themes") {
       tm();
-      localStorage.removeItem("seeAll");
-    } else {
+    } else if (collectionsStart == "color") {
       cp();
-      localStorage.removeItem("seeAll");
     }
   }
 })();
@@ -711,8 +710,8 @@ function CollectionImg() {
 
       console.log(getName);
 
-      let getGotothemes = JSON.parse(localStorage.getItem("gotothemes"));
-      let getGotocolor = JSON.parse(localStorage.getItem("gotocolor"));
+      // let getGotothemes = JSON.parse(localStorage.getItem("gotothemes"));
+      // let getGotocolor = JSON.parse(localStorage.getItem("gotocolor"));
 
       getGotothemes.forEach((value) => {
         if (value.name == getName) {
@@ -742,6 +741,3 @@ function seeAllbtn() {
     localStorage.setItem("seeAll", "color");
   });
 }
-
-// localStorage.setItem("gotothemes", JSON.stringify(gotothemes));
-// localStorage.setItem("gotocolor", JSON.stringify(gotocolor));
